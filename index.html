@@ -40,12 +40,14 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
 
-  <!-- Preconnect & Fonts -->
+  <!-- Preconnect & Fonts (only 3 weights needed) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome loaded async (non-render-blocking) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
   <!-- Structured Data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -106,7 +108,7 @@
   <nav class="nav" id="nav">
     <div class="container nav-container">
       <a href="#" class="nav-logo">
-        <img src="logo.png" alt="StockYan Logo">
+        <picture><source srcset="logo.webp" type="image/webp"><img src="logo.png" alt="StockYan Logo" width="36" height="36"></picture>
         <span>StockYan</span>
       </a>
       <div class="nav-links">
@@ -177,7 +179,7 @@
       <div class="hero-visual">
         <div class="phone-mockup">
           <div class="phone-screen">
-            <img src="screenshots/dashboard.png" alt="StockYan Dashboard">
+            <picture><source srcset="screenshots/dashboard.webp" type="image/webp"><img src="screenshots/dashboard.png" alt="StockYan Dashboard" width="290" height="620"></picture>
           </div>
         </div>
         <div class="floating-card card-1">
@@ -275,19 +277,19 @@
       </div>
       <div class="screenshots-scroll">
         <div class="screenshot-card">
-          <img src="screenshots/dashboard.png" alt="Dashboard">
+          <picture><source srcset="screenshots/dashboard.webp" type="image/webp"><img src="screenshots/dashboard.png" alt="Dashboard" loading="lazy" width="240" height="480"></picture>
         </div>
         <div class="screenshot-card">
-          <img src="screenshots/stock_detail.png" alt="Stock Detail">
+          <picture><source srcset="screenshots/stock_detail.webp" type="image/webp"><img src="screenshots/stock_detail.png" alt="Stock Detail" loading="lazy" width="240" height="480"></picture>
         </div>
         <div class="screenshot-card">
-          <img src="screenshots/portofolio.png" alt="Portfolio">
+          <picture><source srcset="screenshots/portofolio.webp" type="image/webp"><img src="screenshots/portofolio.png" alt="Portfolio" loading="lazy" width="240" height="480"></picture>
         </div>
         <div class="screenshot-card">
-          <img src="screenshots/broker_activity.png" alt="Broker Activity">
+          <picture><source srcset="screenshots/broker_activity.webp" type="image/webp"><img src="screenshots/broker_activity.png" alt="Broker Activity" loading="lazy" width="240" height="480"></picture>
         </div>
         <div class="screenshot-card">
-          <img src="screenshots/premium.png" alt="Premium Insights">
+          <picture><source srcset="screenshots/premium.webp" type="image/webp"><img src="screenshots/premium.png" alt="Premium Insights" loading="lazy" width="240" height="480"></picture>
         </div>
       </div>
     </div>
@@ -707,7 +709,7 @@
     <div class="container footer-container">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="logo.png" alt="StockYan">
+          <picture><source srcset="logo.webp" type="image/webp"><img src="logo.png" alt="StockYan" width="32" height="32"></picture>
           <span>StockYan</span>
         </div>
         <p>Nepal Share Market App.<br>Built by investors, for investors.</p>
@@ -732,6 +734,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
