@@ -1,0 +1,38 @@
+[
+  {
+    "id": "L7JqIRGIDyxnkvbRJxyd",
+    "title": "Use of Accumulation & Distribution Data",
+    "slug": "use-of-accumulation-distribution-data",
+    "content": "Accumulation & Distribution Data\n\nThis feature shows whether a stock is being actively accumulated (bought) or distributed (sold) by brokers. It analyzes broker-wise transaction data to identify where institutional or large traders are positioning themselves.\n\n\n@ How it helps:\n          It allows traders to understand smart money movement instead of relying solely on price charts. When a stock is under accumulation, it often indicates potential future upward momentum, while distribution may signal weakness or upcoming corrections.\n\n@ How to use:\n       Traders can monitor which stocks show strong accumulation trends and shortlist them for potential buying opportunities. Similarly, they can avoid or exit stocks that show consistent distribution.\n\n@ Benefits:\n       This significantly reduces guesswork and helps traders align their decisions with actual market participation rather than market noise.\n\nThese features are listed in the Unlocked premium section called “ Broker Activity, Broker Focus and Accumulation distribution ”. All the users will access it for free.",
+    "category": "Trading",
+    "imageUrl": "https://i.postimg.cc/sDjQH5jj/Use-of-Broker-Data.jpg",
+    "order": 0,
+    "isPublished": true,
+    "createdAt": "2026-02-21T05:08:39.559000+00:00",
+    "updatedAt": "2026-02-24T17:44:08.337000+00:00"
+  },
+  {
+    "id": "d7xvFuYgceb6KkaF2EC1",
+    "title": "Trend of Newly Listed Stocks",
+    "slug": "trend-of-newly-listed-stocks",
+    "content": "Understanding the Trend of Newly Listed Stocks\n\nSometimes, market trends reveal more truth than technical indicators or fundamental reports. In recent days especially since January a clear pattern has been observed in newly listed stocks.\n\nMany of these stocks showed a similar cycle: a strong price rise, followed by a short pullback, and then another noticeable upward move after consolidation. Because of this behavior, traders began informally calling them “Gen-Z stocks,” referring to their young presence in the market.\n\nOne key reason behind such sharp moves is limited supply. Newly listed companies usually have fewer shares actively circulating, and large long-term holdings are still forming. As a result, even moderate buying demand can push prices up quickly. Historically, these stocks also tend to trade at higher valuation multiples in their early phase, supported by strong investor curiosity and market attention.\n\nHowever, this early momentum does not last forever. After the initial excitement fades, many of these same stocks often experience corrections, with some even appearing among the biggest fallers from their peak levels. This reflects a natural market cycle early enthusiasm, followed by stabilization.\n\nAn interesting observation is that even when the overall market moves sideways, newly listed stocks sometimes continue to appear among top gainers. This suggests that category based momentum can exist independently of broader market direction. Often, when one stock in this group attracts buying interest, others tend to follow, showing a “sympathy movement” within the segment.\n\nFrom an educational perspective, this trend highlights how market behavior is influenced not only by company performance but also by supply dynamics, investor psychology, and thematic attention. At times, sustained interest in a specific group even during uncertain market conditions can quietly indicate that underlying market attention toward that segment is still present.\n\n\nWhat It Means When Newly Listed Stocks Stay Active in a Sideways Market\n\nSometimes the overall market moves sideways, showing no strong direction. During such “wait-and-watch” phases, most stocks remain quiet as traders stay cautious.\n\nHowever, recently a different pattern has been noticed in newly listed stocks. Even when the market was calm, one of these stocks still appeared in the top gainers list. As the trading session moved toward closing time, buying interest gradually spread to other similar newly listed stocks. One stock’s strength seemed to attract attention to the entire segment.\n\nThis behavior reflects segment momentum. When investors see strong movement in one stock within a category, confidence often spreads to similar stocks. Since newly listed companies usually have limited supply and higher volatility, they naturally become active zones during slow market conditions.\n\nFrom an educational point of view, this suggests that trends rarely end suddenly. Even in a sideways market, consistent buying interest in a particular group can quietly indicate that market attention toward that segment is still present.\n\nUnderstanding such patterns helps traders better read market sentiment and recognize how momentum can continue beneath an otherwise quiet market environment.",
+    "category": "Trading",
+    "imageUrl": "https://i.postimg.cc/k5VSCcWK/Yellow-and-Green-Bold-Stock-Market-You-Tube-Thumbnail.jpg",
+    "order": 0,
+    "isPublished": true,
+    "createdAt": "2026-02-24T17:41:48.502000+00:00",
+    "updatedAt": "2026-02-24T17:46:34.102000+00:00"
+  },
+  {
+    "id": "oB9t2obnoL5EPztmAOIf",
+    "title": "Margin Trading In NEPSE ",
+    "slug": "margin-trading-in-nepse",
+    "content": "Margin Trading In NEPSE \n\n\n1: What is Margin Trading? (Simple Explanation)\n\nMargin trading means buying shares using borrowed money from your broker.\n\nNormally, you can only buy shares with the cash you have. But with margin trading, your broker gives you extra money as a loan, so you can buy more shares than your actual capital.\n\nExample:\nIf you have Rs 1 lakh, your broker may allow you to buy shares worth Rs 3–4 lakhs.\n\nYour shares themselves act as the security (collateral) for that loan.\n\n\n2: How It Affects the Market\n\nIn Rising Market\nWhen margin trading starts: Traders get more buying power, Demand increases, Market usually moves faster upward. That’s why this news is seen as positive for NEPSE.\n\n\n3: In Falling Market\nBut margin trading also has risk:\nIf the market falls: Traders may face margin calls, Brokers force them to sell shares, This can cause sudden panic selling. So margin trading can make both rallies and falls faster.\n\n\nIn Simple: Margin trading means More power, but more risk.\n\nIt can help the market grow faster, but it can also create high volatility if traders misuse leverage. article content here...",
+    "category": "Basics",
+    "imageUrl": "https://i.postimg.cc/xCdgh6kn/a19981c39e50f91787bd2f79a4a9d36a.jpg",
+    "order": 1,
+    "isPublished": true,
+    "createdAt": "2025-12-22T22:18:10.438000+00:00",
+    "updatedAt": "2026-02-24T17:44:10.347000+00:00"
+  }
+]
