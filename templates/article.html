@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} | StockYan Learn</title>
+  <meta name="description" content="{{description}}">
+  <link rel="canonical" href="{{canonical}}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{title}} | StockYan Learn">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:image" content="https://stockyan.heyaayush.com/og-image.png">
+  <meta property="og:site_name" content="StockYan">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{title}} | StockYan Learn">
+  <meta name="twitter:description" content="{{description}}">
+  <meta name="twitter:image" content="https://stockyan.heyaayush.com/og-image.png">
+
+  <!-- Theme & Icons -->
+  <meta name="theme-color" content="#009E72">
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/learn.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{jsonTitle}}",
+    "description": "{{jsonDescription}}",
+    "url": "{{canonical}}",
+    "datePublished": "{{datePublished}}",
+    "dateModified": "{{dateModified}}",
+    "author": {
+      "@type": "Organization",
+      "name": "StockYan"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "StockYan",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://stockyan.heyaayush.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": "{{canonical}}",
+    "articleSection": "{{jsonCategory}}"
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://stockyan.heyaayush.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Learn",
+        "item": "https://stockyan.heyaayush.com/learn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{category}}",
+        "item": "https://stockyan.heyaayush.com/learn/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPLESJJ5VF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PPLESJJ5VF');
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled">
+    <div class="container nav-container">
+      <a href="/" class="nav-logo">
+        <picture><source srcset="/logo.webp" type="image/webp"><img src="/logo.png" alt="StockYan Logo" width="36" height="36"></picture>
+        <span>StockYan</span>
+      </a>
+      <div class="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#services">Services</a>
+        <a href="/learn/">Learn</a>
+        <a href="/#download" class="nav-cta">Download</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#features">Features</a>
+    <a href="/#services">Services</a>
+    <a href="/learn/">Learn</a>
+    <a href="/#download" class="nav-cta">Download</a>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="learn-breadcrumbs">
+    <div class="container">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="/learn/">Learn</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>{{category}}</span>
+    </div>
+  </div>
+
+  <!-- Article -->
+  <article class="learn-article">
+    <div class="container">
+      <div class="article-header">
+        <span class="article-category-tag">{{category}}</span>
+        <h1>{{title}}</h1>
+        <time datetime="{{datePublished}}">{{dateFormatted}}</time>
+      </div>
+      <div class="article-body">
+        {{content}}
+      </div>
+    </div>
+  </article>
+
+  <!-- Download CTA -->
+  <section class="learn-cta">
+    <div class="container">
+      <div class="learn-cta-inner">
+        <div class="learn-cta-icon">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <h2>Read more on the StockYan app</h2>
+        <p>Get the full education hub with 7 categories, plus real-time NEPSE data, broker activity tracking, and smart trade tools.</p>
+        <div class="learn-cta-buttons">
+          <a href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688" target="_blank" class="store-btn apple">
+            <i class="fa-brands fa-apple"></i>
+            <div>
+              <span class="store-label">Download on the</span>
+              <span class="store-name">App Store</span>
+            </div>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=app.golden.stockyan" target="_blank" class="store-btn google">
+            <i class="fa-brands fa-google-play"></i>
+            <div>
+              <span class="store-label">Get it on</span>
+              <span class="store-name">Google Play</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <picture><source srcset="/logo.webp" type="image/webp"><img src="/logo.png" alt="StockYan" width="32" height="32"></picture>
+          <span>StockYan</span>
+        </div>
+        <p>Nepal Share Market App.<br>Built by investors, for investors.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/#features">Features</a>
+          <a href="/#services">Services</a>
+          <a href="/learn/">Learn</a>
+          <a href="/#download">Download</a>
+        </div>
+        <div class="footer-col">
+          <h4>Download</h4>
+          <a href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688" target="_blank">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=app.golden.stockyan" target="_blank">Google Play</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 StockYan. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const icon = navToggle.querySelector('i');
+      icon.className = mobileMenu.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        navToggle.querySelector('i').className = 'fa-solid fa-bars';
+      });
+    });
+  </script>
+</body>
+</html>

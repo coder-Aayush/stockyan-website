@@ -1,0 +1,274 @@
+/* ========== Learn Section Styles ========== */
+/* Reuses CSS variables from style.css */
+
+/* ── Breadcrumbs ── */
+.learn-breadcrumbs {
+  padding: 100px 0 0;
+}
+
+.learn-breadcrumbs .container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.learn-breadcrumbs a {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.learn-breadcrumbs a:hover {
+  color: var(--primary-light);
+}
+
+.breadcrumb-sep {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.learn-breadcrumbs span:last-child {
+  color: var(--text-secondary);
+}
+
+/* ── Learn Hero / Listing Header ── */
+.learn-hero {
+  padding: 48px 0 32px;
+}
+
+.learn-hero .section-header {
+  margin-bottom: 40px;
+}
+
+/* ── Category Filter Pills ── */
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.category-pill {
+  display: inline-block;
+  padding: 8px 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-pill:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 158, 114, 0.3);
+  color: var(--text-primary);
+}
+
+.category-pill.active {
+  background: rgba(0, 158, 114, 0.15);
+  border-color: var(--primary);
+  color: var(--primary-light);
+}
+
+/* ── Articles Grid ── */
+.learn-listing {
+  padding: 0 0 80px;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.article-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 158, 114, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 158, 114, 0.08);
+}
+
+.article-card .article-category {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(0, 158, 114, 0.1);
+  border-radius: 100px;
+  color: var(--primary-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.article-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.article-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.article-card .article-date {
+  display: block;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.no-articles {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 48px 0;
+  font-size: 1rem;
+}
+
+/* ── Article Page ── */
+.learn-article {
+  padding: 32px 0 64px;
+}
+
+.learn-article .container {
+  max-width: 768px;
+}
+
+.article-header {
+  margin-bottom: 48px;
+}
+
+.article-category-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(0, 158, 114, 0.1);
+  border: 1px solid rgba(0, 158, 114, 0.25);
+  border-radius: 100px;
+  color: var(--primary-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.article-header h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.article-header time {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.article-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.article-body p {
+  margin-bottom: 24px;
+}
+
+.article-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Download CTA ── */
+.learn-cta {
+  padding: 64px 0;
+}
+
+.learn-cta-inner {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+}
+
+.learn-cta-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(0, 158, 114, 0.12);
+  color: var(--primary-light);
+}
+
+.learn-cta-inner h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.learn-cta-inner p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.learn-cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learn-cta-inner {
+    padding: 36px 24px;
+  }
+
+  .learn-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .learn-cta-buttons .store-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
