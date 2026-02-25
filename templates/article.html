@@ -12,14 +12,14 @@
   <meta property="og:description" content="{{description}}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{{canonical}}">
-  <meta property="og:image" content="https://stockyan.heyaayush.com/og-image.png">
+  <meta property="og:image" content="{{ogImage}}">
   <meta property="og:site_name" content="StockYan">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{title}} | StockYan Learn">
   <meta name="twitter:description" content="{{description}}">
-  <meta name="twitter:image" content="https://stockyan.heyaayush.com/og-image.png">
+  <meta name="twitter:image" content="{{ogImage}}">
 
   <!-- Theme & Icons -->
   <meta name="theme-color" content="#009E72">
@@ -57,6 +57,7 @@
         "url": "https://stockyan.heyaayush.com/logo.png"
       }
     },
+    "image": "{{jsonImage}}",
     "mainEntityOfPage": "{{canonical}}",
     "articleSection": "{{jsonCategory}}"
   }
@@ -147,6 +148,7 @@
         <h1>{{title}}</h1>
         <time datetime="{{datePublished}}">{{dateFormatted}}</time>
       </div>
+      {{heroImage}}
       <div class="article-body">
         {{content}}
       </div>

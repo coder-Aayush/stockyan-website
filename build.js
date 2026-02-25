@@ -92,14 +92,22 @@ function build() {
     const datePublished = isoDate(article.createdAt);
     const dateModified = article.updatedAt ? isoDate(article.updatedAt) : datePublished;
 
+    const ogImage = article.imageUrl || `${SITE_URL}/og-image.png`;
+    const heroImage = article.imageUrl
+      ? `<div class="article-hero-image"><img src="${escapeHtml(article.imageUrl)}" alt="${escapeHtml(article.title)}"></div>`
+      : '';
+
     const html = articleTemplate
       .replace(/{{jsonTitle}}/g, escapeJsonString(article.title))
       .replace(/{{jsonDescription}}/g, escapeJsonString(description))
       .replace(/{{jsonCategory}}/g, escapeJsonString(article.category))
+      .replace(/{{jsonImage}}/g, escapeJsonString(ogImage))
       .replace(/{{title}}/g, escapeHtml(article.title))
       .replace(/{{description}}/g, escapeHtml(description))
+      .replace(/{{ogImage}}/g, escapeHtml(ogImage))
       .replace(/{{canonical}}/g, canonical)
       .replace(/{{category}}/g, escapeHtml(article.category))
+      .replace(/{{heroImage}}/g, heroImage)
       .replace(/{{content}}/g, articleHtml)
       .replace(/{{datePublished}}/g, datePublished)
       .replace(/{{dateModified}}/g, dateModified)
@@ -113,12 +121,18 @@ function build() {
   // ── Generate listing page ──
   const articleCards = published.map(article => {
     const description = truncate(article.content.replace(/\n/g, ' '), 120);
+    const thumbnail = article.imageUrl
+      ? `<div class="article-thumbnail"><img src="${escapeHtml(article.imageUrl)}" alt="${escapeHtml(article.title)}" loading="lazy"></div>`
+      : '';
     return `
       <a href="/learn/${article.slug}/" class="article-card" data-category="${escapeHtml(article.category)}">
-        <span class="article-category">${escapeHtml(article.category)}</span>
-        <h3>${escapeHtml(article.title)}</h3>
-        <p>${escapeHtml(description)}</p>
-        <span class="article-date">${formatDate(article.createdAt)}</span>
+        ${thumbnail}
+        <div class="article-card-body">
+          <span class="article-category">${escapeHtml(article.category)}</span>
+          <h3>${escapeHtml(article.title)}</h3>
+          <p>${escapeHtml(description)}</p>
+          <span class="article-date">${formatDate(article.createdAt)}</span>
+        </div>
       </a>`;
   }).join('\n');
 
