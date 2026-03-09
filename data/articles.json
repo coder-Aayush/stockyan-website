@@ -24,6 +24,18 @@
     "updatedAt": "2026-02-24T17:46:34.102000+00:00"
   },
   {
+    "id": "cXxKgexpiDQPnuA8Ge9a",
+    "title": "Circuit Breaker in NEPSE ",
+    "slug": "circuit-breaker-in-nepse",
+    "content": "A circuit breaker is a safety mechanism used in the Nepal Stock Exchange (NEPSE) to temporarily stop trading when the market moves too sharply in a short period of time. The purpose of this rule is to control extreme volatility, reduce panic buying or selling, and give investors time to make rational decisions.\n\nIn NEPSE, circuit breakers are triggered based on the movement of the NEPSE Index compared to the previous day’s closing value. There are three levels of market-wide circuit breakers. If the index moves 4% up or down, trading is halted for 20 minutes. If the movement reaches 5%, trading is halted for 40 minutes. If the index changes by 6%, the market is closed for the rest of the day.\n\nApart from the index-based circuit breaker, individual stocks in NEPSE also have a daily price limit of ±10%. This means a stock cannot rise or fall more than 10% from its previous closing price in a single trading day.\n\nCircuit breakers help maintain market stability and investor confidence, especially during periods of high volatility or major news events. By pausing trading temporarily, the system prevents extreme price movements and allows the market to stabilize.",
+    "category": "General",
+    "imageUrl": "https://i.postimg.cc/Nf7cHPNZ/Use-of-Broker-Data-(1).jpg",
+    "order": 0,
+    "isPublished": true,
+    "createdAt": "2026-03-09T04:29:45.104000+00:00",
+    "updatedAt": "2026-03-09T04:29:45.104000+00:00"
+  },
+  {
     "id": "oB9t2obnoL5EPztmAOIf",
     "title": "Margin Trading In NEPSE ",
     "slug": "margin-trading-in-nepse",
