@@ -2,16 +2,25 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE_URL = 'https://stockyan.heyaayush.com';
-const DATA_FILE = path.join(__dirname, 'data', 'articles.json');
+
+// ── Learn (articles) ──
+const ARTICLES_DATA_FILE = path.join(__dirname, 'data', 'articles.json');
 const LEARN_DIR = path.join(__dirname, 'learn');
 const ARTICLE_TEMPLATE = path.join(__dirname, 'templates', 'article.html');
-const LISTING_TEMPLATE = path.join(__dirname, 'templates', 'listing.html');
+const ARTICLES_LISTING_TEMPLATE = path.join(__dirname, 'templates', 'listing.html');
+
+// ── Stocks ──
+const STOCKS_DATA_FILE = path.join(__dirname, 'data', 'stocks.json');
+const STOCKS_DIR = path.join(__dirname, 'stocks');
+const STOCK_TEMPLATE = path.join(__dirname, 'templates', 'stock.html');
+const STOCKS_LISTING_TEMPLATE = path.join(__dirname, 'templates', 'stocks-listing.html');
+
 const SITEMAP_FILE = path.join(__dirname, 'sitemap.xml');
 
 // ── Helpers ──
 
 function escapeHtml(str) {
-  return str
+  return String(str)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -20,7 +29,7 @@ function escapeHtml(str) {
 }
 
 function escapeJsonString(str) {
-  return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+  return String(str).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
 }
 
 function contentToHtml(content) {
@@ -49,39 +58,34 @@ function todayIso() {
   return new Date().toISOString().split('T')[0];
 }
 
-// ── Build ──
+// ── Build: Articles ──
 
-function build() {
-  // Gracefully skip if no articles data
-  if (!fs.existsSync(DATA_FILE)) {
+function buildArticles() {
+  if (!fs.existsSync(ARTICLES_DATA_FILE)) {
     console.log('No data/articles.json found — skipping learn page generation.');
-    // Still ensure learn dir exists for clean deploys
     if (!fs.existsSync(LEARN_DIR)) fs.mkdirSync(LEARN_DIR, { recursive: true });
-    return;
+    return [];
   }
 
-  const articles = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+  const articles = JSON.parse(fs.readFileSync(ARTICLES_DATA_FILE, 'utf8'));
   const published = articles.filter(a => a.isPublished);
 
   if (published.length === 0) {
     console.log('No published articles — skipping learn page generation.');
-    return;
+    return [];
   }
 
-  // Sort by order (ascending), then by createdAt (newest first)
   published.sort((a, b) => (a.order - b.order) || (new Date(b.createdAt) - new Date(a.createdAt)));
 
   const articleTemplate = fs.readFileSync(ARTICLE_TEMPLATE, 'utf8');
-  const listingTemplate = fs.readFileSync(LISTING_TEMPLATE, 'utf8');
+  const listingTemplate = fs.readFileSync(ARTICLES_LISTING_TEMPLATE, 'utf8');
 
-  // Collect categories
   const categories = [...new Set(published.map(a => a.category))].sort();
 
-  // Clean and recreate learn dir
   if (fs.existsSync(LEARN_DIR)) fs.rmSync(LEARN_DIR, { recursive: true });
   fs.mkdirSync(LEARN_DIR, { recursive: true });
 
-  // ── Generate article pages ──
+  // ── Article pages ──
   for (const article of published) {
     const dir = path.join(LEARN_DIR, article.slug);
     fs.mkdirSync(dir, { recursive: true });
@@ -118,7 +122,7 @@ function build() {
     console.log(`  Generated: /learn/${article.slug}/`);
   }
 
-  // ── Generate listing page ──
+  // ── Articles listing page ──
   const articleCards = published.map(article => {
     const description = truncate(article.content.replace(/\n/g, ' '), 120);
     const thumbnail = article.imageUrl
@@ -148,35 +152,155 @@ function build() {
   fs.writeFileSync(path.join(LEARN_DIR, 'index.html'), listingHtml);
   console.log(`  Generated: /learn/ (${published.length} articles)`);
 
-  // ── Regenerate sitemap ──
-  const articleUrls = published.map(article => `  <url>
+  return published;
+}
+
+// ── Build: Stocks ──
+
+function buildStocks() {
+  if (!fs.existsSync(STOCKS_DATA_FILE)) {
+    console.log('No data/stocks.json found — skipping stock page generation.');
+    return [];
+  }
+
+  const stocks = JSON.parse(fs.readFileSync(STOCKS_DATA_FILE, 'utf8'));
+  const published = stocks.filter(s => s.isPublished);
+
+  if (published.length === 0) {
+    console.log('No published stocks — skipping stock page generation.');
+    return [];
+  }
+
+  published.sort((a, b) => (a.order || 0) - (b.order || 0) || a.symbol.localeCompare(b.symbol));
+
+  const stockTemplate = fs.readFileSync(STOCK_TEMPLATE, 'utf8');
+  const listingTemplate = fs.readFileSync(STOCKS_LISTING_TEMPLATE, 'utf8');
+
+  const sectors = [...new Set(published.map(s => s.sector))].sort();
+
+  if (fs.existsSync(STOCKS_DIR)) fs.rmSync(STOCKS_DIR, { recursive: true });
+  fs.mkdirSync(STOCKS_DIR, { recursive: true });
+
+  // ── Per-stock pages ──
+  for (const stock of published) {
+    const slug = stock.symbol.toLowerCase();
+    const dir = path.join(STOCKS_DIR, slug);
+    fs.mkdirSync(dir, { recursive: true });
+
+    const canonical = `${SITE_URL}/stocks/${slug}/`;
+    const listedDateFormatted = stock.listedDate ? formatDate(stock.listedDate) : '—';
+    const metaDescription = truncate(
+      `${stock.name} (${stock.symbol}) is listed on NEPSE under ${stock.sector}. View live candlestick chart, sector data, and reference information.`,
+      160
+    );
+
+    const highlightsHtml = (stock.highlights || [])
+      .map(h => `<li>${escapeHtml(h)}</li>`)
+      .join('\n          ');
+
+    const html = stockTemplate
+      .replace(/{{jsonName}}/g, escapeJsonString(stock.name))
+      .replace(/{{jsonDescription}}/g, escapeJsonString(stock.description))
+      .replace(/{{jsonSector}}/g, escapeJsonString(stock.sector))
+      .replace(/{{symbol}}/g, escapeHtml(stock.symbol))
+      .replace(/{{name}}/g, escapeHtml(stock.name))
+      .replace(/{{sector}}/g, escapeHtml(stock.sector))
+      .replace(/{{listedDateFormatted}}/g, escapeHtml(listedDateFormatted))
+      .replace(/{{isin}}/g, escapeHtml(stock.isin || '—'))
+      .replace(/{{lotSize}}/g, escapeHtml(stock.lotSize != null ? String(stock.lotSize) : '—'))
+      .replace(/{{description}}/g, escapeHtml(stock.description || ''))
+      .replace(/{{highlightsHtml}}/g, highlightsHtml)
+      .replace(/{{metaDescription}}/g, escapeHtml(metaDescription))
+      .replace(/{{canonical}}/g, canonical);
+
+    fs.writeFileSync(path.join(dir, 'index.html'), html);
+    console.log(`  Generated: /stocks/${slug}/`);
+  }
+
+  // ── Stocks listing page ──
+  const stockCards = published.map(stock => {
+    const slug = stock.symbol.toLowerCase();
+    return `
+      <a href="/stocks/${slug}/" class="stock-card" data-sector="${escapeHtml(stock.sector)}">
+        <span class="stock-card-symbol">${escapeHtml(stock.symbol)}</span>
+        <span class="stock-card-name">${escapeHtml(stock.name)}</span>
+        <span class="stock-card-sector">${escapeHtml(stock.sector)}</span>
+      </a>`;
+  }).join('\n');
+
+  const sectorPills = sectors.map(sector =>
+    `<button class="category-pill" data-filter="${escapeHtml(sector)}">${escapeHtml(sector)}</button>`
+  ).join('\n          ');
+
+  const listingHtml = listingTemplate
+    .replace(/{{stockCards}}/g, stockCards)
+    .replace(/{{sectorPills}}/g, sectorPills)
+    .replace(/{{stockCount}}/g, published.length);
+
+  fs.writeFileSync(path.join(STOCKS_DIR, 'index.html'), listingHtml);
+  console.log(`  Generated: /stocks/ (${published.length} stocks)`);
+
+  return published;
+}
+
+// ── Build: Sitemap ──
+
+function buildSitemap(publishedArticles, publishedStocks) {
+  const articleUrls = publishedArticles.map(article => `  <url>
     <loc>${SITE_URL}/learn/${article.slug}/</loc>
     <lastmod>${(article.updatedAt || article.createdAt).split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`).join('\n');
 
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
+  const stockUrls = publishedStocks.map(stock => `  <url>
+    <loc>${SITE_URL}/stocks/${stock.symbol.toLowerCase()}/</loc>
+    <lastmod>${todayIso()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>`).join('\n');
+
+  const sections = [];
+  sections.push(`  <url>
     <loc>${SITE_URL}/</loc>
     <lastmod>${todayIso()}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
+  </url>`);
+
+  if (publishedArticles.length > 0) {
+    sections.push(`  <url>
     <loc>${SITE_URL}/learn/</loc>
     <lastmod>${todayIso()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-${articleUrls}
+  </url>`);
+    sections.push(articleUrls);
+  }
+
+  if (publishedStocks.length > 0) {
+    sections.push(`  <url>
+    <loc>${SITE_URL}/stocks/</loc>
+    <lastmod>${todayIso()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>`);
+    sections.push(stockUrls);
+  }
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sections.join('\n')}
 </urlset>
 `;
   fs.writeFileSync(SITEMAP_FILE, sitemap);
-  console.log(`  Updated sitemap.xml with ${published.length} article URLs`);
+  console.log(`  Updated sitemap.xml (${publishedArticles.length} articles, ${publishedStocks.length} stocks)`);
 }
 
-console.log('Building StockYan learn pages...');
-build();
+// ── Run ──
+
+console.log('Building StockYan pages...');
+const articles = buildArticles();
+const stocks = buildStocks();
+buildSitemap(articles, stocks);
 console.log('Done.');

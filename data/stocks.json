@@ -1,0 +1,56 @@
+[
+  {
+    "symbol": "NABIL",
+    "name": "Nabil Bank Limited",
+    "sector": "Commercial Banks",
+    "sectorSlug": "commercial-banks",
+    "listedDate": "1985-07-12",
+    "isin": "NPE002A00098",
+    "lotSize": 10,
+    "description": "Nabil Bank Limited is one of Nepal's largest private-sector commercial banks, founded in 1984 as the country's first joint-venture bank. Headquartered in Kathmandu, Nabil offers a full range of retail, corporate, and SME banking services across a nationwide branch network, and is a key constituent of the NEPSE benchmark index.",
+    "highlights": [
+      "Nepal's first joint-venture commercial bank, established 1984",
+      "Listed on NEPSE under the Commercial Banks sub-index",
+      "Among the largest banks in Nepal by deposits and market capitalization",
+      "Pays regular cash and bonus share dividends to shareholders"
+    ],
+    "isPublished": true,
+    "order": 1
+  },
+  {
+    "symbol": "NRIC",
+    "name": "Nepal Reinsurance Company Limited",
+    "sector": "Non-Life Insurance",
+    "sectorSlug": "non-life-insurance",
+    "listedDate": "2014-12-30",
+    "isin": "NPE173A00006",
+    "lotSize": 10,
+    "description": "Nepal Reinsurance Company Limited (Nepal Re) is the national reinsurance company of Nepal, providing reinsurance capacity to domestic life and non-life insurers as well as cross-border cedants. Established under the Insurance Act and majority-owned by the Government of Nepal, Nepal Re is a strategically important constituent of the NEPSE insurance sub-indices.",
+    "highlights": [
+      "Nepal's first and only domestic reinsurance company",
+      "Majority government ownership, with Nepal Rastra Bank and public stake",
+      "Underwrites treaty and facultative reinsurance for the domestic market",
+      "Listed on NEPSE under the Non-Life Insurance sub-index"
+    ],
+    "isPublished": true,
+    "order": 2
+  },
+  {
+    "symbol": "NLIC",
+    "name": "Nepal Life Insurance Company Limited",
+    "sector": "Life Insurance",
+    "sectorSlug": "life-insurance",
+    "listedDate": "2005-05-04",
+    "isin": "NPE040A00097",
+    "lotSize": 10,
+    "description": "Nepal Life Insurance Company Limited is one of the largest private-sector life insurers in Nepal, offering endowment, term, and investment-linked life insurance products through a nationwide agency network. Listed on NEPSE since 2005, Nepal Life is widely held by retail investors and is a benchmark constituent of the Life Insurance sub-index.",
+    "highlights": [
+      "Among the largest private life insurers in Nepal by gross premium",
+      "Listed on NEPSE under the Life Insurance sub-index since 2005",
+      "Distributes products through a nationwide network of agents and branches",
+      "Consistent dividend payer with strong retail shareholder base"
+    ],
+    "isPublished": true,
+    "order": 3
+  }
+]
