@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://stockyan.heyaayush.com';
+const SITE_URL = 'https://stockyan.info';
 
 // ── Learn (articles) ──
 const ARTICLES_DATA_FILE = path.join(__dirname, 'data', 'articles.json');
