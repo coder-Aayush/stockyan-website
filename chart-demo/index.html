@@ -104,11 +104,43 @@
     .panel-stat strong { color: var(--text-primary); font-weight: 700; }
     .chart-mount {
       width: 100%;
-      height: 540px;
+      height: calc(100vh - 240px);
+      min-height: 520px;
       background: #0A1220;
       border-radius: var(--radius);
       overflow: hidden;
       position: relative;
+    }
+    .chart-mount:fullscreen,
+    .chart-mount:-webkit-full-screen {
+      height: 100vh !important;
+      min-height: 100vh !important;
+      border-radius: 0;
+      padding: 0;
+    }
+    .fullscreen-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(10, 18, 32, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .fullscreen-btn:hover {
+      background: rgba(0, 158, 114, 0.2);
+      border-color: rgba(0, 158, 114, 0.5);
     }
     .chart-loading {
       position: absolute;
@@ -233,6 +265,7 @@
           </div>
         </div>
         <div class="chart-mount" id="chart-lwc">
+          <button class="fullscreen-btn" data-fs-target="chart-lwc"><i class="fa-solid fa-expand"></i> Fullscreen</button>
           <div class="chart-loading"><span class="spinner"></span> Fetching from UDF…</div>
         </div>
         <div class="panel-actions">
@@ -251,6 +284,7 @@
           </div>
         </div>
         <div class="chart-mount" id="chart-klc">
+          <button class="fullscreen-btn" data-fs-target="chart-klc"><i class="fa-solid fa-expand"></i> Fullscreen</button>
           <div class="chart-loading"><span class="spinner"></span> Fetching from UDF…</div>
         </div>
         <div class="panel-actions">
@@ -436,7 +470,14 @@
 
     // ── Tab switching (lazy-render klinecharts on first reveal) ──
     let klcRendered = false;
+    let klcInstance = null;
     let historyCache = null;
+
+    window.addEventListener('resize', () => {
+      if (klcInstance && typeof klcInstance.resize === 'function') {
+        klcInstance.resize();
+      }
+    });
 
     document.querySelectorAll('.demo-tab').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -446,8 +487,10 @@
         const tab = btn.dataset.tab;
         document.getElementById(`panel-${tab}`).classList.add('active');
         if (tab === 'klc' && !klcRendered && historyCache) {
-          renderKlinecharts(historyCache);
+          klcInstance = renderKlinecharts(historyCache);
           klcRendered = true;
+        } else if (tab === 'klc' && klcInstance && typeof klcInstance.resize === 'function') {
+          setTimeout(() => klcInstance.resize(), 50);
         }
       });
     });
@@ -461,6 +504,32 @@
           : 'klinecharts — drawing tools + 25+ indicators built-in. Closest free analog to TradingView Advanced.';
         alert(`You picked: ${pick}\n\n${choice}\n\nTell Claude which one you want and it'll be wired into /stocks/* pages.`);
       });
+    });
+
+    // ── Fullscreen toggling ──
+    document.querySelectorAll('[data-fs-target]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const el = document.getElementById(btn.dataset.fsTarget);
+        if (!document.fullscreenElement) {
+          if (el.requestFullscreen) await el.requestFullscreen();
+          else if (el.webkitRequestFullscreen) await el.webkitRequestFullscreen();
+          btn.innerHTML = '<i class="fa-solid fa-compress"></i> Exit fullscreen';
+        } else {
+          if (document.exitFullscreen) await document.exitFullscreen();
+          else if (document.webkitExitFullscreen) await document.webkitExitFullscreen();
+          btn.innerHTML = '<i class="fa-solid fa-expand"></i> Fullscreen';
+        }
+      });
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        document.querySelectorAll('.fullscreen-btn').forEach(b => {
+          b.innerHTML = '<i class="fa-solid fa-expand"></i> Fullscreen';
+        });
+      }
+      // Trigger resize so charts recompute their canvas
+      window.dispatchEvent(new Event('resize'));
     });
 
     // ── Boot ──
