@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{name}} ({{symbol}}) Share Price &amp; NEPSE Chart | StockYan</title>
+  <title>{{name}} ({{symbol}}) Live Chart | NEPSE Index | StockYan</title>
   <meta name="description" content="{{metaDescription}}">
-  <meta name="keywords" content="{{symbol}}, {{name}}, {{symbol}} share price, {{symbol}} NEPSE, {{symbol}} chart, {{name}} stock, Nepal share market, {{sector}} Nepal">
+  <meta name="keywords" content="{{symbol}}, {{name}}, NEPSE index, {{symbol}} chart, {{symbol}} live, Nepal share market index, NEPSE sub-index, {{name}} candlestick chart">
   <link rel="canonical" href="{{canonical}}">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="{{name}} ({{symbol}}) Share Price &amp; Chart | StockYan">
+  <meta property="og:title" content="{{name}} ({{symbol}}) Live Chart | NEPSE | StockYan">
   <meta property="og:description" content="{{metaDescription}}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{canonical}}">
@@ -18,7 +18,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{name}} ({{symbol}}) Share Price &amp; Chart | StockYan">
+  <meta name="twitter:title" content="{{name}} ({{symbol}}) Live Chart | StockYan">
   <meta name="twitter:description" content="{{metaDescription}}">
   <meta name="twitter:image" content="https://stockyan.info/og-image.png">
 
@@ -43,19 +43,15 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
-  <!-- Structured Data: FinancialProduct -->
+  <!-- Structured Data: Index -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FinancialProduct",
     "name": "{{jsonName}} ({{symbol}})",
     "description": "{{jsonDescription}}",
-    "category": "{{jsonSector}}",
-    "url": "{{canonical}}",
-    "provider": {
-      "@type": "Organization",
-      "name": "{{jsonName}}"
-    }
+    "category": "Market Index",
+    "url": "{{canonical}}"
   }
   </script>
 
@@ -65,24 +61,9 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://stockyan.info/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Stocks",
-        "item": "https://stockyan.info/stocks/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "{{symbol}}",
-        "item": "{{canonical}}"
-      }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://stockyan.info/" },
+      { "@type": "ListItem", "position": 2, "name": "Indexes", "item": "https://stockyan.info/indexes/" },
+      { "@type": "ListItem", "position": 3, "name": "{{symbol}}", "item": "{{canonical}}" }
     ]
   }
   </script>
@@ -107,6 +88,7 @@
       </a>
       <div class="nav-links">
         <a href="/#features">Features</a>
+        <a href="/indexes/">Indexes</a>
         <a href="/stocks/">Stocks</a>
         <a href="/learn/">Learn</a>
         <a href="/#download" class="nav-cta">Download</a>
@@ -120,6 +102,7 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="/#features">Features</a>
+    <a href="/indexes/">Indexes</a>
     <a href="/stocks/">Stocks</a>
     <a href="/learn/">Learn</a>
     <a href="/#download" class="nav-cta">Download</a>
@@ -127,10 +110,9 @@
 
   <!-- Full-viewport Chart Shell -->
   <section class="chart-shell">
-    <!-- Compact header above the chart -->
     <div class="chart-shell-header">
       <div class="chart-shell-meta">
-        <a href="/stocks/" class="chart-back" aria-label="Back to stocks">
+        <a href="/indexes/" class="chart-back" aria-label="Back to indexes">
           <i class="fa-solid fa-arrow-left"></i>
         </a>
         <div class="chart-symbol-block">
@@ -138,12 +120,11 @@
             <span class="chart-symbol-name">{{name}}</span>
             <span class="chart-symbol-code">({{symbol}})</span>
           </h1>
-          <span class="chart-sector-pill">{{sector}}</span>
+          <span class="chart-sector-pill">{{kindLabel}}</span>
         </div>
       </div>
 
       <div class="chart-shell-controls">
-        <!-- Resolution switcher -->
         <div class="chart-resolution" role="tablist" aria-label="Chart resolution">
           <button class="chart-res-btn" data-resolution="1"  type="button">1m</button>
           <button class="chart-res-btn" data-resolution="5"  type="button">5m</button>
@@ -154,76 +135,35 @@
           <button class="chart-res-btn" data-resolution="M"  type="button">1M</button>
         </div>
 
-        <!-- Drawing tools -->
         <div class="chart-tools" aria-label="Drawing tools">
-          <button class="chart-tool-btn" data-draw="segment" type="button" title="Trend line">
-            <i class="fa-solid fa-pen-nib"></i>
-          </button>
-          <button class="chart-tool-btn" data-draw="horizontal" type="button" title="Horizontal line">
-            <i class="fa-solid fa-minus"></i>
-          </button>
-          <button class="chart-tool-btn" data-draw="fibonacci" type="button" title="Fibonacci">
-            <i class="fa-solid fa-wave-square"></i>
-          </button>
-          <button class="chart-tool-btn" data-draw="rectangle" type="button" title="Rectangle">
-            <i class="fa-regular fa-square"></i>
-          </button>
-          <button class="chart-tool-btn chart-tool-clear" data-action="clear-drawings" type="button" title="Clear drawings">
-            <i class="fa-solid fa-eraser"></i>
-          </button>
+          <button class="chart-tool-btn" data-draw="segment"    type="button" title="Trend line"><i class="fa-solid fa-pen-nib"></i></button>
+          <button class="chart-tool-btn" data-draw="horizontal" type="button" title="Horizontal line"><i class="fa-solid fa-minus"></i></button>
+          <button class="chart-tool-btn" data-draw="fibonacci"  type="button" title="Fibonacci"><i class="fa-solid fa-wave-square"></i></button>
+          <button class="chart-tool-btn" data-draw="rectangle"  type="button" title="Rectangle"><i class="fa-regular fa-square"></i></button>
+          <button class="chart-tool-btn chart-tool-clear" data-action="clear-drawings" type="button" title="Clear drawings"><i class="fa-solid fa-eraser"></i></button>
         </div>
 
-        <!-- Fullscreen -->
         <button class="chart-fs-btn" data-action="fullscreen" type="button">
           <i class="fa-solid fa-expand"></i> Fullscreen
         </button>
       </div>
     </div>
 
-    <!-- Chart canvas -->
     <div id="tv_chart_container" class="chart-canvas" data-symbol="{{symbol}}"></div>
   </section>
 
   <p class="chart-disclaimer">Data displayed for informational purposes only. Not investment advice.</p>
 
-  <!-- Key Info Grid -->
+  <!-- Description Section -->
   <section class="stock-info-section">
     <div class="container">
-      <h2 class="stock-info-heading">About {{symbol}}</h2>
-      <div class="stock-info-grid">
-        <div class="stock-info-card">
-          <span class="stock-info-label">Symbol</span>
-          <span class="stock-info-value">{{symbol}}</span>
-        </div>
-        <div class="stock-info-card">
-          <span class="stock-info-label">Sector</span>
-          <span class="stock-info-value">{{sector}}</span>
-        </div>
-        <div class="stock-info-card">
-          <span class="stock-info-label">Listed Date</span>
-          <span class="stock-info-value">{{listedDateFormatted}}</span>
-        </div>
-        <div class="stock-info-card">
-          <span class="stock-info-label">ISIN</span>
-          <span class="stock-info-value">{{isin}}</span>
-        </div>
-        <div class="stock-info-card">
-          <span class="stock-info-label">Lot Size</span>
-          <span class="stock-info-value">{{lotSize}}</span>
-        </div>
-        <div class="stock-info-card">
-          <span class="stock-info-label">Exchange</span>
-          <span class="stock-info-value">NEPSE</span>
-        </div>
-      </div>
-
+      <h2 class="stock-info-heading">About {{name}}</h2>
       <div class="stock-description">
-        <h3>About {{name}}</h3>
         <p>{{description}}</p>
       </div>
 
       <div class="stock-highlights">
-        <h3>Key highlights</h3>
+        <h3>Key facts</h3>
         <ul>
           {{highlightsHtml}}
         </ul>
@@ -239,7 +179,7 @@
           <i class="fa-solid fa-mobile-screen-button"></i>
         </div>
         <h2>Track {{symbol}} on StockYan</h2>
-        <p>Get real-time NEPSE prices, broker activity, alerts, and portfolio tracking for {{symbol}} and every other listed stock.</p>
+        <p>Get live NEPSE index data, broker activity, alerts, and full market analytics on the StockYan app.</p>
         <div class="learn-cta-buttons">
           <a href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688" target="_blank" class="store-btn apple">
             <i class="fa-brands fa-apple"></i>
@@ -274,6 +214,7 @@
         <div class="footer-col">
           <h4>Product</h4>
           <a href="/#features">Features</a>
+          <a href="/indexes/">Indexes</a>
           <a href="/stocks/">Stocks</a>
           <a href="/learn/">Learn</a>
           <a href="/#download">Download</a>
@@ -290,12 +231,11 @@
     </div>
   </footer>
 
-  <!-- klinecharts (open-source, ~150KB) -->
+  <!-- klinecharts -->
   <script src="https://cdn.jsdelivr.net/npm/klinecharts@9/dist/umd/klinecharts.min.js" defer></script>
   <script src="/stock-chart.js" defer></script>
 
   <script>
-    // Mobile menu toggle
     const navToggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     navToggle.addEventListener('click', () => {

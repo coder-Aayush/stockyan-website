@@ -15,6 +15,12 @@ const STOCKS_DIR = path.join(__dirname, 'stocks');
 const STOCK_TEMPLATE = path.join(__dirname, 'templates', 'stock.html');
 const STOCKS_LISTING_TEMPLATE = path.join(__dirname, 'templates', 'stocks-listing.html');
 
+// ── Indexes ──
+const INDEXES_DATA_FILE = path.join(__dirname, 'data', 'indexes.json');
+const INDEXES_DIR = path.join(__dirname, 'indexes');
+const INDEX_TEMPLATE = path.join(__dirname, 'templates', 'market-index.html');
+const INDEXES_LISTING_TEMPLATE = path.join(__dirname, 'templates', 'indexes-listing.html');
+
 const SITEMAP_FILE = path.join(__dirname, 'sitemap.xml');
 
 // ── Helpers ──
@@ -243,9 +249,93 @@ function buildStocks() {
   return published;
 }
 
+// ── Build: Indexes ──
+
+function buildIndexes() {
+  if (!fs.existsSync(INDEXES_DATA_FILE)) {
+    console.log('No data/indexes.json found — skipping index page generation.');
+    return [];
+  }
+
+  const indexes = JSON.parse(fs.readFileSync(INDEXES_DATA_FILE, 'utf8'));
+  const published = indexes.filter(x => x.isPublished);
+
+  // Always clean the indexes dir so removing entries doesn't leave stale pages
+  if (fs.existsSync(INDEXES_DIR)) fs.rmSync(INDEXES_DIR, { recursive: true });
+
+  if (published.length === 0) {
+    console.log('No published indexes — skipping index page generation.');
+    return [];
+  }
+
+  published.sort((a, b) => (a.order || 0) - (b.order || 0) || a.symbol.localeCompare(b.symbol));
+
+  const indexTemplate = fs.readFileSync(INDEX_TEMPLATE, 'utf8');
+  const listingTemplate = fs.readFileSync(INDEXES_LISTING_TEMPLATE, 'utf8');
+
+  const kinds = [...new Set(published.map(x => x.kind))].sort();
+
+  fs.mkdirSync(INDEXES_DIR, { recursive: true });
+
+  for (const idx of published) {
+    const slug = idx.symbol.toLowerCase();
+    const dir = path.join(INDEXES_DIR, slug);
+    fs.mkdirSync(dir, { recursive: true });
+
+    const canonical = `${SITE_URL}/indexes/${slug}/`;
+    const metaDescription = truncate(
+      `${idx.name} (${idx.symbol}) — live candlestick chart, key facts, and historical performance on the Nepal Stock Exchange (NEPSE).`,
+      160
+    );
+
+    const highlightsHtml = (idx.highlights || [])
+      .map(h => `<li>${escapeHtml(h)}</li>`)
+      .join('\n          ');
+
+    const html = indexTemplate
+      .replace(/{{jsonName}}/g, escapeJsonString(idx.name))
+      .replace(/{{jsonDescription}}/g, escapeJsonString(idx.description || ''))
+      .replace(/{{symbol}}/g, escapeHtml(idx.symbol))
+      .replace(/{{name}}/g, escapeHtml(idx.name))
+      .replace(/{{kindLabel}}/g, escapeHtml(idx.kind))
+      .replace(/{{description}}/g, escapeHtml(idx.description || ''))
+      .replace(/{{highlightsHtml}}/g, highlightsHtml)
+      .replace(/{{metaDescription}}/g, escapeHtml(metaDescription))
+      .replace(/{{canonical}}/g, canonical);
+
+    fs.writeFileSync(path.join(dir, 'index.html'), html);
+    console.log(`  Generated: /indexes/${slug}/`);
+  }
+
+  // ── Listing ──
+  const indexCards = published.map(idx => {
+    const slug = idx.symbol.toLowerCase();
+    return `
+      <a href="/indexes/${slug}/" class="stock-card" data-kind="${escapeHtml(idx.kind)}">
+        <span class="stock-card-symbol">${escapeHtml(idx.symbol)}</span>
+        <span class="stock-card-name">${escapeHtml(idx.name)}</span>
+        <span class="stock-card-sector">${escapeHtml(idx.kind)}</span>
+      </a>`;
+  }).join('\n');
+
+  const kindPills = kinds.map(k =>
+    `<button class="category-pill" data-filter="${escapeHtml(k)}">${escapeHtml(k)}</button>`
+  ).join('\n          ');
+
+  const listingHtml = listingTemplate
+    .replace(/{{indexCards}}/g, indexCards)
+    .replace(/{{kindPills}}/g, kindPills)
+    .replace(/{{indexCount}}/g, published.length);
+
+  fs.writeFileSync(path.join(INDEXES_DIR, 'index.html'), listingHtml);
+  console.log(`  Generated: /indexes/ (${published.length} indexes)`);
+
+  return published;
+}
+
 // ── Build: Sitemap ──
 
-function buildSitemap(publishedArticles, publishedStocks) {
+function buildSitemap(publishedArticles, publishedStocks, publishedIndexes) {
   const articleUrls = publishedArticles.map(article => `  <url>
     <loc>${SITE_URL}/learn/${article.slug}/</loc>
     <lastmod>${(article.updatedAt || article.createdAt).split('T')[0]}</lastmod>
@@ -258,6 +348,13 @@ function buildSitemap(publishedArticles, publishedStocks) {
     <lastmod>${todayIso()}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>`).join('\n');
+
+  const indexUrls = publishedIndexes.map(idx => `  <url>
+    <loc>${SITE_URL}/indexes/${idx.symbol.toLowerCase()}/</loc>
+    <lastmod>${todayIso()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
   </url>`).join('\n');
 
   const sections = [];
@@ -288,13 +385,23 @@ function buildSitemap(publishedArticles, publishedStocks) {
     sections.push(stockUrls);
   }
 
+  if (publishedIndexes.length > 0) {
+    sections.push(`  <url>
+    <loc>${SITE_URL}/indexes/</loc>
+    <lastmod>${todayIso()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>`);
+    sections.push(indexUrls);
+  }
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sections.join('\n')}
 </urlset>
 `;
   fs.writeFileSync(SITEMAP_FILE, sitemap);
-  console.log(`  Updated sitemap.xml (${publishedArticles.length} articles, ${publishedStocks.length} stocks)`);
+  console.log(`  Updated sitemap.xml (${publishedArticles.length} articles, ${publishedStocks.length} stocks, ${publishedIndexes.length} indexes)`);
 }
 
 // ── Run ──
@@ -302,5 +409,6 @@ ${sections.join('\n')}
 console.log('Building StockYan pages...');
 const articles = buildArticles();
 const stocks = buildStocks();
-buildSitemap(articles, stocks);
+const indexes = buildIndexes();
+buildSitemap(articles, stocks, indexes);
 console.log('Done.');
