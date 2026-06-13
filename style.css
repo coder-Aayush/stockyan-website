@@ -347,6 +347,20 @@ h4 { font-size: 1rem; }
   line-height: 1.3;
 }
 
+/* Live version badge under the Windows button (set by script.js from the
+   Firebase version.json). Hidden until populated so it takes no space. */
+.store-btn .store-version {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-secondary);
+  opacity: 0.85;
+}
+.store-btn .store-version:empty {
+  display: none;
+}
+
 .store-btn.apple {
   background: var(--bg-surface);
   color: var(--text-primary);
@@ -355,6 +369,15 @@ h4 { font-size: 1rem; }
 .store-btn.google {
   background: var(--bg-surface);
   color: var(--text-primary);
+}
+
+.store-btn.windows {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.store-btn.windows i {
+  color: #00a4ef;
 }
 
 .store-btn.large {

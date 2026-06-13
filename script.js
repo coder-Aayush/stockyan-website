@@ -81,3 +81,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ========== Windows Download: live version from Firebase ==========
+// The desktop CI publishes downloads/version.json on every release, so the
+// site shows the current version and a clean versioned download filename
+// without ever editing this page. Buttons already work without JS (they point
+// at the stable latest.exe); this just enhances them.
+(function () {
+  const MANIFEST =
+    'https://storage.googleapis.com/evernep.appspot.com/downloads/version.json';
+  const buttons = document.querySelectorAll('[data-win-download]');
+  if (!buttons.length) return;
+
+  fetch(MANIFEST, { cache: 'no-store' })
+    .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then((data) => {
+      const version = (data.version || '').trim();
+      const url = (data.url || '').trim();
+      if (!version) return;
+
+      buttons.forEach((btn) => {
+        const tag = btn.querySelector('[data-win-version]');
+        if (tag) tag.textContent = 'v' + version;
+        if (url) btn.setAttribute('href', url);
+        btn.setAttribute('download', 'StockYan-Setup-' + version + '.exe');
+      });
+    })
+    .catch(() => {
+      // Offline / manifest missing — leave the static latest.exe links as-is.
+    });
+})();
