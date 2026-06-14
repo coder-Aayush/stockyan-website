@@ -1,0 +1,13 @@
+[
+  {
+    "relation": [ "delegate_permission/common.handle_all_urls" ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.golden.stockyan",
+      "sha256_cert_fingerprints": [
+        "C4:7A:3B:73:0D:42:9C:FD:C6:92:E5:2C:09:94:B9:03:C0:89:CF:FE:39:A8:0A:B8:49:40:5D:4E:A6:6B:A4:89",
+        "80:1E:67:71:5F:9C:C9:50:37:27:E2:52:5C:EC:45:1A:57:C3:4A:F8:7E:12:F9:78:7A:7C:15:11:BC:B4:83:DD"
+      ]
+    }
+  }
+]

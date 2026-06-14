@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Open StockYan</title>
+  <style>
+    :root {
+      --primary: #009E72;
+      --accent: #00C48C;
+      --ink: #0B1220;
+      --muted: #5b6472;
+      --bg: #F6F8FA;
+      --card: #FFFFFF;
+      --border: #E5E9EF;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(11, 18, 32, 0.06);
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    h1 { font-size: 22px; margin: 0 0 8px; letter-spacing: -0.2px; }
+    p { color: var(--muted); font-size: 15px; line-height: 1.5; margin: 0 0 24px; }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 12px;
+      border: 1px solid transparent;
+      transition: transform .05s ease;
+    }
+    .btn:active { transform: scale(0.99); }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-store { background: #fff; color: var(--ink); border-color: var(--border); }
+    .hint { font-size: 13px; color: var(--muted); margin-top: 8px; margin-bottom: 0; }
+    .divider {
+      display: flex; align-items: center; gap: 12px;
+      color: var(--muted); font-size: 12px; margin: 18px 0;
+    }
+    .divider::before, .divider::after {
+      content: ""; flex: 1; height: 1px; background: var(--border);
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img src="/logo.webp" alt="StockYan" class="logo"
+         onerror="this.onerror=null;this.src='/logo.png';">
+    <h1>Open this in the StockYan app</h1>
+    <p>
+      This link finishes your password reset or email verification inside the
+      app. Tap below to open StockYan. If it’s not installed yet, download it
+      first, then reopen the link from your email.
+    </p>
+
+    <a id="openApp" class="btn btn-primary" href="#">Open StockYan</a>
+
+    <div class="divider">don’t have the app?</div>
+
+    <a class="btn btn-store"
+       href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688">
+      Download on the App Store
+    </a>
+    <a class="btn btn-store"
+       href="https://play.google.com/store/apps/details?id=app.golden.stockyan">
+      Get it on Google Play
+    </a>
+
+    <p class="hint">
+      After installing, return to your email and tap the link again.
+    </p>
+  </main>
+
+  <script>
+    // Re-open the exact action link so the OS can hand it to the installed app
+    // (Universal Link / App Link). We re-fire the current URL — same mode &
+    // oobCode — which the app's deep-link handler consumes.
+    (function () {
+      var openBtn = document.getElementById('openApp');
+      var currentUrl = window.location.href;
+      openBtn.setAttribute('href', currentUrl);
+
+      var params = new URLSearchParams(window.location.search);
+      // If the link is missing the Firebase action params it isn't actionable
+      // in-app; steer those visitors to the stores instead.
+      if (!params.get('oobCode')) {
+        openBtn.style.display = 'none';
+      }
+    })();
+  </script>
+</body>
+</html>
