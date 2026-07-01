@@ -1341,6 +1341,34 @@ h4 { font-size: 1rem; }
   color: var(--primary-light);
 }
 
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: var(--primary-light);
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 158, 114, 0.35);
+  transform: translateY(-2px);
+}
+
 .footer-bottom {
   grid-column: 1 / -1;
   padding-top: 32px;
