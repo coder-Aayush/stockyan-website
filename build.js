@@ -54,7 +54,7 @@ function todayIso() {
 function build() {
   // Gracefully skip if no articles data
   if (!fs.existsSync(DATA_FILE)) {
-    console.log('No data/articles.json found — skipping learn page generation.');
+    console.log('No data/articles.json found, skipping learn page generation.');
     // Still ensure learn dir exists for clean deploys
     if (!fs.existsSync(LEARN_DIR)) fs.mkdirSync(LEARN_DIR, { recursive: true });
     return;
@@ -64,7 +64,7 @@ function build() {
   const published = articles.filter(a => a.isPublished);
 
   if (published.length === 0) {
-    console.log('No published articles — skipping learn page generation.');
+    console.log('No published articles, skipping learn page generation.');
     return;
   }
 

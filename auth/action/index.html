@@ -102,8 +102,8 @@
 
   <script>
     // Re-open the exact action link so the OS can hand it to the installed app
-    // (Universal Link / App Link). We re-fire the current URL — same mode &
-    // oobCode — which the app's deep-link handler consumes.
+    // (Universal Link / App Link). We re-fire the current URL (same mode &
+    // oobCode) which the app's deep-link handler consumes.
     (function () {
       var openBtn = document.getElementById('openApp');
       var currentUrl = window.location.href;

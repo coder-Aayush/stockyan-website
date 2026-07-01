@@ -53,7 +53,7 @@ const animatableSelectors = [
   '.feature-card',
   '.premium-card',
   '.service-group',
-  '.tab-item',
+  '.tabs-switcher',
   '.paper-trading-inner > *',
   '.download-content',
   '.section-header'
@@ -68,6 +68,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// ========== Stock Detail Tab Switcher ==========
+(function () {
+  const list = document.querySelector('.tabs-list');
+  if (!list) return;
+
+  const rows = Array.from(list.querySelectorAll('.tab-row'));
+  const previewImg = document.getElementById('tab-preview-img');
+
+  function activate(row) {
+    if (row.classList.contains('is-active')) return;
+
+    rows.forEach((r) => {
+      const on = r === row;
+      r.classList.toggle('is-active', on);
+      r.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+
+    const img = row.getAttribute('data-img');
+    if (previewImg && img) {
+      previewImg.src = img;
+      const title = row.querySelector('.tab-row-title');
+      if (title) previewImg.alt = 'StockYan ' + title.textContent + ' screen';
+    }
+
+    // On the mobile pill strip, keep the active pill in view
+    if (list.scrollWidth > list.clientWidth) {
+      row.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }
+
+  rows.forEach((row, i) => {
+    row.addEventListener('click', () => activate(row));
+    row.addEventListener('mouseenter', () => activate(row));
+    // Keyboard: arrow-key roving focus across the tablist
+    row.addEventListener('keydown', (e) => {
+      let next;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = rows[(i + 1) % rows.length];
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = rows[(i - 1 + rows.length) % rows.length];
+      if (next) {
+        e.preventDefault();
+        next.focus();
+        activate(next);
+      }
+    });
+  });
+})();
+
+// ========== Services: collapsible categories ==========
+(function () {
+  const groups = document.querySelectorAll('.service-group');
+  if (!groups.length) return;
+
+  groups.forEach((group) => {
+    const btn = group.querySelector('.service-group-title');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const open = group.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+})();
 
 // ========== Smooth Scroll for Anchor Links ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -108,6 +170,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       });
     })
     .catch(() => {
-      // Offline / manifest missing — leave the static latest.exe links as-is.
+      // Offline / manifest missing: leave the static latest.exe links as-is.
     });
+})();
+
+// Windows "blocked app" info popover.
+(function () {
+  const toggle = document.querySelector('.win-help-toggle');
+  const popover = document.getElementById('win-help-popover');
+  if (!toggle || !popover) return;
+
+  const open = () => {
+    popover.hidden = false;
+    toggle.setAttribute('aria-expanded', 'true');
+  };
+  const close = () => {
+    popover.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    popover.hidden ? open() : close();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!popover.hidden && !popover.contains(e.target)) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !popover.hidden) {
+      close();
+      toggle.focus();
+    }
+  });
 })();
