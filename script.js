@@ -50,13 +50,12 @@ const observer = new IntersectionObserver((entries) => {
 
 // Add fade-up class to animatable elements
 const animatableSelectors = [
-  '.feature-card',
-  '.premium-card',
-  '.service-group',
+  '.bp-card',
+  '.bp-split-copy',
+  '.bp-split-visual',
   '.tabs-switcher',
-  '.paper-trading-inner > *',
-  '.download-content',
-  '.section-header'
+  '.bp-head',
+  '.bp-stats-grid > *'
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -143,6 +142,60 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ========== Scroll Spy: highlight the nav link for the visible section ==========
+// Uses the same 80px offset as the smooth scroll above, so a link marks itself
+// current exactly when its section lands where the click would have parked it.
+(function () {
+  const links = Array.from(
+    document.querySelectorAll('.nav-links a[href^="#"], .mobile-menu a[href^="#"]')
+  ).filter(a => a.getAttribute('href').length > 1);
+  if (!links.length) return;
+
+  const sections = links
+    .map(link => ({ link, section: document.querySelector(link.getAttribute('href')) }))
+    .filter(pair => pair.section);
+  if (!sections.length) return;
+
+  let current = null;
+
+  const sync = () => {
+    const line = window.scrollY + 80 + 1;
+    let active = null;
+
+    for (const pair of sections) {
+      if (pair.section.offsetTop <= line) active = pair.section;
+    }
+
+    // Past the last section (footer/closer), keep the final link lit.
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+      active = sections[sections.length - 1].section;
+    }
+
+    if (active === current) return;
+    current = active;
+
+    for (const pair of sections) {
+      pair.link.classList.toggle('is-current', pair.section === active);
+    }
+  };
+
+  let ticking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        sync();
+        ticking = false;
+      });
+    },
+    { passive: true }
+  );
+  window.addEventListener('resize', sync);
+  sync();
+})();
 
 // ========== Windows Download: live version from Firebase ==========
 // The desktop CI publishes downloads/version.json on every release, so the

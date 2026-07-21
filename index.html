@@ -159,9 +159,9 @@
       gtag("config", "G-PPLESJJ5VF");
     </script>
   </head>
-  <body>
+  <body class="bp">
     <!-- Navigation -->
-    <nav class="nav" id="nav">
+    <nav class="nav bp-nav" id="nav">
       <div class="container nav-container">
         <a href="#" class="nav-logo">
           <picture
@@ -172,10 +172,14 @@
         </a>
         <div class="nav-links">
           <a href="#features">Features</a>
-          <a href="#services">Services</a>
-          <!-- Temporarily hidden (2-3 days) <a href="#premium">Premium</a> -->
+          <a href="#toolkit">Toolkit</a>
+          <a href="#stock">Stock detail</a>
+          <a href="#practice">Paper trading</a>
           <a href="/learn/">Learn</a>
-          <a href="#download" class="nav-cta">Download</a>
+        </div>
+        <div class="bp-nav-actions">
+          <a href="/learn/" class="bp-btn bp-btn-ghost">Learn</a>
+          <a href="#download" class="bp-btn bp-btn-solid">Get the app</a>
         </div>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
           <i class="fa-solid fa-bars"></i>
@@ -186,345 +190,325 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="#features">Features</a>
-      <a href="#services">Services</a>
-      <!-- Temporarily hidden (2-3 days) <a href="#premium">Premium</a> -->
+      <a href="#toolkit">Toolkit</a>
+      <a href="#stock">Stock detail</a>
+      <a href="#practice">Paper trading</a>
       <a href="/learn/">Learn</a>
-      <a href="#download" class="nav-cta">Download</a>
+      <a href="#download" class="nav-cta">Get the app</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero -->
+    <section class="hero bp-hero">
       <div class="container hero-container">
-        <div class="hero-content">
+        <div class="bp-hero-copy">
           <h1>
-            Trade Smarter with <span class="gradient-text">StockYan</span>
+            The Nepal market,<br />
+            <span class="accent">in your pocket</span><span class="dot">.</span>
           </h1>
           <p class="hero-subtitle">
-            A Nepal share market app built by investors, for investors.
-            Real-time NEPSE data, broker activity tracking, smart trade tools,
-            and market insights, all in one place.
+            Live NEPSE prices, broker activity and the analysis tools serious
+            investors actually use. Built by investors, for investors.
           </p>
-          <div class="hero-buttons">
-            <a
-              href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688"
-              target="_blank"
-              class="store-btn apple"
+          <div class="bp-hero-cta">
+            <a href="#download" class="bp-btn bp-btn-solid bp-btn-lg"
+              >Download free</a
             >
-              <i class="fa-brands fa-apple"></i>
-              <div>
-                <span class="store-label">Download on the</span>
-                <span class="store-name">App Store</span>
-              </div>
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=app.golden.stockyan"
-              target="_blank"
-              class="store-btn google"
+            <a href="#features" class="bp-btn bp-btn-ghost bp-btn-lg"
+              >See what is inside</a
             >
-              <i class="fa-brands fa-google-play"></i>
-              <div>
-                <span class="store-label">Get it on</span>
-                <span class="store-name">Google Play</span>
-              </div>
-            </a>
-            <a
-              href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Setup-latest.exe"
-              class="store-btn windows"
-              data-win-download
-              download
-            >
-              <i class="fa-brands fa-windows"></i>
-              <div>
-                <span class="store-label">Download for</span>
-                <span class="store-name">Windows</span>
-                <span class="store-version" data-win-version></span>
-              </div>
-            </a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-number">80+</span>
-              <span class="stat-label">Features</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-              <span class="stat-number">4.8</span>
-              <span class="stat-label">App Rating</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-              <span class="stat-number">Free</span>
-              <span class="stat-label">To Download</span>
-            </div>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="phone-mockup">
-            <div class="phone-screen">
-              <picture
-                ><source
-                  srcset="screenshots/dashboard.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/dashboard.png"
-                  alt="StockYan Dashboard"
-                  width="290"
-                  height="620"
-              /></picture>
-            </div>
+
+        <!-- Three overlapping phones -->
+        <div class="bp-phones">
+          <div class="bp-phone bp-phone-side bp-phone-left">
+            <picture
+              ><source srcset="screenshots/portofolio.webp" type="image/webp" />
+              <img
+                src="screenshots/portofolio.png"
+                alt="StockYan portfolio screen"
+                width="240"
+                height="480"
+            /></picture>
           </div>
-          <div class="floating-card card-1">
-            <i class="fa-solid fa-arrow-trend-up"></i>
-            <span>Live NEPSE Data</span>
+          <div class="bp-phone bp-phone-center">
+            <picture
+              ><source srcset="screenshots/dashboard.webp" type="image/webp" />
+              <img
+                src="screenshots/dashboard.png"
+                alt="StockYan dashboard showing live NEPSE market data"
+                width="290"
+                height="620"
+            /></picture>
           </div>
-          <div class="floating-card card-2">
-            <i class="fa-solid fa-bell"></i>
-            <span>Price Alerts</span>
-          </div>
-          <div class="floating-card card-3">
-            <i class="fa-solid fa-chart-pie"></i>
-            <span>Smart Portfolio</span>
+          <div class="bp-phone bp-phone-side bp-phone-right">
+            <picture
+              ><source
+                srcset="screenshots/broker_activity.webp"
+                type="image/webp" />
+              <img
+                src="screenshots/broker_activity.png"
+                alt="StockYan broker activity screen"
+                width="240"
+                height="480"
+            /></picture>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Stats bar -->
+    <section class="bp-stats">
       <div class="container">
-        <div class="section-header">
+        <div class="bp-stats-grid">
+          <div>
+            <span class="bp-stat-value">80+</span>
+            <span class="bp-stat-label">Features</span>
+          </div>
+          <div>
+            <span class="bp-stat-value">4.8</span>
+            <span class="bp-stat-label">App rating</span>
+          </div>
+          <div>
+            <span class="bp-stat-value">Free</span>
+            <span class="bp-stat-label">To download</span>
+          </div>
+          <div>
+            <span class="bp-stat-value">3</span>
+            <span class="bp-stat-label">Platforms</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="bp-section" id="features">
+      <div class="container">
+        <div class="bp-head">
           <h2>
-            Everything You Need to
-            <span class="gradient-text">Trade Better</span>
+            Everything you need to
+            <span class="accent">trade better</span><span class="dot">.</span>
           </h2>
           <p>
-            Monitor price movements, broker activity, trending stocks, and
-            market leaders, all in one powerful app.
+            Price movements, broker activity, trending stocks and market
+            leaders, all in one app.
           </p>
         </div>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon green">
+        <div class="bp-grid">
+          <div class="bp-card">
+            <div class="bp-card-icon">
               <i class="fa-solid fa-chart-line"></i>
             </div>
-            <h3>Live NEPSE Data</h3>
+            <h3>Live NEPSE data</h3>
             <p>
-              Real-time pricing, market indices, and live market movement
-              information updated throughout trading hours.
+              Real-time pricing, market indices and live movement updated
+              throughout trading hours.
             </p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon blue">
+          <div class="bp-card">
+            <div class="bp-card-icon">
               <i class="fa-solid fa-ranking-star"></i>
             </div>
-            <h3>Top Market Data</h3>
+            <h3>Top market data</h3>
             <p>
-              Track gainers, losers, turnover leaders, volume leaders, and
+              Track gainers, losers, turnover leaders, volume leaders and
               most-traded stocks in real time.
             </p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon purple">
+          <div class="bp-card">
+            <div class="bp-card-icon">
               <i class="fa-solid fa-building-columns"></i>
             </div>
-            <h3>Broker Activity</h3>
+            <h3>Broker activity</h3>
             <p>
-              Analyze broker accumulation and distribution patterns. See what
+              Analyse broker accumulation and distribution patterns. See what
               the big players are doing.
             </p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon orange">
+          <div class="bp-card">
+            <div class="bp-card-icon">
               <i class="fa-solid fa-fire-flame-curved"></i>
             </div>
-            <h3>Trending Stocks</h3>
+            <h3>Trending stocks</h3>
             <p>
-              Identify hot and trending securities that are seeing increased
-              market activity and interest.
+              Identify hot securities that are seeing increased market activity
+              and interest.
             </p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon red">
+          <div class="bp-card">
+            <div class="bp-card-icon">
               <i class="fa-solid fa-bell"></i>
             </div>
-            <h3>Stock Price Alerts</h3>
+            <h3>Stock price alerts</h3>
             <p>
-              Set custom alerts and get instant notifications when stocks hit
-              your target prices.
+              Set custom alerts and get notified the moment a stock hits your
+              target price.
             </p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon teal">
+          <div class="bp-card">
+            <div class="bp-card-icon">
               <i class="fa-solid fa-scale-balanced"></i>
             </div>
-            <h3>Risk Reward Calculator</h3>
+            <h3>Risk reward calculator</h3>
             <p>
-              Quick financial ratio computations to help you evaluate risk
-              before entering any trade.
+              Quick ratio computations so you can evaluate risk before entering
+              any trade.
             </p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon indigo">
+          <div class="bp-card">
+            <div class="bp-card-icon">
               <i class="fa-solid fa-briefcase"></i>
             </div>
-            <h3>Portfolio & Watchlist</h3>
+            <h3>Portfolio and watchlist</h3>
             <p>
-              Manage your holdings and track your favorite stocks with a
-              powerful portfolio manager.
+              Manage your holdings and track your favourite stocks in one
+              portfolio manager.
             </p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon pink">
+          <div class="bp-card">
+            <div class="bp-card-icon">
               <i class="fa-solid fa-book-open"></i>
             </div>
-            <h3>Smart Trade Journal</h3>
+            <h3>Smart trade journal</h3>
             <p>
-              Record your trades, add notes, and analyze your performance to
-              improve your strategy over time.
+              Record trades, add notes and analyse your performance to improve
+              your strategy over time.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- App Screenshots Section -->
-    <section class="screenshots" id="screenshots">
+    <!-- Alternating feature blocks -->
+    <section class="bp-section" id="toolkit">
       <div class="container">
-        <div class="section-header">
-          <h2>See <span class="gradient-text">StockYan</span> in Action</h2>
+        <div class="bp-head">
+          <h2>
+            A complete <span class="accent">trading toolkit</span
+            ><span class="dot">.</span>
+          </h2>
           <p>
-            Clean, intuitive interface designed for fast decision-making during
-            market hours.
+            From live market data to advanced analysis, StockYan covers what a
+            Nepali investor needs.
           </p>
         </div>
-        <div class="screenshots-scroll">
-          <div class="screenshots-track">
-            <!-- Set 1 (real) -->
-            <div class="screenshot-card">
-              <picture
-                ><source
-                  srcset="screenshots/dashboard.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/dashboard.png"
-                  alt="Dashboard"
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
+
+        <div class="bp-split">
+          <div class="bp-split-copy">
+            <h3>Follow the smart money</h3>
+            <p>
+              See which brokers are accumulating and which are distributing,
+              sector by sector. Spot the moves before the crowd does.
+            </p>
+            <div class="bp-checks">
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Sector-wise accumulation and distribution</span>
+              </div>
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Broker heatmap and dominance ranking</span>
+              </div>
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Aggressive accumulators and distribution leaders</span>
+              </div>
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Matching buy and sell detection</span>
+              </div>
             </div>
-            <div class="screenshot-card">
-              <picture
-                ><source
-                  srcset="screenshots/stock_detail.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/stock_detail.png"
-                  alt="Stock Detail"
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card">
-              <picture
-                ><source
-                  srcset="screenshots/portofolio.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/portofolio.png"
-                  alt="Portfolio"
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card">
+          </div>
+          <div class="bp-split-visual">
+            <div class="bp-phone">
               <picture
                 ><source
                   srcset="screenshots/broker_activity.webp"
                   type="image/webp" />
                 <img
                   src="screenshots/broker_activity.png"
-                  alt="Broker Activity"
-                  loading="lazy"
+                  alt="Broker activity analysis in StockYan"
                   width="240"
                   height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card">
-              <picture
-                ><source srcset="screenshots/premium.webp" type="image/webp" />
-                <img
-                  src="screenshots/premium.png"
-                  alt="Premium Insights"
                   loading="lazy"
-                  width="240"
-                  height="480"
               /></picture>
             </div>
-            <!-- Set 2 (duplicate for seamless loop) -->
-            <div class="screenshot-card" aria-hidden="true">
-              <picture
-                ><source
-                  srcset="screenshots/dashboard.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/dashboard.png"
-                  alt=""
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
+          </div>
+        </div>
+
+        <div class="bp-split is-flipped">
+          <div class="bp-split-copy">
+            <h3>Scan the whole market in seconds</h3>
+            <p>
+              Nineteen technical and fundamental scanners run across every
+              listed stock, so you find setups instead of hunting for them.
+            </p>
+            <div class="bp-chips">
+              <span class="bp-chip">RSI</span>
+              <span class="bp-chip">MACD</span>
+              <span class="bp-chip">EMA / SMA</span>
+              <span class="bp-chip">Bollinger</span>
+              <span class="bp-chip">Volume</span>
+              <span class="bp-chip">Pivot points</span>
+              <span class="bp-chip">Fibonacci</span>
+              <span class="bp-chip">Support and resistance</span>
+              <span class="bp-chip">Dow signals</span>
+              <span class="bp-chip">Trendline breakout</span>
+              <span class="bp-chip">Candlestick pattern</span>
+              <span class="bp-chip">Fundamental</span>
             </div>
-            <div class="screenshot-card" aria-hidden="true">
-              <picture
-                ><source
-                  srcset="screenshots/stock_detail.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/stock_detail.png"
-                  alt=""
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
+          </div>
+          <div class="bp-split-visual">
+            <div class="bp-phone">
+              <img
+                src="screenshots/rsi_filter.jpeg"
+                alt="Stock scanner filters in StockYan"
+                width="240"
+                height="480"
+                loading="lazy"
+              />
             </div>
-            <div class="screenshot-card" aria-hidden="true">
+          </div>
+        </div>
+
+        <div class="bp-split">
+          <div class="bp-split-copy">
+            <h3>Your trading desk, organised</h3>
+            <p>
+              Holdings, watchlists, notes and alerts in one place. Track what
+              you own and what you are watching without switching apps.
+            </p>
+            <div class="bp-checks">
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Portfolio with live profit and loss</span>
+              </div>
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Multiple watchlists</span>
+              </div>
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Trade notes and smart journal</span>
+              </div>
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Target and stock price alerts</span>
+              </div>
+            </div>
+          </div>
+          <div class="bp-split-visual">
+            <div class="bp-phone">
               <picture
                 ><source
                   srcset="screenshots/portofolio.webp"
                   type="image/webp" />
                 <img
                   src="screenshots/portofolio.png"
-                  alt=""
-                  loading="lazy"
+                  alt="Portfolio tracking in StockYan"
                   width="240"
                   height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card" aria-hidden="true">
-              <picture
-                ><source
-                  srcset="screenshots/broker_activity.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/broker_activity.png"
-                  alt=""
                   loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card" aria-hidden="true">
-              <picture
-                ><source srcset="screenshots/premium.webp" type="image/webp" />
-                <img
-                  src="screenshots/premium.png"
-                  alt=""
-                  loading="lazy"
-                  width="240"
-                  height="480"
               /></picture>
             </div>
           </div>
@@ -532,573 +516,17 @@
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Stock detail tabs -->
+    <section class="bp-section" id="stock">
       <div class="container">
-        <div class="section-header">
-          <h2>A Complete <span class="gradient-text">Trading Toolkit</span></h2>
-          <p>
-            From live market data to advanced analysis tools, StockYan has
-            everything a Nepali investor needs.
-          </p>
-        </div>
-
-        <div class="service-groups">
-          <!-- Trading Desk -->
-          <div class="service-group">
-            <button
-              class="service-group-title"
-              type="button"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-desktop"></i>
-              <span>Your Trading Desk</span>
-              <i class="fa-solid fa-chevron-down service-group-caret"></i>
-            </button>
-            <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-briefcase"></i>
-                <span>Portfolio</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-eye"></i>
-                <span>Watchlist</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-sticky-note"></i>
-                <span>Trade Notes</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-bell"></i>
-                <span>Stock Alerts</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Unlocked Premium -->
-          <div class="service-group service-group--premium">
-            <button
-              class="service-group-title"
-              type="button"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-unlock"></i>
-              <span>Unlocked Premium</span>
-              <i class="fa-solid fa-chevron-down service-group-caret"></i>
-            </button>
-            <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-fire"></i>
-                <span>Hot/Trending</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-book"></i>
-                <span>Smart Trade Journal</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Bulk Transaction</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-                <span>Trending Stocks</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-building-columns"></i>
-                <span>Broker Activity</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <span>Broker Focus</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-area"></i>
-                <span>Accumulation / Distribution</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-gamepad"></i>
-                <span>Paper Trading</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-lock-open"></i>
-                <span>Lock-in Tracker</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-trophy"></i>
-                <span>Top Brokers</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-crown"></i>
-                <span>Dividend Leaderboard</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Smart Money Tracker -->
-          <div class="service-group service-group--premium">
-            <button
-              class="service-group-title"
-              type="button"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-magnifying-glass-dollar"></i>
-              <span>Smart Money Tracker</span>
-              <i class="fa-solid fa-chevron-down service-group-caret"></i>
-            </button>
-            <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-list-check"></i>
-                <span>Sector-Wise A/D</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-bolt"></i>
-                <span>Aggressive Accumulators</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-trend-down"></i>
-                <span>Distribution Leaders</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-fire-flame-curved"></i>
-                <span>Broker Heatmap</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-crown"></i>
-                <span>Broker Dominance</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span>Aggressive Holdings</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-right-left"></i>
-                <span>Matching Buy/Sell</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-magnifying-glass-location"></i>
-                <span>Slow Accumulation</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stock Scanner -->
-          <div class="service-group service-group--premium">
-            <button
-              class="service-group-title"
-              type="button"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-magnifying-glass-chart"></i>
-              <span>Stock Scanner</span>
-              <i class="fa-solid fa-chevron-down service-group-caret"></i>
-            </button>
-            <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-wave-square"></i>
-                <span>RSI Filter</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-line"></i>
-                <span>MACD Signal</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-dollar-sign"></i>
-                <span>Fundamental Scanner</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-line"></i>
-                <span>EMA / SMA Scanner</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Bollinger Scanner</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-simple"></i>
-                <span>Volume Scanner</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-crosshairs"></i>
-                <span>Pivot Points</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-building-columns"></i>
-                <span>Stock Capitalization</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Fibonacci Levels</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-code-branch"></i>
-                <span>Support &amp; Resistance</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-                <span>Dow Signals</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-bezier-curve"></i>
-                <span>Trendline Breakout</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-gantt"></i>
-                <span>Price &amp; Volume</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-grip-lines"></i>
-                <span>Parallel Channel</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-diagram-project"></i>
-                <span>Trend Continuation</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Strong Trend</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-compress"></i>
-                <span>Consolidating</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Candlestick Pattern</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-code-compare"></i>
-                <span>Comparable Stock</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Trade Lab -->
-          <div class="service-group service-group--premium">
-            <button
-              class="service-group-title"
-              type="button"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-flask"></i>
-              <span>Trade Lab</span>
-              <i class="fa-solid fa-chevron-down service-group-caret"></i>
-            </button>
-            <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-chart-line"></i>
-                <span>Support Setups</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-up-right-dots"></i>
-                <span>Next Breakouts</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-compress"></i>
-                <span>Consolidating Picks</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-rocket"></i>
-                <span>Breakout Tradable</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-landmark"></i>
-                <span>Investment Picks</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-piggy-bank"></i>
-                <span>SIP In Stocks</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Trade Tools -->
-          <div class="service-group">
-            <button
-              class="service-group-title"
-              type="button"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-toolbox"></i>
-              <span>Trade Tools</span>
-              <i class="fa-solid fa-chevron-down service-group-caret"></i>
-            </button>
-            <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-calculator"></i>
-                <span>Calculator</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-scale-balanced"></i>
-                <span>Risk Reward</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-code-compare"></i>
-                <span>Compare Stocks</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Advanced Chart</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-calendar-check"></i>
-                <span>Nepse Calendar</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-brain"></i>
-                <span>Smart Portfolio</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-crosshairs"></i>
-                <span>Target Alert</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Live Market Data -->
-          <div class="service-group">
-            <button
-              class="service-group-title"
-              type="button"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-satellite-dish"></i>
-              <span>Live Market Data</span>
-              <i class="fa-solid fa-chevron-down service-group-caret"></i>
-            </button>
-            <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-th-large"></i>
-                <span>Sector Heatmap</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-list-ol"></i>
-                <span>Market Indices</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-up"></i>
-                <span>Top Gainers</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-down"></i>
-                <span>Top Losers</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-bar"></i>
-                <span>Volume Leaders</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-coins"></i>
-                <span>Turnover Leaders</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-signal"></i>
-                <span>Live NEPSE</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Information -->
-          <div class="service-group">
-            <button
-              class="service-group-title"
-              type="button"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-circle-info"></i>
-              <span>Information</span>
-              <i class="fa-solid fa-chevron-down service-group-caret"></i>
-            </button>
-            <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-up-right-dots"></i>
-                <span>52W High</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-down-short-wide"></i>
-                <span>52W Low</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <span>Price History</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-share-nodes"></i>
-                <span>Mero Share</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-key"></i>
-                <span>Credentials</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <span>Apply History</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-landmark"></i>
-                <span>Brokers</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-ticket"></i>
-                <span>IPO Result</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-bell"></i>
-                <span>IPO/FPO Alert</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-timeline"></i>
-                <span>IPO Pipeline</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-scroll"></i>
-                <span>Floor Sheet</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-newspaper"></i>
-                <span>News</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-book-open"></i>
-                <span>Beginner's Guide</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-ranking-star"></i>
-                <span>Top Traded</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Learn & Grow -->
-          <div class="service-group">
-            <button
-              class="service-group-title"
-              type="button"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-graduation-cap"></i>
-              <span>Learn &amp; Grow</span>
-              <i class="fa-solid fa-chevron-down service-group-caret"></i>
-            </button>
-            <div class="service-items">
-              <a href="/learn/" class="service-item">
-                <i class="fa-solid fa-book-open-reader"></i>
-                <span>Education Hub</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Premium Section — temporarily hidden (2-3 days) -->
-    <!--
-    <section class="premium" id="premium">
-      <div class="container">
-        <div class="section-header light">
+        <div class="bp-head">
           <h2>
-            Unlock <span class="gradient-text-light">Expert Analysis</span>
+            Seven views of every
+            <span class="accent">stock</span><span class="dot">.</span>
           </h2>
           <p>
-            Get curated market insights and trade setups from experienced
-            analysts to stay ahead of the market.
-          </p>
-        </div>
-        <div class="premium-grid">
-          <div class="premium-card">
-            <div class="premium-icon">
-              <i class="fa-solid fa-newspaper"></i>
-            </div>
-            <h3>Weekly Market Summary</h3>
-            <p>
-              Curated weekly analysis of market trends, key events, and what to
-              watch for in the coming week.
-            </p>
-          </div>
-          <div class="premium-card">
-            <div class="premium-icon">
-              <i class="fa-solid fa-magnet"></i>
-            </div>
-            <h3>Support Setups</h3>
-            <p>
-              Stocks approaching magnetic support levels with real-time LTP
-              distance tracking.
-            </p>
-          </div>
-          <div class="premium-card">
-            <div class="premium-icon">
-              <i class="fa-solid fa-arrow-up-from-bracket"></i>
-            </div>
-            <h3>Next Breakouts</h3>
-            <p>
-              Identify breakable resistance levels before they happen. Get in
-              early on potential breakouts.
-            </p>
-          </div>
-          <div class="premium-card">
-            <div class="premium-icon">
-              <i class="fa-solid fa-compress"></i>
-            </div>
-            <h3>Consolidating Picks</h3>
-            <p>
-              Find strong consolidation patterns with duration, touch count, and
-              range analysis.
-            </p>
-          </div>
-          <div class="premium-card">
-            <div class="premium-icon">
-              <i class="fa-solid fa-bolt-lightning"></i>
-            </div>
-            <h3>Tradable Breakouts</h3>
-            <p>
-              Actionable breakout signals with volume confirmation and strength
-              scoring.
-            </p>
-          </div>
-          <div class="premium-card">
-            <div class="premium-icon">
-              <i class="fa-solid fa-calendar-week"></i>
-            </div>
-            <h3>Weekly Trade Setup</h3>
-            <p>
-              Ready-made trade setups with entry, target, and stop-loss levels
-              for the week ahead.
-            </p>
-          </div>
-          <div class="premium-card">
-            <div class="premium-icon">
-              <i class="fa-solid fa-piggy-bank"></i>
-            </div>
-            <h3>SIP In Stocks</h3>
-            <p>
-              Systematic Investment Plan candidates, ideal stocks for
-              disciplined, long-term investing.
-            </p>
-          </div>
-          <div class="premium-card">
-            <div class="premium-icon">
-              <i class="fa-solid fa-gem"></i>
-            </div>
-            <h3>Investment Picks</h3>
-            <p>
-              Carefully selected long-term investment recommendations backed by
-              fundamental analysis.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!-- Stock Detail Section -->
-    <section class="stock-detail">
-      <div class="container">
-        <div class="section-header">
-          <h2>
-            7 Tabs of <span class="gradient-text">Stock Intelligence</span>
-          </h2>
-          <p>
-            Tap on any stock and dive deep with comprehensive analysis across
-            seven detailed views.
+            Tap any stock and go deep, from fundamentals and market depth to
+            broker flow and dividend history.
           </p>
         </div>
         <div class="tabs-switcher">
@@ -1110,13 +538,12 @@
               data-tab="stock-info"
               data-img="screenshots/stock_detail.png"
             >
-              <span class="tab-row-num">01</span>
               <span class="tab-row-icon"
                 ><i class="fa-solid fa-circle-info"></i
               ></span>
               <span class="tab-row-text">
-                <span class="tab-row-title">Stock Info</span>
-                <span class="tab-row-desc">Fundamentals & trading data</span>
+                <span class="tab-row-title">Stock info</span>
+                <span class="tab-row-desc">Fundamentals and trading data</span>
               </span>
               <i class="fa-solid fa-chevron-right tab-row-arrow"></i>
             </button>
@@ -1127,13 +554,12 @@
               data-tab="market-depth"
               data-img="screenshots/market_depth.jpeg"
             >
-              <span class="tab-row-num">02</span>
               <span class="tab-row-icon"
                 ><i class="fa-solid fa-layer-group"></i
               ></span>
               <span class="tab-row-text">
-                <span class="tab-row-title">Market Depth</span>
-                <span class="tab-row-desc">Buy/sell volume levels</span>
+                <span class="tab-row-title">Market depth</span>
+                <span class="tab-row-desc">Buy and sell volume levels</span>
               </span>
               <i class="fa-solid fa-chevron-right tab-row-arrow"></i>
             </button>
@@ -1144,13 +570,12 @@
               data-tab="floor-sheet"
               data-img="screenshots/floor_sheet.jpeg"
             >
-              <span class="tab-row-num">03</span>
               <span class="tab-row-icon"
                 ><i class="fa-solid fa-scroll"></i
               ></span>
               <span class="tab-row-text">
-                <span class="tab-row-title">Floor Sheet</span>
-                <span class="tab-row-desc">Transaction details & trends</span>
+                <span class="tab-row-title">Floor sheet</span>
+                <span class="tab-row-desc">Transaction details and trends</span>
               </span>
               <i class="fa-solid fa-chevron-right tab-row-arrow"></i>
             </button>
@@ -1161,13 +586,12 @@
               data-tab="broker-activity"
               data-img="screenshots/broker_analysis.jpeg"
             >
-              <span class="tab-row-num">04</span>
               <span class="tab-row-icon"
                 ><i class="fa-solid fa-building-columns"></i
               ></span>
               <span class="tab-row-text">
-                <span class="tab-row-title">Broker Activity</span>
-                <span class="tab-row-desc">Top buyers, sellers & holdings</span>
+                <span class="tab-row-title">Broker activity</span>
+                <span class="tab-row-desc">Top buyers, sellers and holdings</span>
               </span>
               <i class="fa-solid fa-chevron-right tab-row-arrow"></i>
             </button>
@@ -1178,13 +602,12 @@
               data-tab="price-history"
               data-img="screenshots/price_history_tab.jpeg"
             >
-              <span class="tab-row-num">05</span>
               <span class="tab-row-icon"
                 ><i class="fa-solid fa-clock-rotate-left"></i
               ></span>
               <span class="tab-row-text">
-                <span class="tab-row-title">Price History</span>
-                <span class="tab-row-desc">Historical price & volume</span>
+                <span class="tab-row-title">Price history</span>
+                <span class="tab-row-desc">Historical price and volume</span>
               </span>
               <i class="fa-solid fa-chevron-right tab-row-arrow"></i>
             </button>
@@ -1195,7 +618,6 @@
               data-tab="compare"
               data-img="screenshots/compare.jpeg"
             >
-              <span class="tab-row-num">06</span>
               <span class="tab-row-icon"
                 ><i class="fa-solid fa-code-compare"></i
               ></span>
@@ -1212,72 +634,22 @@
               data-tab="dividends"
               data-img="screenshots/dividends.jpeg"
             >
-              <span class="tab-row-num">07</span>
               <span class="tab-row-icon"
                 ><i class="fa-solid fa-money-bill-trend-up"></i
               ></span>
               <span class="tab-row-text">
                 <span class="tab-row-title">Dividends</span>
-                <span class="tab-row-desc">Dividend history & yields</span>
+                <span class="tab-row-desc">Dividend history and yields</span>
               </span>
               <i class="fa-solid fa-chevron-right tab-row-arrow"></i>
             </button>
           </div>
           <div class="tabs-preview">
-            <div class="phone-mockup">
-              <div class="phone-screen">
-                <img
-                  id="tab-preview-img"
-                  src="screenshots/stock_detail.png"
-                  alt="StockYan stock detail screen"
-                  width="290"
-                  height="620"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Paper Trading Section -->
-    <section class="paper-trading">
-      <div class="container paper-trading-inner">
-        <div class="paper-content">
-          <h2>
-            Practice with <span class="gradient-text">Paper Trading</span>
-          </h2>
-          <p>
-            New to the market? Practice your trading strategies with virtual
-            money before putting real capital at risk. Track your paper
-            portfolio, compete on leaderboards, and build confidence.
-          </p>
-          <div class="paper-features">
-            <div class="paper-feature">
-              <i class="fa-solid fa-check-circle"></i>
-              <span>Virtual portfolio with real market prices</span>
-            </div>
-            <div class="paper-feature">
-              <i class="fa-solid fa-check-circle"></i>
-              <span>Complete trade history & performance tracking</span>
-            </div>
-            <div class="paper-feature">
-              <i class="fa-solid fa-check-circle"></i>
-              <span>Competitive leaderboard to benchmark skills</span>
-            </div>
-            <div class="paper-feature">
-              <i class="fa-solid fa-check-circle"></i>
-              <span>Settlement simulation for realistic experience</span>
-            </div>
-          </div>
-        </div>
-        <div class="paper-visual">
-          <div class="phone-mockup">
-            <div class="phone-screen">
+            <div class="bp-phone">
               <img
-                src="screenshots/paper_trading_new.jpeg"
-                alt="StockYan paper trading screen showing virtual portfolio and performance"
+                id="tab-preview-img"
+                src="screenshots/stock_detail.png"
+                alt="StockYan stock detail screen"
                 width="290"
                 height="620"
                 loading="lazy"
@@ -1288,62 +660,103 @@
       </div>
     </section>
 
-    <!-- Download CTA Section -->
-    <section class="download" id="download">
-      <div class="container download-container">
-        <div class="download-content">
-          <h2>
-            Start Trading Smarter <span class="gradient-text-light">Today</span>
-          </h2>
-          <p>
-            Join thousands of Nepali investors who trust StockYan for their
-            daily market analysis. Free to download, powerful to use.
-          </p>
-          <div class="download-buttons">
-            <a
-              href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688"
-              target="_blank"
-              class="store-btn apple large"
-            >
-              <i class="fa-brands fa-apple"></i>
-              <div>
-                <span class="store-label">Download on the</span>
-                <span class="store-name">App Store</span>
+    <!-- Paper trading -->
+    <section class="bp-section" id="practice">
+      <div class="container">
+        <div class="bp-split">
+          <div class="bp-split-copy">
+            <h3>Practise before you risk real money</h3>
+            <p>
+              New to the market? Trade with virtual money at real market prices,
+              track your paper portfolio and build confidence first.
+            </p>
+            <div class="bp-checks">
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Virtual portfolio at real market prices</span>
               </div>
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=app.golden.stockyan"
-              target="_blank"
-              class="store-btn google large"
-            >
-              <i class="fa-brands fa-google-play"></i>
-              <div>
-                <span class="store-label">Get it on</span>
-                <span class="store-name">Google Play</span>
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Full trade history and performance tracking</span>
               </div>
-            </a>
-            <div class="win-download-group">
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Leaderboard to benchmark your skills</span>
+              </div>
+              <div class="bp-check">
+                <i class="fa-solid fa-check"></i>
+                <span>Settlement simulation for realistic timing</span>
+              </div>
+            </div>
+          </div>
+          <div class="bp-split-visual">
+            <div class="bp-phone">
+              <img
+                src="screenshots/paper_trading_new.jpeg"
+                alt="Paper trading portfolio in StockYan"
+                width="290"
+                height="620"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section class="bp-section" id="download">
+      <div class="container">
+        <div class="bp-split">
+          <div class="bp-split-copy">
+            <h3>
+              Pocket-sized.
+              <span class="accent">Full-powered</span><span class="dot">.</span>
+            </h3>
+            <p>
+              Track the market, manage your portfolio and run your analysis from
+              one app. Free to download on every platform.
+            </p>
+            <div class="bp-store-list">
+              <a
+                href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688"
+                target="_blank"
+                rel="noopener"
+                class="bp-store-row"
+              >
+                <i class="fa-brands fa-apple"></i>
+                <span class="bp-store-name">App Store</span>
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=app.golden.stockyan"
+                target="_blank"
+                rel="noopener"
+                class="bp-store-row"
+              >
+                <i class="fa-brands fa-google-play"></i>
+                <span class="bp-store-name">Google Play</span>
+              </a>
               <a
                 href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Setup-latest.exe"
-                class="store-btn windows large"
+                class="bp-store-row"
                 data-win-download
                 download
               >
-                <i class="fa-brands fa-windows"></i>
-                <div>
-                  <span class="store-label">Download for</span>
-                  <span class="store-name">Windows</span>
-                  <span class="store-version" data-win-version></span>
-                </div>
+                <i class="fa-brands fa-windows" style="color: #00a4ef"></i>
+                <span class="bp-store-name">
+                  Windows
+                  <span class="bp-store-meta" data-win-version></span>
+                </span>
               </a>
+            </div>
+            <div class="win-download-group">
               <button
                 type="button"
                 class="win-help-toggle"
-                aria-label="Windows blocked the app from opening?"
                 aria-expanded="false"
                 aria-controls="win-help-popover"
               >
-                <i class="fa-solid fa-circle-info"></i>
+                <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
               </button>
               <div
                 class="win-help"
@@ -1356,48 +769,112 @@
                   Windows blocked the app from opening?
                 </p>
                 <p>
-                  Windows may block new apps it doesn't recognise yet. To run
+                  Windows may block new apps it does not recognise yet. To run
                   StockYan:
                 </p>
                 <ol>
                   <li>
                     Right-click <strong>StockYan</strong> (or
-                    <code>finnepal.exe</code>) → <strong>Properties</strong> →
-                    tick <strong>Unblock</strong> → <strong>Apply</strong>.
+                    <code>finnepal.exe</code>) &rarr; <strong>Properties</strong>
+                    &rarr; tick <strong>Unblock</strong> &rarr;
+                    <strong>Apply</strong>.
                   </li>
                   <li>
-                    If it still won't open: open
+                    If it still will not open: open
                     <strong
-                      >Windows Security → App &amp; browser control → Smart App
-                      Control settings</strong
+                      >Windows Security &rarr; App &amp; browser control &rarr;
+                      Smart App Control settings</strong
                     >
                     and turn it <strong>Off</strong>, then launch again.
                   </li>
                 </ol>
                 <p class="win-help-note">
-                  This happens because the app isn't code-signed yet, but it's
+                  This happens because the app is not code-signed yet, but it is
                   safe to run.
                 </p>
               </div>
+            </div>
+          </div>
+          <div class="bp-split-visual">
+            <div class="bp-phone">
+              <picture
+                ><source srcset="screenshots/premium.webp" type="image/webp" />
+                <img
+                  src="screenshots/premium.png"
+                  alt="StockYan app on mobile"
+                  width="290"
+                  height="620"
+                  loading="lazy"
+              /></picture>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Closing CTA -->
+    <section class="bp-closer">
+      <div class="container">
+        <h2>
+          Start trading smarter
+          <span class="accent">today</span><span class="dot">.</span>
+        </h2>
+        <a href="#download" class="bp-btn bp-btn-solid bp-btn-lg"
+          >Download StockYan free</a
+        >
+      </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer-container">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <picture
-              ><source srcset="logo.webp" type="image/webp" />
-              <img src="logo.png" alt="StockYan" width="32" height="32"
-            /></picture>
-            <span>StockYan</span>
+    <footer class="footer bp-footer">
+      <div class="container">
+        <div class="bp-footer-grid">
+          <div class="bp-footer-col bp-footer-brand">
+            <div class="footer-logo">
+              <picture
+                ><source srcset="logo.webp" type="image/webp" />
+                <img src="logo.png" alt="StockYan" width="32" height="32"
+              /></picture>
+              <span>StockYan</span>
+            </div>
+            <p>Nepal share market app. Built by investors, for investors.</p>
           </div>
-          <p>Nepal Share Market App.<br />Built by investors, for investors.</p>
-          <div class="footer-social">
+          <div class="bp-footer-col">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#toolkit">Toolkit</a>
+            <a href="#stock">Stock detail</a>
+            <a href="#practice">Paper trading</a>
+          </div>
+          <div class="bp-footer-col">
+            <h4>Download</h4>
+            <a
+              href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688"
+              target="_blank"
+              rel="noopener"
+              >App Store</a
+            >
+            <a
+              href="https://play.google.com/store/apps/details?id=app.golden.stockyan"
+              target="_blank"
+              rel="noopener"
+              >Google Play</a
+            >
+            <a
+              href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Setup-latest.exe"
+              data-win-download
+              download
+              >Windows</a
+            >
+          </div>
+          <div class="bp-footer-col">
+            <h4>Resources</h4>
+            <a href="/learn/">Learn</a>
+          </div>
+        </div>
+        <div class="bp-footer-bottom">
+          <p>&copy; 2025 StockYan. All rights reserved.</p>
+          <div class="bp-footer-social">
             <a
               href="https://www.instagram.com/stockyan.app"
               target="_blank"
@@ -1432,40 +909,9 @@
             </a>
           </div>
         </div>
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>Product</h4>
-            <a href="#features">Features</a>
-            <a href="#services">Services</a>
-            <!-- Temporarily hidden (2-3 days) <a href="#premium">Premium</a> -->
-            <a href="/learn/">Learn</a>
-            <a href="#download">Download</a>
-          </div>
-          <div class="footer-col">
-            <h4>Download</h4>
-            <a
-              href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688"
-              target="_blank"
-              >App Store</a
-            >
-            <a
-              href="https://play.google.com/store/apps/details?id=app.golden.stockyan"
-              target="_blank"
-              >Google Play</a
-            >
-            <a
-              href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Setup-latest.exe"
-              data-win-download
-              download
-              >Windows</a
-            >
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2025 StockYan. All rights reserved.</p>
-        </div>
       </div>
     </footer>
+
 
     <script src="script.js" defer></script>
   </body>

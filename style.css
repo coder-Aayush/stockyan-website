@@ -1612,3 +1612,955 @@ h4 { font-size: 1rem; }
   opacity: 1;
   transform: translateY(0);
 }
+
+/* =====================================================================
+   BACKPACK-STYLE REDESIGN LAYER
+   Centered hero rhythm, pill nav, stats bar, alternating feature blocks.
+   Overrides the split-column layout above. Reuses :root tokens.
+   ===================================================================== */
+
+:root {
+  --bp-bg: #08090A;
+  --bp-panel: #0E1011;
+  --bp-panel-2: #121516;
+  --bp-hairline: rgba(255, 255, 255, 0.07);
+  --bp-hairline-strong: rgba(255, 255, 255, 0.12);
+  --bp-ink: #FFFFFF;
+  --bp-ink-dim: #8B9299;
+  --bp-max: 1180px;
+}
+
+body {
+  background: var(--bp-bg);
+}
+
+/* ---------- Scrollbar: match the dark shell instead of the OS default ---------- */
+html {
+  scrollbar-color: #2A2F33 var(--bp-bg); /* Firefox */
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bp-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: #2A2F33;
+  /* Inset the thumb so it reads as a floating pill, not a full-width bar. */
+  border: 3px solid var(--bp-bg);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3C4348;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bp-bg);
+}
+
+.container {
+  max-width: var(--bp-max);
+}
+
+/* ---------- Type scale: tighter, heavier, Backpack-like ---------- */
+.bp h1,
+.bp h2 {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.03;
+}
+
+.bp h1 {
+  font-size: clamp(2.75rem, 7.5vw, 5.25rem);
+}
+
+.bp h2 {
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+}
+
+/* The accent word carries the green; the period stays white. */
+.bp .accent {
+  color: var(--primary-light);
+  -webkit-text-fill-color: var(--primary-light);
+  background: none;
+}
+
+.bp .dot {
+  color: var(--bp-ink);
+}
+
+/* ---------- Floating pill navigation ---------- */
+.nav.bp-nav {
+  padding: 18px 0;
+  background: transparent;
+  border-bottom: none;
+}
+
+.nav.bp-nav.scrolled {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+  padding: 12px 0;
+}
+
+.bp-nav .nav-container {
+  max-width: 1440px;
+  position: relative;
+}
+
+.bp-nav .nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 4px;
+  padding: 7px 10px;
+  border-radius: 100px;
+  background: rgba(20, 23, 25, 0.72);
+  border: 1px solid var(--bp-hairline);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.bp-nav .nav-links a {
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--bp-ink-dim);
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.bp-nav .nav-links a:hover {
+  color: var(--bp-ink);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Scroll-spy: highlights the link for the section currently in view. */
+.bp-nav .nav-links a.is-current {
+  color: var(--bp-ink);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu a.is-current {
+  color: var(--text-primary);
+}
+
+/* Right-hand actions sit outside the pill, as on the reference. */
+.bp-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.bp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 0.925rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, opacity 0.18s ease;
+}
+
+.bp-btn:hover {
+  transform: translateY(-1px);
+}
+
+.bp-btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--bp-hairline);
+  color: var(--bp-ink);
+}
+
+.bp-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.bp-btn-solid {
+  background: var(--primary-light);
+  color: #04120D;
+}
+
+.bp-btn-solid:hover {
+  background: #17d69c;
+}
+
+.bp-btn-lg {
+  padding: 15px 34px;
+  font-size: 1rem;
+}
+
+/* ---------- Centered hero ---------- */
+.hero.bp-hero {
+  min-height: auto;
+  display: block;
+  padding: 168px 0 0;
+  text-align: center;
+}
+
+.hero.bp-hero::before,
+.hero.bp-hero::after {
+  display: none;
+}
+
+.bp-hero .hero-container {
+  display: block;
+}
+
+.bp-hero-copy {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.bp-hero .hero-subtitle {
+  max-width: 620px;
+  margin: 26px auto 0;
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--bp-ink-dim);
+}
+
+.bp-hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 38px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Three overlapping phones ---------- */
+.bp-phones {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  margin-top: 72px;
+  padding-bottom: 40px;
+  isolation: isolate;
+}
+
+.bp-phone {
+  position: relative;
+  border-radius: 34px;
+  padding: 9px;
+  background: linear-gradient(160deg, #23282b, #101314);
+  border: 1px solid var(--bp-hairline-strong);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.75);
+  flex-shrink: 0;
+}
+
+.bp-phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 26px;
+}
+
+/* Center phone: forward and full-strength. */
+.bp-phone-center {
+  width: 300px;
+  z-index: 3;
+}
+
+/* Flanking phones: lower, behind, dimmed so they read as context. */
+.bp-phone-side {
+  width: 258px;
+  z-index: 1;
+  opacity: 0.62;
+  filter: saturate(0.85);
+}
+
+.bp-phone-left {
+  margin-right: -52px;
+  transform: translateY(46px);
+}
+
+.bp-phone-right {
+  margin-left: -52px;
+  transform: translateY(46px);
+}
+
+/* Ambient green bloom behind the cluster. */
+.bp-phones::before {
+  content: '';
+  position: absolute;
+  inset: 12% -10% 0;
+  background: radial-gradient(
+    ellipse 55% 60% at 50% 45%,
+    rgba(0, 196, 140, 0.16) 0%,
+    transparent 72%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Fade the cluster into the stats bar below. */
+.bp-phones::after {
+  content: '';
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: 0;
+  height: 190px;
+  background: linear-gradient(to bottom, transparent, var(--bp-bg) 82%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* ---------- Stats bar ---------- */
+.bp-stats {
+  border-top: 1px solid var(--bp-hairline);
+  border-bottom: 1px solid var(--bp-hairline);
+  padding: 60px 0;
+}
+
+.bp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.bp-stat-value {
+  display: block;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--bp-ink);
+  line-height: 1.1;
+}
+
+.bp-stat-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--bp-ink-dim);
+}
+
+/* ---------- Generic centered section head ---------- */
+.bp-section {
+  padding: 128px 0;
+}
+
+.bp-head {
+  max-width: 720px;
+  margin: 0 auto 68px;
+  text-align: center;
+}
+
+.bp-head p {
+  margin-top: 20px;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--bp-ink-dim);
+}
+
+/* ---------- Alternating feature blocks ---------- */
+.bp-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.bp-split + .bp-split {
+  margin-top: 128px;
+}
+
+/* Every other block flips the visual to the left. */
+.bp-split.is-flipped .bp-split-visual {
+  order: -1;
+}
+
+.bp-split h3 {
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.bp-split p {
+  margin-top: 20px;
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: var(--bp-ink-dim);
+}
+
+.bp-checks {
+  margin-top: 30px;
+  display: grid;
+  gap: 15px;
+}
+
+.bp-check {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 1.02rem;
+  color: var(--bp-ink);
+}
+
+.bp-check i {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(0, 196, 140, 0.14);
+  color: var(--primary-light);
+  font-size: 0.7rem;
+}
+
+.bp-split-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.bp-split-visual .bp-phone {
+  width: 280px;
+}
+
+/* ---------- Card grid ---------- */
+.bp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+  gap: 18px;
+}
+
+.bp-card {
+  padding: 30px;
+  /* Icon, heading and copy share one centre line so the icon doesn't read
+     as accidentally offset above left-aligned text. */
+  text-align: center;
+  border-radius: 18px;
+  background: var(--bp-panel);
+  border: 1px solid var(--bp-hairline);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.bp-card:hover {
+  background: var(--bp-panel-2);
+  border-color: var(--bp-hairline-strong);
+  transform: translateY(-3px);
+}
+
+.bp-card-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: rgba(0, 196, 140, 0.1);
+  color: var(--primary-light);
+  font-size: 1.05rem;
+  margin: 0 auto 20px;
+}
+
+.bp-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.bp-card p {
+  margin-top: 11px;
+  font-size: 0.965rem;
+  line-height: 1.6;
+  color: var(--bp-ink-dim);
+  /* Balanced breaks keep centred copy from ending on a lone orphan word. */
+  text-wrap: balance;
+}
+
+/* ---------- Chip rows ---------- */
+.bp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.bp-chip {
+  padding: 8px 15px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--bp-hairline);
+  font-size: 0.875rem;
+  color: var(--bp-ink-dim);
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.bp-chip:hover {
+  color: var(--bp-ink);
+  border-color: var(--bp-hairline-strong);
+}
+
+/* ---------- Download panel ---------- */
+.bp-store-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 34px;
+  max-width: 460px;
+}
+
+.bp-store-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: var(--bp-panel);
+  border: 1px solid var(--bp-hairline);
+  color: var(--bp-ink);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.bp-store-row:hover {
+  background: var(--bp-panel-2);
+  border-color: var(--bp-hairline-strong);
+}
+
+.bp-store-row > i {
+  font-size: 1.55rem;
+  width: 26px;
+  text-align: center;
+}
+
+.bp-store-row .bp-store-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.bp-store-row .bp-store-meta {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--bp-ink-dim);
+}
+
+.bp-store-row .bp-store-meta:empty {
+  display: none;
+}
+
+/* ---------- Closing CTA ---------- */
+.bp-closer {
+  padding: 150px 0 130px;
+  text-align: center;
+}
+
+.bp-closer .bp-btn {
+  margin-top: 36px;
+}
+
+/* ---------- Footer ---------- */
+.footer.bp-footer {
+  border-top: 1px solid var(--bp-hairline);
+  background: var(--bp-bg);
+  padding: 72px 0 40px;
+}
+
+.bp-footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: 44px;
+}
+
+.bp-footer-col h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--bp-ink);
+  margin-bottom: 18px;
+}
+
+.bp-footer-col a {
+  display: block;
+  font-size: 0.93rem;
+  color: var(--bp-ink-dim);
+  padding: 6px 0;
+  transition: color 0.18s ease;
+}
+
+.bp-footer-col a:hover {
+  color: var(--bp-ink);
+}
+
+.bp-footer-brand p {
+  margin-top: 16px;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--bp-ink-dim);
+  max-width: 260px;
+}
+
+.bp-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--bp-hairline);
+}
+
+.bp-footer-bottom p {
+  font-size: 0.875rem;
+  color: var(--bp-ink-dim);
+}
+
+.bp-footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.bp-footer-social a {
+  color: var(--bp-ink-dim);
+  font-size: 1.05rem;
+  transition: color 0.18s ease;
+}
+
+.bp-footer-social a:hover {
+  color: var(--bp-ink);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .bp-nav .nav-links,
+  .bp-nav-actions {
+    display: none;
+  }
+
+  .bp-split {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  /* Keep the visual below the copy on narrow screens regardless of flip. */
+  .bp-split.is-flipped .bp-split-visual {
+    order: 0;
+  }
+
+  .bp-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero.bp-hero {
+    padding-top: 128px;
+  }
+
+  /* Side phones would overflow; show the hero phone alone. */
+  .bp-phone-side {
+    display: none;
+  }
+
+  .bp-phone-center {
+    width: min(280px, 72vw);
+  }
+
+  .bp-phones {
+    margin-top: 52px;
+  }
+
+  .bp-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
+  }
+
+  .bp-section {
+    padding: 88px 0;
+  }
+
+  .bp-split + .bp-split {
+    margin-top: 88px;
+  }
+
+  .bp-closer {
+    padding: 100px 0 88px;
+  }
+}
+
+@media (max-width: 560px) {
+  .bp-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bp-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ---------- Accessibility floor ---------- */
+.bp a:focus-visible,
+.bp button:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bp *,
+  .bp *::before,
+  .bp *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .bp-btn:hover,
+  .bp-card:hover {
+    transform: none;
+  }
+}
+
+/* ---------- Tab switcher: retune to the redesign palette ---------- */
+.bp .tabs-switcher {
+  grid-template-columns: 1fr 0.8fr;
+  gap: 64px;
+}
+
+.bp .tab-row {
+  border-radius: 14px;
+}
+
+.bp .tab-row:hover {
+  background: var(--bp-panel);
+}
+
+.bp .tab-row.is-active {
+  background: var(--bp-panel);
+  border-color: rgba(0, 196, 140, 0.3);
+}
+
+.bp .tab-row.is-active::before {
+  background: var(--primary-light);
+}
+
+.bp .tab-row-icon {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--bp-hairline);
+  color: var(--bp-ink-dim);
+}
+
+.bp .tab-row.is-active .tab-row-icon {
+  background: rgba(0, 196, 140, 0.14);
+  color: var(--primary-light);
+}
+
+.bp .tab-row-desc {
+  color: var(--bp-ink-dim);
+}
+
+/* Preview column now hosts a .bp-phone, not the legacy .phone-mockup. */
+.bp .tabs-preview .bp-phone {
+  width: 290px;
+}
+
+@media (max-width: 1024px) {
+  .bp .tabs-switcher {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  /* Horizontal pill strip on narrow screens, matching the original behaviour. */
+  .bp .tabs-list {
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .bp .tabs-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bp .tab-row {
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  .bp .tab-row-desc,
+  .bp .tab-row-arrow {
+    display: none;
+  }
+
+  .bp .tabs-preview {
+    order: -1;
+  }
+}
+
+/* ---------- Mobile menu: match the redesign ---------- */
+.bp .mobile-menu {
+  background: rgba(8, 9, 10, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  gap: 26px;
+}
+
+.bp .mobile-menu a {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--bp-ink-dim);
+}
+
+.bp .mobile-menu a:hover {
+  color: var(--bp-ink);
+}
+
+.bp .mobile-menu .nav-cta {
+  margin-top: 10px;
+  padding: 13px 30px !important;
+  background: var(--primary-light) !important;
+  color: #04120D !important;
+  border-radius: 100px;
+  font-size: 1.05rem !important;
+}
+
+.bp .nav-toggle {
+  display: none;
+  color: var(--bp-ink);
+  z-index: 1001;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .bp .nav-toggle {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+/* ---------- Windows help toggle, now inline under the store list ---------- */
+.bp .win-download-group {
+  position: relative;
+  display: inline-flex;
+  margin-top: 16px;
+}
+
+.bp .win-help-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--bp-ink-dim);
+  cursor: pointer;
+  transition: color 0.18s ease;
+}
+
+.bp .win-help-toggle::after {
+  content: 'Windows blocked the app?';
+}
+
+.bp .win-help-toggle:hover {
+  color: var(--bp-ink);
+}
+
+.bp .win-help {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  z-index: 50;
+  width: min(400px, 88vw);
+  padding: 20px 22px;
+  border-radius: 14px;
+  background: var(--bp-panel-2);
+  border: 1px solid var(--bp-hairline-strong);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--bp-ink-dim);
+  text-align: left;
+}
+
+.bp .win-help[hidden] {
+  display: none;
+}
+
+.bp .win-help-title {
+  font-weight: 700;
+  color: var(--bp-ink);
+  margin-bottom: 10px;
+}
+
+.bp .win-help ol {
+  margin: 12px 0 0 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.bp .win-help strong {
+  color: var(--bp-ink);
+}
+
+.bp .win-help code {
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 0.85em;
+}
+
+.bp .win-help-note {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--bp-hairline);
+  font-size: 0.85rem;
+}
+
+/* ---------- Footer logo ---------- */
+.bp .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--bp-ink);
+}
+
+.bp .footer-logo img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+/* ---------- Scroll reveal ---------- */
+.bp .fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.bp .fade-up.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bp .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+}

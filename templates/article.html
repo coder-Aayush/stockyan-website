@@ -100,10 +100,10 @@
     gtag('config', 'G-PPLESJJ5VF');
   </script>
 </head>
-<body>
+<body class="bp">
 
-  <!-- Navigation -->
-  <nav class="nav scrolled">
+  <!-- Navigation: same floating pill as the homepage -->
+  <nav class="nav bp-nav scrolled" id="nav">
     <div class="container nav-container">
       <a href="/" class="nav-logo">
         <picture><source srcset="/logo.webp" type="image/webp"><img src="/logo.png" alt="StockYan Logo" width="36" height="36"></picture>
@@ -111,9 +111,14 @@
       </a>
       <div class="nav-links">
         <a href="/#features">Features</a>
-        <a href="/#services">Services</a>
-        <a href="/learn/">Learn</a>
-        <a href="/#download" class="nav-cta">Download</a>
+        <a href="/#toolkit">Toolkit</a>
+        <a href="/#stock">Stock detail</a>
+        <a href="/#practice">Paper trading</a>
+        <a href="/learn/" class="is-current">Learn</a>
+      </div>
+      <div class="bp-nav-actions">
+        <a href="/learn/" class="bp-btn bp-btn-ghost">Learn</a>
+        <a href="/#download" class="bp-btn bp-btn-solid">Get the app</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <i class="fa-solid fa-bars"></i>
@@ -124,9 +129,11 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="/#features">Features</a>
-    <a href="/#services">Services</a>
-    <a href="/learn/">Learn</a>
-    <a href="/#download" class="nav-cta">Download</a>
+    <a href="/#toolkit">Toolkit</a>
+    <a href="/#stock">Stock detail</a>
+    <a href="/#practice">Paper trading</a>
+    <a href="/learn/" class="is-current">Learn</a>
+    <a href="/#download" class="nav-cta">Get the app</a>
   </div>
 
   <!-- Breadcrumbs -->
@@ -144,9 +151,12 @@
   <article class="learn-article">
     <div class="container">
       <div class="article-header">
-        <span class="article-category-tag">{{category}}</span>
         <h1>{{title}}</h1>
-        <time datetime="{{datePublished}}">{{dateFormatted}}</time>
+        <p class="article-meta">
+          <span class="article-meta-cat">{{category}}</span>
+          <span class="article-meta-sep">&middot;</span>
+          <time datetime="{{datePublished}}">{{dateFormatted}}</time>
+        </p>
       </div>
       {{heroImage}}
       <div class="article-body">
@@ -156,13 +166,10 @@
   </article>
 
   <!-- Download CTA -->
-  <section class="learn-cta">
+  <section class="bp-section learn-cta">
     <div class="container">
       <div class="learn-cta-inner">
-        <div class="learn-cta-icon">
-          <i class="fa-solid fa-mobile-screen-button"></i>
-        </div>
-        <h2>Read more on the StockYan app</h2>
+        <h2>Read more on the app<span class="dot">.</span></h2>
         <p>Get the full education hub with 7 categories, plus real-time NEPSE data, broker activity tracking, and smart trade tools.</p>
         <div class="learn-cta-buttons">
           <a href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688" target="_blank" class="store-btn apple">
@@ -184,32 +191,44 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <picture><source srcset="/logo.webp" type="image/webp"><img src="/logo.png" alt="StockYan" width="32" height="32"></picture>
-          <span>StockYan</span>
+  <!-- Footer: mirrors the homepage -->
+  <footer class="footer bp-footer">
+    <div class="container">
+      <div class="bp-footer-grid">
+        <div class="bp-footer-col bp-footer-brand">
+          <div class="footer-logo">
+            <picture><source srcset="/logo.webp" type="image/webp"><img src="/logo.png" alt="StockYan" width="32" height="32"></picture>
+            <span>StockYan</span>
+          </div>
+          <p>Nepal share market app. Built by investors, for investors.</p>
         </div>
-        <p>Nepal Share Market App.<br>Built by investors, for investors.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
+        <div class="bp-footer-col">
           <h4>Product</h4>
           <a href="/#features">Features</a>
-          <a href="/#services">Services</a>
-          <a href="/learn/">Learn</a>
-          <a href="/#download">Download</a>
+          <a href="/#toolkit">Toolkit</a>
+          <a href="/#stock">Stock detail</a>
+          <a href="/#practice">Paper trading</a>
         </div>
-        <div class="footer-col">
+        <div class="bp-footer-col">
           <h4>Download</h4>
-          <a href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688" target="_blank">App Store</a>
-          <a href="https://play.google.com/store/apps/details?id=app.golden.stockyan" target="_blank">Google Play</a>
+          <a href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688" target="_blank" rel="noopener">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=app.golden.stockyan" target="_blank" rel="noopener">Google Play</a>
+        </div>
+        <div class="bp-footer-col">
+          <h4>Resources</h4>
+          <a href="/learn/">Learn</a>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="bp-footer-bottom">
         <p>&copy; 2025 StockYan. All rights reserved.</p>
+        <div class="bp-footer-social">
+          <a href="https://www.instagram.com/stockyan.app" target="_blank" rel="noopener" aria-label="StockYan on Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/share/1DyQ7Jwt8B/" target="_blank" rel="noopener" aria-label="StockYan on Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
