@@ -51,7 +51,7 @@
 .category-pill {
   display: inline-block;
   padding: 8px 20px;
-  background: var(--bg-surface);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 100px;
   color: var(--text-secondary);
@@ -59,19 +59,21 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
 }
 
 .category-pill:hover {
   background: var(--bg-card-hover);
-  border-color: rgba(0, 158, 114, 0.3);
+  border-color: rgba(0, 196, 140, 0.35);
   color: var(--text-primary);
 }
 
+/* active filter uses the solid brand fill, matching the site's CTA treatment */
 .category-pill.active {
-  background: rgba(0, 158, 114, 0.15);
-  border-color: var(--primary);
-  color: var(--primary-light);
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  color: var(--on-accent);
 }
 
 /* ── Articles Grid ── */
@@ -88,13 +90,16 @@
 .article-card {
   display: flex;
   flex-direction: column;
-  background: var(--bg-surface);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  transition: all 0.3s ease;
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+  will-change: transform;
+  /* transform/colour only — no `all`, which would animate layout properties */
+  transition: transform var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
 }
 
 .article-thumbnail {
@@ -124,15 +129,14 @@
 
 .article-card:hover {
   background: var(--bg-card-hover);
-  border-color: rgba(0, 158, 114, 0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 158, 114, 0.08);
+  border-color: rgba(0, 196, 140, 0.35);
+  transform: translateY(-6px);
 }
 
 .article-card .article-category {
   display: inline-block;
   padding: 4px 12px;
-  background: rgba(0, 158, 114, 0.1);
+  background: rgba(0, 196, 140,0.1);
   border-radius: 100px;
   color: var(--primary-light);
   font-size: 0.75rem;
@@ -200,8 +204,8 @@
 .article-category-tag {
   display: inline-block;
   padding: 6px 16px;
-  background: rgba(0, 158, 114, 0.1);
-  border: 1px solid rgba(0, 158, 114, 0.25);
+  background: rgba(0, 196, 140,0.1);
+  border: 1px solid rgba(0, 196, 140,0.25);
   border-radius: 100px;
   color: var(--primary-light);
   font-size: 0.85rem;
@@ -260,7 +264,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  background: rgba(0, 158, 114, 0.12);
+  background: rgba(0, 196, 140,0.12);
   color: var(--primary-light);
 }
 

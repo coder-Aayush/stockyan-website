@@ -65,7 +65,7 @@
     <meta name="apple-itunes-app" content="app-id=6757148688" />
 
     <!-- Theme & Icons -->
-    <meta name="theme-color" content="#009E72" />
+    <meta name="theme-color" content="#050706" />
     <meta name="msapplication-TileColor" content="#009E72" />
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="apple-touch-icon" href="logo.png" />
@@ -197,7 +197,7 @@
       <div class="container hero-container">
         <div class="hero-content">
           <h1>
-            Trade Smarter with <span class="gradient-text">StockYan</span>
+            Trade smarter <span class="gradient-text">with StockYan</span>
           </h1>
           <p class="hero-subtitle">
             A Nepal share market app built by investors, for investors.
@@ -241,25 +241,27 @@
               </div>
             </a>
           </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-number">80+</span>
-              <span class="stat-label">Features</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-              <span class="stat-number">4.8</span>
-              <span class="stat-label">App Rating</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-              <span class="stat-number">Free</span>
-              <span class="stat-label">To Download</span>
-            </div>
-          </div>
         </div>
         <div class="hero-visual">
-          <div class="phone-mockup">
+          <!-- Orbit ring behind both phones. Decorative, so aria-hidden. -->
+          <svg
+            class="hero-orbit"
+            viewBox="0 0 520 560"
+            fill="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <ellipse
+              class="hero-orbit-ring"
+              cx="268"
+              cy="280"
+              rx="246"
+              ry="190"
+              transform="rotate(-20 268 280)"
+            />
+          </svg>
+
+          <div class="phone-mockup phone-front">
             <div class="phone-screen">
               <picture
                 ><source
@@ -273,6 +275,23 @@
               /></picture>
             </div>
           </div>
+
+          <div class="phone-mockup phone-back" aria-hidden="true">
+            <div class="phone-screen">
+              <picture
+                ><source
+                  srcset="screenshots/portofolio.webp"
+                  type="image/webp" />
+                <img
+                  src="screenshots/portofolio.png"
+                  alt=""
+                  width="290"
+                  height="620"
+                  loading="lazy"
+              /></picture>
+            </div>
+          </div>
+
           <div class="floating-card card-1">
             <i class="fa-solid fa-arrow-trend-up"></i>
             <span>Live NEPSE Data</span>
@@ -294,15 +313,20 @@
       <div class="container">
         <div class="section-header">
           <h2>
-            Everything You Need to
-            <span class="gradient-text">Trade Better</span>
+            Everything you need to
+            <span class="gradient-text">trade better.</span>
           </h2>
           <p>
             Monitor price movements, broker activity, trending stocks, and
             market leaders, all in one powerful app.
           </p>
         </div>
-        <div class="features-grid">
+        <!-- Carousel: the card sitting in the centre slot is highlighted in
+             solid brand green. Without JS it degrades to a horizontally
+             scrollable strip, so every card stays reachable. -->
+        <div class="features-slider">
+          <div class="features-viewport">
+            <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon green">
               <i class="fa-solid fa-chart-line"></i>
@@ -383,6 +407,11 @@
               improve your strategy over time.
             </p>
           </div>
+            </div>
+          </div>
+          <div class="features-controls">
+            <div class="slider-dots" data-features-dots></div>
+          </div>
         </div>
       </div>
     </section>
@@ -390,142 +419,95 @@
     <!-- App Screenshots Section -->
     <section class="screenshots" id="screenshots">
       <div class="container">
-        <div class="section-header">
-          <h2>See <span class="gradient-text">StockYan</span> in Action</h2>
-          <p>
-            Clean, intuitive interface designed for fast decision-making during
-            market hours.
-          </p>
-        </div>
-        <div class="screenshots-scroll">
-          <div class="screenshots-track">
-            <!-- Set 1 (real) -->
-            <div class="screenshot-card">
-              <picture
-                ><source
-                  srcset="screenshots/dashboard.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/dashboard.png"
-                  alt="Dashboard"
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
+        <div class="screenshots-layout">
+          <div class="screenshots-copy">
+            <h2>
+              See <span class="gradient-text">StockYan</span><br />in action.
+            </h2>
+            <p>
+              Clean, intuitive interface designed for fast decision-making
+              during market hours.
+            </p>
+            <div class="hero-stats">
+              <div class="stat">
+                <span class="stat-number">80+</span>
+                <span class="stat-label">Features</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat">
+                <span class="stat-number">4.8</span>
+                <span class="stat-label">App Rating</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat">
+                <span class="stat-number">Free</span>
+                <span class="stat-label">To Download</span>
+              </div>
             </div>
-            <div class="screenshot-card">
-              <picture
-                ><source
-                  srcset="screenshots/stock_detail.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/stock_detail.png"
-                  alt="Stock Detail"
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card">
-              <picture
-                ><source
-                  srcset="screenshots/portofolio.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/portofolio.png"
-                  alt="Portfolio"
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card">
-              <picture
-                ><source
-                  srcset="screenshots/broker_activity.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/broker_activity.png"
-                  alt="Broker Activity"
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card">
-              <picture
-                ><source srcset="screenshots/premium.webp" type="image/webp" />
-                <img
-                  src="screenshots/premium.png"
-                  alt="Premium Insights"
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <!-- Set 2 (duplicate for seamless loop) -->
-            <div class="screenshot-card" aria-hidden="true">
-              <picture
-                ><source
-                  srcset="screenshots/dashboard.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/dashboard.png"
-                  alt=""
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card" aria-hidden="true">
-              <picture
-                ><source
-                  srcset="screenshots/stock_detail.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/stock_detail.png"
-                  alt=""
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card" aria-hidden="true">
-              <picture
-                ><source
-                  srcset="screenshots/portofolio.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/portofolio.png"
-                  alt=""
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card" aria-hidden="true">
-              <picture
-                ><source
-                  srcset="screenshots/broker_activity.webp"
-                  type="image/webp" />
-                <img
-                  src="screenshots/broker_activity.png"
-                  alt=""
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
-            </div>
-            <div class="screenshot-card" aria-hidden="true">
-              <picture
-                ><source srcset="screenshots/premium.webp" type="image/webp" />
-                <img
-                  src="screenshots/premium.png"
-                  alt=""
-                  loading="lazy"
-                  width="240"
-                  height="480"
-              /></picture>
+          </div>
+          <div class="screenshots-stage">
+            <div class="shots">
+              <div class="shots-col">
+                <figure class="shot">
+                  <picture
+                    ><source srcset="screenshots/dashboard.webp" type="image/webp" />
+                    <img
+                      src="screenshots/dashboard.png"
+                      alt="StockYan dashboard screen"
+                      loading="lazy"
+                      width="240"
+                      height="480"
+                  /></picture>
+                </figure>
+                <figure class="shot">
+                  <picture
+                    ><source srcset="screenshots/stock_detail.webp" type="image/webp" />
+                    <img
+                      src="screenshots/stock_detail.png"
+                      alt="StockYan stock detail screen"
+                      loading="lazy"
+                      width="240"
+                      height="480"
+                  /></picture>
+                </figure>
+              </div>
+              <div class="shots-col">
+                <figure class="shot">
+                  <picture
+                    ><source srcset="screenshots/premium.webp" type="image/webp" />
+                    <img
+                      src="screenshots/premium.png"
+                      alt="StockYan services and premium features screen"
+                      loading="lazy"
+                      width="240"
+                      height="480"
+                  /></picture>
+                </figure>
+              </div>
+              <div class="shots-col">
+                <figure class="shot">
+                  <picture
+                    ><source srcset="screenshots/portofolio.webp" type="image/webp" />
+                    <img
+                      src="screenshots/portofolio.png"
+                      alt="StockYan portfolio screen"
+                      loading="lazy"
+                      width="240"
+                      height="480"
+                  /></picture>
+                </figure>
+                <figure class="shot">
+                  <picture
+                    ><source srcset="screenshots/broker_activity.webp" type="image/webp" />
+                    <img
+                      src="screenshots/broker_activity.png"
+                      alt="StockYan broker activity screen"
+                      loading="lazy"
+                      width="240"
+                      height="480"
+                  /></picture>
+                </figure>
+              </div>
             </div>
           </div>
         </div>
@@ -556,21 +538,23 @@
               <i class="fa-solid fa-chevron-down service-group-caret"></i>
             </button>
             <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-briefcase"></i>
-                <span>Portfolio</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-eye"></i>
-                <span>Watchlist</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-sticky-note"></i>
-                <span>Trade Notes</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-bell"></i>
-                <span>Stock Alerts</span>
+              <div class="service-items-inner">
+                <div class="service-item">
+                  <i class="fa-solid fa-briefcase"></i>
+                  <span>Portfolio</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-eye"></i>
+                  <span>Watchlist</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-sticky-note"></i>
+                  <span>Trade Notes</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-bell"></i>
+                  <span>Stock Alerts</span>
+                </div>
               </div>
             </div>
           </div>
@@ -587,49 +571,51 @@
               <i class="fa-solid fa-chevron-down service-group-caret"></i>
             </button>
             <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-fire"></i>
-                <span>Hot/Trending</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-book"></i>
-                <span>Smart Trade Journal</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Bulk Transaction</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-                <span>Trending Stocks</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-building-columns"></i>
-                <span>Broker Activity</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <span>Broker Focus</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-area"></i>
-                <span>Accumulation / Distribution</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-gamepad"></i>
-                <span>Paper Trading</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-lock-open"></i>
-                <span>Lock-in Tracker</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-trophy"></i>
-                <span>Top Brokers</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-crown"></i>
-                <span>Dividend Leaderboard</span>
+              <div class="service-items-inner">
+                <div class="service-item">
+                  <i class="fa-solid fa-fire"></i>
+                  <span>Hot/Trending</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-book"></i>
+                  <span>Smart Trade Journal</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <span>Bulk Transaction</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-arrow-trend-up"></i>
+                  <span>Trending Stocks</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <span>Broker Activity</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-magnifying-glass-chart"></i>
+                  <span>Broker Focus</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-area"></i>
+                  <span>Accumulation / Distribution</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-gamepad"></i>
+                  <span>Paper Trading</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-lock-open"></i>
+                  <span>Lock-in Tracker</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-trophy"></i>
+                  <span>Top Brokers</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-crown"></i>
+                  <span>Dividend Leaderboard</span>
+                </div>
               </div>
             </div>
           </div>
@@ -646,37 +632,39 @@
               <i class="fa-solid fa-chevron-down service-group-caret"></i>
             </button>
             <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-list-check"></i>
-                <span>Sector-Wise A/D</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-bolt"></i>
-                <span>Aggressive Accumulators</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-trend-down"></i>
-                <span>Distribution Leaders</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-fire-flame-curved"></i>
-                <span>Broker Heatmap</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-crown"></i>
-                <span>Broker Dominance</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span>Aggressive Holdings</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-right-left"></i>
-                <span>Matching Buy/Sell</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-magnifying-glass-location"></i>
-                <span>Slow Accumulation</span>
+              <div class="service-items-inner">
+                <div class="service-item">
+                  <i class="fa-solid fa-list-check"></i>
+                  <span>Sector-Wise A/D</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-bolt"></i>
+                  <span>Aggressive Accumulators</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-arrow-trend-down"></i>
+                  <span>Distribution Leaders</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-fire-flame-curved"></i>
+                  <span>Broker Heatmap</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-crown"></i>
+                  <span>Broker Dominance</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>Aggressive Holdings</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-right-left"></i>
+                  <span>Matching Buy/Sell</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-magnifying-glass-location"></i>
+                  <span>Slow Accumulation</span>
+                </div>
               </div>
             </div>
           </div>
@@ -693,81 +681,83 @@
               <i class="fa-solid fa-chevron-down service-group-caret"></i>
             </button>
             <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-wave-square"></i>
-                <span>RSI Filter</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-line"></i>
-                <span>MACD Signal</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-dollar-sign"></i>
-                <span>Fundamental Scanner</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-line"></i>
-                <span>EMA / SMA Scanner</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Bollinger Scanner</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-simple"></i>
-                <span>Volume Scanner</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-crosshairs"></i>
-                <span>Pivot Points</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-building-columns"></i>
-                <span>Stock Capitalization</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Fibonacci Levels</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-code-branch"></i>
-                <span>Support &amp; Resistance</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-                <span>Dow Signals</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-bezier-curve"></i>
-                <span>Trendline Breakout</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-gantt"></i>
-                <span>Price &amp; Volume</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-grip-lines"></i>
-                <span>Parallel Channel</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-diagram-project"></i>
-                <span>Trend Continuation</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Strong Trend</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-compress"></i>
-                <span>Consolidating</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Candlestick Pattern</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-code-compare"></i>
-                <span>Comparable Stock</span>
+              <div class="service-items-inner">
+                <div class="service-item">
+                  <i class="fa-solid fa-wave-square"></i>
+                  <span>RSI Filter</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <span>MACD Signal</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-dollar-sign"></i>
+                  <span>Fundamental Scanner</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <span>EMA / SMA Scanner</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-column"></i>
+                  <span>Bollinger Scanner</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-simple"></i>
+                  <span>Volume Scanner</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-crosshairs"></i>
+                  <span>Pivot Points</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <span>Stock Capitalization</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <span>Fibonacci Levels</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-code-branch"></i>
+                  <span>Support &amp; Resistance</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-arrow-trend-up"></i>
+                  <span>Dow Signals</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-bezier-curve"></i>
+                  <span>Trendline Breakout</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-gantt"></i>
+                  <span>Price &amp; Volume</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-grip-lines"></i>
+                  <span>Parallel Channel</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-diagram-project"></i>
+                  <span>Trend Continuation</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Strong Trend</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-compress"></i>
+                  <span>Consolidating</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-column"></i>
+                  <span>Candlestick Pattern</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-code-compare"></i>
+                  <span>Comparable Stock</span>
+                </div>
               </div>
             </div>
           </div>
@@ -784,29 +774,31 @@
               <i class="fa-solid fa-chevron-down service-group-caret"></i>
             </button>
             <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-chart-line"></i>
-                <span>Support Setups</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-up-right-dots"></i>
-                <span>Next Breakouts</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-compress"></i>
-                <span>Consolidating Picks</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-rocket"></i>
-                <span>Breakout Tradable</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-landmark"></i>
-                <span>Investment Picks</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-piggy-bank"></i>
-                <span>SIP In Stocks</span>
+              <div class="service-items-inner">
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <span>Support Setups</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-arrow-up-right-dots"></i>
+                  <span>Next Breakouts</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-compress"></i>
+                  <span>Consolidating Picks</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-rocket"></i>
+                  <span>Breakout Tradable</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-landmark"></i>
+                  <span>Investment Picks</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-piggy-bank"></i>
+                  <span>SIP In Stocks</span>
+                </div>
               </div>
             </div>
           </div>
@@ -823,33 +815,35 @@
               <i class="fa-solid fa-chevron-down service-group-caret"></i>
             </button>
             <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-calculator"></i>
-                <span>Calculator</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-scale-balanced"></i>
-                <span>Risk Reward</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-code-compare"></i>
-                <span>Compare Stocks</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Advanced Chart</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-calendar-check"></i>
-                <span>Nepse Calendar</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-brain"></i>
-                <span>Smart Portfolio</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-crosshairs"></i>
-                <span>Target Alert</span>
+              <div class="service-items-inner">
+                <div class="service-item">
+                  <i class="fa-solid fa-calculator"></i>
+                  <span>Calculator</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                  <span>Risk Reward</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-code-compare"></i>
+                  <span>Compare Stocks</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-column"></i>
+                  <span>Advanced Chart</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  <span>Nepse Calendar</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-brain"></i>
+                  <span>Smart Portfolio</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-crosshairs"></i>
+                  <span>Target Alert</span>
+                </div>
               </div>
             </div>
           </div>
@@ -866,33 +860,35 @@
               <i class="fa-solid fa-chevron-down service-group-caret"></i>
             </button>
             <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-th-large"></i>
-                <span>Sector Heatmap</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-list-ol"></i>
-                <span>Market Indices</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-up"></i>
-                <span>Top Gainers</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-down"></i>
-                <span>Top Losers</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-chart-bar"></i>
-                <span>Volume Leaders</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-coins"></i>
-                <span>Turnover Leaders</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-signal"></i>
-                <span>Live NEPSE</span>
+              <div class="service-items-inner">
+                <div class="service-item">
+                  <i class="fa-solid fa-th-large"></i>
+                  <span>Sector Heatmap</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-list-ol"></i>
+                  <span>Market Indices</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-arrow-up"></i>
+                  <span>Top Gainers</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-arrow-down"></i>
+                  <span>Top Losers</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-chart-bar"></i>
+                  <span>Volume Leaders</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-coins"></i>
+                  <span>Turnover Leaders</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-signal"></i>
+                  <span>Live NEPSE</span>
+                </div>
               </div>
             </div>
           </div>
@@ -909,61 +905,63 @@
               <i class="fa-solid fa-chevron-down service-group-caret"></i>
             </button>
             <div class="service-items">
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-up-right-dots"></i>
-                <span>52W High</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-arrow-down-short-wide"></i>
-                <span>52W Low</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <span>Price History</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-share-nodes"></i>
-                <span>Mero Share</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-key"></i>
-                <span>Credentials</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <span>Apply History</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-landmark"></i>
-                <span>Brokers</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-ticket"></i>
-                <span>IPO Result</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-bell"></i>
-                <span>IPO/FPO Alert</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-timeline"></i>
-                <span>IPO Pipeline</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-scroll"></i>
-                <span>Floor Sheet</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-newspaper"></i>
-                <span>News</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-book-open"></i>
-                <span>Beginner's Guide</span>
-              </div>
-              <div class="service-item">
-                <i class="fa-solid fa-ranking-star"></i>
-                <span>Top Traded</span>
+              <div class="service-items-inner">
+                <div class="service-item">
+                  <i class="fa-solid fa-arrow-up-right-dots"></i>
+                  <span>52W High</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-arrow-down-short-wide"></i>
+                  <span>52W Low</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                  <span>Price History</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-share-nodes"></i>
+                  <span>Mero Share</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-key"></i>
+                  <span>Credentials</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                  <span>Apply History</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-landmark"></i>
+                  <span>Brokers</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-ticket"></i>
+                  <span>IPO Result</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-bell"></i>
+                  <span>IPO/FPO Alert</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-timeline"></i>
+                  <span>IPO Pipeline</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-scroll"></i>
+                  <span>Floor Sheet</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-newspaper"></i>
+                  <span>News</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-book-open"></i>
+                  <span>Beginner's Guide</span>
+                </div>
+                <div class="service-item">
+                  <i class="fa-solid fa-ranking-star"></i>
+                  <span>Top Traded</span>
+                </div>
               </div>
             </div>
           </div>
@@ -980,10 +978,12 @@
               <i class="fa-solid fa-chevron-down service-group-caret"></i>
             </button>
             <div class="service-items">
-              <a href="/learn/" class="service-item">
-                <i class="fa-solid fa-book-open-reader"></i>
-                <span>Education Hub</span>
-              </a>
+              <div class="service-items-inner">
+                <a href="/learn/" class="service-item">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                  <span>Education Hub</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1292,6 +1292,7 @@
     <section class="download" id="download">
       <div class="container download-container">
         <div class="download-content">
+          <div class="download-copy">
           <h2>
             Start Trading Smarter <span class="gradient-text-light">Today</span>
           </h2>
@@ -1380,6 +1381,19 @@
                 </p>
               </div>
             </div>
+          </div>
+          </div>
+          <div class="download-visual" aria-hidden="true">
+            <picture>
+              <source srcset="screenshots/portofolio.webp" type="image/webp" />
+              <img
+                src="screenshots/portofolio.png"
+                alt=""
+                width="290"
+                height="620"
+                loading="lazy"
+              />
+            </picture>
           </div>
         </div>
       </div>
