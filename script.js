@@ -65,7 +65,7 @@ document.addEventListener('keydown', (e) => {
     // .feature-card is excluded: the carousel owns its transform, and a
     // reveal transform on the same element would fight the featured scale
     '.premium-card',
-    '.service-group',
+    '.service-groups',
     '.tabs-switcher',
     '.paper-trading-inner > *',
     '.download-content',
@@ -332,19 +332,168 @@ document.addEventListener('keydown', (e) => {
   });
 })();
 
-// ========== Services: collapsible categories ==========
+// ========== Services: category list + detail panel ==========
+// Selecting a category on the left shows its items on the right. Exactly one
+// is open at all times — clicking the active row is a no-op rather than a
+// collapse, so the panel is never empty.
 (function () {
-  const groups = document.querySelectorAll('.service-group');
-  if (!groups.length) return;
+  const tabs = Array.from(document.querySelectorAll('.service-tab'));
+  const panels = Array.from(document.querySelectorAll('.service-panel'));
+  if (!tabs.length || !panels.length) return;
 
-  groups.forEach((group) => {
-    const btn = group.querySelector('.service-group-title');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-      const open = group.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  // Label each panel with how many tools it holds. Derived from the markup so
+  // the numbers can't drift out of sync with the list.
+  panels.forEach((panel) => {
+    const n = panel.querySelectorAll('.service-item').length;
+    const title = panel.querySelector('.service-panel-title');
+    if (!title || !n) return;
+    const badge = document.createElement('span');
+    badge.className = 'service-panel-count';
+    badge.textContent = n + (n === 1 ? ' tool' : ' tools');
+    title.appendChild(badge);
+  });
+
+  const wrap = document.querySelector('.service-panels');
+
+  // Point the bubble's arrow at the active row. Measured against the panel
+  // container so it stays correct at any rail length or breakpoint.
+  const aimArrow = (tab, panel) => {
+    if (!wrap || !panel) return;
+    const y =
+      tab.getBoundingClientRect().top -
+      wrap.getBoundingClientRect().top +
+      tab.offsetHeight / 2 -
+      7; // half the arrow's height
+    panel.style.setProperty('--arrow-y', Math.max(14, y) + 'px');
+  };
+
+  const select = (i) => {
+    tabs.forEach((t, n) => {
+      const on = n === i;
+      // drop and re-add so the countdown replays from zero on the new row
+      if (on && !t.classList.contains('is-active')) {
+        t.classList.remove('is-active');
+        void t.offsetWidth;
+      }
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach((p, n) => {
+      const on = n === i;
+      p.classList.toggle('is-active', on);
+      p.hidden = !on;
+      if (on) aimArrow(tabs[i], p);
+    });
+  };
+
+  // keep the arrow aligned when the layout reflows
+  let arrowRaf = null;
+  window.addEventListener('resize', () => {
+    if (arrowRaf) cancelAnimationFrame(arrowRaf);
+    arrowRaf = requestAnimationFrame(() => {
+      arrowRaf = null;
+      const i = tabs.findIndex((t) => t.classList.contains('is-active'));
+      if (i > -1) aimArrow(tabs[i], panels[i]);
     });
   });
+
+  // ----- Auto-cycle -----
+  // Advances through the categories on a timer so the section demos itself.
+  // Any deliberate interaction (click, keyboard, focus) stops it for good —
+  // auto-advancing navigation that keeps moving under the cursor is hostile.
+  const INTERVAL = 3600;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const section = document.querySelector('.services');
+  const rail = document.querySelector('.service-tabs');
+  let timer = null;
+  let stopped = reduced;
+
+  // keep the CSS countdown in step with the real advance interval
+  if (rail) {
+    rail.style.setProperty('--interval', INTERVAL + 'ms');
+    if (reduced) rail.classList.add('is-manual');
+  }
+
+  const current = () => tabs.findIndex((t) => t.classList.contains('is-active'));
+
+  // Resume-aware scheduling. Each cycle is a self-rescheduling timeout rather
+  // than a fixed interval, so pausing can bank the time left and resuming
+  // continues the countdown from there instead of restarting it.
+  let startedAt = 0;
+  let remaining = INTERVAL;
+
+  const play = () => {
+    if (stopped || timer) return;
+    startedAt = performance.now();
+    timer = setTimeout(() => {
+      timer = null;
+      remaining = INTERVAL; // next cycle is a full one
+      select((current() + 1) % tabs.length);
+      play();
+    }, remaining);
+  };
+
+  const pause = () => {
+    if (!timer) return;
+    clearTimeout(timer);
+    timer = null;
+    remaining = Math.max(0, remaining - (performance.now() - startedAt));
+    // if it was a hair from flipping, give the next cycle a full run
+    if (remaining < 80) remaining = INTERVAL;
+  };
+  const stopForGood = () => {
+    stopped = true;
+    pause();
+    if (rail) rail.classList.add('is-manual'); // nothing is advancing now
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      stopForGood();
+      select(i);
+    });
+    tab.addEventListener('focus', stopForGood);
+
+    // arrow keys move between categories, matching the tablist role
+    tab.addEventListener('keydown', (e) => {
+      let next;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
+      if (next === undefined) return;
+      e.preventDefault();
+      stopForGood();
+      tabs[next].focus();
+      select(next);
+    });
+  });
+
+  // Hovering the tool cards on the right holds the current category open so
+  // they can be read; leaving picks up where it left off. Only that panel —
+  // hovering the category rail on the left doesn't pause.
+  // The CSS bar pauses in place (animation-play-state) and the timer banks its
+  // remaining time, so the two stay in step across a pause.
+  if (wrap) {
+    wrap.addEventListener('mouseenter', pause);
+    wrap.addEventListener('mouseleave', play);
+  }
+
+  document.addEventListener('visibilitychange', () =>
+    document.hidden ? pause() : play()
+  );
+
+  // align the arrow with whichever category starts open
+  const initial = tabs.findIndex((t) => t.classList.contains('is-active'));
+  if (initial > -1) aimArrow(tabs[initial], panels[initial]);
+
+  // only cycle while the section is actually in view
+  if (section && 'IntersectionObserver' in window) {
+    new IntersectionObserver(
+      (entries) => entries.forEach((en) => (en.isIntersecting ? play() : pause())),
+      { threshold: 0.25 }
+    ).observe(section);
+  } else {
+    play();
+  }
 })();
 
 // ========== Smooth Scroll for Anchor Links ==========

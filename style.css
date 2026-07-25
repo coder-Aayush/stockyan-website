@@ -1088,139 +1088,315 @@ h4 { font-size: 1rem; }
   padding: 110px 0;
 }
 
+/* Master/detail: a single-column list of categories on the left, the selected
+   category's items on the right. Exactly one is open at all times. */
 .service-groups {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  align-items: start;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  /* stretch so the detail panel matches the category rail's height instead of
+     leaving a long empty gap beside it */
+  align-items: stretch;
 }
 
-.service-group {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--bg-card);
-  overflow: hidden;
-  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+.service-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.service-group:hover {
-  border-color: rgba(0, 196, 140, 0.28);
-}
-
-.service-group.is-open {
-  border-color: rgba(0, 196, 140, 0.4);
-}
-
-.service-group-title {
+/* Inactive rows recede so the open one clearly leads — but every category
+   stays visible and clickable, because this rail is navigation. */
+.service-tab {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 13px;
   width: 100%;
   font-family: inherit;
-  font-size: 1.02rem;
-  font-weight: 700;
+  font-size: 0.97rem;
+  font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--text-primary);
-  background: transparent;
-  border: none;
-  padding: 19px 22px;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px 16px;
   cursor: pointer;
   text-align: left;
-  transition: color var(--dur) var(--ease);
+  overflow: hidden;
+  opacity: 0.45;
+  will-change: transform;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease), opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
 }
 
-.service-group-title > i:first-child {
-  font-size: 1rem;
+.service-tab > i:first-child {
+  font-size: 0.98rem;
   color: var(--primary-light);
-  width: 22px;
+  width: 20px;
   text-align: center;
 }
 
-/* caret pushed to the right, rotates when open */
-.service-group-caret {
-  margin-left: auto;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  transition: transform var(--dur) var(--ease), color var(--dur) var(--ease);
-}
-
-.service-group.is-open .service-group-caret {
-  transform: rotate(180deg);
-  color: var(--primary-light);
-}
-
-/* premium (gold) accent categories mirror the app dividers */
-.service-group--premium .service-group-title > i:first-child {
+.service-tab.is-premium > i:first-child {
   color: var(--gold);
 }
 
-.service-group--premium.is-open {
-  border-color: rgba(232, 182, 76, 0.4);
+.service-tab:hover {
+  opacity: 0.85;
+  color: var(--text-primary);
+  border-color: rgba(0, 196, 140, 0.3);
 }
 
-/* Collapsible body.
-   Animating max-height forces layout on every frame — that's the classic
-   "laggy accordion". Instead the panel uses a CSS grid row that goes 0fr -> 1fr
-   with the content in an overflow:hidden wrapper: the browser interpolates the
-   track size without re-laying-out the pill contents each frame, and opacity
-   rides along on the compositor. */
-.service-items {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition: grid-template-rows var(--dur) var(--ease), opacity 0.2s var(--ease);
+/* accent rail marks the open category and ties it to the panel beside it */
+.service-tab::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--primary-light);
+  transform: scaleY(0);
+  transition: transform var(--dur) var(--ease);
 }
 
-.service-items-inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  overflow: hidden;
-  min-height: 0;
-  padding: 0 20px;
+.service-tab.is-active::before {
+  transform: scaleY(1);
 }
 
-.service-group.is-open .service-items {
-  grid-template-rows: 1fr;
+/* Countdown to the next auto-advance — a hairline sweeping the row's width.
+   transform-only so it stays on the compositor; hidden once the user takes
+   control (.is-manual), since nothing is advancing then. */
+.service-tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--primary-light);
+  opacity: 0.6;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.service-tab.is-premium::after {
+  background: var(--gold);
+}
+
+.service-tab.is-active::after {
+  animation: tabCountdown var(--interval, 3600ms) linear forwards;
+}
+
+/* Hovering the tool panel holds the current category open, so hold the
+   countdown with it. Scoped to the panel only, matching where the timer
+   pauses — :has() lets a hover on the right column reach back to the rail. */
+.service-groups:has(.service-panels:hover) .service-tab.is-active::after {
+  animation-play-state: paused;
+}
+
+.service-tabs.is-manual .service-tab::after {
+  display: none;
+}
+
+@keyframes tabCountdown {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+
+.service-tab.is-premium::before {
+  background: var(--gold);
+}
+
+/* the open row comes fully forward and leans toward its panel */
+.service-tab.is-active {
   opacity: 1;
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 196, 140, 0.45);
+  color: var(--text-primary);
+  transform: translateX(6px);
 }
 
-.service-group.is-open .service-items-inner {
-  padding-bottom: 20px;
+.service-tab.is-premium.is-active {
+  border-color: rgba(232, 182, 76, 0.45);
+}
+
+/* caret points right and nudges over when the row is selected */
+.service-tab-caret {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.service-tab:hover .service-tab-caret,
+.service-tab.is-active .service-tab-caret {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--primary-light);
+}
+
+.service-tab.is-premium.is-active .service-tab-caret {
+  color: var(--gold);
+}
+
+/* ----- Right: the open category's items ----- */
+/* A fixed floor stops the panel from snapping between very different heights
+   (Learn & Grow has one item, Stock Scanner has nineteen) — without it the
+   whole section jumps every time a category is selected. */
+.service-panels {
+  position: relative;
+}
+
+/* Bubble: the panel points back at whichever category is open. The arrow is
+   a rotated square sharing the panel's border, and its vertical position is
+   set from JS (--arrow-y) to line up with the active row. */
+.service-panel {
+  position: relative;
+  height: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px 26px 28px;
+}
+
+.service-panel::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: var(--arrow-y, 40px);
+  width: 14px;
+  height: 14px;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transform: rotate(45deg);
+  border-radius: 0 0 0 3px;
+}
+
+.service-panel.is-premium::before {
+  border-color: rgba(232, 182, 76, 0.28);
+}
+
+.service-panel[hidden] {
+  display: none;
+}
+
+.service-panel.is-premium {
+  border-color: rgba(232, 182, 76, 0.28);
+}
+
+/* fade the incoming panel in — opacity only, so switching stays smooth */
+.service-panel.is-active {
+  animation: panelIn 0.3s var(--ease);
+}
+
+/* opacity only — a transform here would drag the bubble's arrow out of line
+   with the active row while the panel fades in */
+@keyframes panelIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* panel header: category name with a rule separating it from the items */
+.service-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.service-panel-title i {
+  font-size: 0.95rem;
+  color: var(--primary-light);
+}
+
+/* item count badge, pushed to the right of the title */
+.service-panel-count {
+  margin-left: auto;
+  padding: 3px 11px;
+  border-radius: 100px;
+  background: rgba(0, 196, 140, 0.1);
+  color: var(--primary-light);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.service-panel.is-premium .service-panel-count {
+  background: rgba(232, 182, 76, 0.1);
+  color: var(--gold);
+}
+
+.service-panel.is-premium .service-panel-title i {
+  color: var(--gold);
+}
+
+/* Items as a responsive card grid — fills the panel evenly instead of leaving
+   a few small pills adrift in a large empty box. */
+.service-items-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  align-content: flex-start;
+  gap: 10px;
 }
 
 .service-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
+  gap: 11px;
+  padding: 13px 15px;
   background: var(--bg-surface);
   border: 1px solid var(--border);
-  border-radius: 100px;
-  font-size: 0.82rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-secondary);
+  will-change: transform;
   transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
-    color var(--dur) var(--ease);
+    color var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
 
 .service-item:hover {
   background: var(--bg-card-hover);
   border-color: rgba(0, 196, 140, 0.45);
   color: var(--text-primary);
+  transform: translateY(-2px);
 }
 
+/* icon sits in its own tinted tile, matching the feature cards */
 .service-item i {
-  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  font-size: 0.8rem;
+  background: rgba(0, 196, 140, 0.1);
   color: var(--primary-light);
 }
 
-/* premium categories: gold pill accents to match the app */
-.service-group--premium .service-item i {
+/* premium categories: gold accents to match the app */
+.service-panel.is-premium .service-item i {
+  background: rgba(232, 182, 76, 0.1);
   color: var(--gold);
 }
 
-.service-group--premium .service-item:hover {
+.service-panel.is-premium .service-item:hover {
   border-color: rgba(232, 182, 76, 0.45);
 }
 
@@ -1832,6 +2008,11 @@ h4 { font-size: 1rem; }
     --cards: 2;
   }
 
+  /* narrower category rail at tablet widths */
+  .service-groups {
+    grid-template-columns: 250px 1fr;
+  }
+
   /* narrower columns make the diagonal cascade too tight — go single-column */
   .screenshots-layout {
     grid-template-columns: 1fr;
@@ -1997,8 +2178,24 @@ h4 { font-size: 1rem; }
     grid-template-columns: 1fr;
   }
 
+  /* stack: category list above, the open panel below */
   .service-groups {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-items-inner {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  /* stacked layout: no rail to the side, so drop the bubble arrow and the
+     active row's sideways lean */
+  .service-panel::before {
+    display: none;
+  }
+
+  .service-tab.is-active {
+    transform: none;
   }
 
   .tab-row {
