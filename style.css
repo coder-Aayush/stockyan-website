@@ -1667,7 +1667,9 @@ h4 { font-size: 1rem; }
 /* ========== Download CTA ========== */
 /* The reference closes on a bordered panel over the grid backdrop. */
 .download {
-  padding: 110px 0 120px;
+  /* extra bottom room so the divider clears the panel and the phone art that
+     overflows it, instead of crowding right under the box */
+  padding: 110px 0 180px;
   position: relative;
 }
 

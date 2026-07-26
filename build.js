@@ -170,6 +170,12 @@ function build() {
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>${SITE_URL}/terms/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 ${articleUrls}
 </urlset>
 `;
