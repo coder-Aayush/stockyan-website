@@ -3,32 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      StockYan – Nepal Share Market App | NEPSE Data & Smart Trade Tools
-    </title>
+    <title>StockYan: NEPSE Analysis App — Scanner, Broker Data</title>
     <meta
       name="description"
-      content="StockYan is Nepal's smartest share market app. Real-time NEPSE data, broker activity tracking, stock alerts, paper trading, portfolio management, and premium market insights, built by investors, for investors."
-    />
-    <meta
-      name="keywords"
-      content="NEPSE, Nepal share market, stock market Nepal, StockYan, share market app, NEPSE data, broker activity, stock alerts, Nepal stock trading, NEPSE app, share market tools, portfolio tracker Nepal, paper trading Nepal, IPO Nepal, broker analysis NEPSE"
+      content="Turn complex NEPSE data into clear, actionable insight. Scan stocks by RSI, MACD & volume, track broker accumulation, manage your portfolio. Free app."
     />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://stockyan.heyaayush.com/" />
+    <link rel="canonical" href="https://stockyan.info/" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="StockYan - Nepal Share Market App" />
+    <meta property="og:title" content="StockYan: NEPSE Analysis App" />
     <meta
       property="og:description"
-      content="Real-time NEPSE data, broker activity tracking, smart trade tools & premium market insights. Built by investors, for investors."
+      content="Transform complex NEPSE data into clear, actionable information. Stock scanners, smart money tracking, live market data and portfolio tools in one app."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://stockyan.heyaayush.com/" />
+    <meta property="og:url" content="https://stockyan.info/" />
     <meta
       property="og:image"
-      content="https://stockyan.heyaayush.com/og-image.png"
+      content="https://stockyan.info/og-image.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -41,14 +35,14 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="StockYan – Nepal Share Market App" />
+    <meta name="twitter:title" content="StockYan: NEPSE Analysis App" />
     <meta
       name="twitter:description"
-      content="Real-time NEPSE data, broker activity tracking, smart trade tools & premium insights."
+      content="Transform complex NEPSE data into clear, actionable information. Stock scanners, smart money tracking and live NEPSE data in one app."
     />
     <meta
       name="twitter:image"
-      content="https://stockyan.heyaayush.com/og-image.png"
+      content="https://stockyan.info/og-image.png"
     />
     <meta
       name="twitter:image:alt"
@@ -94,54 +88,174 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     /></noscript>
 
-    <!-- Structured Data: SoftwareApplication -->
+    <!-- Structured Data: Entity graph (Organization + WebSite + App) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "StockYan",
-        "description": "Nepal's smartest share market app. Real-time NEPSE data, broker activity tracking, stock alerts, paper trading, portfolio management, and market insights.",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "iOS, Android, Windows",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "4",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Organization",
-          "name": "Golden Soft"
-        },
-        "downloadUrl": [
-          "https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688",
-          "https://play.google.com/store/apps/details?id=app.golden.stockyan",
-          "https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Setup-latest.exe"
-        ],
-        "screenshot": "https://stockyan.heyaayush.com/screenshots/dashboard.png",
-        "url": "https://stockyan.heyaayush.com",
-        "sameAs": [
-          "https://www.instagram.com/stockyan.app",
-          "https://www.facebook.com/share/1DyQ7Jwt8B/",
-          "https://www.tiktok.com/@stockyan.app",
-          "https://youtube.com/@stockyan_app"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://stockyan.info/#organization",
+            "name": "StockYan",
+            "alternateName": "StockYan NEPSE Analysis App",
+            "url": "https://stockyan.info/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://stockyan.info/logo.png",
+              "width": 512,
+              "height": 512
+            },
+            "description": "StockYan builds NEPSE market analysis software for Nepali investors and traders, including stock scanners, broker accumulation tracking and portfolio tools.",
+            "foundingLocation": {
+              "@type": "Place",
+              "name": "Kathmandu, Nepal"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Nepal"
+            },
+            "sameAs": [
+              "https://www.instagram.com/stockyan.app",
+              "https://www.facebook.com/share/1DyQ7Jwt8B/",
+              "https://www.tiktok.com/@stockyan.app",
+              "https://youtube.com/@stockyan_app",
+              "https://play.google.com/store/apps/details?id=app.golden.stockyan",
+              "https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://stockyan.info/#website",
+            "name": "StockYan",
+            "url": "https://stockyan.info/",
+            "description": "NEPSE stock scanners, smart money tracking, live market data and portfolio tools for Nepal share market investors.",
+            "publisher": { "@id": "https://stockyan.info/#organization" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://stockyan.info/#app",
+            "name": "StockYan: NEPSE Analysis App",
+            "description": "StockYan transforms complex NEPSE data into clear and actionable information, helping investors and traders spend less time researching and more time making informed investment decisions. Includes 14 stock scanners, smart money and broker tracking, live NEPSE data, portfolio management and price alerts.",
+            "applicationCategory": "FinanceApplication",
+            "applicationSubCategory": "Stock Market Analysis",
+            "operatingSystem": "iOS, Android, Windows",
+            "url": "https://stockyan.info/",
+            "installUrl": "https://play.google.com/store/apps/details?id=app.golden.stockyan",
+            "downloadUrl": [
+              "https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688",
+              "https://play.google.com/store/apps/details?id=app.golden.stockyan",
+              "https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Setup-latest.exe"
+            ],
+            "screenshot": "https://stockyan.info/screenshots/dashboard.png",
+            "inLanguage": "en",
+            "countriesSupported": "NP",
+            "isAccessibleForFree": true,
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "NPR",
+              "availability": "https://schema.org/InStock"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "4",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "featureList": [
+              "Stock scanners: RSI, MACD, EMA & SMA, Bollinger Bands, Volume, Fibonacci levels, Pivot Points, Support & Resistance, Trendline Breakout, Trend Continuation, Candlestick Patterns, Fundamental Scanner, Dow Signals, Market Capitalization filter",
+              "Smart money tracking: sector-wise accumulation and distribution, aggressive accumulators, distribution leaders, broker heatmap, broker dominance, matching buy/sell, slow accumulation",
+              "Market intelligence: broker activity, broker focus, top brokers, bulk transactions, lock-in tracker, dividend leaderboard, trending stocks",
+              "Portfolio tracker with watchlist, profit and loss tracking and holdings overview",
+              "Alerts: IPO alerts, stock price alerts, target price alerts, stop loss alerts, watchlist notifications",
+              "Live NEPSE data: live stock prices, market indices, top gainers and losers, turnover and volume leaders, 52 week high and low, advanced charts",
+              "Paper trading and smart trade journal"
+            ],
+            "publisher": { "@id": "https://stockyan.info/#organization" },
+            "author": {
+              "@type": "Organization",
+              "name": "Golden Soft"
+            }
+          }
         ]
       }
     </script>
 
-    <!-- Structured Data: Website -->
+    <!-- Structured Data: FAQ -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "StockYan",
-        "url": "https://stockyan.heyaayush.com",
-        "description": "Nepal Share Market App – NEPSE Data & Smart Trade Tools"
+        "@type": "FAQPage",
+        "@id": "https://stockyan.info/#faq",
+        "isPartOf": { "@id": "https://stockyan.info/#website" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is StockYan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "StockYan is a NEPSE analysis app that transforms complex Nepal share market data into clear, actionable information. It combines stock scanners, broker and smart money tracking, live NEPSE prices, portfolio management and price alerts in a single app for iOS, Android and Windows."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is StockYan free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. StockYan is free to download and includes live NEPSE market data, portfolio tracking, watchlists, paper trading and the core market intelligence tools. A premium tier adds curated expert analysis such as weekly market summaries and trade setups."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which stock scanners does StockYan include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "StockYan includes 14 scanners covering both technical and fundamental filters: RSI, MACD signals, EMA and SMA, Bollinger Bands, volume, Fibonacci levels, pivot points, support and resistance, trendline breakout, trend continuation, candlestick patterns, Dow signals, market capitalization and a fundamental scanner. You can screen the entire NEPSE market instead of checking stocks one by one."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does StockYan track broker and smart money activity?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "StockYan analyses daily NEPSE broker transaction data to show which brokers are accumulating or distributing a stock. Tools include sector-wise accumulation and distribution, aggressive accumulators, distribution leaders, a broker heatmap, broker dominance, matching buy and sell activity, and slow accumulation detection."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does StockYan show live NEPSE data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. StockYan shows live stock prices and market indices whenever the NEPSE market is open, along with top gainers, top losers, turnover leaders, volume leaders, 52 week highs and lows, and advanced charts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I practise trading without risking real money?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. StockYan includes paper trading, which lets you test strategies with virtual money using real NEPSE prices. A smart trade journal records your trades so you can review what worked before committing real capital."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is StockYan suitable for beginners?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. StockYan is built for every kind of NEPSE participant, including swing traders, long-term investors and active traders. Beginners can start with the portfolio tracker, watchlists and paper trading, then move on to scanners and broker analysis. The Learn section explains core NEPSE concepts such as circuit breakers and margin trading."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which devices does StockYan support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "StockYan is available on iOS via the App Store, on Android via Google Play, and on Windows as a desktop download."
+            }
+          }
+        ]
       }
     </script>
 
@@ -175,6 +289,7 @@
           <a href="#services">Services</a>
           <!-- Temporarily hidden (2-3 days) <a href="#premium">Premium</a> -->
           <a href="/learn/">Learn</a>
+          <a href="#faq">FAQ</a>
           <a href="#download" class="nav-cta">Download</a>
         </div>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -189,6 +304,7 @@
       <a href="#services">Services</a>
       <!-- Temporarily hidden (2-3 days) <a href="#premium">Premium</a> -->
       <a href="/learn/">Learn</a>
+      <a href="#faq">FAQ</a>
       <a href="#download" class="nav-cta">Download</a>
     </div>
 
@@ -197,12 +313,14 @@
       <div class="container hero-container">
         <div class="hero-content">
           <h1>
-            Trade smarter <span class="gradient-text">with StockYan</span>
+            NEPSE Analysis App for
+            <span class="gradient-text">Smarter Trading</span>
           </h1>
           <p class="hero-subtitle">
-            A Nepal share market app built by investors, for investors.
-            Real-time NEPSE data, broker activity tracking, smart trade tools,
-            and market insights, all in one place.
+            StockYan turns complex NEPSE data into clear, actionable
+            information. Scan stocks with 14 technical and fundamental
+            filters, track what brokers are accumulating, and manage your
+            portfolio, all in one app. Free to download.
           </p>
           <div class="hero-buttons">
             <a
@@ -1444,6 +1562,110 @@
               />
             </picture>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>
+            Frequently Asked <span class="gradient-text">Questions</span>
+          </h2>
+          <p>
+            Common questions about StockYan and NEPSE market analysis.
+          </p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary><h3>What is StockYan?</h3></summary>
+            <p>
+              StockYan is a NEPSE analysis app that transforms complex Nepal
+              share market data into clear, actionable information. It combines
+              stock scanners, broker and smart money tracking, live NEPSE
+              prices, portfolio management and price alerts in a single app for
+              iOS, Android and Windows.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Is StockYan free to use?</h3></summary>
+            <p>
+              Yes. StockYan is free to download and includes live NEPSE market
+              data, portfolio tracking, watchlists, paper trading and the core
+              market intelligence tools. A premium tier adds curated expert
+              analysis such as weekly market summaries and trade setups.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>Which stock scanners does StockYan include?</h3>
+            </summary>
+            <p>
+              StockYan includes 14 scanners covering both technical and
+              fundamental filters: RSI, MACD signals, EMA and SMA, Bollinger
+              Bands, volume, Fibonacci levels, pivot points, support and
+              resistance, trendline breakout, trend continuation, candlestick
+              patterns, Dow signals, market capitalization and a fundamental
+              scanner. You can screen the entire NEPSE market instead of
+              checking stocks one by one.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>How does StockYan track broker and smart money activity?</h3>
+            </summary>
+            <p>
+              StockYan analyses daily NEPSE broker transaction data to show
+              which brokers are accumulating or distributing a stock. Tools
+              include sector-wise accumulation and distribution, aggressive
+              accumulators, distribution leaders, a broker heatmap, broker
+              dominance, matching buy and sell activity, and slow accumulation
+              detection.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Does StockYan show live NEPSE data?</h3></summary>
+            <p>
+              Yes. StockYan shows live stock prices and market indices whenever
+              the NEPSE market is open, along with top gainers, top losers,
+              turnover leaders, volume leaders, 52 week highs and lows, and
+              advanced charts.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>Can I practise trading without risking real money?</h3>
+            </summary>
+            <p>
+              Yes. StockYan includes paper trading, which lets you test
+              strategies with virtual money using real NEPSE prices. A smart
+              trade journal records your trades so you can review what worked
+              before committing real capital.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>Is StockYan suitable for beginners?</h3>
+            </summary>
+            <p>
+              Yes. StockYan is built for every kind of NEPSE participant,
+              including swing traders, long-term investors and active traders.
+              Beginners can start with the portfolio tracker, watchlists and
+              paper trading, then move on to scanners and broker analysis. The
+              <a href="/learn/">Learn section</a> explains core NEPSE concepts
+              such as circuit breakers and margin trading.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <h3>Which devices does StockYan support?</h3>
+            </summary>
+            <p>
+              StockYan is available on iOS via the App Store, on Android via
+              Google Play, and on Windows as a desktop download.
+            </p>
+          </details>
         </div>
       </div>
     </section>

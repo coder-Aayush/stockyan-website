@@ -1,4 +1,49 @@
+# StockYan — https://stockyan.info
+
 User-agent: *
 Allow: /
 
-Sitemap: https://stockyan.heyaayush.com/sitemap.xml
+# --- Search engines ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- AI answer engines ---
+# Explicitly allowed so StockYan can be cited in AI answers about NEPSE.
+# OAI-SearchBot serves ChatGPT search citations; GPTBot is OpenAI's crawler.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://stockyan.info/sitemap.xml
