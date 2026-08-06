@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://stockyan.heyaayush.com';
+const SITE_URL = 'https://stockyan.info';
 const DATA_FILE = path.join(__dirname, 'data', 'articles.json');
 const LEARN_DIR = path.join(__dirname, 'learn');
 const ARTICLE_TEMPLATE = path.join(__dirname, 'templates', 'article.html');
@@ -86,7 +86,12 @@ function build() {
     const dir = path.join(LEARN_DIR, article.slug);
     fs.mkdirSync(dir, { recursive: true });
 
-    const description = truncate(article.content.replace(/\n/g, ' '), 160);
+    // Hand-written metaDescription wins; otherwise fall back to truncated body.
+    // Written descriptions read as a pitch rather than a mid-sentence fragment,
+    // which is what actually earns the click in search results.
+    const description =
+      article.metaDescription ||
+      truncate(article.content.replace(/\n/g, ' '), 160);
     const articleHtml = contentToHtml(article.content);
     const canonical = `${SITE_URL}/learn/${article.slug}/`;
     const datePublished = isoDate(article.createdAt);
