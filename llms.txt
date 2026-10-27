@@ -1,0 +1,49 @@
+# StockYan
+
+> StockYan is an advanced NEPSE (Nepal Stock Exchange) analysis app. It turns complex NEPSE data into clear, actionable information: stock scanners, broker and smart money tracking, AI scores, pro charts, live prices and a portfolio that imports from MeroShare and TMS. Free on iPhone, Android, Windows and Linux, with paid Pro and Max plans. Made by Investo Nepal.
+
+## Main pages
+- [Home](https://stockyan.info/): what StockYan does, free tools and pricing
+- [Download](https://stockyan.info/download/): App Store, Google Play and desktop downloads
+- [Features](https://stockyan.info/features/): every StockYan feature
+- [Learn NEPSE](https://stockyan.info/learn/): simple guides to the Nepal share market
+
+## Features
+- [Your NEPSE portfolio in one place](https://stockyan.info/features/nepse-portfolio-tracker/): See what you own, what you paid and what it is worth today.
+- [Import your MeroShare portfolio](https://stockyan.info/features/meroshare-portfolio/): Link your account once and your shares come in for you.
+- [Check IPO results for everyone](https://stockyan.info/features/bulk-ipo-result/): Add each family BOID once and check them all with one tap.
+- [Find stocks that fit your idea](https://stockyan.info/features/nepse-stock-screener/): Pick a setup and StockYan checks every listed stock for you.
+- [Every NEPSE stock's RSI](https://stockyan.info/features/nepse-rsi-scanner/): See which stocks are stretched up or down, live during the session.
+- [Pro charts for NEPSE](https://stockyan.info/features/nepse-technical-analysis-chart/): Candle charts with indicators, levels and trendlines, on phone and desktop.
+- [See who is buying](https://stockyan.info/features/nepse-broker-analysis/): Broker buying and selling for every NEPSE stock, in plain numbers.
+- [Who is collecting shares](https://stockyan.info/features/nepse-accumulation-distribution/): A daily list of stocks brokers are buying up or handing out.
+- [Every trade, in one sheet](https://stockyan.info/features/nepse-floorsheet/): Who bought, who sold, how many shares and at what price.
+- [The day's biggest trades](https://stockyan.info/features/nepse-bulk-transactions/): Large deals stand out from the noise, sorted the way you want.
+- [The market at a glance](https://stockyan.info/features/nepse-heatmap/): Green is up, red is down, and bigger boxes traded more money.
+- [Practise before you invest](https://stockyan.info/features/nepse-paper-trading/): Trade NEPSE stocks with virtual money at live market prices.
+- [Share calculator for NEPSE](https://stockyan.info/features/nepse-share-calculator/): Commission, SEBON fee, DP charge and tax, worked out before you trade.
+- [NEPSE on your desktop](https://stockyan.info/features/nepse-app-for-pc/): A full NEPSE app for Windows, macOS and Linux, made for big screens.
+- [One score for every stock](https://stockyan.info/features/nepse-ai-analysis/): Seven factors blended into a 0 to 100 score you can check.
+- [Alerts that watch for you](https://stockyan.info/features/nepse-alerts/): Set a price once and StockYan tells you when it is reached.
+
+## Guides
+- [What is RSI?](https://stockyan.info/learn/what-is-rsi/): RSI is a number from 0 to 100 that shows how strong recent price moves have been.
+- [The MACD indicator, explained](https://stockyan.info/learn/macd-indicator/): MACD shows whether a stock's trend is speeding up or slowing down.
+- [Support and resistance made simple](https://stockyan.info/learn/support-and-resistance/): Support is a price where buyers tend to step in. Resistance is where sellers tend to show up.
+- [EMA vs SMA, explained](https://stockyan.info/learn/ema-vs-sma/): A moving average smooths out daily price noise so the trend is easier to see.
+- [Bollinger Bands, explained](https://stockyan.info/learn/bollinger-bands/): Bollinger Bands draw a channel around the price that widens when it moves a lot and narrows when it is quiet.
+- [Fibonacci retracement, simply](https://stockyan.info/learn/fibonacci-retracement/): Fibonacci retracement marks where a pullback inside a trend might pause.
+- [Candlestick patterns for beginners](https://stockyan.info/learn/candlestick-patterns/): One candle shows a full day of trading: where the price opened, where it closed and how far it moved.
+- [How to read a NEPSE floorsheet](https://stockyan.info/learn/what-is-floorsheet/): The floorsheet is the full list of trades NEPSE recorded in a day.
+- [Broker commission in Nepal](https://stockyan.info/learn/share-broker-commission-nepal/): Every NEPSE buy and sell pays broker commission and a SEBON fee. Sells also pay a DP charge.
+- [Capital gains tax on NEPSE shares](https://stockyan.info/learn/capital-gain-tax-nepal-share/): When you sell shares at a profit, part of that profit goes to tax. How much depends on how long you held them.
+- [What is WACC in NEPSE?](https://stockyan.info/learn/what-is-wacc-in-share-market/): WACC is the average price you paid for each share of a stock, across all your buys.
+- [Circuit Breaker in NEPSE: Rules & Limits](https://stockyan.info/learn/circuit-breaker-in-nepse/): A NEPSE circuit breaker halts trading when the market moves too sharply. Learn the trigger levels, how long each halt lasts, and how to trade around them.
+- [Trend of Newly Listed Stocks in NEPSE](https://stockyan.info/learn/trend-of-newly-listed-stocks/): Newly listed NEPSE stocks follow a recognisable pattern after debut. See what recent listings reveal about price behaviour and how to time your entry.
+- [Accumulation & Distribution Data in NEPSE](https://stockyan.info/learn/use-of-accumulation-distribution-data/): Accumulation and distribution data reveals whether brokers are quietly buying or selling a NEPSE stock. Learn how to read it to spot institutional positioning.
+- [Broker Intelligence: NEPSE Broker Analysis](https://stockyan.info/learn/broker-intelligence-module/): StockYan's Broker Intelligence Module brings institutional-grade NEPSE broker analysis to every investor. Here are the 6 features and how to use each one.
+- [Margin Trading in NEPSE: How It Works](https://stockyan.info/learn/margin-trading-in-nepse/): Margin trading lets you buy NEPSE shares with money borrowed from your broker. Learn how margin works, the interest and risks involved, and when to avoid it.
+
+## Apps
+- [StockYan on the App Store](https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688)
+- [StockYan on Google Play](https://play.google.com/store/apps/details?id=app.golden.stockyan)

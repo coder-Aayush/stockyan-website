@@ -2,7 +2,8 @@
 node_modules/
 learn/
 .DS_Store
-tempfeatures/
+temp/
+features/
 download/
 open/
 .turbo/

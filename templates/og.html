@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body { position: relative; background: #FFFFFF; color: #0A1511; font-family: "Geist", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  .glow { position: absolute; inset: 0; background:
+    radial-gradient(620px 420px at 92% 18%, rgba(0, 179, 131, .16), transparent 70%),
+    radial-gradient(520px 360px at 6% 104%, rgba(0, 158, 114, .10), transparent 70%); }
+  .grid { position: absolute; inset: 0; opacity: .55; background-image:
+    linear-gradient(#EEF3F0 1px, transparent 1px), linear-gradient(90deg, #EEF3F0 1px, transparent 1px);
+    background-size: 48px 48px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent); }
+  .line { position: absolute; left: 0; right: 0; bottom: 0; height: 230px; -webkit-mask-image: linear-gradient(90deg, transparent 18%, #000 58%); }
+  .copy { position: absolute; left: 72px; top: 60px; bottom: 56px; width: {{copyWidth}}px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 700; letter-spacing: -.02em; }
+  .brand img { width: 52px; height: 52px; border-radius: 13px; }
+  .eyebrow { align-self: flex-start; margin-top: 44px; padding: 8px 16px; border-radius: 999px; background: #E3F5ED; color: #006B4E; font-size: 20px; font-weight: 600; letter-spacing: -.005em; }
+  h1 { margin-top: 20px; font-size: 68px; line-height: 1.04; font-weight: 750; letter-spacing: -.04em; }
+  h1 .g { color: #009E72; }
+  .lead { margin-top: 20px; font-size: 27px; line-height: 1.32; color: #4B5852; letter-spacing: -.01em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .foot { margin-top: auto; display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 600; color: #0A1511; }
+  .foot span { color: #8A958F; font-weight: 500; }
+  .foot i { width: 6px; height: 6px; border-radius: 50%; background: #C9D3CE; }
+  .dev { position: absolute; }
+  .dev svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .is-mac .mac { left: 640px; top: 96px; width: 760px; }
+  .is-phone .phone { right: 92px; top: 52px; width: 290px; }
+  .is-both .mac { left: 600px; top: 80px; width: 740px; }
+  .is-both .phone { left: 860px; top: 210px; width: 210px; }
+</style>
+</head>
+<body class="{{deviceClass}}">
+{{> sprite}}
+<div class="glow"></div>
+<div class="grid"></div>
+{{line}}
+{{devices}}
+<div class="copy">
+  <div class="brand"><img src="/logo.png" alt="">StockYan</div>
+  <p class="eyebrow">{{eyebrow}}</p>
+  <h1 id="t">{{title}}</h1>
+  <p class="lead">{{lead}}</p>
+  <div class="foot">stockyan.info<i></i><span>{{foot}}</span></div>
+</div>
+<script>
+  // Shrink long titles until they fit in three lines.
+  (function () {
+    var t = document.getElementById('t'), size = 68;
+    function fit() { while (t.offsetHeight > size * 1.04 * 3 + 2 && size > 44) { size -= 2; t.style.fontSize = size + 'px'; } }
+    document.fonts.ready.then(function () { fit(); document.body.dataset.ready = '1'; });
+  })();
+</script>
+</body>
+</html>

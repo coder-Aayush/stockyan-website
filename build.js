@@ -213,6 +213,28 @@ function breadcrumbLd(items) {
   };
 }
 
+// ── Search and share tags (templates/partials/meta.html) ──
+
+const INDEX = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+const OG_DIR = path.join(ROOT, 'assets', 'og');
+const ogManifest = readJson(path.join(OG_DIR, 'manifest.json')) || {};
+
+// The page's share card from scripts/og-images.js, or the default one.
+function ogImage(key) {
+  return ogManifest[key] && fs.existsSync(path.join(OG_DIR, `${key}.jpg`))
+    ? `${SITE_URL}/assets/og/${key}.jpg?v=${ogManifest[key]}`
+    : `${SITE_URL}/og-image.png`;
+}
+
+// Values are already escaped by the caller.
+function seo({ title, description, canonical, og, alt, ogTitle, ogType = 'website', robots = INDEX, extra = '' }) {
+  const image = ogImage(og);
+  return {
+    title, description, canonical, robots, ogType, ogTitle: ogTitle || title, ogAlt: alt || ogTitle || title,
+    ogImage: image, ogImageType: image.includes('.jpg') ? 'image/jpeg' : 'image/png', ogExtra: extra,
+  };
+}
+
 const arrow = '<svg><use href="#arrow"/></svg>';
 
 function card(href, title, text, more) {
@@ -227,6 +249,15 @@ const PRICING_LEADS = ['Smart Money', 'RSI Filter', 'MACD Signal', 'Broker Heatm
 const FREE_FEATURES = ['Live NEPSE prices and indices', 'Portfolio with MeroShare import', 'Watchlist and price alerts', 'Broker activity and broker focus', 'Accumulation, bulk deals and floor sheet', 'IPO results for the whole family'];
 const rs = (n) => 'Rs ' + Number(n).toLocaleString('en-IN');
 const period = (m) => (m === 12 ? 'year' : m === 1 ? 'month' : `${m} months`);
+
+// Free plus every paid plan, for the SoftwareApplication schema.
+function appOffers(pricing) {
+  const offer = (name, price, extra = {}) => ({ '@type': 'Offer', name, price: String(price), priceCurrency: 'NPR', availability: 'https://schema.org/InStock', ...extra });
+  return [
+    offer('Free', 0),
+    ...((pricing && pricing.tiers) || []).flatMap((t) => t.plans.map((p) => offer(`${t.name}, ${period(p.months)}`, p.price, { category: 'subscription', url: `${SITE_URL}/#pricing` }))),
+  ];
+}
 
 function pricingSection(pricing) {
   if (!pricing || !pricing.tiers || !pricing.tiers.length) return '';
@@ -314,14 +345,30 @@ async function build() {
     site: SITE_URL,
     pricing: pricingSection(readJson(path.join(ROOT, 'data', 'pricing.json'))),
     year: String(new Date().getFullYear()),
+    ogHome: ogImage('home'),
+    appOffers: JSON.stringify(appOffers(readJson(path.join(ROOT, 'data', 'pricing.json')))),
     footerFeatures: features.slice(0, 5).map((f) => `<li><a href="/features/${f.slug}/">${esc(f.h1)}</a></li>`).join('') ||
       '<li><a href="/#research">Research</a></li><li><a href="/#portfolio">Portfolio</a></li><li><a href="/#free">Free tools</a></li>',
     footerLearn: learnAll.slice(0, 4).map((l) => `<li><a href="/learn/${l.slug}/">${esc(truncate(l.title, 34))}</a></li>`).join(''),
   };
 
-  write('index.html', render(read(T('home.html'))));
-  write('download/index.html', render(read(T('download.html'))));
-  write('open/index.html', render(read(T('open.html'))));
+  write('index.html', render(read(T('home.html')), seo({
+    title: 'StockYan: Advanced NEPSE Analysis App for Nepal Investors',
+    ogTitle: 'StockYan: The Advanced NEPSE Analysis App',
+    description: 'StockYan turns complex NEPSE data into clear, actionable information. Stock scanners, smart money tracking, live data and portfolio tools in one app.',
+    canonical: `${SITE_URL}/`, og: 'home', alt: 'StockYan on a MacBook and an iPhone: NEPSE, simplified.',
+  })));
+  write('download/index.html', render(read(T('download.html')), seo({
+    title: 'Download StockYan: NEPSE App for iPhone, Android, Windows, Linux',
+    ogTitle: 'Download StockYan: free on every device',
+    description: 'Get StockYan free on iPhone, Android, Windows and Linux. The advanced NEPSE analysis app: complex market data turned into clear, actionable information.',
+    canonical: `${SITE_URL}/download/`, og: 'download', alt: 'Get StockYan, the advanced NEPSE analysis app.',
+  })));
+  write('open/index.html', render(read(T('open.html')), seo({
+    title: 'Open in StockYan', ogTitle: 'Open in StockYan',
+    description: 'Open this in the StockYan app, or get the app free.',
+    canonical: `${SITE_URL}/open/`, og: 'home', alt: 'StockYan, the advanced NEPSE analysis app.', robots: 'noindex, follow',
+  })));
 
   // ── Feature pages ──
   if (fs.existsSync(path.join(ROOT, 'features'))) fs.rmSync(path.join(ROOT, 'features'), { recursive: true });
@@ -345,12 +392,13 @@ async function build() {
       ...(f.learn || []).map((s) => learnAll.find((l) => l.slug === s)).filter(Boolean).map((l) => card(`/learn/${l.slug}/`, l.title, l.text, 'Read guide')),
     ].slice(0, 6).join('');
     const ld = [
-      { '@context': 'https://schema.org', '@type': 'WebPage', name: f.title, description: f.metaDescription, url: canonical, isPartOf: { '@id': `${SITE_URL}/#website` }, about: { '@id': `${SITE_URL}/#app` } },
+      { '@context': 'https://schema.org', '@type': 'WebPage', name: f.title, description: f.metaDescription, url: canonical, inLanguage: 'en', isPartOf: { '@id': `${SITE_URL}/#website` }, about: { '@id': `${SITE_URL}/#app` }, primaryImageOfPage: { '@type': 'ImageObject', url: ogImage(`feature-${f.slug}`), width: 1200, height: 630 }, keywords: f.keyword },
       breadcrumbLd([['Home', `${SITE_URL}/`], ['Features', `${SITE_URL}/features/`], [f.h1, canonical]]),
       faqLd(f.faq),
     ].filter(Boolean).map(jsonLd).join('\n');
     write(`features/${f.slug}/index.html`, render(read(T('feature.html')), {
-      title: esc(f.title), description: esc(f.metaDescription), canonical, crumb: esc(f.h1), slug: esc(f.slug),
+      ...seo({ title: esc(f.title), description: esc(f.metaDescription), canonical, og: `feature-${f.slug}`, alt: esc(`${f.h1}: ${f.lead}`) }),
+      crumb: esc(f.h1), slug: esc(f.slug),
       h1: accent(f.h1, f.accent), lead: esc(f.lead), openUrl: esc(openUrl(f.openPath, f.slug)),
       shot, shotClass: isPhone ? 'is-phone' : 'is-mac', componentSection, sections,
       faqSection: faqSection(f.faq),
@@ -360,9 +408,12 @@ async function build() {
   }
   if (features.length) {
     write('features/index.html', render(read(T('index-grid.html')), {
-      title: 'StockYan Features: NEPSE Research, Portfolio and Free Tools',
-      description: 'Everything in StockYan: NEPSE scanners, broker analysis, smart portfolio with MeroShare and TMS import, pro charts, IPO tools and free market data.',
-      canonical: `${SITE_URL}/features/`, crumb: 'Features',
+      ...seo({
+        title: 'StockYan Features: NEPSE Research, Portfolio and Free Tools',
+        description: 'Everything in StockYan: NEPSE scanners, broker analysis, smart portfolio with MeroShare and TMS import, pro charts, IPO tools and free market data.',
+        canonical: `${SITE_URL}/features/`, og: 'features', alt: 'Everything in StockYan: research, portfolio and free tools for NEPSE.',
+      }),
+      crumb: 'Features',
       h1: 'Everything in <span class="g">StockYan.</span>', lead: 'Research, portfolio and free tools for NEPSE. In one app.',
       cards: features.map((f) => card(`/features/${f.slug}/`, f.h1, f.lead, 'See feature')).join(''),
       jsonld: jsonLd(breadcrumbLd([['Home', `${SITE_URL}/`], ['Features', `${SITE_URL}/features/`]])),
@@ -387,12 +438,13 @@ async function build() {
       ? `<div class="card"><h3>${esc(feature.h1)}</h3><p>${esc(feature.lead)}</p><a class="btn btn-dark" href="/features/${feature.slug}/">See how it works</a><a class="btn btn-ghost" href="${esc(openUrl(l.openPath || feature.openPath, l.slug))}">Open in app</a></div>`
       : '') + downloadCard;
     const ld = [
-      { '@context': 'https://schema.org', '@type': 'Article', headline: l.h1, description: l.metaDescription, url: canonical, mainEntityOfPage: canonical, dateModified: today(), author: { '@type': 'Organization', name: 'StockYan' }, publisher: { '@type': 'Organization', name: 'StockYan', logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` } }, image: `${SITE_URL}/og-image.png` },
+      { '@context': 'https://schema.org', '@type': 'Article', headline: l.h1, description: l.metaDescription, url: canonical, mainEntityOfPage: canonical, inLanguage: 'en', keywords: l.keyword, dateModified: today(), author: { '@type': 'Organization', name: 'StockYan', url: `${SITE_URL}/` }, publisher: { '@id': `${SITE_URL}/#organization` }, image: { '@type': 'ImageObject', url: ogImage(`learn-${l.slug}`), width: 1200, height: 630 } },
       breadcrumbLd([['Home', `${SITE_URL}/`], ['Learn', `${SITE_URL}/learn/`], [l.h1, canonical]]),
       faqLd(l.faq),
     ].filter(Boolean).map(jsonLd).join('\n');
     write(`learn/${l.slug}/index.html`, render(read(T('learn.html')), {
-      title: esc(l.title), description: esc(l.metaDescription), canonical, ogImage: `${SITE_URL}/og-image.png`, crumb: esc(l.h1),
+      ...seo({ title: esc(l.title), description: esc(l.metaDescription), canonical, og: `learn-${l.slug}`, ogType: 'article', alt: esc(`${l.h1}: ${l.lead}`), extra: `<meta property="article:section" content="Learn NEPSE">` }),
+      crumb: esc(l.h1),
       h1: accent(l.h1, l.accent), lead: esc(l.lead), meta: `${l.readMinutes || 4} min read`,
       body, aside, faqSection: faqSection(l.faq), relatedSection: learnRelated(l.slug), jsonld: ld,
     }));
@@ -401,22 +453,29 @@ async function build() {
   for (const a of articles) {
     const canonical = `${SITE_URL}/learn/${a.slug}/`;
     const description = a.metaDescription || truncate(a.content.replace(/\n/g, ' '), 155);
-    const ogImage = a.imageUrl || `${SITE_URL}/og-image.png`;
+    const published = new Date(a.createdAt).toISOString(), modified = new Date(a.updatedAt || a.createdAt).toISOString();
     const ld = [
-      { '@context': 'https://schema.org', '@type': 'Article', headline: a.title, description, url: canonical, mainEntityOfPage: canonical, datePublished: new Date(a.createdAt).toISOString(), dateModified: new Date(a.updatedAt || a.createdAt).toISOString(), articleSection: a.category, author: { '@type': 'Organization', name: 'StockYan' }, publisher: { '@type': 'Organization', name: 'StockYan', logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` } }, image: ogImage },
+      { '@context': 'https://schema.org', '@type': 'Article', headline: a.title, description, url: canonical, mainEntityOfPage: canonical, inLanguage: 'en', datePublished: published, dateModified: modified, articleSection: a.category, author: { '@type': 'Organization', name: 'StockYan', url: `${SITE_URL}/` }, publisher: { '@id': `${SITE_URL}/#organization` }, image: { '@type': 'ImageObject', url: ogImage(`learn-${a.slug}`), width: 1200, height: 630 } },
       breadcrumbLd([['Home', `${SITE_URL}/`], ['Learn', `${SITE_URL}/learn/`], [a.title, canonical]]),
     ].map(jsonLd).join('\n');
     write(`learn/${a.slug}/index.html`, render(read(T('learn.html')), {
-      title: esc(`${a.title} | StockYan`), description: esc(description), canonical, ogImage: esc(ogImage), crumb: esc(a.title),
+      ...seo({
+        title: esc(`${a.title} | StockYan`), ogTitle: esc(a.title), description: esc(description), canonical, og: `learn-${a.slug}`, ogType: 'article', alt: esc(a.title),
+        extra: [['published_time', published], ['modified_time', modified], ['section', a.category]].map(([k, v]) => `<meta property="article:${k}" content="${esc(v)}">`).join('\n'),
+      }),
+      crumb: esc(a.title),
       h1: esc(a.title), lead: esc(truncate(description, 160)), meta: `${esc(a.category)} · ${formatDate(a.createdAt)} · ${readMinutes(a.content)} min read`,
       body: articleBody(a.content, a.title), aside: downloadCard, faqSection: '', relatedSection: learnRelated(a.slug), jsonld: ld,
     }));
   }
 
   write('learn/index.html', render(read(T('index-grid.html')), {
-    title: 'Learn NEPSE: Simple Guides to Stocks, Charts and Brokers | StockYan',
-    description: 'Free, simple guides to the Nepal share market: RSI, support and resistance, broker data, circuit breakers, IPOs and more.',
-    canonical: `${SITE_URL}/learn/`, crumb: 'Learn',
+    ...seo({
+      title: 'Learn NEPSE: Simple Guides to Stocks, Charts and Brokers | StockYan',
+      description: 'Free, simple guides to the Nepal share market: RSI, support and resistance, broker data, circuit breakers, IPOs and more.',
+      canonical: `${SITE_URL}/learn/`, og: 'learn', alt: 'Simple guides to NEPSE from StockYan.',
+    }),
+    crumb: 'Learn',
     h1: 'Learn <span class="g">NEPSE.</span>', lead: 'Simple guides for first-time investors and full-time traders.',
     cards: learnAll.map((l) => card(`/learn/${l.slug}/`, l.title, l.text, 'Read guide')).join(''),
     jsonld: jsonLd(breadcrumbLd([['Home', `${SITE_URL}/`], ['Learn', `${SITE_URL}/learn/`]])),
@@ -424,26 +483,59 @@ async function build() {
 
   // ── Sitemap ──
   const urls = [
-    ['/', 'weekly', '1.0'], ['/download/', 'monthly', '0.9'],
-    ...(features.length ? [['/features/', 'weekly', '0.8']] : []),
-    ...features.map((f) => [`/features/${f.slug}/`, 'monthly', '0.8']),
-    ['/learn/', 'weekly', '0.8'],
-    ...learnPages.map((l) => [`/learn/${l.slug}/`, 'monthly', '0.7']),
-    ...articles.map((a) => [`/learn/${a.slug}/`, 'monthly', '0.6']),
+    ['/', 'weekly', '1.0', 'home'], ['/download/', 'monthly', '0.9', 'download'],
+    ...(features.length ? [['/features/', 'weekly', '0.8', 'features']] : []),
+    ...features.map((f) => [`/features/${f.slug}/`, 'monthly', '0.8', `feature-${f.slug}`]),
+    ['/learn/', 'weekly', '0.8', 'learn'],
+    ...learnPages.map((l) => [`/learn/${l.slug}/`, 'monthly', '0.7', `learn-${l.slug}`]),
+    ...articles.map((a) => [`/learn/${a.slug}/`, 'monthly', '0.6', `learn-${a.slug}`]),
     ['/terms/', 'yearly', '0.3'],
   ];
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(([u, freq, pri]) => `  <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${urls.map(([u, freq, pri, og]) => `  <url>
     <loc>${SITE_URL}${u}</loc>
     <lastmod>${today()}</lastmod>
     <changefreq>${freq}</changefreq>
-    <priority>${pri}</priority>
+    <priority>${pri}</priority>${og && ogManifest[og] ? `
+    <image:image><image:loc>${SITE_URL}/assets/og/${og}.jpg</image:loc></image:image>` : ''}
   </url>`).join('\n')}
 </urlset>
 `);
   console.log(`  Updated sitemap.xml (${urls.length} URLs)`);
+
+  // ── llms.txt: a plain map of the site for AI answer engines ──
+  const link = (u, name, text) => `- [${name}](${SITE_URL}${u})${text ? `: ${text}` : ''}`;
+  fs.writeFileSync(path.join(ROOT, 'llms.txt'), [
+    '# StockYan',
+    '',
+    '> StockYan is an advanced NEPSE (Nepal Stock Exchange) analysis app. It turns complex NEPSE data into clear, actionable information: stock scanners, broker and smart money tracking, AI scores, pro charts, live prices and a portfolio that imports from MeroShare and TMS. Free on iPhone, Android, Windows and Linux, with paid Pro and Max plans. Made by Investo Nepal.',
+    '',
+    '## Main pages',
+    link('/', 'Home', 'what StockYan does, free tools and pricing'),
+    link('/download/', 'Download', 'App Store, Google Play and desktop downloads'),
+    link('/features/', 'Features', 'every StockYan feature'),
+    link('/learn/', 'Learn NEPSE', 'simple guides to the Nepal share market'),
+    '',
+    '## Features',
+    ...features.map((f) => link(`/features/${f.slug}/`, f.h1, f.lead)),
+    '',
+    '## Guides',
+    ...learnPages.map((l) => link(`/learn/${l.slug}/`, l.h1, l.lead)),
+    ...articles.map((a) => link(`/learn/${a.slug}/`, a.title, a.metaDescription)),
+    '',
+    '## Apps',
+    '- [StockYan on the App Store](https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688)',
+    '- [StockYan on Google Play](https://play.google.com/store/apps/details?id=app.golden.stockyan)',
+    '',
+  ].join('\n'));
+  console.log('  Updated llms.txt');
 }
 
-console.log('Building StockYan site...');
-build().then(() => console.log('Done.')).catch((err) => { console.error(err); process.exit(1); });
+// scripts/og-images.js reuses the frames and page data.
+module.exports = { SITE_URL, ROOT, SHOTS, esc, accent, mac, phone, render, readJson, partials };
+
+if (require.main === module) {
+  console.log('Building StockYan site...');
+  build().then(() => console.log('Done.')).catch((err) => { console.error(err); process.exit(1); });
+}
