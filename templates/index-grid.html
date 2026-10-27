@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> head}}
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{site}}/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+{{jsonld}}
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="top">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>{{crumb}}</span></nav>
+    <div class="head">
+      <h1>{{h1}}</h1>
+      <p class="lead">{{lead}}</p>
+    </div>
+    <div class="cards">{{cards}}</div>
+  </div>
+</section>
+</main>
+{{> footer}}
+</body>
+</html>

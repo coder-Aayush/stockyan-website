@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> head}}
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{site}}/og-image.png">
+<meta property="og:site_name" content="StockYan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{site}}/og-image.png">
+{{jsonld}}
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="top">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/features/">Features</a><span>/</span><span>{{crumb}}</span></nav>
+    <div class="head">
+      <h1>{{h1}}</h1>
+      <p class="lead">{{lead}}</p>
+      <div class="ctas">
+        <a class="btn btn-dark btn-lg" href="/download/?utm_source=website&amp;utm_medium=feature&amp;utm_campaign={{slug}}" data-dl-btn>Get StockYan free</a>
+        <a class="btn btn-ghost btn-lg" href="{{openUrl}}">Open in app</a>
+      </div>
+    </div>
+    <div class="page-shot {{shotClass}} rv">{{shot}}</div>
+  </div>
+</section>
+{{componentSection}}
+<section class="sec tint">
+  <div class="wrap">
+    <div class="cards">{{sections}}</div>
+  </div>
+</section>
+{{faqSection}}
+{{relatedSection}}
+<section class="sec close tint">
+  <canvas class="close-canvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="head rv">
+      <h2>Smarter investing<br>starts <span class="g">here.</span></h2>
+      <a class="btn btn-dark btn-lg" href="/download/?utm_source=website&amp;utm_medium=feature&amp;utm_campaign={{slug}}" data-dl-btn>Download free</a>
+    </div>
+  </div>
+</section>
+</main>
+{{> footer}}
+</body>
+</html>

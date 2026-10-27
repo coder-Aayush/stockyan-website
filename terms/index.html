@@ -38,34 +38,16 @@
       content="https://stockyan.info/og-image.png"
     />
 
-    <!-- Theme & Icons -->
-    <meta name="theme-color" content="#050706" />
-    <link rel="icon" type="image/png" href="/logo.png" />
-    <link rel="apple-touch-icon" href="/logo.png" />
-
-    <!-- Fonts & Styles -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/style.css" />
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+    <link rel="stylesheet" href="/site.css">
     <link rel="stylesheet" href="/legal.css" />
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    /></noscript>
 
     <!-- Structured Data: BreadcrumbList -->
     <script type="application/ld+json">
@@ -122,65 +104,80 @@
     </script>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="nav scrolled" id="nav">
-      <div class="container nav-container">
-        <a href="/" class="nav-logo">
-          <picture
-            ><source srcset="/logo.webp" type="image/webp" />
-            <img src="/logo.png" alt="StockYan Logo" width="36" height="36"
-          /></picture>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="nav" id="nav">
+      <div class="wrap nav-row">
+        <a href="/" class="brand" aria-label="StockYan home">
+          <picture><source srcset="/logo.webp" type="image/webp"><img src="/logo.png" alt="" width="32" height="32"></picture>
           <span>StockYan</span>
         </a>
-        <div class="nav-links">
-          <a href="/#features">Features</a>
-          <a href="/#services">Services</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="/#scanner">Scanners</a>
+          <a href="/#brokers">Broker tracking</a>
+          <a href="/#tools">All tools</a>
           <a href="/learn/">Learn</a>
-          <a href="/#download" class="nav-cta">Download</a>
-        </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-          <i class="fa-solid fa-bars"></i>
+          <a href="/#faq">FAQ</a>
+        </nav>
+        <p class="market" data-market hidden>
+          <span class="market-dot" aria-hidden="true"></span>
+          <span data-market-text></span>
+        </p>
+        <a href="/#download" class="btn btn-brand nav-cta">Download</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <span></span><span></span>
         </button>
       </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="/#features">Features</a>
-      <a href="/#services">Services</a>
-      <a href="/learn/">Learn</a>
-      <a href="/#download" class="nav-cta">Download</a>
-    </div>
-
-    <!-- Breadcrumbs -->
-    <div class="legal-breadcrumbs">
-      <div class="container">
-        <a href="/">Home</a>
-        <span class="sep">/</span>
-        <span>Terms and Conditions</span>
-      </div>
-    </div>
-
-    <!-- Hero -->
-    <header class="legal-hero">
-      <div class="container">
-        <h1>
-          Terms and <span class="gradient-text">Conditions</span>
-          <span class="t-light">of use</span>
-        </h1>
-        <p class="legal-hero-sub">
-          Please read these Terms and Conditions carefully before using the
-          StockYan mobile application. By downloading, installing, or using
-          StockYan, you confirm that you have read, understood, and agreed to be
-          bound by these Terms. If you do not agree, please do not use the
-          application.
-        </p>
+      <div class="mobile-menu" id="mobileMenu" hidden>
+        <a href="/#scanner">Scanners</a>
+        <a href="/#brokers">Broker tracking</a>
+        <a href="/#tools">All tools</a>
+        <a href="/learn/">Learn</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#download">Download</a>
       </div>
     </header>
 
+    <section class="page-head legal-head">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span>Terms and conditions</span>
+        </nav>
+        <h1>Terms and conditions</h1>
+        <p>Please read these Terms and Conditions carefully before using the StockYan mobile application. By downloading, installing, or using StockYan, you confirm that you have read, understood, and agreed to be bound by these Terms. If you do not agree, please do not use the application.</p>
+        <p class="legal-effective">Effective January 1, 2025</p>
+      </div>
+    </section>
+
     <!-- Document -->
-    <main class="legal-body">
-      <div class="container">
+    <main id="main" class="legal-body">
+      <div class="wrap legal-layout">
+        <nav class="legal-toc" aria-label="On this page">
+          <p class="legal-toc-title">On this page</p>
+          <ol>
+              <li><a href="#about"><span>01</span>About StockYan &amp; Company Information</a></li>
+              <li><a href="#acceptance"><span>02</span>Acceptance of Terms</a></li>
+              <li><a href="#educational"><span>03</span>Educational Purpose &amp; No Financial Advice</a></li>
+              <li><a href="#responsibility"><span>04</span>User's Sole Responsibility for Investment Decisions</a></li>
+              <li><a href="#refund"><span>05</span>No Refund Policy</a></li>
+              <li><a href="#accuracy"><span>06</span>Accuracy of Data &amp; Market Information</a></li>
+              <li><a href="#account"><span>07</span>User Account &amp; Security</a></li>
+              <li><a href="#prohibited"><span>08</span>Prohibited Conduct</a></li>
+              <li><a href="#ip"><span>09</span>Intellectual Property Rights</a></li>
+              <li><a href="#third-party"><span>10</span>Third-Party Links &amp; Services</a></li>
+              <li><a href="#liability"><span>11</span>Limitation of Liability</a></li>
+              <li><a href="#indemnification"><span>12</span>Indemnification</a></li>
+              <li><a href="#privacy"><span>13</span>Privacy Policy</a></li>
+              <li><a href="#modifications"><span>14</span>Modifications to the App &amp; Terms</a></li>
+              <li><a href="#termination"><span>15</span>Termination</a></li>
+              <li><a href="#governing-law"><span>16</span>Governing Law &amp; Dispute Resolution</a></li>
+              <li><a href="#compliance"><span>17</span>Regulatory Compliance</a></li>
+              <li><a href="#severability"><span>18</span>Severability &amp; Entire Agreement</a></li>
+              <li><a href="#contact"><span>19</span>Contact Us</a></li>
+          </ol>
+        </nav>
         <article class="legal-doc">
           <!-- 1 -->
           <section class="legal-section" id="about">
@@ -248,7 +245,7 @@
 
             <div class="legal-callout is-warning">
               <p class="legal-callout-title">
-                <i class="fa-solid fa-triangle-exclamation"></i> Important
+                Important
                 disclaimer: not financial advice
               </p>
               <p>
@@ -343,7 +340,7 @@
 
             <div class="legal-callout is-warning">
               <p class="legal-callout-title">
-                <i class="fa-solid fa-triangle-exclamation"></i> Strict no
+                Strict no
                 refund policy
               </p>
               <p>
@@ -787,119 +784,69 @@
       </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-      <div class="container footer-container">
+      <div class="wrap footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo">
-            <picture
-              ><source srcset="/logo.webp" type="image/webp" />
-              <img src="/logo.png" alt="StockYan" width="32" height="32"
-            /></picture>
+          <a href="/" class="brand">
+            <picture><source srcset="/logo.webp" type="image/webp"><img src="/logo.png" alt="" width="28" height="28"></picture>
             <span>StockYan</span>
-          </div>
-          <p>Nepal Share Market App.<br />Built by investors, for investors.</p>
-          <div class="footer-social">
-            <a
-              href="https://www.instagram.com/stockyan.app"
-              target="_blank"
-              rel="noopener"
-              aria-label="StockYan on Instagram"
-            >
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a
-              href="https://www.facebook.com/share/1DyQ7Jwt8B/"
-              target="_blank"
-              rel="noopener"
-              aria-label="StockYan on Facebook"
-            >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a
-              href="https://www.tiktok.com/@stockyan.app"
-              target="_blank"
-              rel="noopener"
-              aria-label="StockYan on TikTok"
-            >
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
-            <a
-              href="https://youtube.com/@stockyan_app"
-              target="_blank"
-              rel="noopener"
-              aria-label="StockYan on YouTube"
-            >
-              <i class="fa-brands fa-youtube"></i>
-            </a>
+          </a>
+          <p>Nepal share market app. Built by investors, for investors.</p>
+          <div class="social">
+            <a href="https://www.instagram.com/stockyan.app" target="_blank" rel="noopener" aria-label="StockYan on Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1DyQ7Jwt8B/" target="_blank" rel="noopener" aria-label="StockYan on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@stockyan.app" target="_blank" rel="noopener" aria-label="StockYan on TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://youtube.com/@stockyan_app" target="_blank" rel="noopener" aria-label="StockYan on YouTube"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>Product</h4>
-            <a href="/#features">Features</a>
-            <a href="/#services">Services</a>
-            <a href="/learn/">Learn</a>
-            <a href="/#download">Download</a>
-          </div>
-          <div class="footer-col">
-            <h4>Download</h4>
-            <a
-              href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688"
-              target="_blank"
-              rel="noopener"
-              >App Store</a
-            >
-            <a
-              href="https://play.google.com/store/apps/details?id=app.golden.stockyan"
-              target="_blank"
-              rel="noopener"
-              >Google Play</a
-            >
-            <a
-              href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Setup-latest.exe"
-              data-win-download
-              download
-              >Windows</a
-            >
-          </div>
-          <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="/terms/">Terms &amp; Conditions</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2025 StockYan. All rights reserved.</p>
-        </div>
+        <nav class="footer-col" aria-label="Product">
+          <h2>Product</h2>
+          <a href="/#scanner">Scanners</a>
+          <a href="/#brokers">Broker tracking</a>
+          <a href="/#tools">All tools</a>
+          <a href="/learn/">Learn</a>
+        </nav>
+        <nav class="footer-col" aria-label="Learn">
+          <h2>Learn</h2>
+          <a href="/learn/circuit-breaker-in-nepse/">Circuit breakers</a>
+          <a href="/learn/margin-trading-in-nepse/">Margin trading</a>
+          <a href="/learn/use-of-accumulation-distribution-data/">Accumulation data</a>
+          <a href="/learn/broker-intelligence-module/">Broker analysis</a>
+          <a href="/learn/">All guides</a>
+        </nav>
+        <nav class="footer-col" aria-label="Download">
+          <h2>Download</h2>
+          <a href="/#dl-ios">iPhone &amp; iPad</a>
+          <a href="/#dl-android">Android</a>
+          <a href="/#dl-windows">Windows</a>
+          <a href="/#dl-mac">macOS</a>
+          <a href="/#dl-linux">Linux</a>
+        </nav>
+        <nav class="footer-col" aria-label="Legal">
+          <h2>Legal</h2>
+          <a href="/terms/">Terms &amp; conditions</a>
+        </nav>
+        <p class="footer-base">&copy; <span data-year>2026</span> StockYan. Market data in StockYan is for information only and is not investment advice.</p>
       </div>
     </footer>
 
+    <script src="/site.js" defer></script>
+
     <script>
-      // Mobile menu toggle: mirrors the homepage behaviour in script.js
+      // Highlight the clause currently in view in the contents list.
       (function () {
-        const navToggle = document.getElementById('navToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (!navToggle || !mobileMenu) return;
-
-        function setMenu(open) {
-          mobileMenu.classList.toggle('open', open);
-          navToggle.querySelector('i').className = open
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars';
-          navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-          document.body.style.overflow = open ? 'hidden' : '';
-        }
-
-        navToggle.addEventListener('click', () => {
-          setMenu(!mobileMenu.classList.contains('open'));
-        });
-        mobileMenu.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => setMenu(false));
-        });
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && mobileMenu.classList.contains('open'))
-            setMenu(false);
-        });
+        const links = new Map();
+        document.querySelectorAll('.legal-toc a').forEach((a) => links.set(a.hash.slice(1), a));
+        if (!('IntersectionObserver' in window)) return;
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            links.forEach((a) => a.removeAttribute('aria-current'));
+            const a = links.get(e.target.id);
+            if (a) a.setAttribute('aria-current', 'true');
+          });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        document.querySelectorAll('.legal-section').forEach((s) => io.observe(s));
       })();
     </script>
   </body>

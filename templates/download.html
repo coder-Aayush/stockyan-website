@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> head}}
+<script src="/go.js?v={{v:go.js}}"></script>
+<title>Download StockYan: NEPSE App for iPhone, Android, Windows, Linux</title>
+<meta name="description" content="Get StockYan free on iPhone, Android, Windows and Linux. The advanced NEPSE analysis app: complex market data turned into clear, actionable information.">
+<link rel="canonical" href="{{site}}/download/">
+<meta property="og:title" content="Download StockYan">
+<meta property="og:description" content="The advanced NEPSE analysis app. Free on every device.">
+<meta property="og:url" content="{{site}}/download/">
+<meta property="og:image" content="{{site}}/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="top">
+
+<section class="dlx-hero">
+  <div class="wrap dlx-grid">
+    <div class="dlx-copy">
+      <p class="eyebrow">Download</p>
+      <h1>Get <span class="g">StockYan.</span></h1>
+      <p class="lead">The advanced NEPSE analysis app. Free on every device, one account everywhere.</p>
+      <div class="dlx-main" id="dlxMain">
+        <a class="dlx-btn" id="dlxPrimary" href="#platforms"><i class="fa-brands fa-apple" id="dlxIcon" aria-hidden="true"></i><span><b id="dlxLabel">Choose your device</b><small id="dlxMeta">Free download</small></span></a>
+        <div class="dlx-also" id="dlxAlso"></div>
+      </div>
+      <ul class="dlx-facts">
+        <li><svg><use href="#shield"/></svg>Free to download</li>
+        <li><svg><use href="#devices"/></svg>One account on every device</li>
+        <li><svg><use href="#sync"/></svg>Updates itself</li>
+      </ul>
+    </div>
+    <div class="dlx-visual">
+      <div class="dlx-mac" id="dlxMac">{{mac label="StockYan desktop dashboard" shots="mac2"}}</div>
+      <div class="dlx-phone" id="dlxPhone">{{phone shot="ph2049" label="StockYan on iPhone"}}</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="platforms" style="padding-top:clamp(64px,8vw,96px)">
+  <div class="wrap">
+    <div class="head rv">
+      <h2 class="h2">Every device. <span class="g">One tap.</span></h2>
+    </div>
+    <div class="dlx-cards">
+      <div class="dlx-card" data-os="ios">
+        <span class="dlx-ic"><i class="fa-brands fa-apple"></i></span>
+        <h3>iPhone and iPad</h3>
+        <p>From the App Store.</p>
+        <a class="btn btn-dark" data-dl="ios" href="https://apps.apple.com/np/app/stockyan-nepal-share-market/id6757148688" target="_blank" rel="noopener">Get on the App Store</a>
+      </div>
+      <div class="dlx-card" data-os="android">
+        <span class="dlx-ic"><i class="fa-brands fa-android"></i></span>
+        <h3>Android</h3>
+        <p>From Google Play.</p>
+        <a class="btn btn-dark" data-dl="android" href="https://play.google.com/store/apps/details?id=app.golden.stockyan" target="_blank" rel="noopener">Get on Google Play</a>
+      </div>
+      <div class="dlx-card" data-os="windows" id="windows">
+        <span class="dlx-ic"><i class="fa-brands fa-windows"></i></span>
+        <h3>Windows</h3>
+        <p><span data-size="windows">Installer</span><span id="winVersion" hidden> · version <span data-version></span></span></p>
+        <a class="btn btn-dark" data-dl="windows" href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Setup-latest.exe">Download .exe</a>
+        <a class="dlx-alt" data-dl="portable" href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Windows-latest-portable.zip">Or the portable .zip, no install needed</a>
+        <details class="help">
+          <summary>Windows blocked the app?</summary>
+          <ol><li>Right-click StockYan, open Properties, tick Unblock and press Apply.</li><li>Still blocked? Turn off Smart App Control in Windows Security and open it again.</li></ol>
+        </details>
+      </div>
+      <div class="dlx-card" data-os="mac" id="mac" hidden>
+        <span class="dlx-ic"><i class="fa-brands fa-apple"></i></span>
+        <h3>macOS</h3>
+        <p>Desktop app for Mac.</p>
+        <a class="btn btn-dark" data-dl="mac" href="#mac">Download for Mac</a>
+      </div>
+      <div class="dlx-card" data-os="linux" id="linux">
+        <span class="dlx-ic"><i class="fa-brands fa-linux"></i></span>
+        <h3>Linux</h3>
+        <p><span data-size="linux">.tar.gz archive</span></p>
+        <a class="btn btn-dark" data-dl="linux" href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Linux-latest.tar.gz">Download .tar.gz</a>
+      </div>
+    </div>
+
+    <div class="dlx-qr rv" id="dlxQr">
+      <div class="qr" id="qr" aria-label="QR code to get StockYan on your phone"></div>
+      <div>
+        <h3>On your phone?</h3>
+        <p>Point your camera here. It opens the App Store or Google Play automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="head rv"><h2 class="h2">Up and running <span class="g">in minutes.</span></h2></div>
+    <ol class="dlx-steps rv">
+      <li><span class="n">1</span><h3>Install</h3><p>Download StockYan for your device and open it.</p></li>
+      <li><span class="n">2</span><h3>Sign in</h3><p>Use Google, Apple or your email. One account works everywhere.</p></li>
+      <li><span class="n">3</span><h3>Link MeroShare</h3><p>Your shares import on their own. Then explore scanners, broker data and alerts.</p></li>
+    </ol>
+  </div>
+</section>
+</main>
+{{> footer}}
+<script>
+  // Primary button: this device's download, with its size from the server.
+  window.addEventListener('stockyan:downloads', function (e) {
+    var d = e.detail, os = d.os;
+    var mb = function (bytes) { return (bytes / 1048576).toFixed(1) + ' MB'; };
+    var size = function (url, el) {
+      if (!url || !el) return;
+      fetch(url, { method: 'HEAD' }).then(function (r) { var n = +r.headers.get('content-length'); if (n) el.textContent = el.dataset.prefix + mb(n); }).catch(function () {});
+    };
+    var win = document.querySelector('[data-size="windows"]'), lin = document.querySelector('[data-size="linux"]');
+    if (win) { win.dataset.prefix = 'Installer · '; size(d.windows, win); }
+    if (lin) { lin.dataset.prefix = '.tar.gz · '; size(d.linux, lin); }
+    if (d.mac) document.getElementById('mac').hidden = false;
+
+    var label = { ios: 'Get it on the App Store', android: 'Get it on Google Play', windows: 'Download for Windows', linux: 'Download for Linux', mac: 'Download for Mac' };
+    var icon = { ios: 'fa-apple', android: 'fa-google-play', windows: 'fa-windows', linux: 'fa-linux', mac: 'fa-apple' };
+    var primary = document.getElementById('dlxPrimary'), meta = document.getElementById('dlxMeta');
+    var mine = os && d[os] ? os : (os === 'mac' ? 'ios' : '');
+    var phone = os === 'ios' || os === 'android';
+    document.getElementById('dlxMac').hidden = phone;
+    document.getElementById('dlxPhone').classList.toggle('solo-phone', phone);
+    document.getElementById('dlxQr').hidden = phone;
+    if (d.version) document.getElementById('winVersion').hidden = false;
+    if (!mine) return;
+    primary.href = d[mine];
+    primary.dataset.dl = mine;
+    if (mine === 'ios' || mine === 'android') { primary.target = '_blank'; primary.rel = 'noopener'; }
+    document.getElementById('dlxLabel').textContent = label[mine];
+    var ic = document.getElementById('dlxIcon'); if (ic) ic.outerHTML = '<i class="fa-brands ' + icon[mine] + '" id="dlxIcon" aria-hidden="true"></i>';
+    meta.textContent = os === 'mac' && !d.mac ? 'The Mac app is on its way. Get StockYan on your iPhone meanwhile.' : 'Free download';
+    if (mine === 'windows') { meta.dataset.prefix = 'Free · '; size(d.windows, meta); }
+    if (mine === 'linux') { meta.dataset.prefix = 'Free · '; size(d.linux, meta); }
+    if (d.version) document.getElementById('winVersion').hidden = false;
+    var card = mine === os && document.querySelector('.dlx-card[data-os="' + mine + '"]');
+    if (card) { card.classList.add('me'); card.insertAdjacentHTML('afterbegin', '<span class="dlx-you">This device</span>'); }
+    var others = { ios: ['android'], android: ['ios'], windows: ['linux'], linux: ['windows'], mac: [] }[os] || [];
+    document.getElementById('dlxAlso').innerHTML = (others.length ? 'Also on ' : '') + others.map(function (o) { return '<a href="' + d[o] + '" data-dl="' + o + '">' + { ios: 'iPhone', android: 'Android', windows: 'Windows', linux: 'Linux' }[o] + '</a>'; }).join(', ') + (others.length ? '. ' : '') + '<a href="#platforms">All devices</a>';
+  });
+  addEventListener('DOMContentLoaded', function () {
+    var box = document.getElementById('qr');
+    if (box && window.QRCode) new QRCode(box, { text: '{{site}}/download/?utm_source=website&utm_medium=qr', width: 220, height: 220, colorDark: '#0A1511', colorLight: '#FFFFFF', correctLevel: QRCode.CorrectLevel.M });
+  });
+</script>
+</body>
+</html>

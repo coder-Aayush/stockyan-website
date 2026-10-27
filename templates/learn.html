@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> head}}
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{ogImage}}">
+<meta property="og:site_name" content="StockYan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{ogImage}}">
+{{jsonld}}
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="top">
+<section class="page-hero" style="padding-bottom:clamp(32px,4vw,48px)">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/learn/">Learn</a><span>/</span><span>{{crumb}}</span></nav>
+    <div class="head">
+      <h1 style="font-size:clamp(38px,6vw,72px)">{{h1}}</h1>
+      <p class="lead">{{lead}}</p>
+      <p class="meta-row">{{meta}}</p>
+    </div>
+  </div>
+</section>
+<section style="padding-block:clamp(24px,4vw,48px) clamp(72px,9vw,120px)">
+  <div class="wrap prose-wrap">
+    <article class="prose">{{body}}</article>
+    <aside class="aside">{{aside}}</aside>
+  </div>
+</section>
+{{faqSection}}
+{{relatedSection}}
+</main>
+{{> footer}}
+</body>
+</html>

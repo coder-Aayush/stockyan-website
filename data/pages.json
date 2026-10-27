@@ -1,0 +1,1971 @@
+{
+  "features": [
+    {
+      "slug": "nepse-portfolio-tracker",
+      "keyword": "nepse portfolio tracker",
+      "title": "NEPSE Portfolio Tracker with Tax and Dividends | StockYan",
+      "metaDescription": "Track every NEPSE share you own in one place. Import from MeroShare or TMS, then see profit, dividends and the tax you would pay to sell.",
+      "h1": "Your NEPSE portfolio in one place",
+      "accent": "in one place",
+      "lead": "See what you own, what you paid and what it is worth today.",
+      "heroShot": "ph2050",
+      "component": "donut",
+      "openPath": "/open/portfolio",
+      "sections": [
+        {
+          "h2": "All your shares together",
+          "text": "Every holding is priced at the latest NEPSE rate, with your average cost beside it.",
+          "points": [
+            "Total value and profit at a glance",
+            "Sector split, like Banking 34%",
+            "A separate portfolio per account",
+            "Every dividend you received"
+          ]
+        },
+        {
+          "h2": "No typing needed",
+          "text": "Sync from MeroShare, upload a TMS file, or add a single trade yourself.",
+          "points": [
+            "MeroShare sync in a few taps",
+            "TMS CSV or Excel upload",
+            "Quick add for one trade"
+          ]
+        },
+        {
+          "h2": "Profit after charges and tax",
+          "text": "Broker commission, SEBON fee, DP charge and capital gains tax are counted for you.",
+          "points": [
+            "Tax on exit for each stock",
+            "Shows when the 5% rate applies",
+            "Cash you keep after selling"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "How do I track my NEPSE portfolio?",
+          "a": "Install StockYan, open Portfolio and sync your MeroShare account or upload a TMS file. Your holdings, average cost and profit show up on one screen."
+        },
+        {
+          "q": "Can I track more than one demat account?",
+          "a": "Yes. You can link more than one account and keep a separate portfolio for each, for example one for you and one for a parent."
+        },
+        {
+          "q": "Does the profit include tax and fees?",
+          "a": "Yes. StockYan counts broker commission, the SEBON fee, the DP charge and capital gains tax: 7.5% if you held under a year, 5% if you held longer."
+        },
+        {
+          "q": "Can I see my portfolio on my computer?",
+          "a": "Yes. The same portfolio opens in the StockYan app for Windows, macOS and Linux."
+        }
+      ],
+      "related": [
+        "meroshare-portfolio",
+        "nepse-share-calculator",
+        "bulk-ipo-result"
+      ],
+      "learn": [
+        "what-is-wacc-in-share-market",
+        "capital-gain-tax-nepal-share",
+        "share-broker-commission-nepal"
+      ]
+    },
+    {
+      "slug": "meroshare-portfolio",
+      "keyword": "meroshare portfolio",
+      "title": "MeroShare Portfolio Sync and TMS Import | StockYan",
+      "metaDescription": "Bring your MeroShare portfolio into StockYan in a few taps, or upload a TMS file. See your shares with live prices, profit and history.",
+      "h1": "Import your MeroShare portfolio",
+      "accent": "MeroShare",
+      "lead": "Link your account once and your shares come in for you.",
+      "heroShot": "mac2",
+      "component": "import",
+      "openPath": "/open/portfolio",
+      "sections": [
+        {
+          "h2": "Sync from MeroShare",
+          "text": "Sign in with your MeroShare details and pick the account to bring in.",
+          "points": [
+            "Shares, IPOs and past trades",
+            "Sync again any time",
+            "More than one demat account"
+          ]
+        },
+        {
+          "h2": "Upload from TMS",
+          "text": "Download a CSV or Excel file from your broker's TMS and upload it.",
+          "points": [
+            "Uses your broker's own export",
+            "Buys and sells come in together",
+            "No retyping old trades"
+          ]
+        },
+        {
+          "h2": "Then see the full picture",
+          "text": "Imported shares get live prices, with profit and tax worked out.",
+          "points": [
+            "Profit after all charges",
+            "Dividends and bonus shares",
+            "How your money splits by sector"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why is my MeroShare portfolio not showing?",
+          "a": "This usually happens when your demat or MeroShare account has expired, or your session timed out. Renew the account with your DP if it expired, then sync again in StockYan."
+        },
+        {
+          "q": "Can I import my trades from TMS?",
+          "a": "Yes. Export your trade history from your broker's TMS as a CSV or Excel file, then upload it in StockYan."
+        },
+        {
+          "q": "Do I need to sync every day?",
+          "a": "No. Prices update on their own. Sync again when you buy, sell or receive new IPO or bonus shares."
+        }
+      ],
+      "related": [
+        "nepse-portfolio-tracker",
+        "bulk-ipo-result",
+        "nepse-share-calculator"
+      ],
+      "learn": [
+        "what-is-wacc-in-share-market"
+      ]
+    },
+    {
+      "slug": "bulk-ipo-result",
+      "keyword": "bulk ipo result",
+      "title": "Bulk IPO Result Check for the Whole Family | StockYan",
+      "metaDescription": "Check IPO results for every BOID in your family with one tap. Save each account once, then see who got shares. Free in StockYan.",
+      "h1": "Check IPO results for everyone",
+      "accent": "everyone",
+      "lead": "Add each family BOID once and check them all with one tap.",
+      "heroShot": "ph2051",
+      "component": "ipo",
+      "openPath": "/open/ipo-result",
+      "sections": [
+        {
+          "h2": "One tap, every account",
+          "text": "Save the 16-digit BOID for you, your parents and anyone else you apply for.",
+          "points": [
+            "Add as many accounts as you like",
+            "Pick the company, tap check",
+            "Allotted or not, side by side"
+          ]
+        },
+        {
+          "h2": "Apply from the same place",
+          "text": "With saved MeroShare logins, you can apply for an open IPO in several accounts at once.",
+          "points": [
+            "Choose accounts and units",
+            "Apply to all in one go",
+            "Track each application's status"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "How do I check IPO results for many BOIDs at once?",
+          "a": "Open IPO Result in StockYan, add each BOID once and pick the company. One tap checks every saved account."
+        },
+        {
+          "q": "What is a BOID?",
+          "a": "BOID is your 16-digit demat account number. You can find it in MeroShare under your details, or ask your DP."
+        },
+        {
+          "q": "Is the bulk IPO result check free?",
+          "a": "Yes. Checking IPO results for all your saved accounts is free."
+        },
+        {
+          "q": "Can I apply for an IPO in more than one account?",
+          "a": "Yes. Save each MeroShare login, choose the accounts and units, and StockYan applies in each one. You can then follow each application's status."
+        }
+      ],
+      "related": [
+        "meroshare-portfolio",
+        "nepse-alerts",
+        "nepse-portfolio-tracker"
+      ],
+      "learn": []
+    },
+    {
+      "slug": "nepse-stock-screener",
+      "keyword": "nepse stock screener",
+      "title": "NEPSE Stock Screener: 14 Scanners in One App | StockYan",
+      "metaDescription": "Scan every NEPSE stock by RSI, MACD, moving averages, Bollinger Bands, volume, candlestick patterns, support and resistance, and more.",
+      "h1": "Find stocks that fit your idea",
+      "accent": "fit your idea",
+      "lead": "Pick a setup and StockYan checks every listed stock for you.",
+      "heroShot": "mac7",
+      "component": "finder",
+      "openPath": "/open/scanner",
+      "sections": [
+        {
+          "h2": "14 stock scanners",
+          "text": "Each scanner looks for one thing and lists the stocks that match.",
+          "points": [
+            "RSI, MACD, EMA and SMA",
+            "Bollinger Bands, volume and Fibonacci",
+            "Pivots, support, resistance and trendlines",
+            "Candlesticks, Dow signals and fundamentals"
+          ]
+        },
+        {
+          "h2": "Cleaner price data",
+          "text": "Indicators like RSI and MACD use prices adjusted for bonus and right shares, so a book closure does not look like a crash.",
+          "points": [
+            "Adjusted for bonus and right shares",
+            "Live updates in market hours",
+            "Filter by sector"
+          ]
+        },
+        {
+          "h2": "Open any match",
+          "text": "Tap a stock to see its chart, levels, brokers and fundamentals.",
+          "points": [
+            "Candle chart with levels",
+            "Which brokers are buying and selling",
+            "Profit, EPS and book value"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is a stock screener?",
+          "a": "A stock screener filters all listed stocks by rules you choose, like RSI below 30 or volume twice the usual. It saves you from opening every chart one by one."
+        },
+        {
+          "q": "Which scanners does StockYan have?",
+          "a": "There are 14: RSI, MACD, EMA and SMA, Bollinger Bands, volume, Fibonacci, pivot points, support and resistance, trendline breakout, trend continuation, candlestick patterns, Dow signals, market cap and fundamentals."
+        },
+        {
+          "q": "Does a scanner tell me what to buy?",
+          "a": "No. A scanner shows which stocks match a pattern today. It helps you choose where to look, and the decision stays with you."
+        }
+      ],
+      "related": [
+        "nepse-rsi-scanner",
+        "nepse-technical-analysis-chart",
+        "nepse-ai-analysis"
+      ],
+      "learn": [
+        "what-is-rsi",
+        "macd-indicator",
+        "bollinger-bands",
+        "candlestick-patterns"
+      ]
+    },
+    {
+      "slug": "nepse-rsi-scanner",
+      "keyword": "nepse rsi",
+      "title": "NEPSE RSI Scanner for Oversold and Overbought | StockYan",
+      "metaDescription": "See the RSI of every NEPSE stock, live in market hours. Find stocks that crossed 30 or 70 today, spot divergence and filter by sector.",
+      "h1": "Every NEPSE stock's RSI",
+      "accent": "RSI",
+      "lead": "See which stocks are stretched up or down, live during the session.",
+      "heroShot": "mac1",
+      "component": null,
+      "openPath": "/open/scanner/rsi",
+      "sections": [
+        {
+          "h2": "RSI in one list",
+          "text": "RSI is a 0 to 100 score of recent price moves. Above 70 is stretched up, below 30 is stretched down.",
+          "points": [
+            "Sort by highest or lowest RSI",
+            "Guides at 30, 50 and 70",
+            "Filter by sector and volume"
+          ]
+        },
+        {
+          "h2": "Live during market hours",
+          "text": "RSI updates through the session and settles at the 3:00 PM close.",
+          "points": [
+            "Stocks that crossed 30 or 70 today",
+            "Divergence: price and RSI disagree",
+            "Short, medium or long-term view"
+          ]
+        },
+        {
+          "h2": "Adjusted for bonus shares",
+          "text": "A bonus book closure drops the share price. StockYan adjusts past prices so RSI does not read it as selling.",
+          "points": [
+            "Bonus and right shares adjusted",
+            "Up to 120 days of RSI history",
+            "Same data on phone and desktop"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is a good RSI for NEPSE stocks?",
+          "a": "There is no single good number. Many traders watch 70 and 30: above 70 means the price rose fast, below 30 means it fell fast. Read it with price levels and volume."
+        },
+        {
+          "q": "How do I check the RSI of a NEPSE stock?",
+          "a": "Open the stock in StockYan to see its RSI, or open the RSI scanner to see every stock at once."
+        },
+        {
+          "q": "Is the RSI live?",
+          "a": "Yes. During market hours, Sunday to Thursday from 11:00 to 15:00, RSI updates as trades happen."
+        }
+      ],
+      "related": [
+        "nepse-stock-screener",
+        "nepse-technical-analysis-chart",
+        "nepse-alerts"
+      ],
+      "learn": [
+        "what-is-rsi"
+      ]
+    },
+    {
+      "slug": "nepse-technical-analysis-chart",
+      "keyword": "nepse technical analysis chart",
+      "title": "NEPSE Technical Analysis Chart with Indicators | StockYan",
+      "metaDescription": "Candle charts for every NEPSE stock with indicators, support and resistance, trendlines and bar replay. Multi-chart layouts on desktop.",
+      "h1": "Pro charts for NEPSE",
+      "accent": "Pro charts",
+      "lead": "Candle charts with indicators, levels and trendlines, on phone and desktop.",
+      "heroShot": "mac3",
+      "component": "levels",
+      "openPath": "/open/chart/NABIL",
+      "sections": [
+        {
+          "h2": "Levels drawn for you",
+          "text": "StockYan tools mark levels and patterns on the chart from real price data.",
+          "points": [
+            "Support, resistance and trendlines",
+            "Supply and demand zones",
+            "Golden and death crosses",
+            "Volume spikes and open gaps"
+          ]
+        },
+        {
+          "h2": "Raw or adjusted prices",
+          "text": "One switch shows prices adjusted for bonus shares, rights and dividends, so old levels line up with today.",
+          "points": [
+            "Raw and adjusted in one tap",
+            "Bar replay to practise reading",
+            "Save a snapshot of any chart"
+          ]
+        },
+        {
+          "h2": "Multi-chart on desktop",
+          "text": "The desktop Workspace puts several charts, a watchlist and live prices on one screen.",
+          "points": [
+            "Several charts side by side",
+            "Keep charts in sync",
+            "Watchlist and live NEPSE list"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Where can I see a NEPSE chart with indicators?",
+          "a": "Open any stock in StockYan and tap the chart. You can add indicators and turn on StockYan tools like support and resistance."
+        },
+        {
+          "q": "What does adjusted price mean on a chart?",
+          "a": "When a company gives bonus or right shares, its price drops at book closure. Adjusted prices scale the old prices down so the chart shows the real move."
+        },
+        {
+          "q": "Can I see more than one chart at a time?",
+          "a": "Yes. The desktop app for Windows, macOS and Linux has a Workspace with several charts that can stay in sync."
+        }
+      ],
+      "related": [
+        "nepse-app-for-pc",
+        "nepse-stock-screener",
+        "nepse-rsi-scanner"
+      ],
+      "learn": [
+        "support-and-resistance",
+        "fibonacci-retracement",
+        "ema-vs-sma",
+        "candlestick-patterns"
+      ]
+    },
+    {
+      "slug": "nepse-broker-analysis",
+      "keyword": "broker analysis nepse",
+      "title": "Broker Analysis NEPSE: Top Buyers and Sellers | StockYan",
+      "metaDescription": "See which brokers are buying and selling any NEPSE stock over a day, a week or a month. Top buyers, top sellers and top holders in one view.",
+      "h1": "See who is buying",
+      "accent": "buying",
+      "lead": "Broker buying and selling for every NEPSE stock, in plain numbers.",
+      "heroShot": "mac5",
+      "component": "brokers",
+      "openPath": "/open/broker-activity",
+      "sections": [
+        {
+          "h2": "Top buyers and sellers",
+          "text": "For any stock, see the brokers that bought and sold the most shares.",
+          "points": [
+            "Top buyers and top sellers",
+            "Top holders over time",
+            "Net shares: bought minus sold"
+          ]
+        },
+        {
+          "h2": "Market-wide broker tools",
+          "text": "Look at broker activity across all stocks, not one at a time.",
+          "points": [
+            "Broker heatmap",
+            "Each broker's favourite stocks",
+            "Sector-wise broker data",
+            "Matching buy and sell trades"
+          ]
+        },
+        {
+          "h2": "One clue among many",
+          "text": "Heavy buying from one or two brokers can show where large money is moving. Check price and volume too.",
+          "points": [
+            "Spot steady buying over weeks",
+            "See when sellers take over",
+            "Compare with the price chart"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is broker analysis in NEPSE?",
+          "a": "Every NEPSE trade records a buying broker and a selling broker. Broker analysis adds these up for each stock, so you can see which brokers bought or sold the most."
+        },
+        {
+          "q": "Is a broker the same as the investor?",
+          "a": "No. A broker trades for many clients, so one broker's buying can come from many different people."
+        },
+        {
+          "q": "Can I see broker holdings for a stock?",
+          "a": "Yes. StockYan shows top holders for each stock, the brokers that have bought more shares than they sold."
+        }
+      ],
+      "related": [
+        "nepse-accumulation-distribution",
+        "nepse-floorsheet",
+        "nepse-bulk-transactions"
+      ],
+      "learn": [
+        "what-is-floorsheet"
+      ]
+    },
+    {
+      "slug": "nepse-accumulation-distribution",
+      "keyword": "accumulation distribution nepse",
+      "title": "NEPSE Accumulation and Distribution Data, Free | StockYan",
+      "metaDescription": "See which NEPSE stocks brokers are collecting and which they are selling off, for any trading date. Free in the StockYan app.",
+      "h1": "Who is collecting shares",
+      "accent": "collecting",
+      "lead": "A daily list of stocks brokers are buying up or handing out.",
+      "heroShot": "mac2",
+      "component": "accumulation",
+      "openPath": "/open/accumulation",
+      "sections": [
+        {
+          "h2": "Accumulation, simply",
+          "text": "Accumulation means brokers keep buying more of a stock than they sell. Distribution is the opposite.",
+          "points": [
+            "Pick any trading date",
+            "Stocks being collected",
+            "Stocks being sold off"
+          ]
+        },
+        {
+          "h2": "More ways to look",
+          "text": "Related tools look at the same buying from other angles.",
+          "points": [
+            "Aggressive accumulators",
+            "Slow accumulation over weeks",
+            "Distribution leaders"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is accumulation and distribution in the share market?",
+          "a": "Accumulation is when buyers keep collecting a stock over time. Distribution is when holders keep selling it. In NEPSE you can see this through broker buying and selling."
+        },
+        {
+          "q": "Is accumulation a buy signal?",
+          "a": "On its own, no. Heavy buying can come before a rise, but it can also fade. Read it with the chart, volume and the company's results."
+        },
+        {
+          "q": "Is this data free?",
+          "a": "Yes. Accumulation and distribution data is free in StockYan. Filtering by sector is a premium option."
+        }
+      ],
+      "related": [
+        "nepse-broker-analysis",
+        "nepse-bulk-transactions",
+        "nepse-floorsheet"
+      ],
+      "learn": [
+        "what-is-floorsheet"
+      ]
+    },
+    {
+      "slug": "nepse-floorsheet",
+      "keyword": "floorsheet nepse",
+      "title": "NEPSE Floorsheet Today: Every Trade, Free | StockYan",
+      "metaDescription": "See every NEPSE trade with buying broker, selling broker, quantity, rate and amount, for the whole market or one stock. Free in StockYan.",
+      "h1": "Every trade, in one sheet",
+      "accent": "Every trade",
+      "lead": "Who bought, who sold, how many shares and at what price.",
+      "heroShot": "mac5",
+      "component": "floorsheet",
+      "openPath": "/open/floor-sheet",
+      "sections": [
+        {
+          "h2": "What you see",
+          "text": "Each row is one trade recorded by NEPSE.",
+          "points": [
+            "Buying and selling broker number",
+            "Quantity, rate and amount",
+            "Whole market or one stock"
+          ]
+        },
+        {
+          "h2": "Made for big screens",
+          "text": "On desktop, filters and totals sit beside one large trade table.",
+          "points": [
+            "Totals for the trades you filter",
+            "Page through thousands of rows",
+            "Same data on your phone"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the floorsheet in NEPSE?",
+          "a": "The floorsheet is the list of every trade NEPSE recorded in a day. Each row shows the stock, buying broker, selling broker, quantity, rate and amount."
+        },
+        {
+          "q": "When does the floorsheet fill up?",
+          "a": "NEPSE trades from Sunday to Thursday, 11:00 to 15:00. The floorsheet fills with the trades from that session."
+        },
+        {
+          "q": "Is the floorsheet free in StockYan?",
+          "a": "Yes. The floorsheet is free on phone and desktop."
+        }
+      ],
+      "related": [
+        "nepse-broker-analysis",
+        "nepse-bulk-transactions",
+        "nepse-accumulation-distribution"
+      ],
+      "learn": [
+        "what-is-floorsheet"
+      ]
+    },
+    {
+      "slug": "nepse-bulk-transactions",
+      "keyword": "bulk transaction nepse",
+      "title": "NEPSE Bulk Transactions: The Day's Big Trades | StockYan",
+      "metaDescription": "See the biggest NEPSE trades of the day in one list. Sort by size or time, and group them by stock or by broker. Free in StockYan.",
+      "h1": "The day's biggest trades",
+      "accent": "biggest trades",
+      "lead": "Large deals stand out from the noise, sorted the way you want.",
+      "heroShot": "mac2",
+      "component": "bulk",
+      "openPath": "/open/bulk-transactions",
+      "sections": [
+        {
+          "h2": "Big deals at a glance",
+          "text": "A bulk transaction is a single trade of a large number of shares.",
+          "points": [
+            "All deals, biggest first",
+            "Newest first during the session",
+            "Grouped by stock or by broker"
+          ]
+        },
+        {
+          "h2": "Read it with context",
+          "text": "One big trade can be a fund or a large investor moving shares. Look at the chart before reading too much into it.",
+          "points": [
+            "Check the buying broker",
+            "Compare with usual volume",
+            "Open the stock's chart"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is a bulk transaction in NEPSE?",
+          "a": "It is one trade where a large number of shares changes hands at once. These trades often come from funds, institutions or large investors."
+        },
+        {
+          "q": "Why do bulk trades matter?",
+          "a": "They show where big money moved today. A run of large buys in one stock can be worth a closer look at its chart and brokers."
+        },
+        {
+          "q": "Is it free?",
+          "a": "Yes. Bulk transactions are free in StockYan."
+        }
+      ],
+      "related": [
+        "nepse-floorsheet",
+        "nepse-broker-analysis",
+        "nepse-accumulation-distribution"
+      ],
+      "learn": [
+        "what-is-floorsheet"
+      ]
+    },
+    {
+      "slug": "nepse-heatmap",
+      "keyword": "nepse heatmap",
+      "title": "NEPSE Heatmap: Live Market by Sector | StockYan",
+      "metaDescription": "See the whole NEPSE market in one picture. Every stock is a box, sized by turnover and coloured by today's move, grouped by sector.",
+      "h1": "The market at a glance",
+      "accent": "at a glance",
+      "lead": "Green is up, red is down, and bigger boxes traded more money.",
+      "heroShot": "mac4",
+      "component": null,
+      "openPath": "/open/heatmap",
+      "sections": [
+        {
+          "h2": "How to read it",
+          "text": "Each box is one stock. Its size is turnover and its colour is today's change.",
+          "points": [
+            "Grouped by sector",
+            "Live as trades happen",
+            "Tap a box to open the stock"
+          ]
+        },
+        {
+          "h2": "More heatmaps",
+          "text": "Look at sectors and brokers the same way.",
+          "points": [
+            "Sector heatmap",
+            "Broker heatmap",
+            "Top gainers and losers"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is a stock market heatmap?",
+          "a": "A heatmap shows many stocks as coloured boxes. Colour shows the price change and size shows how much money traded, so you can see the whole market in seconds."
+        },
+        {
+          "q": "Is the NEPSE heatmap live?",
+          "a": "Yes. During market hours, Sunday to Thursday from 11:00 to 15:00, the boxes update as trades happen."
+        }
+      ],
+      "related": [
+        "nepse-app-for-pc",
+        "nepse-broker-analysis",
+        "nepse-stock-screener"
+      ],
+      "learn": []
+    },
+    {
+      "slug": "nepse-paper-trading",
+      "keyword": "nepse paper trading",
+      "title": "NEPSE Paper Trading: Practise With Virtual Money | StockYan",
+      "metaDescription": "Practise buying and selling NEPSE stocks with virtual money at live prices. Commission, DP charge and tax are counted, like a real account.",
+      "h1": "Practise before you invest",
+      "accent": "Practise",
+      "lead": "Trade NEPSE stocks with virtual money at live market prices.",
+      "heroShot": "ph2049",
+      "component": null,
+      "openPath": "/open/paper-trading",
+      "sections": [
+        {
+          "h2": "Real prices, virtual money",
+          "text": "Choose your starting capital and trade during live market hours.",
+          "points": [
+            "Buy and sell listed stocks",
+            "Orders follow NEPSE trading hours",
+            "Holdings, history and average cost"
+          ]
+        },
+        {
+          "h2": "Costs included",
+          "text": "Brokerage, DP charge and capital gains tax come off your results, like a real account.",
+          "points": [
+            "Broker commission on each trade",
+            "Rs 25 DP charge on sells",
+            "Capital gains tax on profit"
+          ]
+        },
+        {
+          "h2": "See how you rank",
+          "text": "A leaderboard shows how your paper portfolio compares with other players.",
+          "points": [
+            "Your rank on the leaderboard",
+            "A paper watchlist for ideas",
+            "Reset and start again"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is paper trading?",
+          "a": "Paper trading is practice trading with pretend money. You buy and sell at real prices, but no real money is at stake."
+        },
+        {
+          "q": "Is there a NEPSE paper trading app?",
+          "a": "Yes. Paper trading is built into StockYan on iPhone and Android."
+        },
+        {
+          "q": "Can I paper trade when the market is closed?",
+          "a": "No. Like the real market, paper orders go through only during NEPSE hours, Sunday to Thursday from 11:00 to 15:00."
+        }
+      ],
+      "related": [
+        "nepse-portfolio-tracker",
+        "nepse-share-calculator",
+        "nepse-stock-screener"
+      ],
+      "learn": [
+        "share-broker-commission-nepal",
+        "capital-gain-tax-nepal-share"
+      ]
+    },
+    {
+      "slug": "nepse-share-calculator",
+      "keyword": "nepse calculator",
+      "title": "NEPSE Share Calculator: Buy, Sell, WACC, Tax | StockYan",
+      "metaDescription": "Work out the full cost of a NEPSE buy, what you keep after selling, your average price, and the price after bonus or right shares.",
+      "h1": "Share calculator for NEPSE",
+      "accent": "calculator",
+      "lead": "Commission, SEBON fee, DP charge and tax, worked out before you trade.",
+      "heroShot": "mac7",
+      "component": null,
+      "openPath": "/open/tools",
+      "sections": [
+        {
+          "h2": "One question per tab",
+          "text": "Each tab answers one common question. There are also SIP and Graham value tabs.",
+          "points": [
+            "Buy: total cost per share",
+            "Sell: cash after charges and tax",
+            "Averaging: your new average price",
+            "Bonus and right share price"
+          ]
+        },
+        {
+          "h2": "Nepal's real charges",
+          "text": "Sums use NEPSE's tiered broker commission, the SEBON fee and the DP charge.",
+          "points": [
+            "Commission tiers by trade amount",
+            "7.5% or 5% capital gains tax",
+            "Individual or institutional seller"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "How is broker commission calculated in NEPSE?",
+          "a": "It is a percentage of the trade amount: 0.36% up to Rs 50,000, then 0.33%, 0.31% and 0.27% for bigger bands, and 0.24% above Rs 1 crore. The minimum is Rs 10."
+        },
+        {
+          "q": "How do I calculate profit after selling shares in Nepal?",
+          "a": "Take the sale amount and subtract broker commission, the 0.015% SEBON fee and the Rs 25 DP charge. Subtract your total buying cost. Capital gains tax is 7.5% of that profit if you held under a year, 5% if longer."
+        },
+        {
+          "q": "What is WACC in NEPSE?",
+          "a": "WACC is your average buying price per share across all your purchases of a stock. The Averaging tab works it out for you."
+        }
+      ],
+      "related": [
+        "nepse-portfolio-tracker",
+        "nepse-paper-trading",
+        "meroshare-portfolio"
+      ],
+      "learn": [
+        "share-broker-commission-nepal",
+        "capital-gain-tax-nepal-share",
+        "what-is-wacc-in-share-market"
+      ]
+    },
+    {
+      "slug": "nepse-app-for-pc",
+      "keyword": "nepse app for pc",
+      "title": "NEPSE App for PC: Windows, macOS and Linux | StockYan",
+      "metaDescription": "StockYan installs on Windows, macOS and Linux. Multi-chart Workspace, live heatmap, all 82 tools and NEPSE in your Mac menu bar.",
+      "h1": "NEPSE on your desktop",
+      "accent": "desktop",
+      "lead": "A full NEPSE app for Windows, macOS and Linux, made for big screens.",
+      "heroShot": "mac3",
+      "component": null,
+      "openPath": "/open/home",
+      "sections": [
+        {
+          "h2": "Made for big screens",
+          "text": "Wide charts, dense tables and side panels use the extra space.",
+          "points": [
+            "Workspace with several charts",
+            "Live NEPSE list and watchlist",
+            "All 82 tools on one page"
+          ]
+        },
+        {
+          "h2": "NEPSE in the menu bar",
+          "text": "On a Mac, NEPSE, indices and your watchlist sit in the menu bar. Windows and Linux use the system tray.",
+          "points": [
+            "NEPSE index at a glance",
+            "Sector indices",
+            "Your watchlist prices"
+          ]
+        },
+        {
+          "h2": "One account everywhere",
+          "text": "Sign in once and your portfolio and watchlist follow you between phone and computer.",
+          "points": [
+            "iPhone and Android",
+            "Windows, macOS and Linux",
+            "One StockYan account"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is there a NEPSE app for PC?",
+          "a": "Yes. StockYan installs as a desktop app on Windows, macOS and Linux."
+        },
+        {
+          "q": "Is there a StockYan web app?",
+          "a": "No. StockYan runs as an app on iPhone, Android, Windows, macOS and Linux."
+        },
+        {
+          "q": "Can I see more than one chart at a time?",
+          "a": "Yes. The desktop Workspace shows several charts together with a watchlist and live prices."
+        }
+      ],
+      "related": [
+        "nepse-technical-analysis-chart",
+        "nepse-heatmap",
+        "nepse-stock-screener"
+      ],
+      "learn": []
+    },
+    {
+      "slug": "nepse-ai-analysis",
+      "keyword": "nepse ai analysis",
+      "title": "NEPSE AI Analysis: One Score for Every Stock | StockYan",
+      "metaDescription": "StockYan's AI Watchlist scores liquid NEPSE stocks from 0 to 100 using value, quality, momentum, RSI, trend, volume and broker activity.",
+      "h1": "One score for every stock",
+      "accent": "One score",
+      "lead": "Seven factors blended into a 0 to 100 score you can check.",
+      "heroShot": "mac2",
+      "component": "ai",
+      "openPath": "/open/tools",
+      "sections": [
+        {
+          "h2": "How the score works",
+          "text": "Each stock is rated on seven factors, then the ratings are blended into one score.",
+          "points": [
+            "Value: cheap next to similar stocks",
+            "Quality: how much profit it makes",
+            "Momentum, RSI and trend",
+            "Volume and price squeeze"
+          ]
+        },
+        {
+          "h2": "Pick your style",
+          "text": "Presets change which factors count most.",
+          "points": [
+            "Swing: buy dips, sell bounces",
+            "Momentum: stocks already moving",
+            "Extra points for big-player buying"
+          ]
+        },
+        {
+          "h2": "A tradeable list",
+          "text": "Cheap, barely traded stocks are hidden by default, so the list stays tradeable.",
+          "points": [
+            "Filter by sector",
+            "Minimum price and daily trading",
+            "Add any stock to your watchlist"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the AI Watchlist in StockYan?",
+          "a": "It scores every liquid NEPSE stock from 0 to 100. The score blends value, quality, momentum, RSI, trend, volume and squeeze, with a few extra points for strong broker buying."
+        },
+        {
+          "q": "Does the AI tell me what to buy?",
+          "a": "No. The score shows how a stock looks on seven measures today. It helps you build a shortlist to study, and the decision is yours."
+        },
+        {
+          "q": "Which stocks are scored?",
+          "a": "Every liquid NEPSE stock. Very cheap or barely traded stocks are hidden by default, and you can switch that filter off."
+        }
+      ],
+      "related": [
+        "nepse-stock-screener",
+        "nepse-rsi-scanner",
+        "nepse-broker-analysis"
+      ],
+      "learn": [
+        "what-is-rsi"
+      ]
+    },
+    {
+      "slug": "nepse-alerts",
+      "keyword": "nepse alert",
+      "title": "NEPSE Price Alerts and IPO Alerts | StockYan",
+      "metaDescription": "Get a phone notification when a NEPSE stock hits your price, moves by a set percent or sees a volume jump. Plus IPO open and result alerts.",
+      "h1": "Alerts that watch for you",
+      "accent": "watch for you",
+      "lead": "Set a price once and StockYan tells you when it is reached.",
+      "heroShot": "ph2049",
+      "component": "automation",
+      "openPath": "/open/alerts",
+      "sections": [
+        {
+          "h2": "Price and move alerts",
+          "text": "Pick a stock and the condition to watch.",
+          "points": [
+            "Price goes above or below",
+            "Moves by a set percent",
+            "Volume jumps",
+            "Target and stop-loss levels"
+          ]
+        },
+        {
+          "h2": "IPO alerts",
+          "text": "Get a reminder when an IPO opens or closes, and a note when results are out.",
+          "points": [
+            "IPO open and close reminders",
+            "Allotment and result alerts",
+            "Works with your saved BOIDs"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "How do I set a price alert for a NEPSE stock?",
+          "a": "Open the stock in StockYan, add an alert and choose a price, a percent move or a volume change. You get a notification when it happens."
+        },
+        {
+          "q": "Do I need the app open to get alerts?",
+          "a": "No. Alerts arrive as phone notifications, as long as notifications are turned on for StockYan."
+        },
+        {
+          "q": "Can I get IPO alerts in Nepal?",
+          "a": "Yes. Turn on IPO alerts in StockYan to get reminders when IPOs open and close, and alerts when results are published."
+        }
+      ],
+      "related": [
+        "bulk-ipo-result",
+        "nepse-rsi-scanner",
+        "nepse-portfolio-tracker"
+      ],
+      "learn": []
+    }
+  ],
+  "learn": [
+    {
+      "slug": "what-is-rsi",
+      "keyword": "what is rsi in share market",
+      "title": "What Is RSI in Share Market? A Simple Guide | StockYan",
+      "metaDescription": "RSI explained in plain words: what the 0 to 100 number means, why 70 and 30 matter, and how to read it on a NEPSE stock like NABIL.",
+      "h1": "What is RSI?",
+      "accent": "RSI",
+      "lead": "RSI is a number from 0 to 100 that shows how strong recent price moves have been.",
+      "readMinutes": 5,
+      "body": [
+        {
+          "h2": "RSI in one sentence",
+          "paragraphs": [
+            "RSI stands for Relative Strength Index. It compares the size of recent up days with the size of recent down days and turns that into a number between 0 and 100.",
+            "When a stock has mostly gone up lately, RSI is high. When it has mostly gone down, RSI is low. Most charts look back over the last 14 trading days, and so does StockYan."
+          ]
+        },
+        {
+          "h2": "What the numbers mean",
+          "paragraphs": [
+            "Three lines matter most on an RSI chart: 30, 50 and 70. You will see them drawn as guides on most RSI charts."
+          ],
+          "points": [
+            "Above 70: the price has risen fast. Traders call this overbought.",
+            "Below 30: the price has fallen fast. Traders call this oversold.",
+            "Around 50: up days and down days are roughly balanced.",
+            "Above 50 leans up. Below 50 leans down."
+          ]
+        },
+        {
+          "h2": "Overbought does not mean sell",
+          "paragraphs": [
+            "A high RSI only says the price rose quickly. Strong stocks can stay above 70 for weeks, and weak stocks can stay below 30 for a long time.",
+            "So many traders treat RSI as a prompt to look closer. A reading of 75 asks a question: is this rise backed by volume and good results, or are buyers running out?"
+          ]
+        },
+        {
+          "h2": "RSI divergence",
+          "paragraphs": [
+            "Divergence is when price and RSI disagree. If the price makes a new high but RSI makes a lower high, the push upward is getting weaker. If the price makes a new low but RSI makes a higher low, the selling is getting weaker.",
+            "Divergence is rare and it can fail. Treat it as an early warning to watch the chart more closely."
+          ]
+        },
+        {
+          "h2": "Watch out for bonus shares",
+          "paragraphs": [
+            "In NEPSE, a bonus share book closure makes the price drop in one day even though nothing bad happened. The company simply split the same value across more shares.",
+            "An RSI worked out on raw prices sees that drop as heavy selling. StockYan works out RSI on prices adjusted for bonus and right shares, so the number reflects real buying and selling."
+          ]
+        },
+        {
+          "h2": "How to use RSI on NEPSE",
+          "paragraphs": [
+            "RSI is one tool among several. These habits help it make sense."
+          ],
+          "points": [
+            "Read RSI with the price chart, never alone.",
+            "Check volume. A move on high volume means more.",
+            "Use support and resistance to see where price may pause.",
+            "Compare a stock's RSI with its own past readings."
+          ]
+        },
+        {
+          "h2": "RSI in StockYan",
+          "paragraphs": [
+            "Every stock page in StockYan shows its RSI. The RSI scanner lists all NEPSE stocks by RSI, shows which ones crossed 30 or 70 today, and flags divergence."
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "Nabil Bank (NABIL) closed at Rs 542 on 27 Oct 2026. Its 14-day RSI that day was 61.58, above the 50 midline, so recent up days outweighed down days.",
+          "A month earlier the reading was higher. On 24 Sep 2026 NABIL's RSI was 73.95, above 70. By 5 Oct it had fallen to 47.64. It then climbed back to 72.02 on 16 Oct before easing to 61.58.",
+          "On 30 Sep 2026, NABIL's book closure for a 5% bonus share took place. The raw price fell from Rs 566 to Rs 530.70 that day, which looks like a 6% drop. After adjusting for the bonus, the real move was a fall of about 1.5%."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What is a good RSI value?",
+          "a": "There is no single good value. Many traders read above 70 as stretched up and below 30 as stretched down, then look at the trend and volume before doing anything."
+        },
+        {
+          "q": "What RSI period should I use?",
+          "a": "14 days is the standard and what most charts use. A shorter period reacts faster but gives more false moves."
+        },
+        {
+          "q": "Where can I see RSI for all NEPSE stocks?",
+          "a": "The RSI scanner in StockYan lists every stock's RSI, updates live in market hours and filters by sector."
+        }
+      ],
+      "feature": "nepse-rsi-scanner",
+      "openPath": "/open/scanner/rsi"
+    },
+    {
+      "slug": "macd-indicator",
+      "keyword": "macd indicator",
+      "title": "MACD Indicator Explained for Beginners | StockYan",
+      "metaDescription": "What MACD is, what the MACD line, signal line and histogram mean, and how to read a crossover. With a real NABIL example from NEPSE.",
+      "h1": "The MACD indicator, explained",
+      "accent": "MACD",
+      "lead": "MACD shows whether a stock's trend is speeding up or slowing down.",
+      "readMinutes": 4,
+      "body": [
+        {
+          "h2": "What MACD measures",
+          "paragraphs": [
+            "MACD stands for Moving Average Convergence Divergence. It compares two moving averages of the price: a fast one and a slow one. Most charts use 12 days for the fast one and 26 days for the slow one.",
+            "A moving average is the average closing price over a set number of days. When the fast average pulls further above the slow one, prices are rising faster than before. When it sinks toward or below the slow one, the rise is cooling."
+          ]
+        },
+        {
+          "h2": "The parts of a MACD chart",
+          "paragraphs": [
+            "A MACD chart sits under the price chart and has a few pieces."
+          ],
+          "points": [
+            "MACD line: the fast average minus the slow average.",
+            "Signal line: a 9-day average of the MACD line.",
+            "Histogram: bars showing the gap between the two lines.",
+            "Zero line: where the two averages are equal."
+          ]
+        },
+        {
+          "h2": "How to read a crossover",
+          "paragraphs": [
+            "When the MACD line crosses above the signal line, short-term momentum is turning up. When it crosses below, momentum is turning down.",
+            "Where the cross happens matters. A cross above the zero line happens inside an uptrend. A cross below the zero line happens inside a downtrend."
+          ]
+        },
+        {
+          "h2": "What the histogram tells you",
+          "paragraphs": [
+            "Tall bars mean the MACD line is far from the signal line, so momentum is strong. Shrinking bars mean the gap is closing, which often comes before a crossover.",
+            "Shrinking bars are a sign to watch. They do not always lead to a turn."
+          ]
+        },
+        {
+          "h2": "Limits of MACD",
+          "paragraphs": [
+            "MACD is built from moving averages, so it reacts after the price has already moved. In a sideways market it can cross back and forth many times and give mixed readings.",
+            "It works best next to the price chart, support and resistance, and volume. Many traders also check RSI to see how stretched a move is."
+          ]
+        },
+        {
+          "h2": "MACD divergence",
+          "paragraphs": [
+            "Like RSI, MACD can disagree with the price. If the price makes a higher high while the MACD line makes a lower high, the upward push is weakening. If the price makes a lower low while MACD makes a higher low, selling is easing.",
+            "Divergence is an early warning. It can last a long time before the price turns, and sometimes the price does not turn at all."
+          ]
+        },
+        {
+          "h2": "A simple way to start",
+          "paragraphs": [
+            "When you open a MACD chart, ask four quick questions."
+          ],
+          "points": [
+            "Is the MACD line above or below zero?",
+            "When was the last crossover?",
+            "Is the histogram growing or shrinking?",
+            "Does the price chart agree?"
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "On 27 Oct 2026, Nabil Bank (NABIL) closed at Rs 542. Its daily MACD line was 4.30 and its signal line was 3.71, so the histogram was 0.59.",
+          "Both lines were above zero, and the MACD line was above the signal line. That reads as an uptrend with momentum still positive.",
+          "The histogram was shrinking, though, which means the push was fading. That is something to keep an eye on in the next sessions."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What are the usual MACD settings?",
+          "a": "Most charts use 12, 26 and 9: a 12-day and a 26-day average for the MACD line, and a 9-day average for the signal line."
+        },
+        {
+          "q": "Is MACD better than RSI?",
+          "a": "They answer different questions. RSI shows how stretched a move is. MACD shows whether the trend is speeding up or slowing. Many traders look at both."
+        },
+        {
+          "q": "How do I find MACD crossovers on NEPSE?",
+          "a": "Open the MACD scanner in StockYan to see stocks where the MACD line crossed the signal line."
+        }
+      ],
+      "feature": "nepse-stock-screener",
+      "openPath": "/open/scanner/macd"
+    },
+    {
+      "slug": "support-and-resistance",
+      "keyword": "support and resistance in share market",
+      "title": "Support and Resistance in Share Market, Simply | StockYan",
+      "metaDescription": "Learn what support and resistance are, why prices pause at certain levels, and how to find them on a NEPSE chart. Real NABIL levels inside.",
+      "h1": "Support and resistance made simple",
+      "accent": "made simple",
+      "lead": "Support is a price where buyers tend to step in. Resistance is where sellers tend to show up.",
+      "readMinutes": 4,
+      "body": [
+        {
+          "h2": "Support",
+          "paragraphs": [
+            "Support is a price level where a falling stock has stopped and turned up before. Buyers saw the price as cheap there, so they bought and the fall paused.",
+            "The more times a price has bounced from the same level, the more people notice it and the more attention it gets next time."
+          ]
+        },
+        {
+          "h2": "Resistance",
+          "paragraphs": [
+            "Resistance is the opposite. It is a level where a rising stock has stalled before, because holders sold to take profit or to get out at break-even.",
+            "A common resistance is the 52-week high, the highest price of the past year. Many holders watch it."
+          ]
+        },
+        {
+          "h2": "When levels break",
+          "paragraphs": [
+            "Levels do not hold forever. When the price closes clearly above resistance on good volume, it is called a breakout. When it closes clearly below support, it is called a breakdown.",
+            "After a breakout, old resistance often becomes new support. Traders call this a role reversal."
+          ]
+        },
+        {
+          "h2": "Round numbers and old highs",
+          "paragraphs": [
+            "Prices often react near round numbers, like Rs 500 or Rs 1,000, because many people place orders there. Old highs and lows from past months work the same way."
+          ]
+        },
+        {
+          "h2": "How to find them",
+          "paragraphs": [
+            "You can draw levels yourself with a few simple rules."
+          ],
+          "points": [
+            "Look for prices where the chart turned several times.",
+            "Treat a level as a zone, a small range of prices.",
+            "Use daily closes and ignore one-off spikes.",
+            "More touches means more people are watching."
+          ]
+        },
+        {
+          "h2": "Why adjusted prices matter",
+          "paragraphs": [
+            "In NEPSE, bonus and right shares lower the share price at book closure. On a raw chart this leaves a gap that looks like a sharp fall, and levels drawn across that gap can be wrong.",
+            "StockYan can show prices adjusted for bonus and right shares, so old levels line up with today's price."
+          ]
+        },
+        {
+          "h2": "Using levels to think ahead",
+          "paragraphs": [
+            "Levels help you think before you trade. Note the nearest support and resistance, then look at how far the price could move each way. If resistance is close and support is far below, the room to rise is small compared with the room to fall.",
+            "In NEPSE a stock can move at most 15% in a day, so a level far from the price can take several sessions to reach."
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "Here is StockYan's support and resistance ladder for Nabil Bank (NABIL) at the close on 27 Oct 2026, when it traded at Rs 542.",
+          "The nearest support was around Rs 532.43, about 1.8% below the price. The price had touched this zone 8 times between 10 Mar and 28 Sep 2026. A deeper support sat near Rs 509.29, with 10 touches.",
+          "The nearest resistance was the 52-week high of Rs 581, about 7.2% above the price. Between the two, the stock had room to move in either direction."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What is support and resistance in simple words?",
+          "a": "Support is a price where a stock has stopped falling before. Resistance is a price where it has stopped rising before. Both are places where many buyers or sellers have acted in the past."
+        },
+        {
+          "q": "How reliable are support and resistance levels?",
+          "a": "They often slow the price down, but any level can break, especially on news or results. Treat them as zones to watch."
+        },
+        {
+          "q": "Can StockYan find these levels for me?",
+          "a": "Yes. The support and resistance scanner and the chart's levels tool mark the zones from real price touches."
+        }
+      ],
+      "feature": "nepse-technical-analysis-chart",
+      "openPath": "/open/scanner/support-resistance"
+    },
+    {
+      "slug": "ema-vs-sma",
+      "keyword": "ema vs sma",
+      "title": "EMA vs SMA: Moving Averages Explained | StockYan",
+      "metaDescription": "What a moving average is, how EMA and SMA differ, and what a golden cross means. A simple guide with a real NABIL example from NEPSE.",
+      "h1": "EMA vs SMA, explained",
+      "accent": "EMA vs SMA",
+      "lead": "A moving average smooths out daily price noise so the trend is easier to see.",
+      "readMinutes": 4,
+      "body": [
+        {
+          "h2": "What is a moving average?",
+          "paragraphs": [
+            "A moving average is the average closing price over the last few days, worked out again every day. A 20-day average adds up the last 20 closes and divides by 20.",
+            "On a chart it becomes a smooth line that follows the price. When the price is above the line, the recent trend is up. When it is below, the trend is down."
+          ]
+        },
+        {
+          "h2": "SMA: the simple average",
+          "paragraphs": [
+            "SMA means Simple Moving Average. Every day in the window counts the same.",
+            "It is steady and easy to understand. The trade-off is that it is slow to react when the price suddenly changes direction."
+          ]
+        },
+        {
+          "h2": "EMA: the faster average",
+          "paragraphs": [
+            "EMA means Exponential Moving Average. It gives more weight to recent days, so it turns sooner when the price changes direction.",
+            "The cost is more false turns. A short EMA can flip back and forth when the market moves sideways."
+          ]
+        },
+        {
+          "h2": "Which one to use",
+          "paragraphs": [
+            "Neither is better in every case. Short-term traders often prefer EMA because it reacts sooner. Longer-term investors often use SMA because it is calmer. The length you choose matters as much as the type."
+          ],
+          "points": [
+            "9 to 20 days: the short-term trend",
+            "50 days: the main trend",
+            "200 days: the long-term trend"
+          ]
+        },
+        {
+          "h2": "Moving averages as support",
+          "paragraphs": [
+            "In an uptrend, the price often dips back to a rising moving average and then moves on. Many traders watch the 20-day or 50-day average as a moving support line. In a downtrend, a falling average often acts as resistance."
+          ]
+        },
+        {
+          "h2": "Golden cross and death cross",
+          "paragraphs": [
+            "When a faster average crosses above a slower one, it is called a golden cross. When it crosses below, it is called a death cross.",
+            "Crossovers come after the move has started, so they confirm a trend more than they predict one. In a sideways market they can give many false crosses."
+          ]
+        },
+        {
+          "h2": "Watch out for bonus shares",
+          "paragraphs": [
+            "A bonus book closure lowers the share price in one day. On raw prices, the moving average then sits far above the price for weeks and can show a false death cross.",
+            "StockYan's indicators use prices adjusted for bonus and right shares, which avoids this."
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "On 27 Oct 2026, Nabil Bank (NABIL) closed at Rs 542. Its 9-day EMA was Rs 540.76 and its 20-day EMA was Rs 536.93.",
+          "The price was above both lines, and the faster line was above the slower one. StockYan's EMA scanner had marked a golden cross between these two averages on 10 Sep 2026, 47 days earlier.",
+          "The gap between the two lines was small, about 0.7%. That points to a steady trend that was not racing ahead."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What is the difference between EMA and SMA?",
+          "a": "SMA gives every day the same weight. EMA gives recent days more weight, so it reacts faster to new moves."
+        },
+        {
+          "q": "Which moving average is best for NEPSE?",
+          "a": "There is no best setting. Many traders use 9 and 20-day EMAs for short swings and 50 and 200-day SMAs for the bigger trend. Pick lengths that match how long you hold."
+        },
+        {
+          "q": "What is a golden cross?",
+          "a": "A golden cross is when a faster moving average crosses above a slower one. It shows the recent trend has turned up."
+        }
+      ],
+      "feature": "nepse-stock-screener",
+      "openPath": "/open/scanner"
+    },
+    {
+      "slug": "bollinger-bands",
+      "keyword": "bollinger bands",
+      "title": "Bollinger Bands Explained in Plain English | StockYan",
+      "metaDescription": "What Bollinger Bands are, what a squeeze means, and how to read price near the upper or lower band. Real NABIL numbers from 27 Oct 2026.",
+      "h1": "Bollinger Bands, explained",
+      "accent": "Bollinger Bands",
+      "lead": "Bollinger Bands draw a channel around the price that widens when it moves a lot and narrows when it is quiet.",
+      "readMinutes": 4,
+      "body": [
+        {
+          "h2": "Three lines",
+          "paragraphs": [
+            "Bollinger Bands are three lines drawn on a price chart.",
+            "Standard deviation is a measure of how far prices usually stray from their average. When prices swing a lot, it grows and the bands move apart. When prices are calm, it shrinks and the bands move closer."
+          ],
+          "points": [
+            "Middle band: the 20-day simple moving average.",
+            "Upper band: the middle band plus 2 standard deviations.",
+            "Lower band: the middle band minus 2 standard deviations."
+          ]
+        },
+        {
+          "h2": "Reading the bands",
+          "paragraphs": [
+            "Most closes land inside the bands. A close near the upper band means the price is high compared with its recent average. A close near the lower band means it is low.",
+            "Touching a band is not a signal by itself. In a strong uptrend, the price can ride along the upper band for many days."
+          ]
+        },
+        {
+          "h2": "Walking the band",
+          "paragraphs": [
+            "When a stock closes near the upper band day after day, traders say it is walking the band. It is a sign of strength. Reading every touch of the upper band as a top would miss many strong runs."
+          ]
+        },
+        {
+          "h2": "The squeeze",
+          "paragraphs": [
+            "When the bands get very close together, it is called a squeeze. It means the price has been unusually calm.",
+            "Calm periods often end with a bigger move, but a squeeze does not say which way. Traders wait for a close outside a band to see the direction."
+          ]
+        },
+        {
+          "h2": "Using bands with other tools",
+          "paragraphs": [
+            "Bollinger Bands show where price sits compared with its recent range. Other tools fill in the rest."
+          ],
+          "points": [
+            "Pair them with RSI to see if a move is stretched.",
+            "Check volume when price closes outside a band.",
+            "Use support and resistance for nearby levels."
+          ]
+        },
+        {
+          "h2": "%B and bandwidth",
+          "paragraphs": [
+            "Two numbers sum up the bands. %B shows where the close sits: 0 is the lower band, 1 is the upper band and 0.5 is the middle.",
+            "Bandwidth is the distance between the upper and lower band as a share of the middle band. A low bandwidth means a squeeze."
+          ]
+        },
+        {
+          "h2": "Common mistakes",
+          "paragraphs": [
+            "These are the habits that most often lead beginners astray."
+          ],
+          "points": [
+            "Treating every band touch as a turn.",
+            "Ignoring the trend the bands sit in.",
+            "Guessing which way a squeeze will break.",
+            "Skipping the volume check."
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "On 27 Oct 2026, Nabil Bank (NABIL) closed at Rs 542. Its 20-day Bollinger Bands were: upper Rs 548.44, middle Rs 537.06 and lower Rs 525.68.",
+          "The close sat above the middle band and below the upper band, about 72% of the way up the channel.",
+          "The bands were about 4.2% apart, so the price had been fairly calm. They were not tight enough for StockYan to flag a squeeze. In the numbers above, %B was 0.72 and bandwidth was 4.24%."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What are the standard Bollinger Bands settings?",
+          "a": "20 days for the middle band and 2 standard deviations for the outer bands. Most traders keep these, since they are what most charts show."
+        },
+        {
+          "q": "What does a Bollinger Band squeeze mean?",
+          "a": "The bands have moved close together because the price has been calm. A bigger move often follows, but the squeeze does not show its direction."
+        },
+        {
+          "q": "Can I scan NEPSE stocks by Bollinger Bands?",
+          "a": "Yes. StockYan's Bollinger scanner lists stocks in a squeeze or closing outside a band."
+        }
+      ],
+      "feature": "nepse-stock-screener",
+      "openPath": "/open/scanner/bollinger"
+    },
+    {
+      "slug": "fibonacci-retracement",
+      "keyword": "fibonacci retracement",
+      "title": "Fibonacci Retracement Levels, Simply Explained | StockYan",
+      "metaDescription": "What Fibonacci retracement is, what 38.2%, 50% and 61.8% mean, and how traders draw it on a swing. With real NABIL levels from NEPSE.",
+      "h1": "Fibonacci retracement, simply",
+      "accent": "Fibonacci",
+      "lead": "Fibonacci retracement marks where a pullback inside a trend might pause.",
+      "readMinutes": 4,
+      "body": [
+        {
+          "h2": "The idea",
+          "paragraphs": [
+            "Prices rarely move in a straight line. After a big rise, they often give back part of it before the next move. This is called a pullback or retracement.",
+            "Fibonacci retracement is a way to measure how far a pullback has gone. You pick a swing low and a swing high, and the tool draws lines at set percentages of that move."
+          ]
+        },
+        {
+          "h2": "The levels",
+          "paragraphs": [
+            "The usual levels come from ratios in the Fibonacci number series, which is where the name comes from."
+          ],
+          "points": [
+            "23.6%: a shallow pullback",
+            "38.2%: a moderate pullback",
+            "50%: half the move given back",
+            "61.8%: a deep pullback, linked to the golden ratio",
+            "78.6%: a very deep pullback"
+          ]
+        },
+        {
+          "h2": "How traders use it",
+          "paragraphs": [
+            "Traders watch these lines as places where a pullback could stop. The area between 50% and 61.8% gets the most attention and is sometimes called the golden zone.",
+            "The levels have no special power. They work partly because many people watch them. They are most useful when they line up with an old support level or a moving average."
+          ]
+        },
+        {
+          "h2": "In a downtrend",
+          "paragraphs": [
+            "In a downtrend, draw from the swing high down to the swing low. The levels then mark how far a bounce might go before sellers return."
+          ]
+        },
+        {
+          "h2": "Choosing the swing",
+          "paragraphs": [
+            "The result depends on which low and high you pick. Use clear turning points on the daily chart and skip small wiggles.",
+            "On NEPSE, use adjusted prices. A bonus book closure on a raw chart can create a fake swing low that throws every level off."
+          ]
+        },
+        {
+          "h2": "Extensions",
+          "paragraphs": [
+            "Fibonacci levels can also be drawn past the swing high, for example at 141.4% and 161.8% of the move. These are called extensions. Some traders use them as possible targets if a rise carries on past the old high."
+          ]
+        },
+        {
+          "h2": "Common mistakes",
+          "paragraphs": [
+            "Fibonacci is easy to draw and easy to misuse."
+          ],
+          "points": [
+            "Picking a swing that is too small.",
+            "Drawing on raw prices across a bonus.",
+            "Expecting price to stop exactly on a line.",
+            "Ignoring the bigger trend."
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "StockYan's Fibonacci scanner measured Nabil Bank's (NABIL) rise from a swing low of Rs 461.90 on 13 Jan 2026 to a swing high of Rs 553.33 on 15 Sep 2026. Both prices are adjusted for bonus shares.",
+          "That gave these retracement levels: 23.6% at Rs 531.75, 38.2% at Rs 518.40, 50% at Rs 507.62 and 61.8% at Rs 496.83.",
+          "On 27 Oct 2026 NABIL closed at Rs 542, above the 23.6% level. The pullback from the September high had been shallow so far."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What is the golden zone in Fibonacci retracement?",
+          "a": "It is the area between the 50% and 61.8% levels. Many traders watch it as a place where a deeper pullback might stop."
+        },
+        {
+          "q": "Does Fibonacci retracement work on NEPSE?",
+          "a": "It is a way of marking levels, so it can be drawn on any chart. Treat the levels as areas to watch, and check them against support, volume and the trend."
+        },
+        {
+          "q": "Which Fibonacci levels matter most?",
+          "a": "38.2%, 50% and 61.8% are the ones most traders watch."
+        }
+      ],
+      "feature": "nepse-technical-analysis-chart",
+      "openPath": "/open/scanner/fibonacci"
+    },
+    {
+      "slug": "candlestick-patterns",
+      "keyword": "candlestick patterns",
+      "title": "Candlestick Patterns for Beginners | StockYan",
+      "metaDescription": "How to read a candlestick, and what doji, hammer, engulfing and evening star patterns show. A simple guide with real NABIL candles.",
+      "h1": "Candlestick patterns for beginners",
+      "accent": "Candlestick",
+      "lead": "One candle shows a full day of trading: where the price opened, where it closed and how far it moved.",
+      "readMinutes": 4,
+      "body": [
+        {
+          "h2": "Reading one candle",
+          "paragraphs": [
+            "Each candle covers one trading day. The thick part is the body. It runs from the opening price to the closing price.",
+            "A green body means the stock closed higher than it opened. A red body means it closed lower. The thin lines above and below the body are wicks. They show the day's high and low."
+          ]
+        },
+        {
+          "h2": "Patterns worth knowing",
+          "paragraphs": [
+            "There are dozens of named patterns. Beginners only need a few to start."
+          ],
+          "points": [
+            "Doji: open and close almost equal.",
+            "Hammer: small body, long lower wick, after a fall.",
+            "Shooting star: small body, long upper wick, after a rise.",
+            "Engulfing: one body fully covers the day before.",
+            "Evening star: three candles that can mark a top."
+          ]
+        },
+        {
+          "h2": "Engulfing patterns",
+          "paragraphs": [
+            "A bullish engulfing pattern is a green body that fully covers the red body of the day before. It shows buyers took over from sellers in one session. A bearish engulfing pattern is the reverse: a red body that covers the green body before it."
+          ]
+        },
+        {
+          "h2": "Morning star and evening star",
+          "paragraphs": [
+            "These are three-candle patterns. An evening star starts with a strong green candle, then a small candle, then a red candle that closes well into the first body. It can mark a top. A morning star is the mirror image after a fall."
+          ]
+        },
+        {
+          "h2": "Indecision candles",
+          "paragraphs": [
+            "A doji or a spinning top has a small body. The price moved during the day but ended close to where it started.",
+            "These candles show that buyers and sellers were evenly matched. They matter most after a long move, when they can show the move is tiring."
+          ]
+        },
+        {
+          "h2": "Why context matters",
+          "paragraphs": [
+            "A pattern means little on its own. A hammer after a long fall, at a support level, on high volume, says much more than a hammer in the middle of a range.",
+            "Patterns also fail often. Many traders wait for the next candle to confirm, and use patterns together with levels and the trend."
+          ]
+        },
+        {
+          "h2": "Candles in NEPSE",
+          "paragraphs": [
+            "NEPSE trades from Sunday to Thursday, 11:00 to 15:00, so each daily candle covers that four-hour session. A single stock can move at most 15% up or down in a day, which limits how tall one candle can get."
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "Here are the latest candles StockYan's candlestick scanner flagged for Nabil Bank (NABIL) in October 2026.",
+          "On 26 Oct, the price opened at Rs 547 and closed at Rs 543. The scanner marked an evening star, a pattern that can show a rise losing steam.",
+          "On 27 Oct, NABIL opened at Rs 543, went as high as Rs 545 and as low as Rs 540, and closed at Rs 542. The body was small with wicks on both sides, so the scanner marked a spinning top, a day of indecision.",
+          "Two cautious candles after a rise are worth watching. They do not decide what happens next."
+        ]
+      },
+      "faq": [
+        {
+          "q": "How many candlestick patterns should a beginner learn?",
+          "a": "Start with a handful: doji, hammer, shooting star, engulfing and morning or evening star. Learn these well before adding more."
+        },
+        {
+          "q": "Do candlestick patterns work on NEPSE?",
+          "a": "They show how buyers and sellers behaved in a session, so the idea applies to any market. They are more useful at support or resistance and when volume is high."
+        },
+        {
+          "q": "Can StockYan find candlestick patterns for me?",
+          "a": "Yes. The candlestick scanner checks every NEPSE stock and lists the patterns it finds."
+        }
+      ],
+      "feature": "nepse-stock-screener",
+      "openPath": "/open/scanner/candlestick"
+    },
+    {
+      "slug": "what-is-floorsheet",
+      "keyword": "what is floorsheet in nepse",
+      "title": "What Is Floorsheet in NEPSE? How to Read It | StockYan",
+      "metaDescription": "A floorsheet lists every NEPSE trade with buyer broker, seller broker, quantity and rate. Learn to read it, with a real NABIL example.",
+      "h1": "How to read a NEPSE floorsheet",
+      "accent": "floorsheet",
+      "lead": "The floorsheet is the full list of trades NEPSE recorded in a day.",
+      "readMinutes": 4,
+      "body": [
+        {
+          "h2": "What a floorsheet is",
+          "paragraphs": [
+            "Every time shares change hands on NEPSE, the exchange records the trade. The floorsheet is the list of all those trades for a day.",
+            "It is public, so anyone can see how many shares traded, at what price, and through which brokers."
+          ]
+        },
+        {
+          "h2": "The columns",
+          "paragraphs": [
+            "Each row is one trade. These are the columns you will see."
+          ],
+          "points": [
+            "Contract number: the trade's ID",
+            "Symbol: the stock traded",
+            "Buyer: the buying broker's number",
+            "Seller: the selling broker's number",
+            "Quantity: the number of shares",
+            "Rate: the price per share",
+            "Amount: quantity times rate"
+          ]
+        },
+        {
+          "h2": "Reading it step by step",
+          "paragraphs": [
+            "You do not need to read every row. A few totals tell most of the story."
+          ],
+          "points": [
+            "Pick the stock you care about.",
+            "Note the total shares and trades.",
+            "Add up shares by buying broker.",
+            "Add up shares by selling broker.",
+            "Compare with the past few weeks."
+          ]
+        },
+        {
+          "h2": "What it can tell you",
+          "paragraphs": [
+            "Because each row shows broker numbers, you can add up which brokers bought or sold the most of a stock. That is what broker analysis and accumulation tools do for you.",
+            "A broker trades for many clients, so a broker number does not reveal who the investor was."
+          ]
+        },
+        {
+          "h2": "When it is complete",
+          "paragraphs": [
+            "NEPSE trades from Sunday to Thursday, 11:00 to 15:00. A day's floorsheet is complete once the session closes."
+          ]
+        },
+        {
+          "h2": "What it cannot tell you",
+          "paragraphs": [
+            "The floorsheet does not show why someone traded or what they will do next. Heavy buying through one broker can be one big investor or many small ones.",
+            "Use it next to the price chart, volume and the company's results."
+          ]
+        },
+        {
+          "h2": "The floorsheet in StockYan",
+          "paragraphs": [
+            "StockYan shows the floorsheet for each stock and for the whole market, with buyer, seller, quantity, rate and amount. On desktop, filters and totals sit beside one large table."
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "On 27 Oct 2026, Nabil Bank (NABIL) traded 26,465 shares in 296 trades and closed at Rs 542.",
+          "Adding up that day's floorsheet by broker, broker number 75 bought the most: 6,189 shares, about 23% of all shares traded. On the selling side, broker 58 sold the most, 3,267 shares.",
+          "Broker 58 also bought 1,933 shares that day, which put it among the top buyers too. It is a reminder that one broker serves many clients on both sides.",
+          "The top five buying brokers bought 14,936 shares in total, while the top five sellers sold 10,592. One day of numbers like this is only a clue. It becomes more useful when the same pattern repeats over weeks."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What is the floorsheet in NEPSE?",
+          "a": "It is the public list of every trade NEPSE recorded in a day, with the stock, buying broker, selling broker, quantity, rate and amount."
+        },
+        {
+          "q": "Can I see who bought a share from the floorsheet?",
+          "a": "You can see the buying and selling broker numbers. The names of the investors are not public."
+        },
+        {
+          "q": "Where can I see today's NEPSE floorsheet?",
+          "a": "Open Floor Sheet in StockYan to see the day's trades, free, on phone and desktop."
+        }
+      ],
+      "feature": "nepse-floorsheet",
+      "openPath": "/open/floor-sheet"
+    },
+    {
+      "slug": "share-broker-commission-nepal",
+      "keyword": "share broker commission in nepal",
+      "title": "Share Broker Commission in Nepal: Rates, Fees | StockYan",
+      "metaDescription": "NEPSE broker commission is tiered by trade amount, with a Rs 10 minimum. See every rate, the SEBON fee and DP charge, with a worked example.",
+      "h1": "Broker commission in Nepal",
+      "accent": "commission",
+      "lead": "Every NEPSE buy and sell pays broker commission and a SEBON fee. Sells also pay a DP charge.",
+      "readMinutes": 3,
+      "body": [
+        {
+          "h2": "Commission rates",
+          "paragraphs": [
+            "Broker commission is a percentage of the trade amount, which is the number of shares times the price. The rate gets smaller as the amount gets bigger."
+          ],
+          "points": [
+            "Up to Rs 50,000: 0.36%",
+            "Rs 50,001 to Rs 5,00,000: 0.33%",
+            "Rs 5,00,001 to Rs 20,00,000: 0.31%",
+            "Rs 20,00,001 to Rs 1,00,00,000: 0.27%",
+            "Above Rs 1,00,00,000: 0.24%",
+            "Minimum commission: Rs 10"
+          ]
+        },
+        {
+          "h2": "SEBON fee",
+          "paragraphs": [
+            "SEBON is the Securities Board of Nepal, the market regulator. It charges 0.015% of the trade amount on both buys and sells."
+          ]
+        },
+        {
+          "h2": "DP charge",
+          "paragraphs": [
+            "DP stands for Depository Participant, the bank or broker that keeps your demat account. When you sell, you pay a DP charge of Rs 25 for each stock you sell."
+          ]
+        },
+        {
+          "h2": "Capital gains tax",
+          "paragraphs": [
+            "If you sell at a profit, there is also capital gains tax. For individuals it is 7.5% of the profit if you held the shares under a year, and 5% if you held them longer."
+          ]
+        },
+        {
+          "h2": "Buying vs selling",
+          "paragraphs": [
+            "When you buy, fees are added to what you pay. When you sell, fees come out of what you receive. So your break-even price is a little above your buying price, even before any tax."
+          ]
+        },
+        {
+          "h2": "Small trades cost more",
+          "paragraphs": [
+            "Because of the Rs 10 minimum and the flat Rs 25 DP charge, very small trades lose a bigger share to fees.",
+            "Selling one share of a Rs 542 stock pays Rs 10 in commission. That is almost 2% of the sale, before the DP charge."
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "Say you buy 100 shares of Nabil Bank (NABIL) at Rs 542, its closing price on 27 Oct 2026. The trade amount is Rs 54,200.",
+          "That falls in the 0.33% band, so commission is Rs 178.86. The SEBON fee at 0.015% is Rs 8.13. Your total cost is Rs 54,386.99, or about Rs 543.87 per share.",
+          "If you later sold the same 100 shares at Rs 542, you would pay the same Rs 178.86 commission and Rs 8.13 SEBON fee, plus the Rs 25 DP charge. You would receive Rs 53,988.01. Buying and selling at the same price would cost about Rs 399 in fees.",
+          "To cover all those fees, the 100 shares would need to sell at about Rs 546.01, around 0.74% above Rs 542, before any tax on the profit."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What is the broker commission rate in Nepal?",
+          "a": "It is 0.36% for trades up to Rs 50,000, then 0.33%, 0.31% and 0.27% for larger bands, and 0.24% above Rs 1 crore."
+        },
+        {
+          "q": "Is there a minimum broker commission?",
+          "a": "Yes. The minimum is Rs 10 per trade."
+        },
+        {
+          "q": "How can I calculate commission quickly?",
+          "a": "Use the Buy and Sell tabs in StockYan's calculator. Enter units and price, and it shows commission, SEBON fee, DP charge and the total."
+        }
+      ],
+      "feature": "nepse-share-calculator",
+      "openPath": "/open/tools"
+    },
+    {
+      "slug": "capital-gain-tax-nepal-share",
+      "keyword": "capital gain tax nepal share",
+      "title": "Capital Gain Tax on Shares in Nepal, Explained | StockYan",
+      "metaDescription": "Individuals in Nepal pay 7.5% capital gains tax on share profit if held under a year, and 5% if held longer. See how to work it out.",
+      "h1": "Capital gains tax on NEPSE shares",
+      "accent": "Capital gains tax",
+      "lead": "When you sell shares at a profit, part of that profit goes to tax. How much depends on how long you held them.",
+      "readMinutes": 4,
+      "body": [
+        {
+          "h2": "The rates",
+          "paragraphs": [
+            "For individual investors, capital gains tax (CGT) on listed shares has two rates. Institutions follow different rules, and this guide covers individuals only."
+          ],
+          "points": [
+            "7.5% of the profit if held under one year",
+            "5% of the profit if held one year or more"
+          ]
+        },
+        {
+          "h2": "What counts as profit",
+          "paragraphs": [
+            "Profit is what you receive from the sale after selling costs, minus what you paid including buying costs.",
+            "Selling costs are broker commission, the 0.015% SEBON fee and the Rs 25 DP charge. Buying costs are broker commission and the SEBON fee."
+          ]
+        },
+        {
+          "h2": "Holding period",
+          "paragraphs": [
+            "The holding period starts on the day you bought the shares. Once a holding passes one year, selling it pays 5% instead of 7.5%.",
+            "StockYan's portfolio shows when a holding crosses one year, so you can see when the lower rate applies."
+          ]
+        },
+        {
+          "h2": "Keep your cost on record",
+          "paragraphs": [
+            "Tax is worked out from your buying cost. Keep the purchase price of your shares up to date in MeroShare so the profit and the tax come out right."
+          ]
+        },
+        {
+          "h2": "Near the one-year mark",
+          "paragraphs": [
+            "If a holding is close to one year old, the lower rate can make a real difference on a large profit. The price can also move a lot in that time, so tax is one thing to weigh among several."
+          ]
+        },
+        {
+          "h2": "No profit, no tax",
+          "paragraphs": [
+            "If you sell at a loss, there is no capital gains tax on that sale. You still pay commission, the SEBON fee and the DP charge."
+          ]
+        },
+        {
+          "h2": "Working it out step by step",
+          "paragraphs": [
+            "Follow these steps for any sale."
+          ],
+          "points": [
+            "Sale amount minus selling costs",
+            "Minus buying amount and buying costs",
+            "That is your profit",
+            "Profit times 7.5% or 5% is the tax"
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "Say you bought 100 shares of Nabil Bank (NABIL) at Rs 485, the low of its 52-week range, and sold them at Rs 542, its close on 27 Oct 2026. To keep the sums simple, this leaves out the 5% bonus shares NABIL gave in 2026.",
+          "Buying: Rs 48,500 plus Rs 174.60 commission (0.36%) and Rs 7.27 SEBON fee comes to Rs 48,681.88.",
+          "Selling: Rs 54,200 minus Rs 178.86 commission (0.33%), Rs 8.13 SEBON fee and Rs 25 DP charge leaves Rs 53,988.01.",
+          "Profit before tax is Rs 5,306.13. Held under a year, tax at 7.5% is Rs 397.96. Held a year or more, tax at 5% is Rs 265.31, which is Rs 132.65 less."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What is the capital gains tax on shares in Nepal?",
+          "a": "For individuals it is 7.5% of the profit if the shares were held under a year, and 5% if they were held a year or longer."
+        },
+        {
+          "q": "Do I pay capital gains tax on a loss?",
+          "a": "No. Capital gains tax applies only to profit."
+        },
+        {
+          "q": "How do I calculate capital gains tax on shares in Nepal?",
+          "a": "Take the sale amount minus selling costs, then subtract the buying amount and buying costs. Multiply that profit by 7.5% or 5%. StockYan's Sell calculator does this for you."
+        }
+      ],
+      "feature": "nepse-share-calculator",
+      "openPath": "/open/tools"
+    },
+    {
+      "slug": "what-is-wacc-in-share-market",
+      "keyword": "what is wacc in share market",
+      "title": "What Is WACC in Share Market? NEPSE Guide | StockYan",
+      "metaDescription": "In NEPSE, WACC is your average buying price per share across all purchases. Learn what it means, why it matters for tax and how to work it out.",
+      "h1": "What is WACC in NEPSE?",
+      "accent": "WACC",
+      "lead": "WACC is the average price you paid for each share of a stock, across all your buys.",
+      "readMinutes": 4,
+      "body": [
+        {
+          "h2": "The meaning",
+          "paragraphs": [
+            "WACC stands for Weighted Average Cost of Capital. In finance textbooks it means a company's cost of money. In the Nepal share market, people use it for something simpler: your average buying cost per share.",
+            "It is weighted because bigger purchases count more than smaller ones."
+          ]
+        },
+        {
+          "h2": "How to work it out",
+          "paragraphs": [
+            "Add up what you paid for every purchase of one stock, then divide by the total number of shares."
+          ],
+          "points": [
+            "Cost of each buy = units × price",
+            "Total cost = all buys added together",
+            "WACC = total cost ÷ total units"
+          ]
+        },
+        {
+          "h2": "Why it matters",
+          "paragraphs": [
+            "Your profit, and so your capital gains tax, is worked out from your cost. If the cost on record is wrong, the tax can be wrong too.",
+            "That is why MeroShare has a section to record where and at what price you bought your shares."
+          ]
+        },
+        {
+          "h2": "Including fees",
+          "paragraphs": [
+            "Some people add buying commission and the SEBON fee to their cost. This gives a slightly higher WACC that matches the money that really left their bank account."
+          ]
+        },
+        {
+          "h2": "Selling part of a holding",
+          "paragraphs": [
+            "When you sell some of your shares, the WACC of the shares you keep stays the same. Only buying more, or receiving bonus or right shares, changes it."
+          ]
+        },
+        {
+          "h2": "Averaging down",
+          "paragraphs": [
+            "Buying more shares at a lower price brings your WACC down. This is called averaging down.",
+            "It lowers the price you need to break even. It also puts more of your money into the same stock, so think about how much one company should take up in your portfolio."
+          ]
+        },
+        {
+          "h2": "IPO and bonus shares",
+          "paragraphs": [
+            "IPO shares cost the issue price you applied at. Bonus shares add to your share count without a market-price purchase, so they change your average.",
+            "The cost used for bonus shares follows tax rules, so check the figure on record in MeroShare."
+          ]
+        }
+      ],
+      "example": {
+        "h2": "A NEPSE example",
+        "paragraphs": [
+          "Say you bought 100 shares of Nabil Bank (NABIL) at Rs 485, the low of its 52-week range, and later 100 more at Rs 542, its close on 27 Oct 2026.",
+          "Total cost before fees: Rs 48,500 + Rs 54,200 = Rs 1,02,700. Total shares: 200. WACC: Rs 1,02,700 ÷ 200 = Rs 513.50 per share.",
+          "If you include buying commission and the SEBON fee, the two buys cost Rs 1,03,068.87 in total, or Rs 515.34 per share.",
+          "With NABIL at Rs 542 and a WACC of Rs 513.50, each share shows a gain of Rs 28.50 before fees and tax."
+        ]
+      },
+      "faq": [
+        {
+          "q": "What is WACC in NEPSE?",
+          "a": "It is your average buying price per share of a stock, across all your purchases. Bigger purchases count more."
+        },
+        {
+          "q": "How do I calculate WACC for my shares?",
+          "a": "Multiply units by price for each purchase, add them up, and divide by the total units. The Averaging tab in StockYan's calculator does this for you."
+        },
+        {
+          "q": "Where can I see my average cost?",
+          "a": "StockYan's portfolio shows your average cost for every holding after you sync MeroShare or upload a TMS file."
+        }
+      ],
+      "feature": "nepse-portfolio-tracker",
+      "openPath": "/open/portfolio"
+    }
+  ]
+}

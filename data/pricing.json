@@ -1,0 +1,86 @@
+{
+  "updated": "2026-10-27",
+  "tiers": [
+    {
+      "key": "premium_plus",
+      "id": "5y5yaIDJ4dFBolRMuMEg",
+      "name": "StockYan Pro",
+      "tagline": "All stock scanners and broker analytics in one plan.",
+      "color": "#3B82F6",
+      "featureCount": 33,
+      "includesPrevious": false,
+      "features": [
+        "Aggressive Accumulators",
+        "Aggressive Holdings",
+        "Bollinger Scanner",
+        "Broker Dominance",
+        "Broker Heatmap",
+        "Candlestick Pattern",
+        "Accumulation chart tab",
+        "Technicals tab (all indicators)",
+        "Comparable Stock",
+        "Consolidating",
+        "Distribution Leaders",
+        "Dow Signals",
+        "EMA Scanner",
+        "EMA / SMA Scanner",
+        "Fibonacci Levels",
+        "Accumulation sector filter",
+        "Fundamental Scanner",
+        "MACD Signal",
+        "Matching Buy/Sell",
+        "Parallel Channel",
+        "Pivot Points",
+        "Price & Volume",
+        "RSI Filter",
+        "Sector-Wise A/D",
+        "Slow Accumulation",
+        "Smart Money",
+        "Stock Capitalization",
+        "Strategy Builder",
+        "Strong Trend",
+        "Support & Resistance",
+        "Swing Trades",
+        "Trend Continuation",
+        "Volume Scanner"
+      ],
+      "plans": [
+        {
+          "id": "stockyan_pro_3m",
+          "name": "3 Month Plan",
+          "months": 3,
+          "price": 2499,
+          "perMonth": 833
+        }
+      ]
+    },
+    {
+      "key": "premium",
+      "id": "7E3FmelwrKMAWOWEwNrb",
+      "name": "StockYan Max",
+      "tagline": "Everything in StockYan, including ready to trade setups.",
+      "color": "#F59E0B",
+      "featureCount": 50,
+      "includesPrevious": true,
+      "features": [
+        "Breakout Tradable",
+        "Consolidating Picks",
+        "Investment Picks",
+        "Next Breakouts",
+        "SIP In Stocks",
+        "Strategy Lab",
+        "Support Setups",
+        "Ready-to-trade strategies"
+      ],
+      "plans": [
+        {
+          "id": "sxNMsZ7qjIMqMWm9ibtB",
+          "name": "1 Year Plan",
+          "months": 12,
+          "price": 11499,
+          "perMonth": 958
+        }
+      ]
+    }
+  ]
+}

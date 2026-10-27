@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> head}}
+<title>StockYan: Advanced NEPSE Analysis App for Nepal Investors</title>
+<meta name="description" content="StockYan turns complex NEPSE data into clear, actionable information. Stock scanners, smart money tracking, live data and portfolio tools in one app.">
+<link rel="canonical" href="{{site}}/">
+<meta property="og:title" content="StockYan: The Advanced NEPSE Analysis App">
+<meta property="og:description" content="Complex NEPSE data, made clear and actionable. Scanners, smart money tracking, live data and your portfolio in one app.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{site}}/">
+<meta property="og:image" content="{{site}}/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="StockYan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StockYan: The Advanced NEPSE Analysis App">
+<meta name="twitter:description" content="Complex NEPSE data, made clear and actionable.">
+<meta name="twitter:image" content="{{site}}/og-image.png">
+{{> home-ld}}
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="top">
+
+<section class="hero">
+  <canvas class="hero-candles" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The advanced NEPSE analysis app</p>
+      <h1><span>NEPSE,</span> <span class="g">simplified.</span></h1>
+      <p class="lead">StockYan turns complex NEPSE data into clear, actionable information. Spend less time researching and more time making confident decisions.</p>
+      <div class="ctas">
+        <a class="btn btn-dark btn-lg" href="/download/" data-dl-btn>Download free</a>
+        <a class="btn btn-ghost btn-lg" href="#research">Explore features</a>
+      </div>
+      <div class="os-row" aria-label="Available on">
+        <a href="/download/" data-os="ios" data-dl="ios" aria-label="iPhone" title="iPhone"><i class="fa-brands fa-apple"></i></a>
+        <a href="/download/" data-os="android" data-dl="android" aria-label="Android" title="Android"><i class="fa-brands fa-android"></i></a>
+        <a href="/download/" data-os="windows" data-dl="windows" aria-label="Windows" title="Windows"><i class="fa-brands fa-windows"></i></a>
+        <a href="/download/" data-os="mac" data-dl="mac" aria-label="macOS" title="macOS"><i class="fa-brands fa-apple"></i></a>
+        <a href="/download/" data-os="linux" data-dl="linux" aria-label="Linux" title="Linux"><i class="fa-brands fa-linux"></i></a>
+      </div>
+    </div>
+    <div class="hero-stage" id="heroStage">
+      <div class="mac-wrap" id="heroMac">{{mac label="StockYan desktop dashboard" shots="mac2"}}</div>
+      <div class="hero-phone">{{phone shot="ph2049" label="StockYan home screen on iPhone"}}</div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <ul>
+      <li><b class="n" data-count="82">82</b><span>Tools</span></li>
+      <li><b class="n" data-count="360" data-suffix="+">360+</b><span>Stocks covered</span></li>
+      <li><b class="n" data-count="5">5</b><span>Platforms</span></li>
+      <li><b>Free</b><span>To start</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="pin-sec" id="phonesPin">
+  <div class="pin">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Live NEPSE market data</p>
+      <h2 class="h2"><span class="g">Your market.</span> <br>In your pocket.</h2>
+      <p class="lead">Live prices, indices, top gainers and losers, and your portfolio. Whenever the market is open.</p>
+    </div>
+    <div class="trio" id="trio">
+      <div class="l">{{phone shot="ph2049" label="StockYan market screen"}}</div>
+      <div class="c">{{phone shot="ph2050" label="StockYan portfolio screen"}}</div>
+      <div class="r">{{phone shot="ph2051" label="StockYan IPO results for the family"}}</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="sec tint" id="research">
+  <span id="portfolio" class="anchor"></span>
+  <div class="wrap">
+    <div class="head rv">
+      <h2 class="h2"><span class="g">Research. Track. Grow.</span><br>All in one app.</h2>
+      <p class="lead">Powerful analysis tools for every NEPSE trader and investor. Swing traders, long-term investors and active traders.</p>
+    </div>
+    <div class="center"><div class="seg" role="tablist" id="seg">
+      <span class="knob" id="knob"></span>
+      <button role="tab" id="t-r" aria-controls="p-r" aria-selected="true">Research</button>
+      <button role="tab" id="t-p" aria-controls="p-p" aria-selected="false" tabindex="-1">Portfolio</button>
+    </div></div>
+
+    <div role="tabpanel" id="p-r" aria-labelledby="t-r">
+      <div class="feat rv">
+        {{c:fundamentals}}
+        <div class="feat-copy">
+          <p class="eyebrow">Fundamental</p>
+          <h3>Know the business.</h3>
+          <p>Profit, dividends and value, in clear charts.</p>
+          <ul class="ticks"><li><svg><use href="#tick"/></svg>Results every quarter</li><li><svg><use href="#tick"/></svg>Dividend and bonus history</li><li><svg><use href="#tick"/></svg>Compare similar companies</li></ul>
+        </div>
+      </div>
+      <div class="feat flip rv">
+        {{c:levels}}
+        <div class="feat-copy">
+          <p class="eyebrow">Technical</p>
+          <h3>Spot the turning points.</h3>
+          <p>Key price levels and trends, drawn for you.</p>
+          <ul class="ticks"><li><svg><use href="#tick"/></svg>Pro charts with 100+ indicators</li><li><svg><use href="#tick"/></svg>Prices adjusted for bonus shares</li><li><svg><use href="#tick"/></svg>14 ready-made stock scanners</li></ul>
+        </div>
+      </div>
+      <div class="feat rv">
+        {{c:brokers}}
+        <div class="feat-copy">
+          <p class="eyebrow">Smart money</p>
+          <h3>Follow the big money.</h3>
+          <p>See which brokers are buying, and which are selling.</p>
+          <ul class="ticks"><li><svg><use href="#tick"/></svg>Accumulation and distribution</li><li><svg><use href="#tick"/></svg>Broker activity for every stock</li><li><svg><use href="#tick"/></svg>Bulk deals as they happen</li></ul>
+        </div>
+      </div>
+      <div class="feat flip rv">
+        {{c:ai}}
+        <div class="feat-copy">
+          <p class="eyebrow">AI insights</p>
+          <h3>The full picture, in seconds.</h3>
+          <p>AI reads the numbers and tells you what matters.</p>
+          <ul class="ticks"><li><svg><use href="#tick"/></svg>Plain-language summaries</li><li><svg><use href="#tick"/></svg>Built on real market data</li><li><svg><use href="#tick"/></svg>Tailored to your watchlist</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="p-p" aria-labelledby="t-p" hidden>
+      <div class="feat">
+        {{c:import}}
+        <div class="feat-copy">
+          <p class="eyebrow">Import</p>
+          <h3>Bring it all in.</h3>
+          <p>Import from MeroShare, TMS and more. One tap.</p>
+          <ul class="ticks"><li><svg><use href="#tick"/></svg>No typing, no spreadsheets</li><li><svg><use href="#tick"/></svg>Every family account in one place</li><li><svg><use href="#tick"/></svg>Stays up to date on its own</li></ul>
+        </div>
+      </div>
+      <div class="feat flip">
+        {{c:donut}}
+        <div class="feat-copy">
+          <p class="eyebrow">Smart portfolio</p>
+          <h3>See your real profit.</h3>
+          <p>After fees and tax. Stock by stock.</p>
+          <ul class="ticks"><li><svg><use href="#tick"/></svg>True average cost</li><li><svg><use href="#tick"/></svg>Dividends and bonus counted</li><li><svg><use href="#tick"/></svg>Spot where you're too heavy</li></ul>
+        </div>
+      </div>
+      <div class="feat">
+        {{c:automation}}
+        <div class="feat-copy">
+          <p class="eyebrow">Automation</p>
+          <h3>Put it on autopilot.</h3>
+          <p>Link MeroShare once. StockYan does the routine work.</p>
+          <ul class="ticks"><li><svg><use href="#tick"/></svg>Never miss an IPO</li><li><svg><use href="#tick"/></svg>Results for everyone, at once</li><li><svg><use href="#tick"/></svg>Your portfolio, always current</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="toolkit">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Everything in one app</p>
+      <h2 class="h2">Less digging.<br><span class="g">Better decisions.</span></h2>
+      <p class="lead">Instead of checking hundreds of stocks by hand every day, let StockYan do the hard work.</p>
+    </div>
+    <div class="catalog rv" data-catalog>
+      <div class="cat-tabs" role="tablist" aria-label="StockYan tools">
+        <button type="button" role="tab" class="cat-tab on" aria-selected="true" aria-controls="cat-scan" id="tab-scan" style="--c:#2F6FEB"><span class="cat-ic"><svg><use href="#floor"/></svg></span><span class="cat-name"><b>Stock scanners</b><small>14 tools</small></span></button>
+        <button type="button" role="tab" class="cat-tab" aria-selected="false" aria-controls="cat-smart" id="tab-smart" style="--c:#009E72"><span class="cat-ic"><svg><use href="#split"/></svg></span><span class="cat-name"><b>Smart money tracker</b><small>8 tools</small></span></button>
+        <button type="button" role="tab" class="cat-tab" aria-selected="false" aria-controls="cat-pf" id="tab-pf" style="--c:#7A5AF8"><span class="cat-ic"><svg><use href="#devices"/></svg></span><span class="cat-name"><b>Portfolio</b><small>5 tools</small></span></button>
+        <button type="button" role="tab" class="cat-tab" aria-selected="false" aria-controls="cat-alerts" id="tab-alerts" style="--c:#E5484D"><span class="cat-ic"><svg><use href="#bell"/></svg></span><span class="cat-name"><b>Alerts</b><small>5 tools</small></span></button>
+        <button type="button" role="tab" class="cat-tab" aria-selected="false" aria-controls="cat-live" id="tab-live" style="--c:#C27C0E"><span class="cat-ic"><svg><use href="#pulse"/></svg></span><span class="cat-name"><b>Live market data</b><small>8 tools</small></span></button>
+      </div>
+      <div class="cat-panels">
+        <div class="cat-panel on" role="tabpanel" id="cat-scan" aria-labelledby="tab-scan" style="--c:#2F6FEB">
+          <div class="cat-head"><span class="cat-count n">14</span><div><h3>Stock scanners</h3><p>Find stocks by indicators, price action, volume, trends and fundamentals.</p></div></div>
+          <ul class="cat-list"><li style="--i:0"><span class="ti"><svg><use href="#t-rsi"/></svg></span>RSI filter</li><li style="--i:1"><span class="ti"><svg><use href="#t-macd"/></svg></span>MACD signals</li><li style="--i:2"><span class="ti"><svg><use href="#t-ema"/></svg></span>EMA &amp; SMA</li><li style="--i:3"><span class="ti"><svg><use href="#t-bollinger"/></svg></span>Bollinger Bands</li><li style="--i:4"><span class="ti"><svg><use href="#t-volume"/></svg></span>Volume</li><li style="--i:5"><span class="ti"><svg><use href="#t-fib"/></svg></span>Fibonacci levels</li><li style="--i:6"><span class="ti"><svg><use href="#t-pivot"/></svg></span>Pivot points</li><li style="--i:7"><span class="ti"><svg><use href="#t-sr"/></svg></span>Support &amp; resistance</li><li style="--i:8"><span class="ti"><svg><use href="#t-breakout"/></svg></span>Trendline breakout</li><li style="--i:9"><span class="ti"><svg><use href="#t-continuation"/></svg></span>Trend continuation</li><li style="--i:10"><span class="ti"><svg><use href="#t-candles"/></svg></span>Candlestick patterns</li><li style="--i:11"><span class="ti"><svg><use href="#t-fundamentals"/></svg></span>Fundamentals</li><li style="--i:12"><span class="ti"><svg><use href="#t-dow"/></svg></span>Dow signals</li><li style="--i:13"><span class="ti"><svg><use href="#t-mcap"/></svg></span>Market cap</li></ul>
+        </div>
+        <div class="cat-panel" role="tabpanel" id="cat-smart" aria-labelledby="tab-smart" hidden style="--c:#009E72">
+          <div class="cat-head"><span class="cat-count n">8</span><div><h3>Smart money tracker</h3><p>See what the big brokers are doing, before everyone else.</p></div></div>
+          <ul class="cat-list"><li style="--i:0"><span class="ti"><svg><use href="#t-sector"/></svg></span>Sector-wise accumulation</li><li style="--i:1"><span class="ti"><svg><use href="#t-bolt"/></svg></span>Aggressive accumulators</li><li style="--i:2"><span class="ti"><svg><use href="#t-distribution"/></svg></span>Distribution leaders</li><li style="--i:3"><span class="ti"><svg><use href="#t-heatmap"/></svg></span>Broker heatmap</li><li style="--i:4"><span class="ti"><svg><use href="#t-crown"/></svg></span>Broker dominance</li><li style="--i:5"><span class="ti"><svg><use href="#t-shield"/></svg></span>Aggressive holdings</li><li style="--i:6"><span class="ti"><svg><use href="#t-swap"/></svg></span>Matching buy and sell</li><li style="--i:7"><span class="ti"><svg><use href="#t-hourglass"/></svg></span>Slow accumulation</li></ul>
+        </div>
+        <div class="cat-panel" role="tabpanel" id="cat-pf" aria-labelledby="tab-pf" hidden style="--c:#7A5AF8">
+          <div class="cat-head"><span class="cat-count n">5</span><div><h3>Portfolio</h3><p>Manage all your investments in one place.</p></div></div>
+          <ul class="cat-list"><li style="--i:0"><span class="ti"><svg><use href="#t-briefcase"/></svg></span>Portfolio tracker</li><li style="--i:1"><span class="ti"><svg><use href="#t-eye"/></svg></span>Watchlist</li><li style="--i:2"><span class="ti"><svg><use href="#t-pnl"/></svg></span>Profit and loss</li><li style="--i:3"><span class="ti"><svg><use href="#t-layers"/></svg></span>Holdings overview</li><li style="--i:4"><span class="ti"><svg><use href="#t-performance"/></svg></span>Performance</li></ul>
+        </div>
+        <div class="cat-panel" role="tabpanel" id="cat-alerts" aria-labelledby="tab-alerts" hidden style="--c:#E5484D">
+          <div class="cat-head"><span class="cat-count n">5</span><div><h3>Alerts</h3><p>Timely alerts, so you never miss an opportunity.</p></div></div>
+          <ul class="cat-list"><li style="--i:0"><span class="ti"><svg><use href="#t-ipo"/></svg></span>IPO alerts</li><li style="--i:1"><span class="ti"><svg><use href="#t-bell"/></svg></span>Stock price alerts</li><li style="--i:2"><span class="ti"><svg><use href="#t-target"/></svg></span>Target price alerts</li><li style="--i:3"><span class="ti"><svg><use href="#t-stop"/></svg></span>Stop loss alerts</li><li style="--i:4"><span class="ti"><svg><use href="#t-eyebell"/></svg></span>Watchlist notifications</li></ul>
+        </div>
+        <div class="cat-panel" role="tabpanel" id="cat-live" aria-labelledby="tab-live" hidden style="--c:#C27C0E">
+          <div class="cat-head"><span class="cat-count n">8</span><div><h3>Live market data</h3><p>Real-time market information while the market is open.</p></div></div>
+          <ul class="cat-list"><li style="--i:0"><span class="ti"><svg><use href="#t-pulse"/></svg></span>Live stock prices</li><li style="--i:1"><span class="ti"><svg><use href="#t-index"/></svg></span>Market indices</li><li style="--i:2"><span class="ti"><svg><use href="#t-up"/></svg></span>Top gainers</li><li style="--i:3"><span class="ti"><svg><use href="#t-down"/></svg></span>Top losers</li><li style="--i:4"><span class="ti"><svg><use href="#t-cash"/></svg></span>Turnover leaders</li><li style="--i:5"><span class="ti"><svg><use href="#t-volume"/></svg></span>Volume leaders</li><li style="--i:6"><span class="ti"><svg><use href="#t-range"/></svg></span>52-week high and low</li><li style="--i:7"><span class="ti"><svg><use href="#t-chart"/></svg></span>Advanced charts</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="free">
+  <div class="wrap">
+    <div class="head rv">
+      <h2 class="h2"><span class="g">Free tools.</span> No catch.</h2>
+      <p class="lead">The market intelligence you need to analyze NEPSE. Free for everyone.</p>
+    </div>
+    <div class="bento">
+      {{c:accumulation}}
+      {{c:bulk}}
+      {{c:floorsheet}}
+      {{c:ipo}}
+      <div class="tile wide tools-tile rv">
+        <div class="tools-head"><h3>Unlocked for everyone <span class="free">FREE</span></h3><p>Tools other apps keep behind a paywall.</p></div>
+        <div class="tgrid">
+          <a href="/features/nepse-broker-analysis/" style="--c:#2F6FEB;--i:0"><span><svg><use href="#vol"/></svg></span><b>Broker analysis</b></a>
+          <div style="--c:#0E7C5A;--i:1"><span><svg><use href="#shield"/></svg></span><b>Broker focus</b></div>
+          <div style="--c:#C2410C;--i:2"><span><svg><use href="#rocket"/></svg></span><b>Trending stocks</b></div>
+          <a href="/features/nepse-ai-analysis/" style="--c:#7A5AF8;--i:3"><span><svg><use href="#spark"/></svg></span><b>AI watchlist</b></a>
+          <a href="/features/nepse-bulk-transactions/" style="--c:#009E72;--i:4"><span><svg><use href="#split"/></svg></span><b>Bulk transactions</b></a>
+          <div style="--c:#E5484D;--i:5"><span><svg><use href="#pulse"/></svg></span><b>Hot right now</b></div>
+          <div style="--c:#C27C0E;--i:6"><span><svg><use href="#medal"/></svg></span><b>Top brokers</b></div>
+          <div style="--c:#2F6FEB;--i:7"><span><svg><use href="#clock"/></svg></span><b>Lock-in tracker</b></div>
+          <div style="--c:#C27C0E;--i:8"><span><svg><use href="#gift"/></svg></span><b>Dividend leaderboard</b></div>
+          <a href="/features/nepse-paper-trading/" style="--c:#0E7C5A;--i:9"><span><svg><use href="#ticket"/></svg></span><b>Paper trading</b></a>
+          <div style="--c:#7A5AF8;--i:10"><span><svg><use href="#floor"/></svg></span><b>Trade journal</b></div>
+          <a class="tmore" href="/features/" style="--i:11"><b class="n">30+</b><span>more free tools</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{pricing}}
+
+<section class="sec">
+  <div class="wrap">
+    <div class="head rv">
+      <h2 class="h2">Data you can <span class="g">trust.</span></h2>
+      <p class="lead">Institutional-level accuracy. Checked every day.</p>
+    </div>
+    <div class="badges rv">
+      <div><span class="ic"><svg><use href="#shield"/></svg></span><b>Official NEPSE data</b></div>
+      <div><span class="ic"><svg><use href="#adjust"/></svg></span><b>Bonus and right adjusted</b></div>
+      <div><span class="ic"><svg><use href="#clock"/></svg></span><b>Live in market hours</b></div>
+      <div><span class="ic"><svg><use href="#devices"/></svg></span><b>Same on every device</b></div>
+    </div>
+    <div class="cc check-card rv" id="checks">
+      <div class="verified"><b style="font-size:18px">Today's data check</b><span class="seal"><svg><use href="#shield"/></svg>Verified</span></div>
+      <div class="scroll-x"><table>
+        <thead><tr><th>Data</th><th>Today</th><th style="text-align:right">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Prices</td><td class="n">360 stocks</td><td><span class="ok"><svg><use href="#tick"/></svg>Checking</span></td></tr>
+          <tr><td>Broker trades</td><td class="n">53,030 trades</td><td><span class="ok"><svg><use href="#tick"/></svg>Checking</span></td></tr>
+          <tr><td>Dividends and bonus</td><td class="n">All companies</td><td><span class="ok"><svg><use href="#tick"/></svg>Checking</span></td></tr>
+          <tr><td>Company results</td><td class="n">Latest quarter</td><td><span class="ok"><svg><use href="#tick"/></svg>Checking</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="desktop">
+  <div class="wrap desk">
+    <div class="head rv">
+      <p class="eyebrow">StockYan Desktop</p>
+      <h2 class="h2">Built for <span class="g">big screens.</span></h2>
+      <p class="lead">Advanced charts, multi-chart layouts and the whole market, at a glance.</p>
+    </div>
+    <div class="center rv"><div class="seg seg-sm" data-switch="#deskMac"><button class="on" data-k="ws">Workspace</button><button data-k="heat">Heatmap</button><button data-k="chart">Charts</button><button data-k="tools">All tools</button></div></div>
+    <div class="desk-stage rv" id="deskMac">
+      {{mac label="StockYan desktop app" shots="ws:mac3,heat:mac4,chart:mac1,tools:mac7"}}
+      <figure class="menubar-card"><img src="/assets/img/desktop-menubar.jpg" alt="NEPSE and your watchlist in the macOS menu bar" width="558" height="575" loading="lazy"><figcaption>NEPSE in your menu bar</figcaption></figure>
+    </div>
+    <div class="plat rv" data-plat>
+      <a class="btn btn-ghost btn-lg" data-os="windows" data-dl="windows" href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Setup-latest.exe"><i class="fa-brands fa-windows"></i>Download for Windows</a>
+      <a class="btn btn-ghost btn-lg" data-os="mac" data-dl="mac" href="/download/#mac"><i class="fa-brands fa-apple"></i>Download for macOS</a>
+      <a class="btn btn-ghost btn-lg" data-os="linux" data-dl="linux" href="https://storage.googleapis.com/evernep.appspot.com/downloads/StockYan-Linux-latest.tar.gz"><i class="fa-brands fa-linux"></i>Download for Linux</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="download">
+  <div class="wrap dl">
+    <div class="devices-stage rv" data-devices="#homeStores">
+      <div class="dev dev-phone on" data-dev="phone">{{phone shot="ph2049" label="StockYan on iPhone and Android"}}</div>
+      <div class="dev dev-laptop" data-dev="pc">{{pc label="StockYan on Windows" shots="win"}}</div>
+      <div class="dev dev-laptop" data-dev="mac">{{mac label="StockYan on macOS" shots="mac2"}}</div>
+    </div>
+    <div class="rv">
+      <h2 class="h2">Pocket-sized.<br><span class="g">Desk-ready.</span></h2>
+      <p class="lead" style="margin-top:18px">Free on every device.</p>
+      <div id="homeStores">{{> stores}}</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec close tint">
+  <canvas class="close-canvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="head rv">
+      <h2>Smarter investing<br>starts <span class="g">here.</span></h2>
+      <p class="lead">Analyze smarter, discover opportunities faster and make confident decisions in NEPSE.</p>
+      <a class="btn btn-dark btn-lg" href="/download/" data-dl-btn>Download free</a>
+    </div>
+  </div>
+</section>
+</main>
+{{> footer}}
+</body>
+</html>

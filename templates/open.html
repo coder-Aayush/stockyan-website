@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> head}}
+<script src="/go.js?v={{v:go.js}}"></script>
+<title>Open in StockYan</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Open this in the StockYan app, or get the app free.">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+{{> sprite}}
+<main id="top" class="going">
+  <div class="wrap">
+    <div class="head">
+      <img class="logo-big" src="/logo.png" alt="StockYan">
+      <h1 class="h2" id="openTitle">Open in <span class="g">StockYan.</span></h1>
+      <p class="lead" id="openLead">The NEPSE analysis app. Free on every device.</p>
+      <div class="ctas" id="phoneCtas" hidden>
+        <a class="btn btn-dark btn-lg" id="openApp" href="/download/">Open the app</a>
+        <a class="btn btn-ghost btn-lg" id="getApp" href="/download/">Get the app</a>
+      </div>
+      <div id="desktopCta" hidden>
+        <div class="qr-card" style="display:inline-grid"><div class="qr" id="qr" aria-label="QR code for this link"></div><div style="text-align:left"><b>Scan with your phone</b><small>It opens right where this link points.</small></div></div>
+        <p style="margin-top:22px"><a class="btn btn-dark btn-lg" href="/download/">Download for desktop</a></p>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+  addEventListener('DOMContentLoaded', function () {
+    var G = window.StockYanGo; if (!G) return;
+    var names = { 'scanner/rsi': 'the RSI scanner', 'scanner/macd': 'the MACD scanner', scanner: 'the stock scanners', portfolio: 'your portfolio', watchlist: 'your watchlist',
+      'ipo-result': 'IPO results', 'smart-money': 'the smart money tracker', accumulation: 'accumulation', 'bulk-transactions': 'bulk deals', 'floor-sheet': 'the floor sheet',
+      heatmap: 'the market heatmap', alerts: 'your alerts', 'paper-trading': 'paper trading', premium: 'StockYan Pro', news: 'NEPSE news', tools: 'all tools', market: 'the market' };
+    var t = G.link ? G.link.target : 'home';
+    var parts = t.split('/'), label = names[t] || ((parts[0] === 'stock' || parts[0] === 'chart') && parts[1] ? parts[1].toUpperCase() : '');
+    if (label) document.getElementById('openLead').textContent = 'Open ' + label + ' in the StockYan app.';
+    if (G.platform === 'desktop') {
+      document.getElementById('desktopCta').hidden = false;
+      if (window.QRCode) new QRCode(document.getElementById('qr'), { text: location.href, width: 208, height: 208, colorDark: '#0A1511', colorLight: '#FFFFFF', correctLevel: QRCode.CorrectLevel.M });
+    } else {
+      document.getElementById('phoneCtas').hidden = false;
+      var store = G.storeUrl(G.platform);
+      document.getElementById('getApp').href = store;
+      if (G.schemeUrl) document.getElementById('openApp').href = G.platform === 'android' ? G.intentUrl() : G.schemeUrl();
+    }
+  });
+</script>
+</body>
+</html>

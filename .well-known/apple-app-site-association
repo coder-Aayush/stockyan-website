@@ -3,8 +3,44 @@
     "apps": [],
     "details": [
       {
+        "appIDs": [
+          "7N2493TKJC.app.golden.stockyan",
+          "YSF8BDNV95.app.golden.stockyan"
+        ],
+        "components": [
+          {
+            "/": "/auth/action*"
+          },
+          {
+            "/": "/open"
+          },
+          {
+            "/": "/open/*"
+          },
+          {
+            "/": "/r/*"
+          }
+        ]
+      },
+      {
+        "appID": "7N2493TKJC.app.golden.stockyan",
+        "paths": [
+          "/auth/action",
+          "/auth/action*",
+          "/open",
+          "/open/*",
+          "/r/*"
+        ]
+      },
+      {
         "appID": "YSF8BDNV95.app.golden.stockyan",
-        "paths": [ "/auth/action", "/auth/action*" ]
+        "paths": [
+          "/auth/action",
+          "/auth/action*",
+          "/open",
+          "/open/*",
+          "/r/*"
+        ]
       }
     ]
   }
