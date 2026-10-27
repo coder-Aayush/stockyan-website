@@ -9,7 +9,7 @@
 {{> sprite}}
 {{> nav}}
 <main id="top">
-<section class="page-hero">
+<section class="page-hero fp-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/features/">Features</a><span>/</span><span>{{crumb}}</span></nav>
     <div class="head">
@@ -23,20 +23,25 @@
     <div class="page-shot {{shotClass}} rv">{{shot}}</div>
   </div>
 </section>
-{{componentSection}}
-<section class="sec tint">
-  <div class="wrap">
-    <div class="cards">{{sections}}</div>
+<section class="fp-sec tint">
+  <div class="wrap {{howClass}}">
+    {{demo}}
+    <div class="fp-points rv">{{sections}}</div>
   </div>
 </section>
 {{faqSection}}
 {{relatedSection}}
-<section class="sec close tint">
-  <canvas class="close-canvas" aria-hidden="true"></canvas>
+<section class="fp-sec fp-end">
   <div class="wrap">
-    <div class="head rv">
-      <h2>Smarter investing<br>starts <span class="g">here.</span></h2>
-      <a class="btn btn-dark btn-lg" href="/download/?utm_source=website&amp;utm_medium=feature&amp;utm_campaign={{slug}}" data-dl-btn>Download free</a>
+    <div class="fp-cta rv">
+      <div>
+        <h2>Smarter investing starts <span class="g">here.</span></h2>
+        <p>Free on iPhone, Android and desktop.</p>
+      </div>
+      <div class="fp-cta-btns">
+        <a class="btn btn-light btn-lg" href="/download/?utm_source=website&amp;utm_medium=feature&amp;utm_campaign={{slug}}" data-dl-btn>Download free</a>
+        <a class="fp-cta-link" href="{{openUrl}}">Open in app <svg><use href="#arrow"/></svg></a>
+      </div>
     </div>
   </div>
 </section>

@@ -798,3 +798,62 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-co
 .dev-laptop > svg { width: 100%; height: auto; }
 @media (max-width: 860px) { #download .dl { grid-template-columns: minmax(0, 1fr); } .devices-stage { aspect-ratio: 4 / 3; max-width: 520px; margin: 0 auto; } .dev-phone > svg { width: 44%; } }
 #download .h2 { font-size: clamp(38px, 4.6vw, 62px); }
+
+/* ---------- Feature and guide pages: tighter sections ---------- */
+.fp-sec { padding-block: clamp(56px, 7vw, 96px); }
+.fp-h2 { font-size: clamp(30px, 3.6vw, 44px); font-weight: 700; line-height: 1.05; letter-spacing: -.045em; }
+.fp-hero { padding-bottom: clamp(48px, 6vw, 80px); }
+.fp-hero h1 { font-size: clamp(40px, 6.2vw, 80px); }
+.fp-hero .page-shot.is-mac { max-width: 980px; }
+
+/* How it works: live widget beside numbered points. */
+.fp-how { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.fp-how.fp-solo { grid-template-columns: minmax(0, 1fr); max-width: 980px; }
+.fp-how.fp-solo .fp-points { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); column-gap: 48px; }
+.fp-how.fp-stack { grid-template-columns: minmax(0, 1fr); }
+.fp-how.fp-stack .fp-points { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); column-gap: 48px; max-width: 980px; margin-inline: auto; width: 100%; }
+.fp-demo .bento { grid-template-columns: minmax(0, 1fr); margin-top: 0; }
+.fp-demo .tile.wide { grid-template-columns: minmax(0, 1fr); }
+.fp-demo > .tile, .fp-demo .bento > .tile { box-shadow: var(--shadow); }
+.fp-points { display: grid; align-content: center; }
+.fp-point { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding-block: 26px; border-top: 1px solid var(--line-2); }
+.fp-point:first-child { border-top: 0; padding-top: 0; }
+.fp-solo .fp-point, .fp-stack .fp-point { border-top: 0; padding-top: 0; }
+.fp-num { font-size: 13px; font-weight: 600; color: var(--green-deep); background: var(--green-soft); border-radius: 10px; width: 36px; height: 30px; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
+.fp-point h2 { font-size: 22px; font-weight: 700; letter-spacing: -.03em; line-height: 1.2; }
+.fp-point p { margin-top: 6px; color: var(--ink-2); }
+.fp-point .ticks { margin-top: 14px; gap: 10px; }
+.fp-point .ticks li { font-size: 15px; }
+.fp-point .ticks svg { width: 20px; height: 20px; }
+
+/* Questions: heading on the left, answers on the right. */
+.fp-faq { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: clamp(24px, 5vw, 72px); align-items: start; }
+.fp-faq .faq-list { margin: 0; max-width: none; }
+.fp-faq .qa:first-child { border-top: 0; }
+.fp-faq .qa summary { padding-block: 18px; font-size: 17px; }
+.fp-faq .qa p { padding-bottom: 18px; }
+
+/* Related: heading row with a link, then cards. */
+.fp-row-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; }
+.fp-row-head a { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--green-deep); white-space: nowrap; }
+.fp-row-head a svg { width: 16px; height: 16px; }
+.fp-row-head + .cards { margin-top: 28px; }
+
+/* Closing card. */
+.fp-end { padding-top: 0; }
+.fp-sec.tint + .fp-end { padding-top: clamp(56px, 7vw, 96px); }
+.fp-cta { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: clamp(32px, 5vw, 56px); border-radius: 28px; background: var(--ink); color: #fff; }
+.fp-cta::before { content: ""; position: absolute; right: -120px; top: -160px; width: 520px; height: 420px; background: radial-gradient(closest-side, rgba(0, 179, 131, .35), transparent); pointer-events: none; }
+.fp-cta > * { position: relative; }
+.fp-cta h2 { font-size: clamp(28px, 3.4vw, 42px); font-weight: 700; line-height: 1.05; letter-spacing: -.045em; }
+.fp-cta h2 .g { color: #3DDC9F; }
+.fp-cta p { margin-top: 8px; color: rgba(255, 255, 255, .66); }
+.fp-cta-btns { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.fp-cta-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: #fff; opacity: .85; }
+.fp-cta-link:hover { opacity: 1; }
+.fp-cta-link svg { width: 16px; height: 16px; }
+
+@media (max-width: 860px) {
+  .fp-how, .fp-faq { grid-template-columns: minmax(0, 1fr); }
+  .fp-cta { flex-direction: column; align-items: flex-start; }
+}

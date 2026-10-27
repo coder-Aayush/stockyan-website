@@ -186,14 +186,19 @@ function openUrl(openPath, campaign) {
 
 function faqSection(faq, heading = 'Questions') {
   if (!faq || !faq.length) return '';
-  return `<section class="sec">
-  <div class="wrap">
-    <div class="head rv"><h2 class="h2">${heading}</h2></div>
+  return `<section class="fp-sec">
+  <div class="wrap fp-faq">
+    <h2 class="fp-h2 rv">${heading}</h2>
     <div class="faq-list">${faq.map((f, i) => `
       <details class="qa"${i === 0 ? ' open' : ''}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}
     </div>
   </div>
 </section>`;
+}
+
+// Heading row with a link to the full list, then cards.
+function relatedRow(title, href, label, cards) {
+  return `<section class="fp-sec tint"><div class="wrap"><div class="fp-row-head rv"><h2 class="fp-h2">${title}</h2><a href="${href}">${label} ${arrow}</a></div><div class="cards">${cards}</div></div></section>`;
 }
 
 function faqLd(faq) {
@@ -378,15 +383,15 @@ async function build() {
     const shot = f.heroShot && SHOTS[f.heroShot]
       ? (isPhone ? phone({ shot: f.heroShot, label: f.h1 }) : mac({ shots: f.heroShot, label: f.h1 }))
       : '';
-    let componentSection = '';
-    if (f.component && components[f.component]) {
-      const inner = f.component === 'finder' ? components.finder
-        : TILE_WIDGETS.has(f.component) ? `<div class="solo"><div class="bento">${components[f.component]}</div></div>`
-          : `<div class="solo rv">${components[f.component]}</div>`;
-      componentSection = `<section class="sec"><div class="wrap">${inner}</div></section>`;
-    }
-    const sections = (f.sections || []).map((s) => `
-      <div class="card rv"><h2>${esc(s.h2)}</h2><p>${esc(s.text)}</p>${s.points && s.points.length ? `<ul class="ticks">${s.points.map((p) => `<li><svg><use href="#tick"/></svg>${esc(p)}</li>`).join('')}</ul>` : ''}</div>`).join('');
+    // The live widget beside the points; the stock finder is wide, so it sits above them.
+    const widget = f.component && components[f.component];
+    const demo = !widget ? ''
+      : f.component === 'finder' ? `<div class="fp-demo fp-wide">${widget}</div>`
+        : TILE_WIDGETS.has(f.component) ? `<div class="fp-demo rv"><div class="bento">${widget}</div></div>`
+          : `<div class="fp-demo rv">${widget}</div>`;
+    const howClass = !widget ? 'fp-how fp-solo' : f.component === 'finder' ? 'fp-how fp-stack' : 'fp-how';
+    const sections = (f.sections || []).map((s, i) => `
+      <div class="fp-point"><span class="fp-num">${String(i + 1).padStart(2, '0')}</span><div><h2>${esc(s.h2)}</h2><p>${esc(s.text)}</p>${s.points && s.points.length ? `<ul class="ticks">${s.points.map((p) => `<li><svg><use href="#tick"/></svg>${esc(p)}</li>`).join('')}</ul>` : ''}</div></div>`).join('');
     const relatedCards = [
       ...(f.related || []).filter((s) => featureBySlug[s]).map((s) => card(`/features/${s}/`, featureBySlug[s].h1, featureBySlug[s].lead, 'See feature')),
       ...(f.learn || []).map((s) => learnAll.find((l) => l.slug === s)).filter(Boolean).map((l) => card(`/learn/${l.slug}/`, l.title, l.text, 'Read guide')),
@@ -400,9 +405,9 @@ async function build() {
       ...seo({ title: esc(f.title), description: esc(f.metaDescription), canonical, og: `feature-${f.slug}`, alt: esc(`${f.h1}: ${f.lead}`) }),
       crumb: esc(f.h1), slug: esc(f.slug),
       h1: accent(f.h1, f.accent), lead: esc(f.lead), openUrl: esc(openUrl(f.openPath, f.slug)),
-      shot, shotClass: isPhone ? 'is-phone' : 'is-mac', componentSection, sections,
+      shot, shotClass: isPhone ? 'is-phone' : 'is-mac', demo, howClass, sections,
       faqSection: faqSection(f.faq),
-      relatedSection: relatedCards ? `<section class="sec tint"><div class="wrap"><div class="head rv"><h2 class="h2">Keep <span class="g">exploring.</span></h2></div><div class="cards">${relatedCards}</div></div></section>` : '',
+      relatedSection: relatedCards ? relatedRow('Keep <span class="g">exploring.</span>', '/features/', 'All features', relatedCards) : '',
       jsonld: ld,
     }));
   }
@@ -426,7 +431,7 @@ async function build() {
   const downloadCard = `<div class="card"><h3>Try it in StockYan</h3><p>Free on iPhone, Android, Windows, macOS and Linux.</p><a class="btn btn-dark" href="/download/?utm_source=website&amp;utm_medium=learn">Download free</a></div>`;
   const learnRelated = (slug) => {
     const cards = learnAll.filter((l) => l.slug !== slug).slice(0, 3).map((l) => card(`/learn/${l.slug}/`, l.title, l.text, 'Read guide')).join('');
-    return `<section class="sec tint"><div class="wrap"><div class="head rv"><h2 class="h2">Keep <span class="g">learning.</span></h2></div><div class="cards">${cards}</div></div></section>`;
+    return relatedRow('Keep <span class="g">learning.</span>', '/learn/', 'All guides', cards);
   };
 
   for (const l of learnPages) {
