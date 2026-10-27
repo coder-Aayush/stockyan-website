@@ -512,9 +512,13 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-co
 .dl-page { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(36px, 7vw, 100px); align-items: center; }
 .dl-page .h2 { text-align: left; }
 .qr-card { display: inline-grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 16px 20px 16px 16px; border: 1px solid var(--line); border-radius: 20px; margin-top: 26px; background: #fff; }
-.qr-card .qr { width: 104px; height: 104px; }
+.qr-card .qr { width: 140px; height: 140px; }
 .qr-card .qr img, .qr-card .qr canvas { width: 100% !important; height: 100% !important; }
 .qr-card b { display: block; font-weight: 600; }
+.qr-brand { position: relative; }
+.qr-brand svg { display: block; width: 100%; height: 100%; }
+.qr-logo { position: absolute; left: 50%; top: 50%; width: 24%; aspect-ratio: 1; transform: translate(-50%, -50%); padding: 3.5%; border-radius: 26%; background: #fff; box-shadow: 0 2px 8px rgba(10, 40, 28, .16); }
+.qr-logo img { display: block; width: 100% !important; height: 100% !important; border-radius: 22%; }
 .qr-card small { color: var(--ink-3); }
 .help { margin-top: 18px; font-size: 14px; color: var(--ink-2); }
 .help summary { cursor: pointer; color: var(--ink-3); }
@@ -703,7 +707,7 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-co
 .dlx-alt { font-size: 13px; color: var(--ink-2); text-align: center; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
 .dlx-card .help { margin-top: 2px; }
 .dlx-qr { display: flex; align-items: center; gap: 28px; margin: 28px auto 0; max-width: 640px; padding: 22px 28px 22px 22px; border-radius: 24px; background: #fff; border: 1px solid var(--line); }
-.dlx-qr .qr { width: 120px; height: 120px; flex: none; }
+.dlx-qr .qr { width: 148px; height: 148px; flex: none; }
 .dlx-qr .qr img, .dlx-qr .qr canvas { width: 100% !important; height: 100% !important; }
 .dlx-qr h3 { font-size: 22px; font-weight: 700; letter-spacing: -.03em; }
 .dlx-qr p { color: var(--ink-2); margin-top: 4px; }

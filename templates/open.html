@@ -36,7 +36,9 @@
     if (label) document.getElementById('openLead').textContent = 'Open ' + label + ' in the StockYan app.';
     if (G.platform === 'desktop') {
       document.getElementById('desktopCta').hidden = false;
-      if (window.QRCode) new QRCode(document.getElementById('qr'), { text: location.href, width: 208, height: 208, colorDark: '#0A1511', colorLight: '#FFFFFF', correctLevel: QRCode.CorrectLevel.M });
+      // Phones only hand stockyan.com links to the app.
+      var here = /stockyan\.info$/.test(location.hostname) ? 'https://stockyan.com' + location.pathname + location.search : location.href;
+      window.stockyanQr(document.getElementById('qr'), here);
     } else {
       document.getElementById('phoneCtas').hidden = false;
       var store = G.storeUrl(G.platform);

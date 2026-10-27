@@ -20,6 +20,25 @@
     ? `<img class="lg" src="/assets/logos/${sym.toLowerCase()}.png" alt="">`
     : `<span class="lg" style="background:${color}">${sym.slice(0, 2)}</span>`;
 
+  // ---------- QR codes ----------
+  // Round green dots, rounded corner squares and the logo in a white badge.
+  // qrcodejs only builds the matrix; high error correction covers the badge.
+  window.stockyanQr = (box, text) => {
+    if (!box || !window.QRCode) return;
+    const m = new QRCode(document.createElement('div'), { text, width: 64, height: 64, correctLevel: QRCode.CorrectLevel.H })._oQRCode;
+    const n = m.getModuleCount(), q = 4, size = n + q * 2, mid = n / 2, hole = size * 0.15;
+    const eye = (r, c) => (r < 7 || r >= n - 7) && (c < 7 || c >= n - 7) && !(r >= n - 7 && c >= n - 7);
+    let dots = '';
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+      if (!m.isDark(r, c) || eye(r, c) || (Math.abs(r + 0.5 - mid) < hole && Math.abs(c + 0.5 - mid) < hole)) continue;
+      dots += `<circle cx="${c + 0.5}" cy="${r + 0.5}" r="0.48"/>`;
+    }
+    const eyes = [[0, 0], [0, n - 7], [n - 7, 0]].map(([r, c]) =>
+      `<rect x="${c + 0.5}" y="${r + 0.5}" width="6" height="6" rx="2" fill="none" stroke="#00805C" stroke-width="1"/><rect x="${c + 2}" y="${r + 2}" width="3" height="3" rx="1"/>`).join('');
+    box.innerHTML = `<svg viewBox="${-q} ${-q} ${size} ${size}" role="img" aria-label="QR code"><rect x="${-q}" y="${-q}" width="${size}" height="${size}" rx="${q * 1.5}" fill="#fff"/><g fill="#00805C">${dots}${eyes}</g></svg><span class="qr-logo"><img src="/logo.png" alt=""></span>`;
+    box.classList.add('qr-brand');
+  };
+
   // ---------- nav ----------
   const nav = $('#nav');
   if (nav) {

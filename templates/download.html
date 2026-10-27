@@ -81,7 +81,7 @@
       <div class="qr" id="qr" aria-label="QR code to get StockYan on your phone"></div>
       <div>
         <h3>On your phone?</h3>
-        <p>Point your camera here. It opens the App Store or Google Play automatically.</p>
+        <p>Point your camera here. It opens StockYan if you have it, or the App Store or Google Play if you don't.</p>
       </div>
     </div>
   </div>
@@ -139,7 +139,8 @@
   });
   addEventListener('DOMContentLoaded', function () {
     var box = document.getElementById('qr');
-    if (box && window.QRCode) new QRCode(box, { text: '{{site}}/download/?utm_source=website&utm_medium=qr', width: 220, height: 220, colorDark: '#0A1511', colorLight: '#FFFFFF', correctLevel: QRCode.CorrectLevel.M });
+    // An app link: opens StockYan when it's installed, the store when it isn't.
+    window.stockyanQr(box, 'https://stockyan.com/open/home?utm_source=website&utm_medium=qr');
   });
 </script>
 </body>

@@ -28,6 +28,8 @@
     utm_campaign: q.get('utm_campaign') || '',
     ref: q.get('ref') || '',
   };
+  // Offer on /open/premium: code to apply and plan to preselect.
+  var offer = { promo: q.get('promo') || '', tier: q.get('tier') || '' };
 
   // Path: /open/scanner/rsi → target "scanner/rsi"; /r/ABC123 → referral.
   var parts = location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
@@ -35,24 +37,31 @@
   if (parts[0] === 'open') link = { kind: 'open', target: parts.slice(1).join('/') || 'home' };
   if (parts[0] === 'r' && parts[1]) { link = { kind: 'r', target: 'home' }; source.ref = source.ref || parts[1]; }
 
-  function appQuery() {
+  function linkParams() {
     var p = new URLSearchParams();
     ['utm_source', 'utm_medium', 'utm_campaign', 'ref'].forEach(function (k) { if (source[k]) p.set(k, source[k]); });
-    var s = p.toString();
+    ['promo', 'tier'].forEach(function (k) { if (offer[k]) p.set(k, offer[k]); });
+    return p;
+  }
+  function appQuery() {
+    var s = linkParams().toString();
     return s ? '?' + s : '';
+  }
+  // Campaign name App Store Connect shows for iPhone installs (Analytics >
+  // Sources > Campaigns): where they came from, the campaign, the referral
+  // code. Apple keeps 40 characters. The App Store passes nothing to the app.
+  function appleCampaign() {
+    return [source.utm_source, source.utm_campaign, source.ref && 'ref-' + source.ref]
+      .filter(Boolean).join('-').slice(0, 40);
   }
   function storeUrl(os) {
     if (os === 'android') {
-      var r = new URLSearchParams();
-      r.set('utm_source', source.utm_source);
-      r.set('utm_medium', source.utm_medium);
-      if (source.utm_campaign) r.set('utm_campaign', source.utm_campaign);
-      if (source.ref) r.set('ref', source.ref);
+      var r = linkParams();
       if (link) r.set('target', link.target);
       return STORE.android + '&referrer=' + encodeURIComponent(r.toString());
     }
     if (APPLE_PROVIDER_TOKEN) {
-      return STORE.ios + '?pt=' + APPLE_PROVIDER_TOKEN + '&ct=' + encodeURIComponent((source.utm_campaign || source.utm_source).slice(0, 40)) + '&mt=8';
+      return STORE.ios + '?pt=' + APPLE_PROVIDER_TOKEN + '&ct=' + encodeURIComponent(appleCampaign()) + '&mt=8';
     }
     return STORE.ios;
   }
@@ -74,7 +83,7 @@
     if (window.gtag) {
       window.gtag('event', link ? 'smart_link' : 'download_redirect', {
         platform: platform, action: action, target: link ? link.target : '',
-        link_ref: source.ref, link_source: source.utm_source, link_medium: source.utm_medium, link_campaign: source.utm_campaign,
+        link_ref: source.ref, link_source: source.utm_source, link_medium: source.utm_medium, link_campaign: source.utm_campaign, link_promo: offer.promo,
         transport_type: 'beacon', event_callback: leave, event_timeout: 700,
       });
     }
