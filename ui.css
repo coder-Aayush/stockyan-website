@@ -97,7 +97,7 @@ button { font: inherit; color: inherit; }
 .hero { position: relative; padding-top: clamp(56px, 8vw, 104px); overflow: hidden; }
 .hero::before { content: ""; position: absolute; left: 50%; top: 38%; width: 1200px; height: 900px; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(0, 179, 131, .16), rgba(0, 179, 131, 0)); pointer-events: none; }
 .hero .head { position: relative; gap: 26px; }
-.hero h1 { font-size: clamp(56px, 11vw, 148px); font-weight: 700; line-height: .9; letter-spacing: -.062em; }
+.hero h1 { font-size: clamp(48px, 8.4vw, 112px); font-weight: 700; line-height: .9; letter-spacing: -.062em; }
 .hero h1 span { display: inline-block; animation: up .9s cubic-bezier(.2, .7, .2, 1) both; }
 .hero h1 span + span { animation-delay: .08s; }
 .hero .lead { animation: up .9s .16s cubic-bezier(.2, .7, .2, 1) both; }
@@ -106,7 +106,7 @@ button { font: inherit; color: inherit; }
 .os-row a { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--tint); color: var(--ink-2); font-size: 17px; transition: background-color .2s, color .2s, transform .2s; }
 .os-row a:hover { background: var(--ink); color: var(--bg); transform: translateY(-2px); }
 @keyframes up { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
-.hero-stage { position: relative; margin: clamp(56px, 7vw, 88px) auto 0; max-width: 1140px; perspective: 2200px; }
+.hero-stage { position: relative; margin: clamp(10px, 1.2vw, 16px) auto 0; max-width: 1140px; perspective: 2200px; }
 .hero-phone { position: absolute; z-index: 2; right: -3%; bottom: -7%; width: 19%; animation: up 1s .45s cubic-bezier(.2, .7, .2, 1) both; }
 @media (max-width: 640px) { .hero-phone { width: 27%; right: -1%; bottom: -10%; } .hero-stage { margin-bottom: 9%; } }
 .hero-stage .mac-wrap { transform: rotateX(var(--tilt, 12deg)); transform-origin: 50% 0; transition: transform .1s linear; }
