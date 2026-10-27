@@ -116,7 +116,7 @@ button { font: inherit; color: inherit; }
 .hero h1 .w { display: inline-block; animation: word .8s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i) * 70ms); }
 @keyframes word { from { opacity: 0; transform: translateY(.38em) rotate(2deg); filter: blur(10px); } }
 @media (prefers-reduced-motion: reduce) { .hero h1 .w { animation: none; } }
-.hero .lead { animation: up .9s .16s cubic-bezier(.2, .7, .2, 1) both; }
+.hero .lead { max-width: 36em; animation: up .9s .16s cubic-bezier(.2, .7, .2, 1) both; }
 .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; animation: up .9s .24s cubic-bezier(.2, .7, .2, 1) both; }
 .os-row { display: flex; gap: 10px; justify-content: center; animation: up .9s .32s cubic-bezier(.2, .7, .2, 1) both; }
 .os-row a { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--tint); color: var(--ink-2); font-size: 17px; transition: background-color .2s, color .2s, transform .2s; }
