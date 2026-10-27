@@ -112,14 +112,10 @@ button { font: inherit; color: inherit; }
 .hero::before { content: ""; position: absolute; left: 50%; top: 38%; width: 1200px; height: 900px; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(0, 179, 131, .16), rgba(0, 179, 131, 0)); pointer-events: none; }
 .hero .head { position: relative; gap: 26px; }
 .hero h1 { font-size: clamp(40px, 7.2vw, 96px); font-weight: 700; line-height: .98; letter-spacing: -.055em; }
-/* Words rise in one by one, then a green stroke draws under the last line. */
+/* Words rise in one by one. */
 .hero h1 .w { display: inline-block; animation: word .8s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i) * 70ms); }
 @keyframes word { from { opacity: 0; transform: translateY(.38em) rotate(2deg); filter: blur(10px); } }
-.hero h1 .mark { position: relative; display: inline-block; padding-bottom: .1em; }
-.mark-line { position: absolute; left: -1%; bottom: -.02em; width: 102%; height: .2em; overflow: visible; }
-.mark-line path { fill: none; stroke: var(--green-2); stroke-width: 5; stroke-linecap: round; opacity: .55; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw .9s .75s cubic-bezier(.6, 0, .2, 1) forwards; vector-effect: non-scaling-stroke; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-@media (prefers-reduced-motion: reduce) { .hero h1 .w { animation: none; } .mark-line path { animation: none; stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .hero h1 .w { animation: none; } }
 .hero .lead { animation: up .9s .16s cubic-bezier(.2, .7, .2, 1) both; }
 .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; animation: up .9s .24s cubic-bezier(.2, .7, .2, 1) both; }
 .os-row { display: flex; gap: 10px; justify-content: center; animation: up .9s .32s cubic-bezier(.2, .7, .2, 1) both; }
