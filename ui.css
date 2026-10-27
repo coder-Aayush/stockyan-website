@@ -68,14 +68,28 @@ button { font: inherit; color: inherit; }
 .bar b { font-weight: 600; }
 .bar .pill { background: var(--green); color: var(--on-dark); font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 3px 7px; border-radius: 6px; }
 .bar span.go { opacity: .7; }
-.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 70; background: rgba(255, 255, 255, .82); backdrop-filter: saturate(1.6) blur(16px); -webkit-backdrop-filter: saturate(1.6) blur(16px); border-bottom: 1px solid transparent; transition: border-color .2s; }
-.nav.stuck { border-bottom-color: var(--line); }
-.nav-in { display: flex; align-items: center; gap: 20px; height: 68px; }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 70; transition: padding .5s cubic-bezier(.2, .8, .2, 1); }
+.nav.stuck { padding-top: 10px; }
+.nav-in { position: relative; display: flex; align-items: center; gap: 20px; height: 68px; border: 1px solid transparent; border-radius: 0; background: rgba(255, 255, 255, 0);
+  transition: max-width .5s cubic-bezier(.2, .8, .2, 1), height .5s cubic-bezier(.2, .8, .2, 1), border-radius .5s cubic-bezier(.2, .8, .2, 1), box-shadow .5s, border-color .5s, background-color .5s, padding .5s cubic-bezier(.2, .8, .2, 1); }
+.nav::before { content: ""; position: absolute; inset: 0 0 auto; height: 68px; background: rgba(255, 255, 255, .82); backdrop-filter: saturate(1.6) blur(16px); -webkit-backdrop-filter: saturate(1.6) blur(16px); z-index: -1; transition: opacity .3s; }
+/* Scrolled: the bar lifts into a floating capsule. */
+.nav.stuck::before { opacity: 0; }
+.nav.stuck .nav-in { max-width: 1040px; height: 58px; padding-left: 18px; padding-right: 8px; border-radius: 999px; border-color: rgba(10, 21, 17, .07); background: rgba(255, 255, 255, .78); backdrop-filter: saturate(1.6) blur(16px); -webkit-backdrop-filter: saturate(1.6) blur(16px);
+  box-shadow: 0 1px 2px rgba(10, 21, 17, .04), 0 14px 36px -14px rgba(10, 40, 28, .22); }
+.nav.stuck .nav-in > .btn { border-radius: 999px; }
 .logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; letter-spacing: -.03em; }
 .logo img { width: 30px; height: 30px; border-radius: 8px; }
-.links { display: flex; gap: 2px; margin-inline: auto; padding: 4px; border-radius: 999px; background: var(--tint); }
-.links a { padding: 8px 15px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--ink-2); transition: background-color .2s, color .2s; }
-.links a:hover { background: var(--bg); color: var(--ink); }
+.links { position: relative; display: flex; gap: 2px; margin-inline: auto; padding: 4px; border-radius: 999px; background: var(--tint); }
+.links a { position: relative; z-index: 1; padding: 8px 15px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--ink-2); transition: color .25s; }
+.links a:hover, .links a.on { color: var(--ink); }
+/* The white pill that slides to the hovered (or current) link. */
+.links .hl { position: absolute; z-index: 0; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 999px; background: var(--bg); box-shadow: 0 1px 2px rgba(10, 21, 17, .06), 0 4px 12px -4px rgba(10, 40, 28, .14); opacity: 0;
+  transition: transform .45s cubic-bezier(.3, 1.3, .4, 1), width .45s cubic-bezier(.3, 1.3, .4, 1), opacity .25s; }
+.links a:hover ~ .hl, .links .hl.show { opacity: 1; }
+.links:not(.ready) .hl { transition: none; }
+@media (prefers-reduced-motion: reduce) { .nav-in, .links .hl { transition: none; } }
+@media (max-width: 900px) { .nav.stuck { padding-top: 8px; } .nav.stuck .nav-in { margin-inline: 10px; width: auto; height: 56px; padding-left: 14px; padding-right: 6px; } .nav.stuck .burger { width: 42px; height: 42px; } }
 .burger { display: none; margin-left: auto; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--bg); }
 .burger svg { width: 18px; height: 18px; margin: auto; }
 .drawer { border-top: 1px solid var(--line); background: var(--bg); max-height: calc(100svh - 68px); overflow-y: auto; animation: dr-in .28s cubic-bezier(.2, .7, .2, 1); }

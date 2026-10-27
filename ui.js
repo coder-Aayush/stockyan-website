@@ -22,7 +22,48 @@
 
   // ---------- nav ----------
   const nav = $('#nav');
-  if (nav) addEventListener('scroll', () => nav.classList.toggle('stuck', scrollY > 10), { passive: true });
+  if (nav) {
+    const stick = () => nav.classList.toggle('stuck', scrollY > 24);
+    addEventListener('scroll', stick, { passive: true });
+    stick();
+  }
+
+  // Nav links: a pill slides to the hovered link and rests on the current section.
+  const links = $('.links');
+  if (links) {
+    const hl = document.createElement('span');
+    hl.className = 'hl';
+    links.append(hl);
+    let current = links.querySelector(`a[href="${location.pathname.startsWith('/learn/') ? '/learn/' : ''}"]`);
+    const moveTo = (a) => {
+      if (!a) { hl.classList.remove('show'); return; }
+      hl.style.width = a.offsetWidth + 'px';
+      hl.style.transform = `translateX(${a.offsetLeft}px)`;
+      hl.classList.add('show');
+    };
+    const setCurrent = (a) => {
+      links.querySelectorAll('a.on').forEach((x) => x.classList.remove('on'));
+      current = a;
+      if (a) a.classList.add('on');
+      if (!links.matches(':hover')) moveTo(a);
+    };
+    links.querySelectorAll('a').forEach((a) => a.addEventListener('mouseenter', () => moveTo(a)));
+    links.addEventListener('mouseleave', () => moveTo(current));
+    setCurrent(current);
+    requestAnimationFrame(() => links.classList.add('ready'));
+    addEventListener('resize', () => moveTo(links.matches(':hover') ? links.querySelector('a:hover') : current));
+    // On the home page, follow the section in view.
+    const spy = ['research', 'free', 'desktop', 'pricing'].map((id) => document.getElementById(id)).filter(Boolean);
+    if (spy.length) {
+      const seen = new Map();
+      const sio = new IntersectionObserver((es) => {
+        es.forEach((e) => seen.set(e.target.id, e.isIntersecting));
+        const id = spy.map((s) => s.id).find((i) => seen.get(i));
+        setCurrent(id ? links.querySelector(`a[href="/#${id}"]`) : null);
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      spy.forEach((s) => sio.observe(s));
+    }
+  }
   const burger = $('#burger'), drawer = $('#drawer');
   if (burger) {
     const setMenu = (open) => {
