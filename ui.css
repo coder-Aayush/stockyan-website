@@ -160,6 +160,16 @@ button { font: inherit; color: inherit; }
 .seg-sm button { transition: background-color .25s, color .25s; }
 .seg .knob { position: absolute; top: 5px; bottom: 5px; border-radius: 999px; background: var(--ink); transition: left .35s cubic-bezier(.2, .7, .2, 1), width .35s cubic-bezier(.2, .7, .2, 1); }
 .center { display: flex; justify-content: center; }
+/* Research / Portfolio: an underlined tab bar with a sliding green indicator. */
+.seg.tabbar { gap: 4px; padding: 0; margin-top: 32px; border-radius: 0; background: none; border-bottom: 1px solid var(--line-2); }
+.tabbar button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 168px; height: 56px; padding: 0 22px; border-radius: 12px 12px 0 0; font-size: 16px; color: var(--ink-3); transition: color .25s, background-color .25s; }
+.tabbar button svg { width: 20px; height: 20px; flex: none; }
+.tabbar button:hover { color: var(--ink-2); background: rgba(10, 21, 17, .03); }
+.tabbar button[aria-selected="true"] { color: var(--ink); }
+.tabbar button[aria-selected="true"] svg { color: var(--green); }
+.tabbar .knob { top: auto; bottom: -1px; height: 3px; border-radius: 3px 3px 0 0; background: var(--green); }
+#p-r > .feat:first-child, #p-p > .feat:first-child { margin-top: clamp(36px, 4.5vw, 56px); }
+@media (max-width: 640px) { .tabbar button { min-width: 0; flex: 1; padding: 0 16px; } .seg.tabbar { width: 100%; } }
 .feat { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(36px, 7vw, 100px); align-items: center; margin-top: clamp(64px, 8vw, 110px); }
 .feat.flip > :first-child { order: 2; }
 .feat-copy { display: grid; gap: 18px; align-content: start; }
