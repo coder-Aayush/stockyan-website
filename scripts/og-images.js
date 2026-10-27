@@ -48,7 +48,7 @@ function cards() {
   const bySlug = Object.fromEntries(features.map((f) => [f.slug, f]));
   const devicesFoot = 'iPhone, Android and desktop';
   const list = [
-    { key: 'home', eyebrow: 'The advanced NEPSE analysis app', title: 'NEPSE, <span class="g">simplified.</span>', lead: 'Complex market data, turned into clear and actionable information.', shot: 'mac2', extraPhone: 'ph2049', foot: devicesFoot },
+    { key: 'home', eyebrow: 'The advanced NEPSE analysis app', title: 'Become a <span class="g">confident NEPSE investor.</span>', lead: 'Complex market data, turned into clear and actionable information.', shot: 'mac2', extraPhone: 'ph2049', foot: devicesFoot },
     { key: 'download', eyebrow: 'Free download', title: 'Get <span class="g">StockYan.</span>', lead: 'The advanced NEPSE analysis app. One account on every device.', shot: 'mac2', extraPhone: 'ph2050', foot: devicesFoot },
     { key: 'features', eyebrow: 'Features', title: 'Everything in <span class="g">StockYan.</span>', lead: 'Research, portfolio and free tools for NEPSE. In one app.', shot: 'mac7', foot: devicesFoot },
     { key: 'learn', eyebrow: 'Learn NEPSE', title: 'Simple guides to <span class="g">NEPSE.</span>', lead: 'For first-time investors and full-time traders.', shot: 'mac1', foot: 'Free guides' },

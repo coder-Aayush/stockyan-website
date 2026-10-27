@@ -356,7 +356,7 @@ async function build() {
     title: 'StockYan: Advanced NEPSE Analysis App for Nepal Investors',
     ogTitle: 'StockYan: The Advanced NEPSE Analysis App',
     description: 'StockYan turns complex NEPSE data into clear, actionable information. Stock scanners, smart money tracking, live data and portfolio tools in one app.',
-    canonical: `${SITE_URL}/`, og: 'home', alt: 'StockYan on a MacBook and an iPhone: NEPSE, simplified.',
+    canonical: `${SITE_URL}/`, og: 'home', alt: 'StockYan on a MacBook and an iPhone: become a confident NEPSE investor.',
   })));
   write('download/index.html', render(read(T('download.html')), seo({
     title: 'Download StockYan: NEPSE App for iPhone, Android, Windows, Linux',
