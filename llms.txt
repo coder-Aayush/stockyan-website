@@ -6,6 +6,7 @@
 - [Home](https://stockyan.info/): what StockYan does, free tools and pricing
 - [Download](https://stockyan.info/download/): App Store, Google Play and desktop downloads
 - [Features](https://stockyan.info/features/): every StockYan feature
+- [Free tools](https://stockyan.info/tools/): free NEPSE calculators that work in the browser
 - [Learn NEPSE](https://stockyan.info/learn/): simple guides to the Nepal share market
 
 ## Features
@@ -25,6 +26,27 @@
 - [NEPSE on your desktop](https://stockyan.info/features/nepse-app-for-pc/): A full NEPSE app for Windows, macOS and Linux, made for big screens.
 - [One score for every stock](https://stockyan.info/features/nepse-ai-analysis/): Seven factors blended into a 0 to 100 score you can check.
 - [Alerts that watch for you](https://stockyan.info/features/nepse-alerts/): Set a price once and StockYan tells you when it is reached.
+
+## Free calculators
+- [NEPSE share calculator](https://stockyan.info/tools/share-calculator/): See what a trade really costs, or what you really keep, after every fee and tax.
+- [Broker commission calculator](https://stockyan.info/tools/broker-commission-calculator/): Type a trade and see the commission, the other fees and the rate that applies.
+- [Capital gains tax calculator](https://stockyan.info/tools/capital-gain-tax-calculator/): Find out how much tax you pay when you sell shares at a profit.
+- [Break-even price calculator](https://stockyan.info/tools/break-even-calculator/): Fees mean you need a slightly higher price just to get your money back. Find that price.
+- [Profit target calculator](https://stockyan.info/tools/target-price-calculator/): Say how much profit you want to keep. See the price you need to sell at.
+- [WACC calculator](https://stockyan.info/tools/wacc-calculator/): Bought the same stock more than once? Find your real average price per share.
+- [Average down calculator](https://stockyan.info/tools/average-down-calculator/): Find out how many shares to buy to reach the average price you want.
+- [Bonus share calculator](https://stockyan.info/tools/bonus-share-calculator/): See the price after book close, and how many bonus shares you will get.
+- [Right share calculator](https://stockyan.info/tools/right-share-calculator/): See the price after a right issue, and how many right shares you can apply for.
+- [Dividend calculator](https://stockyan.info/tools/dividend-calculator/): See how much dividend reaches your bank, after tax, and your dividend yield.
+- [Risk reward calculator](https://stockyan.info/tools/risk-reward-calculator/): Compare what you could lose with what you could win, before you buy.
+- [Position size calculator](https://stockyan.info/tools/position-size-calculator/): Buy the right number of shares, so one bad trade never hurts too much.
+- [NEPSE circuit calculator](https://stockyan.info/tools/circuit-breaker-calculator/): See how high or low a stock can go today, from yesterday's closing price.
+- [Pivot point calculator](https://stockyan.info/tools/pivot-point-calculator/): Turn yesterday's high, low and close into today's key price levels.
+- [Fibonacci calculator](https://stockyan.info/tools/fibonacci-calculator/): Find where a pullback might stop, from any big move up or down.
+- [SIP calculator](https://stockyan.info/tools/sip-calculator/): Put in a little every month. See what it could grow to over the years.
+- [Stock return calculator](https://stockyan.info/tools/stock-return-calculator/): See your total return and your return per year, dividends included.
+- [PE ratio calculator](https://stockyan.info/tools/pe-ratio-calculator/): See how much you pay for every rupee a company earns.
+- [Graham number calculator](https://stockyan.info/tools/graham-number-calculator/): A quick fair value check from Benjamin Graham, the father of value investing.
 
 ## Guides
 - [What is RSI?](https://stockyan.info/learn/what-is-rsi/): RSI is a number from 0 to 100 that shows how strong recent price moves have been.

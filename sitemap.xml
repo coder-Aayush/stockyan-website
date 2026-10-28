@@ -2,259 +2,399 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://stockyan.info/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/home.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/download/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/download.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/features.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-portfolio-tracker/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-portfolio-tracker.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/meroshare-portfolio/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-meroshare-portfolio.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/bulk-ipo-result/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-bulk-ipo-result.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-stock-screener/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-stock-screener.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-rsi-scanner/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-rsi-scanner.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-technical-analysis-chart/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-technical-analysis-chart.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-broker-analysis/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-broker-analysis.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-accumulation-distribution/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-accumulation-distribution.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-floorsheet/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-floorsheet.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-bulk-transactions/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-bulk-transactions.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-heatmap/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-heatmap.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-paper-trading/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-paper-trading.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-share-calculator/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-share-calculator.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-app-for-pc/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-app-for-pc.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-ai-analysis/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-ai-analysis.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/features/nepse-alerts/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/feature-nepse-alerts.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://stockyan.info/tools/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tools.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/share-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-share-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/broker-commission-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-broker-commission-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/capital-gain-tax-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-capital-gain-tax-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/break-even-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-break-even-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/target-price-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-target-price-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/wacc-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-wacc-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/average-down-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-average-down-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/bonus-share-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-bonus-share-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/right-share-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-right-share-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/dividend-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-dividend-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/risk-reward-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-risk-reward-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/position-size-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-position-size-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/circuit-breaker-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-circuit-breaker-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/pivot-point-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-pivot-point-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/fibonacci-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-fibonacci-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/sip-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-sip-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/stock-return-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-stock-return-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/pe-ratio-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-pe-ratio-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://stockyan.info/tools/graham-number-calculator/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://stockyan.info/assets/og/tool-graham-number-calculator.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://stockyan.info/learn/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/what-is-rsi/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-what-is-rsi.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/macd-indicator/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-macd-indicator.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/support-and-resistance/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-support-and-resistance.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/ema-vs-sma/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-ema-vs-sma.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/bollinger-bands/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-bollinger-bands.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/fibonacci-retracement/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-fibonacci-retracement.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/candlestick-patterns/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-candlestick-patterns.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/what-is-floorsheet/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-what-is-floorsheet.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/share-broker-commission-nepal/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-share-broker-commission-nepal.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/capital-gain-tax-nepal-share/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-capital-gain-tax-nepal-share.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/what-is-wacc-in-share-market/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-what-is-wacc-in-share-market.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/circuit-breaker-in-nepse/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-circuit-breaker-in-nepse.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/trend-of-newly-listed-stocks/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-trend-of-newly-listed-stocks.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/use-of-accumulation-distribution-data/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-use-of-accumulation-distribution-data.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/broker-intelligence-module/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-broker-intelligence-module.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/learn/margin-trading-in-nepse/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image><image:loc>https://stockyan.info/assets/og/learn-margin-trading-in-nepse.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://stockyan.info/terms/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

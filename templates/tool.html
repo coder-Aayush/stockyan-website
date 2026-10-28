@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> head}}
+{{> meta}}
+{{jsonld}}
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="top">
+<section class="page-hero tl-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/tools/">Tools</a><span>/</span><span>{{crumb}}</span></nav>
+    <div class="head">
+      <a class="tl-badge" href="/tools/#{{group}}" style="--c:{{color}}"><svg aria-hidden="true"><use href="#{{icon}}"/></svg>{{groupName}}</a>
+      <h1>{{h1}}</h1>
+      <p class="lead">{{lead}}</p>
+    </div>
+    <form class="tl-calc" data-tool="{{calc}}" autocomplete="off" novalidate>
+      <div class="tl-in">
+        {{fields}}
+        <button class="tl-reset" type="reset">Reset to example</button>
+      </div>
+      <div class="tl-out">
+        <div data-out aria-live="polite">{{result}}</div>
+        <p class="tl-fine"><svg aria-hidden="true"><use href="#shield"/></svg>Free, no sign-up. Your numbers stay on your device.</p>
+      </div>
+    </form>
+  </div>
+</section>
+<section class="fp-sec tint">
+  <div class="wrap tl-learn">
+    <div class="tl-steps rv">
+      <h2 class="fp-h2">How to use it</h2>
+      <ol>{{steps}}</ol>
+    </div>
+    <div class="tl-explain rv">{{explain}}</div>
+  </div>
+</section>
+{{faqSection}}
+{{relatedSection}}
+<section class="fp-sec fp-end">
+  <div class="wrap">
+    <div class="fp-cta rv">
+      <div>
+        <h2>Live prices, <span class="g">in one app.</span></h2>
+        <p>Every calculator here, plus scanners and your portfolio. Free on iPhone, Android and desktop.</p>
+      </div>
+      <div class="fp-cta-btns">
+        <a class="btn btn-light btn-lg" href="/download/?utm_source=website&amp;utm_medium=tool&amp;utm_campaign={{slug}}" data-dl-btn>Download free</a>
+        <a class="fp-cta-link" href="{{openUrl}}">Open in app <svg><use href="#arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+{{> footer}}
+<script defer src="/tools.js?v={{v:tools.js}}"></script>
+</body>
+</html>

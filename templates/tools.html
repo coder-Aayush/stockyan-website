@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> head}}
+{{> meta}}
+{{jsonld}}
+</head>
+<body>
+{{> sprite}}
+{{> nav}}
+<main id="top">
+<section class="page-hero tl-hub-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Tools</span></nav>
+    <div class="head">
+      <h1>Free NEPSE <span class="g">tools.</span></h1>
+      <p class="lead">Simple calculators for every step, from your first buy to your next trade. Free, with no sign-up.</p>
+      <div class="tl-jump">{{jump}}</div>
+    </div>
+  </div>
+</section>
+{{groups}}
+<section class="fp-sec tint">
+  <div class="wrap">
+    <div class="fp-row-head rv"><h2 class="fp-h2">More tools <span class="g">in the app.</span></h2><a href="/features/">All features <svg><use href="#arrow"/></svg></a></div>
+    <div class="cards">{{appCards}}</div>
+  </div>
+</section>
+<section class="fp-sec fp-end">
+  <div class="wrap">
+    <div class="fp-cta rv">
+      <div>
+        <h2>Live prices, <span class="g">in one app.</span></h2>
+        <p>Every calculator here, plus scanners and your portfolio. Free on iPhone, Android and desktop.</p>
+      </div>
+      <div class="fp-cta-btns">
+        <a class="btn btn-light btn-lg" href="/download/?utm_source=website&amp;utm_medium=tool&amp;utm_campaign=tools" data-dl-btn>Download free</a>
+        <a class="fp-cta-link" href="{{openUrl}}">Open in app <svg><use href="#arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+{{> footer}}
+</body>
+</html>

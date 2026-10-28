@@ -52,7 +52,7 @@
         },
         {
           "q": "Does the profit include tax and fees?",
-          "a": "Yes. StockYan counts broker commission, the SEBON fee, the DP charge and capital gains tax: 7.5% if you held under a year, 5% if you held longer."
+          "a": "Yes. StockYan counts broker commission, the SEBON fee, the DP charge and capital gains tax: 5% if you held a year or less, 3.75% if you held longer."
         },
         {
           "q": "Can I see my portfolio on my computer?",
@@ -751,7 +751,7 @@
           "text": "Sums use NEPSE's tiered broker commission, the SEBON fee and the DP charge.",
           "points": [
             "Commission tiers by trade amount",
-            "7.5% or 5% capital gains tax",
+            "5% or 3.75% capital gains tax",
             "Individual or institutional seller"
           ]
         }
@@ -763,7 +763,7 @@
         },
         {
           "q": "How do I calculate profit after selling shares in Nepal?",
-          "a": "Take the sale amount and subtract broker commission, the 0.015% SEBON fee and the Rs 25 DP charge. Subtract your total buying cost. Capital gains tax is 7.5% of that profit if you held under a year, 5% if longer."
+          "a": "Take the sale amount and subtract broker commission, the 0.015% SEBON fee and the Rs 25 DP charge. Subtract your total buying cost. Capital gains tax is 5% of that profit if you held a year or less, 3.75% if longer."
         },
         {
           "q": "What is WACC in NEPSE?",
@@ -1745,7 +1745,7 @@
         {
           "h2": "Capital gains tax",
           "paragraphs": [
-            "If you sell at a profit, there is also capital gains tax. For individuals it is 7.5% of the profit if you held the shares under a year, and 5% if you held them longer."
+            "If you sell at a profit, there is also capital gains tax. For individuals it is 5% of the profit if you held the shares a year or less, and 3.75% if you held them longer. These rates apply from 22 September 2026."
           ]
         },
         {
@@ -1792,7 +1792,7 @@
       "slug": "capital-gain-tax-nepal-share",
       "keyword": "capital gain tax nepal share",
       "title": "Capital Gain Tax on Shares in Nepal, Explained | StockYan",
-      "metaDescription": "Individuals in Nepal pay 7.5% capital gains tax on share profit if held under a year, and 5% if held longer. See how to work it out.",
+      "metaDescription": "Individuals in Nepal pay 5% capital gains tax on share profit if held a year or less, and 3.75% if held longer. See how to work it out.",
       "h1": "Capital gains tax on NEPSE shares",
       "accent": "Capital gains tax",
       "lead": "When you sell shares at a profit, part of that profit goes to tax. How much depends on how long you held them.",
@@ -1801,11 +1801,11 @@
         {
           "h2": "The rates",
           "paragraphs": [
-            "For individual investors, capital gains tax (CGT) on listed shares has two rates. Institutions follow different rules, and this guide covers individuals only."
+            "For individual investors, capital gains tax (CGT) on listed shares has two rates. The current rates started on 22 September 2026. Institutions follow different rules, and this guide covers individuals only."
           ],
           "points": [
-            "7.5% of the profit if held under one year",
-            "5% of the profit if held one year or more"
+            "5% of the profit if held one year or less",
+            "3.75% of the profit if held more than one year"
           ]
         },
         {
@@ -1818,7 +1818,7 @@
         {
           "h2": "Holding period",
           "paragraphs": [
-            "The holding period starts on the day you bought the shares. Once a holding passes one year, selling it pays 5% instead of 7.5%.",
+            "The holding period starts on the day you bought the shares. Once a holding passes one year, selling it pays 3.75% instead of 5%.",
             "StockYan's portfolio shows when a holding crosses one year, so you can see when the lower rate applies."
           ]
         },
@@ -1849,7 +1849,7 @@
             "Sale amount minus selling costs",
             "Minus buying amount and buying costs",
             "That is your profit",
-            "Profit times 7.5% or 5% is the tax"
+            "Profit times 5% or 3.75% is the tax"
           ]
         }
       ],
@@ -1859,13 +1859,13 @@
           "Say you bought 100 shares of Nabil Bank (NABIL) at Rs 485, the low of its 52-week range, and sold them at Rs 542, its close on 27 Oct 2026. To keep the sums simple, this leaves out the 5% bonus shares NABIL gave in 2026.",
           "Buying: Rs 48,500 plus Rs 174.60 commission (0.36%) and Rs 7.27 SEBON fee comes to Rs 48,681.88.",
           "Selling: Rs 54,200 minus Rs 178.86 commission (0.33%), Rs 8.13 SEBON fee and Rs 25 DP charge leaves Rs 53,988.01.",
-          "Profit before tax is Rs 5,306.13. Held under a year, tax at 7.5% is Rs 397.96. Held a year or more, tax at 5% is Rs 265.31, which is Rs 132.65 less."
+          "Profit before tax is Rs 5,306.13. Held a year or less, tax at 5% is Rs 265.31. Held more than a year, tax at 3.75% is Rs 198.98, which is Rs 66.33 less."
         ]
       },
       "faq": [
         {
           "q": "What is the capital gains tax on shares in Nepal?",
-          "a": "For individuals it is 7.5% of the profit if the shares were held under a year, and 5% if they were held a year or longer."
+          "a": "For individuals it is 5% of the profit if the shares were held a year or less, and 3.75% if they were held longer than a year. These rates apply from 22 September 2026."
         },
         {
           "q": "Do I pay capital gains tax on a loss?",
@@ -1873,7 +1873,7 @@
         },
         {
           "q": "How do I calculate capital gains tax on shares in Nepal?",
-          "a": "Take the sale amount minus selling costs, then subtract the buying amount and buying costs. Multiply that profit by 7.5% or 5%. StockYan's Sell calculator does this for you."
+          "a": "Take the sale amount minus selling costs, then subtract the buying amount and buying costs. Multiply that profit by 5% or 3.75%. StockYan's free capital gains tax calculator does this for you."
         }
       ],
       "feature": "nepse-share-calculator",

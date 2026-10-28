@@ -7,11 +7,12 @@
     <nav class="links" aria-label="Main">
       <a href="/#research">Research</a>
       <a href="/#portfolio">Portfolio</a>
-      <a href="/#free">Free tools</a>
+      <a href="/tools/" class="has-menu" aria-haspopup="true" aria-expanded="false" aria-controls="tools-menu">Tools<svg class="mchev" aria-hidden="true"><use href="#m-chev"/></svg></a>
       <a href="/#desktop">Desktop</a>
       <a href="/#pricing">Pricing</a>
       <a href="/learn/">Learn</a>
     </nav>
+    <div class="mega" id="tools-menu">{{toolsMenu}}</div>
     <a class="btn btn-dark" href="/download/" data-dl-btn>Download</a>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Menu"><svg><use href="#menu"/></svg></button>
   </div>
@@ -19,7 +20,8 @@
     <div class="wrap">
       <a class="dr-item" href="/#research" style="--c:#2F6FEB"><span class="dr-ic"><svg><use href="#t-index"/></svg></span><span class="dr-t"><b>Research</b><small>Scanners, charts and AI insights</small></span><svg class="dr-chev"><use href="#m-chev"/></svg></a>
       <a class="dr-item" href="/#portfolio" style="--c:#7A5AF8"><span class="dr-ic"><svg><use href="#t-briefcase"/></svg></span><span class="dr-t"><b>Portfolio</b><small>MeroShare and TMS, synced</small></span><svg class="dr-chev"><use href="#m-chev"/></svg></a>
-      <a class="dr-item" href="/#free" style="--c:#C27C0E"><span class="dr-ic"><svg><use href="#gift"/></svg></span><span class="dr-t"><b>Free tools</b><small>Broker data, bulk deals and more</small></span><svg class="dr-chev"><use href="#m-chev"/></svg></a>
+      <a class="dr-item" href="/tools/" style="--c:#C27C0E"><span class="dr-ic"><svg><use href="#gift"/></svg></span><span class="dr-t"><b>Tools</b><small>Free share calculators for NEPSE</small></span><svg class="dr-chev"><use href="#m-chev"/></svg></a>
+      <div class="dr-tools">{{drawerTools}}</div>
       <a class="dr-item" href="/#desktop" style="--c:#0E7C5A"><span class="dr-ic"><svg><use href="#devices"/></svg></span><span class="dr-t"><b>Desktop</b><small>Windows, macOS and Linux</small></span><svg class="dr-chev"><use href="#m-chev"/></svg></a>
       <a class="dr-item" href="/#pricing" style="--c:#E5484D"><span class="dr-ic"><svg><use href="#m-tag"/></svg></span><span class="dr-t"><b>Pricing</b><small>Start free, upgrade any time</small></span><svg class="dr-chev"><use href="#m-chev"/></svg></a>
       <a class="dr-item" href="/learn/" style="--c:#009E72"><span class="dr-ic"><svg><use href="#m-book"/></svg></span><span class="dr-t"><b>Learn</b><small>Simple guides to NEPSE</small></span><svg class="dr-chev"><use href="#m-chev"/></svg></a>

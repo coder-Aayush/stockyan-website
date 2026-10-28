@@ -1,0 +1,851 @@
+{
+  "groups": [
+    { "key": "trade", "name": "Buying and selling", "color": "#009E72", "text": "Know the real cost before you buy, and what you keep when you sell." },
+    { "key": "hold", "name": "Shares you own", "color": "#7A5AF8", "text": "Track your average price, bonus and right shares, and dividends." },
+    { "key": "trader", "name": "Plan your trades", "color": "#2F6FEB", "text": "Set your stop loss, target and size before you place an order." },
+    { "key": "invest", "name": "Long-term investing", "color": "#C27C0E", "text": "See how money grows, and check if a price is fair." }
+  ],
+  "tools": [
+    {
+      "slug": "share-calculator",
+      "calc": "share",
+      "group": "trade",
+      "icon": "t-cash",
+      "name": "Share calculator",
+      "short": "Full cost of a buy or sell",
+      "keyword": "share calculator nepal",
+      "title": "NEPSE Share Calculator: Buy and Sell Cost | StockYan",
+      "metaDescription": "Free NEPSE share calculator. See the full cost of a buy, or the cash you keep after a sale, with broker commission, SEBON fee, DP charge and tax.",
+      "h1": "NEPSE share calculator",
+      "accent": "share calculator",
+      "lead": "See what a trade really costs, or what you really keep, after every fee and tax.",
+      "fields": [
+        { "type": "seg", "name": "mode", "value": "buy", "options": [["buy", "Buy"], ["sell", "Sell"]] },
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 100 },
+        { "type": "number", "name": "price", "label": "Price per share", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "buy", "label": "Your buy price per share", "prefix": "Rs", "value": 480, "when": "mode=sell" },
+        { "type": "select", "name": "held", "label": "How long you held", "value": "short", "when": "mode=sell", "options": [["short", "1 year or less (5% tax)"], ["long", "More than 1 year (3.75% tax)"], ["inst", "I am an institution (10% tax)"]] },
+        { "type": "check", "name": "buyFees", "label": "Add buying fees to my buy price", "value": true, "when": "mode=sell", "hint": "Turn this off if you typed your WACC from MeroShare, which already has them." },
+        { "type": "check", "name": "dp", "label": "Include the Rs 25 DP charge", "value": true, "when": "mode=buy", "hint": "Most brokers charge it on buys too. Some only charge it when you sell." }
+      ],
+      "steps": [
+        "Pick Buy or Sell.",
+        "Type the number of shares and the price.",
+        "For a sale, add what you paid and how long you held."
+      ],
+      "explain": [
+        {
+          "h2": "What you pay on every trade",
+          "p": [
+            "Every NEPSE trade pays three charges. Broker commission is a small percentage of the trade amount. The SEBON fee is 0.015%. The DP charge is a flat Rs 25 for each company."
+          ],
+          "points": ["Broker commission: 0.24% to 0.36%, at least Rs 10", "SEBON fee: 0.015%", "DP charge: Rs 25 per company"]
+        },
+        {
+          "h2": "When you sell at a profit",
+          "p": [
+            "You also pay capital gains tax on the profit. For individuals it is 5% if you held the shares for a year or less, and 3.75% if you held them longer. These rates started on 22 September 2026. Your broker takes it from the sale before paying you."
+          ],
+          "formula": "Profit = Sale amount - Selling fees - What you paid"
+        }
+      ],
+      "faq": [
+        { "q": "How do I calculate the cost of buying shares in Nepal?", "a": "Multiply the number of shares by the price. Then add broker commission, the 0.015% SEBON fee and the Rs 25 DP charge. The Buy tab does this for you." },
+        { "q": "How much tax do I pay when I sell shares?", "a": "Individuals pay 5% of the profit if they held the shares for a year or less, and 3.75% if they held them longer. Institutions pay 10%. There is no tax if you sell at a loss." },
+        { "q": "Is this calculator free?", "a": "Yes. It is free and works on your phone or computer with no sign-up." }
+      ],
+      "related": ["broker-commission-calculator", "capital-gain-tax-calculator", "break-even-calculator", "wacc-calculator"],
+      "learn": ["share-broker-commission-nepal", "capital-gain-tax-nepal-share"],
+      "feature": "nepse-share-calculator"
+    },
+    {
+      "slug": "broker-commission-calculator",
+      "calc": "commission",
+      "group": "trade",
+      "icon": "m-tag",
+      "name": "Broker commission",
+      "short": "Fees on any trade amount",
+      "keyword": "broker commission calculator nepal",
+      "title": "Broker Commission Calculator Nepal (NEPSE) | StockYan",
+      "metaDescription": "Work out NEPSE broker commission, SEBON fee and DP charge for any trade. Uses the current commission rates, from 0.36% down to 0.24%.",
+      "h1": "Broker commission calculator",
+      "accent": "commission",
+      "lead": "Type a trade and see the commission, the other fees and the rate that applies.",
+      "fields": [
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 500 },
+        { "type": "number", "name": "price", "label": "Price per share", "prefix": "Rs", "value": 542 }
+      ],
+      "steps": [
+        "Type the number of shares.",
+        "Type the price per share.",
+        "Read the commission and the total fees."
+      ],
+      "explain": [
+        {
+          "h2": "Commission rates in Nepal",
+          "p": ["Commission is a percentage of the trade amount. The bigger the trade, the smaller the rate. The minimum is Rs 10."],
+          "table": [["Trade amount", "Rate"], ["Up to Rs 50,000", "0.36%"], ["Rs 50,001 to Rs 5 lakh", "0.33%"], ["Rs 5 lakh to Rs 20 lakh", "0.31%"], ["Rs 20 lakh to Rs 1 crore", "0.27%"], ["Above Rs 1 crore", "0.24%"]]
+        },
+        {
+          "h2": "Other charges",
+          "p": ["On top of commission, you pay the SEBON fee of 0.015% and a DP charge of Rs 25 for each company. Small trades lose a bigger share to these fixed charges."]
+        }
+      ],
+      "faq": [
+        { "q": "What is the broker commission rate in NEPSE?", "a": "It is 0.36% up to Rs 50,000, 0.33% up to Rs 5 lakh, 0.31% up to Rs 20 lakh, 0.27% up to Rs 1 crore and 0.24% above that." },
+        { "q": "Is there a minimum commission?", "a": "Yes. Every trade pays at least Rs 10 in commission." },
+        { "q": "Is commission charged on both buying and selling?", "a": "Yes. You pay commission and the SEBON fee every time you buy and every time you sell." }
+      ],
+      "related": ["share-calculator", "break-even-calculator", "capital-gain-tax-calculator", "target-price-calculator"],
+      "learn": ["share-broker-commission-nepal"],
+      "feature": "nepse-share-calculator"
+    },
+    {
+      "slug": "capital-gain-tax-calculator",
+      "calc": "cgt",
+      "group": "trade",
+      "icon": "t-pnl",
+      "name": "Capital gains tax",
+      "short": "Tax on your share profit",
+      "keyword": "capital gain tax calculator nepal",
+      "title": "Capital Gain Tax Calculator Nepal: Shares | StockYan",
+      "metaDescription": "Work out capital gains tax on NEPSE share profit: 5% if held a year or less, 3.75% if held longer (from 22 Sep 2026). Fees are counted for you.",
+      "h1": "Capital gains tax calculator",
+      "accent": "tax",
+      "lead": "Find out how much tax you pay when you sell shares at a profit.",
+      "fields": [
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 100 },
+        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 480 },
+        { "type": "number", "name": "price", "label": "Sell price per share", "prefix": "Rs", "value": 542 },
+        { "type": "select", "name": "held", "label": "How long you held", "value": "short", "options": [["short", "1 year or less (5%)"], ["long", "More than 1 year (3.75%)"], ["inst", "I am an institution (10%)"]] }
+      ],
+      "steps": [
+        "Type the number of shares.",
+        "Type your buy price and your sell price.",
+        "Pick how long you held the shares."
+      ],
+      "explain": [
+        {
+          "h2": "Current tax rates",
+          "p": ["From 22 September 2026, individuals pay 5% on profit from shares held for a year or less, and 3.75% on shares held longer. Institutions pay 10%."],
+          "points": ["Held 1 year or less: 5%", "Held more than 1 year: 3.75%", "Institutions: 10%"]
+        },
+        {
+          "h2": "How the profit is worked out",
+          "p": ["Tax is only on profit, not on the whole sale. Fees for buying and selling are taken off first, so you pay a little less tax. If you sell at a loss, you pay no tax."],
+          "formula": "Tax = (Sale after fees - Cost with fees) x Tax rate"
+        }
+      ],
+      "faq": [
+        { "q": "What is the capital gains tax on shares in Nepal?", "a": "For individuals, 5% if held for a year or less and 3.75% if held for more than a year. These rates apply from 22 September 2026. Institutions pay 10%." },
+        { "q": "Do I pay tax if I sell at a loss?", "a": "No. Capital gains tax is only charged when you make a profit." },
+        { "q": "Who collects the tax?", "a": "Your broker takes it from the sale amount before the money reaches you." }
+      ],
+      "related": ["share-calculator", "target-price-calculator", "break-even-calculator", "wacc-calculator"],
+      "learn": ["capital-gain-tax-nepal-share"],
+      "feature": "nepse-share-calculator"
+    },
+    {
+      "slug": "break-even-calculator",
+      "calc": "breakeven",
+      "group": "trade",
+      "icon": "t-range",
+      "name": "Break-even price",
+      "short": "Price to sell with no loss",
+      "keyword": "break even price calculator share",
+      "title": "Break-Even Price Calculator for NEPSE Shares | StockYan",
+      "metaDescription": "Find the price you must sell at to get all your money back after NEPSE broker commission, SEBON fee and DP charge.",
+      "h1": "Break-even price calculator",
+      "accent": "Break-even",
+      "lead": "Fees mean you need a slightly higher price just to get your money back. Find that price.",
+      "fields": [
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 100 },
+        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 542 }
+      ],
+      "steps": [
+        "Type the number of shares you bought.",
+        "Type the price you paid per share.",
+        "Read the lowest price that gets your money back."
+      ],
+      "explain": [
+        {
+          "h2": "Why it is above your buy price",
+          "p": ["You pay fees when you buy and again when you sell. So selling at the same price you bought at loses money. The break-even price covers both sets of fees."]
+        },
+        {
+          "h2": "Small trades need a bigger move",
+          "p": ["The Rs 25 DP charge and the Rs 10 minimum commission do not shrink with the trade. So a small trade needs a bigger percentage rise to break even."]
+        }
+      ],
+      "faq": [
+        { "q": "What is a break-even price?", "a": "It is the sell price where you get back exactly what you spent, including all fees. Above it you make a profit." },
+        { "q": "Does tax change the break-even price?", "a": "No. At break-even there is no profit, so there is no capital gains tax." },
+        { "q": "How much does a stock need to rise to break even?", "a": "For most trades between Rs 50,000 and Rs 5 lakh, it is a little under 1%. Smaller trades need more." }
+      ],
+      "related": ["target-price-calculator", "share-calculator", "average-down-calculator", "broker-commission-calculator"],
+      "learn": ["share-broker-commission-nepal"],
+      "feature": "nepse-share-calculator"
+    },
+    {
+      "slug": "target-price-calculator",
+      "calc": "target",
+      "group": "trade",
+      "icon": "t-target",
+      "name": "Profit target",
+      "short": "Sell price for the profit you want",
+      "keyword": "share profit calculator nepal",
+      "title": "Share Profit Target Calculator for NEPSE | StockYan",
+      "metaDescription": "Set the profit you want, in rupees or percent, and see the NEPSE sell price you need after commission, fees and capital gains tax.",
+      "h1": "Profit target calculator",
+      "accent": "Profit target",
+      "lead": "Say how much profit you want to keep. See the price you need to sell at.",
+      "fields": [
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 100 },
+        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 542 },
+        { "type": "seg", "name": "goalType", "label": "Profit you want", "value": "pct", "options": [["pct", "In %"], ["rs", "In rupees"]] },
+        { "type": "number", "name": "goal", "label": "Profit after tax", "value": 10, "hint": "A percent of what you spent, or a rupee amount." },
+        { "type": "select", "name": "held", "label": "How long you will hold", "value": "short", "options": [["short", "1 year or less (5% tax)"], ["long", "More than 1 year (3.75% tax)"], ["inst", "I am an institution (10% tax)"]] }
+      ],
+      "steps": [
+        "Type your shares and buy price.",
+        "Type the profit you want to keep, in % or rupees.",
+        "Read the sell price to aim for."
+      ],
+      "explain": [
+        {
+          "h2": "Profit you keep, not profit on paper",
+          "p": ["A 10% rise in price does not put 10% in your pocket. Fees and tax take a part. This tool works backwards from the profit you want to keep to the price you need."]
+        },
+        {
+          "h2": "Use it to set a sell order",
+          "p": ["Once you know the price, you can place a sell order or set a price alert so you do not miss it."]
+        }
+      ],
+      "faq": [
+        { "q": "How do I calculate the sell price for a target profit?", "a": "Add your fees and the tax on the profit to the profit you want, then find the price that covers all of it. This calculator does it in one step." },
+        { "q": "Is the profit before or after tax?", "a": "After tax. It is the money you keep once fees and capital gains tax are paid." },
+        { "q": "Can I get an alert when the price is reached?", "a": "Yes. StockYan can send you a price alert for any NEPSE stock." }
+      ],
+      "related": ["break-even-calculator", "risk-reward-calculator", "capital-gain-tax-calculator", "share-calculator"],
+      "learn": ["capital-gain-tax-nepal-share"],
+      "feature": "nepse-alerts"
+    },
+    {
+      "slug": "wacc-calculator",
+      "calc": "wacc",
+      "group": "hold",
+      "icon": "t-layers",
+      "name": "WACC calculator",
+      "short": "Your true average price",
+      "keyword": "wacc calculator nepal",
+      "title": "WACC Calculator Nepal: Average Share Price | StockYan",
+      "metaDescription": "Work out the WACC (average buying price) of your NEPSE shares across many purchases, IPO and bonus shares, with fees included.",
+      "h1": "WACC calculator",
+      "accent": "WACC",
+      "lead": "Bought the same stock more than once? Find your real average price per share.",
+      "fields": [
+        { "type": "lots", "name": "lots", "label": "Your purchases", "value": [["ipo", 10, 100], ["buy", 50, 520], ["bonus", 6, 100]] },
+        { "type": "check", "name": "buyFees", "label": "Add broker fees to bought shares", "value": true, "hint": "IPO and bonus shares have no broker fees." }
+      ],
+      "steps": [
+        "Add one row for each time you got the shares.",
+        "Pick Bought, IPO or Bonus and type the shares and price.",
+        "Read your average price per share."
+      ],
+      "explain": [
+        {
+          "h2": "What WACC means",
+          "p": ["WACC stands for weighted average cost of capital. For shares, it simply means your average cost per share. A purchase of many shares counts more than a purchase of a few."],
+          "formula": "WACC = Total cost of all shares / Total number of shares"
+        },
+        {
+          "h2": "IPO and bonus shares",
+          "p": ["IPO shares usually cost Rs 100 each with no broker fee. Bonus shares are free, but they are usually counted at Rs 100 each, their face value. Your WACC is what capital gains tax is worked out from when you sell."]
+        }
+      ],
+      "faq": [
+        { "q": "What is WACC in the share market?", "a": "It is your average cost per share, weighted by how many shares you bought each time." },
+        { "q": "How are bonus shares counted in WACC?", "a": "They are usually counted at Rs 100 each, their face value. Pick Bonus and the price fills in for you." },
+        { "q": "Where do I update WACC in MeroShare?", "a": "In MeroShare, open My Purchase Source and add the purchase details for each lot. StockYan can import your MeroShare holdings for you." }
+      ],
+      "related": ["average-down-calculator", "bonus-share-calculator", "capital-gain-tax-calculator", "share-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "meroshare-portfolio"
+    },
+    {
+      "slug": "average-down-calculator",
+      "calc": "average",
+      "group": "hold",
+      "icon": "t-down",
+      "name": "Average down",
+      "short": "Shares needed to lower your average",
+      "keyword": "average down calculator stock",
+      "title": "Average Down Calculator for NEPSE Stocks | StockYan",
+      "metaDescription": "See how many more shares to buy to bring your average price down, or what your new average will be after another buy.",
+      "h1": "Average down calculator",
+      "accent": "Average down",
+      "lead": "Find out how many shares to buy to reach the average price you want.",
+      "fields": [
+        { "type": "seg", "name": "mode", "value": "find", "options": [["find", "Shares I need"], ["check", "My new average"]] },
+        { "type": "number", "name": "units", "label": "Shares you own", "value": 100 },
+        { "type": "number", "name": "avg", "label": "Your average price", "prefix": "Rs", "value": 600 },
+        { "type": "number", "name": "price", "label": "Price you can buy at now", "prefix": "Rs", "value": 500 },
+        { "type": "number", "name": "goal", "label": "Average price you want", "prefix": "Rs", "value": 550, "when": "mode=find" },
+        { "type": "number", "name": "more", "label": "Shares you plan to buy", "value": 50, "when": "mode=check" }
+      ],
+      "steps": [
+        "Type the shares you own and your average price.",
+        "Type the price you can buy at now.",
+        "Type the average you want, or how many you plan to buy."
+      ],
+      "explain": [
+        {
+          "h2": "What averaging down means",
+          "p": ["If a stock you own falls, buying more at the lower price brings your average cost down. Then the stock needs a smaller rise for you to make a profit."],
+          "formula": "Shares to buy = Owned x (Average - Target) / (Target - New price)"
+        },
+        {
+          "h2": "A word of care",
+          "p": ["Averaging down puts more money into a stock that is falling. It works best when you still believe in the company. Many traders set a limit on how much they add."]
+        }
+      ],
+      "faq": [
+        { "q": "How do I calculate my new average after buying more?", "a": "Add the cost of your old shares and new shares, then divide by the total number of shares. Pick My new average to do it here." },
+        { "q": "Why can't I pick any target average?", "a": "Your new average always lands between your old average and the new buy price. A target outside that range is not possible." },
+        { "q": "Are fees included?", "a": "No. This tool shows the plain average. Use the WACC calculator to include broker fees." }
+      ],
+      "related": ["wacc-calculator", "break-even-calculator", "position-size-calculator", "share-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-portfolio-tracker"
+    },
+    {
+      "slug": "bonus-share-calculator",
+      "calc": "bonus",
+      "group": "hold",
+      "icon": "gift",
+      "name": "Bonus share price",
+      "short": "Price after bonus shares",
+      "keyword": "bonus share calculator nepal",
+      "title": "Bonus Share Calculator Nepal: Adjusted Price | StockYan",
+      "metaDescription": "Work out a NEPSE stock's price after bonus shares, and how many bonus shares you get. Simple, free and made for Nepal.",
+      "h1": "Bonus share calculator",
+      "accent": "Bonus share",
+      "lead": "See the price after book close, and how many bonus shares you will get.",
+      "fields": [
+        { "type": "number", "name": "price", "label": "Price before book close", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "bonus", "label": "Bonus share", "suffix": "%", "value": 10 },
+        { "type": "number", "name": "units", "label": "Shares you own (optional)", "value": 100 }
+      ],
+      "steps": [
+        "Type the price before book close.",
+        "Type the bonus percent the company announced.",
+        "Add your shares to see how many you get."
+      ],
+      "explain": [
+        {
+          "h2": "Why the price drops",
+          "p": ["Bonus shares are extra shares given free to owners. The company is worth the same, but it is now split into more shares. So NEPSE lowers the price on the book close date."],
+          "formula": "Adjusted price = Price before / (1 + Bonus % / 100)"
+        },
+        {
+          "h2": "Your money stays the same",
+          "p": ["You get more shares at a lower price. On the day, the value of what you own does not change. Tax of 5% is charged on bonus shares at Rs 100 each, usually taken from the cash dividend."]
+        }
+      ],
+      "faq": [
+        { "q": "How is the price adjusted after bonus shares in NEPSE?", "a": "Divide the price before book close by 1 plus the bonus rate. For a 10% bonus on a Rs 542 stock, the price becomes Rs 492.73." },
+        { "q": "How many bonus shares will I get?", "a": "Multiply your shares by the bonus percent. 100 shares with a 10% bonus gives 10 more shares." },
+        { "q": "Do I need to own shares before book close?", "a": "Yes. You must own the shares before the book close date to get the bonus." }
+      ],
+      "related": ["right-share-calculator", "dividend-calculator", "wacc-calculator", "share-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-portfolio-tracker"
+    },
+    {
+      "slug": "right-share-calculator",
+      "calc": "right",
+      "group": "hold",
+      "icon": "split",
+      "name": "Right share price",
+      "short": "Price after right shares",
+      "keyword": "right share calculator nepal",
+      "title": "Right Share Calculator Nepal: Adjusted Price | StockYan",
+      "metaDescription": "Work out a NEPSE stock's price after a right share issue, how many right shares you can apply for and what they cost.",
+      "h1": "Right share calculator",
+      "accent": "Right share",
+      "lead": "See the price after a right issue, and how many right shares you can apply for.",
+      "fields": [
+        { "type": "number", "name": "price", "label": "Price before book close", "prefix": "Rs", "value": 400 },
+        { "type": "number", "name": "right", "label": "Right share", "suffix": "%", "value": 50, "hint": "1:1 is 100%. 10:5 is 50%. 10:3 is 30%." },
+        { "type": "number", "name": "rightPrice", "label": "Right share price", "prefix": "Rs", "value": 100 },
+        { "type": "number", "name": "units", "label": "Shares you own (optional)", "value": 100 }
+      ],
+      "steps": [
+        "Type the price before book close.",
+        "Type the right share percent and price.",
+        "Add your shares to see how many you can apply for."
+      ],
+      "explain": [
+        {
+          "h2": "What right shares are",
+          "p": ["A right issue lets owners buy new shares, usually at Rs 100 each. It is how a company raises money from the people who already own it. You can choose to apply or not."],
+          "formula": "Adjusted price = (Price + Right % x Right price) / (1 + Right %)"
+        },
+        {
+          "h2": "Why the price changes",
+          "p": ["New shares come in at Rs 100, below the market price. So the average value of each share falls a little after book close. If you do not apply, you can sell your right later or let it lapse."]
+        }
+      ],
+      "faq": [
+        { "q": "How is the price adjusted after right shares?", "a": "Add the market price to the right percent times the right price, then divide by 1 plus the right percent. A Rs 400 stock with a 50% right at Rs 100 becomes Rs 300." },
+        { "q": "What does a 10:5 right share mean?", "a": "For every 10 shares you own, you can apply for 5 new shares. That is 50%." },
+        { "q": "Do I have to apply for right shares?", "a": "No. It is your choice. If you do not apply by the deadline, your right lapses." }
+      ],
+      "related": ["bonus-share-calculator", "dividend-calculator", "wacc-calculator", "average-down-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-portfolio-tracker"
+    },
+    {
+      "slug": "dividend-calculator",
+      "calc": "dividend",
+      "group": "hold",
+      "icon": "medal",
+      "name": "Dividend calculator",
+      "short": "Cash and bonus after tax",
+      "keyword": "dividend calculator nepal",
+      "title": "Dividend Calculator Nepal: Cash, Bonus and Tax | StockYan",
+      "metaDescription": "Work out the cash dividend you receive after 5% tax, the bonus shares you get and the dividend yield of any NEPSE stock.",
+      "h1": "Dividend calculator",
+      "accent": "Dividend",
+      "lead": "See how much dividend reaches your bank, after tax, and your dividend yield.",
+      "fields": [
+        { "type": "number", "name": "units", "label": "Shares you own", "value": 100 },
+        { "type": "number", "name": "cash", "label": "Cash dividend", "suffix": "%", "value": 12 },
+        { "type": "number", "name": "bonus", "label": "Bonus share", "suffix": "%", "value": 5 },
+        { "type": "number", "name": "price", "label": "Share price (for yield)", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "face", "label": "Face value", "prefix": "Rs", "value": 100, "hint": "Most NEPSE shares are Rs 100. A few are Rs 10." }
+      ],
+      "steps": [
+        "Type how many shares you own.",
+        "Type the cash and bonus percent announced.",
+        "Read the cash you get and your yield."
+      ],
+      "explain": [
+        {
+          "h2": "Dividends are on face value",
+          "p": ["In Nepal, a dividend percent is a percent of the face value, which is usually Rs 100. So a 12% cash dividend pays Rs 12 per share, whatever the market price is."],
+          "formula": "Cash dividend = Shares x Face value x Cash %"
+        },
+        {
+          "h2": "Tax on dividends",
+          "p": ["A 5% tax is charged on both the cash dividend and the bonus shares, valued at Rs 100 each. The company takes it from the cash part before paying you."]
+        }
+      ],
+      "faq": [
+        { "q": "How is dividend calculated in Nepal?", "a": "Multiply your shares by the face value and the dividend percent. 100 shares with a 12% cash dividend pay Rs 1,200 before tax." },
+        { "q": "How much tax is charged on dividends in Nepal?", "a": "5%, on both cash dividends and bonus shares. It is taken before the money reaches you." },
+        { "q": "What is dividend yield?", "a": "It is the cash dividend per share divided by the share price. It shows the return from dividends at today's price." }
+      ],
+      "related": ["bonus-share-calculator", "right-share-calculator", "stock-return-calculator", "pe-ratio-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-portfolio-tracker"
+    },
+    {
+      "slug": "risk-reward-calculator",
+      "calc": "riskreward",
+      "group": "trader",
+      "icon": "t-stop",
+      "name": "Risk reward",
+      "short": "Is the trade worth it?",
+      "keyword": "risk reward ratio calculator",
+      "title": "Risk Reward Ratio Calculator for NEPSE Trades | StockYan",
+      "metaDescription": "Type your entry, stop loss and target to see the risk reward ratio of a NEPSE trade and how often you need to win to break even.",
+      "h1": "Risk reward calculator",
+      "accent": "Risk reward",
+      "lead": "Compare what you could lose with what you could win, before you buy.",
+      "fields": [
+        { "type": "number", "name": "entry", "label": "Entry price", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "stop", "label": "Stop loss", "prefix": "Rs", "value": 515 },
+        { "type": "number", "name": "target", "label": "Target price", "prefix": "Rs", "value": 610 }
+      ],
+      "steps": [
+        "Type the price you plan to buy at.",
+        "Type your stop loss, where you will sell if it goes wrong.",
+        "Type your target and read the ratio."
+      ],
+      "explain": [
+        {
+          "h2": "What the ratio tells you",
+          "p": ["A ratio of 1 : 2 means you could win twice what you risk. With that, you can be wrong more often than you are right and still come out ahead."],
+          "formula": "Ratio = (Target - Entry) / (Entry - Stop loss)"
+        },
+        {
+          "h2": "Wins needed to break even",
+          "p": ["This shows how often a trade like this must work just to break even. The higher the ratio, the fewer wins you need."]
+        }
+      ],
+      "faq": [
+        { "q": "What is a good risk reward ratio?", "a": "Many traders look for at least 1 : 2, so the possible gain is twice the possible loss. It depends on how often your trades work." },
+        { "q": "What is a stop loss?", "a": "It is the price where you sell to stop a losing trade from getting worse. You decide it before you buy." },
+        { "q": "Where do I find good stop loss and target levels?", "a": "Support and resistance levels are a common choice. StockYan's scanners and charts show them for every NEPSE stock." }
+      ],
+      "related": ["position-size-calculator", "pivot-point-calculator", "fibonacci-calculator", "target-price-calculator"],
+      "learn": ["support-and-resistance"],
+      "feature": "nepse-technical-analysis-chart"
+    },
+    {
+      "slug": "position-size-calculator",
+      "calc": "position",
+      "group": "trader",
+      "icon": "t-briefcase",
+      "name": "Position size",
+      "short": "How many shares to buy",
+      "keyword": "position size calculator",
+      "title": "Position Size Calculator for NEPSE Traders | StockYan",
+      "metaDescription": "Decide how many NEPSE shares to buy so that a stop loss only costs the amount you are willing to lose. Free and simple.",
+      "h1": "Position size calculator",
+      "accent": "Position size",
+      "lead": "Buy the right number of shares, so one bad trade never hurts too much.",
+      "fields": [
+        { "type": "number", "name": "capital", "label": "Your trading money", "prefix": "Rs", "value": 500000 },
+        { "type": "number", "name": "risk", "label": "Risk per trade", "suffix": "%", "value": 1, "hint": "Many traders risk 1% to 2% of their money on one trade." },
+        { "type": "number", "name": "entry", "label": "Entry price", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "stop", "label": "Stop loss", "prefix": "Rs", "value": 515 }
+      ],
+      "steps": [
+        "Type the money you trade with.",
+        "Pick how much of it you are willing to lose on one trade.",
+        "Type your entry and stop loss."
+      ],
+      "explain": [
+        {
+          "h2": "Size by risk, not by feeling",
+          "p": ["Instead of buying a round number of shares, decide how much you can lose first. Then buy only as many shares as that loss allows."],
+          "formula": "Shares = (Money x Risk %) / (Entry - Stop loss)"
+        },
+        {
+          "h2": "Why it protects you",
+          "p": ["If you risk 1% per trade, ten losses in a row cost about 10% of your money. You stay in the game long enough for your good trades to count."]
+        }
+      ],
+      "faq": [
+        { "q": "How many shares should I buy?", "a": "Divide the money you are willing to lose by the gap between your entry and your stop loss. This calculator does it for you." },
+        { "q": "How much should I risk per trade?", "a": "Many traders risk 1% to 2% of their trading money on a single trade." },
+        { "q": "Are fees included?", "a": "No. Keep a little room for broker fees, which are usually under 1% of a round trip." }
+      ],
+      "related": ["risk-reward-calculator", "circuit-breaker-calculator", "average-down-calculator", "break-even-calculator"],
+      "learn": ["support-and-resistance"],
+      "feature": "nepse-paper-trading"
+    },
+    {
+      "slug": "circuit-breaker-calculator",
+      "calc": "circuit",
+      "group": "trader",
+      "icon": "t-up",
+      "name": "Circuit limit",
+      "short": "Today's highest and lowest price",
+      "keyword": "nepse circuit breaker calculator",
+      "title": "NEPSE Circuit Calculator: Upper and Lower Limit | StockYan",
+      "metaDescription": "Find a NEPSE stock's upper and lower circuit price for today. A stock can move up to 15% from the last close in one day.",
+      "h1": "NEPSE circuit calculator",
+      "accent": "circuit",
+      "lead": "See how high or low a stock can go today, from yesterday's closing price.",
+      "fields": [
+        { "type": "number", "name": "close", "label": "Last closing price", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "days", "label": "Days to show", "value": 1, "hint": "Try 3 to see the limits if the stock hits its circuit three days in a row." }
+      ],
+      "steps": [
+        "Type the stock's last closing price.",
+        "Read today's highest and lowest possible price.",
+        "Add more days to see a run of circuits."
+      ],
+      "explain": [
+        {
+          "h2": "What a circuit is",
+          "p": ["NEPSE limits how far one stock can move in a day. Since 21 April 2026, the limit is 15% up or down from the last closing price. When a stock hits it, people say it hit the circuit."],
+          "formula": "Upper limit = Close x 1.15. Lower limit = Close x 0.85"
+        },
+        {
+          "h2": "Why it matters",
+          "p": ["When a stock hits its upper circuit, there are many buyers and few sellers, so buy orders may not fill. The next day's limit is worked out from the new close."]
+        }
+      ],
+      "faq": [
+        { "q": "What is the circuit limit in NEPSE?", "a": "A single stock can move up to 15% up or down from its last closing price in one day. It was 10% before 21 April 2026." },
+        { "q": "How do I calculate the upper circuit?", "a": "Multiply the last closing price by 1.15. For a Rs 542 close, the upper circuit is Rs 623.30." },
+        { "q": "Does the whole market have a circuit too?", "a": "Yes. If the NEPSE index moves too far in one day, trading is paused or stopped for the day." }
+      ],
+      "related": ["position-size-calculator", "risk-reward-calculator", "pivot-point-calculator", "break-even-calculator"],
+      "learn": ["support-and-resistance"],
+      "feature": "nepse-heatmap"
+    },
+    {
+      "slug": "pivot-point-calculator",
+      "calc": "pivot",
+      "group": "trader",
+      "icon": "t-pivot",
+      "name": "Pivot points",
+      "short": "Support and resistance levels",
+      "keyword": "pivot point calculator",
+      "title": "Pivot Point Calculator: Support and Resistance | StockYan",
+      "metaDescription": "Type yesterday's high, low and close to get pivot point, support and resistance levels for any NEPSE stock. Free and instant.",
+      "h1": "Pivot point calculator",
+      "accent": "Pivot point",
+      "lead": "Turn yesterday's high, low and close into today's key price levels.",
+      "fields": [
+        { "type": "number", "name": "high", "label": "High", "prefix": "Rs", "value": 552 },
+        { "type": "number", "name": "low", "label": "Low", "prefix": "Rs", "value": 533 },
+        { "type": "number", "name": "close", "label": "Close", "prefix": "Rs", "value": 542 }
+      ],
+      "steps": [
+        "Type the last day's high and low price.",
+        "Type the last closing price.",
+        "Read the pivot, support and resistance levels."
+      ],
+      "explain": [
+        {
+          "h2": "How traders use pivot points",
+          "p": ["The pivot is a balance point. Above it, buyers are in charge. Below it, sellers are. The support levels below and resistance levels above are places where price often pauses or turns."],
+          "formula": "Pivot = (High + Low + Close) / 3"
+        },
+        {
+          "h2": "Daily, weekly or monthly",
+          "p": ["Use a day's numbers for the next day. Use a week's or month's high, low and close for longer-term levels."]
+        }
+      ],
+      "faq": [
+        { "q": "How is a pivot point calculated?", "a": "Add the high, low and close, then divide by 3. Support and resistance levels are worked out from the pivot and the day's range." },
+        { "q": "What is support and resistance?", "a": "Support is a price where buying often stops a fall. Resistance is a price where selling often stops a rise." },
+        { "q": "Can StockYan find stocks near their pivot?", "a": "Yes. The app's Pivot Points scanner checks every NEPSE stock for you." }
+      ],
+      "related": ["fibonacci-calculator", "risk-reward-calculator", "circuit-breaker-calculator", "position-size-calculator"],
+      "learn": ["support-and-resistance"],
+      "feature": "nepse-technical-analysis-chart"
+    },
+    {
+      "slug": "fibonacci-calculator",
+      "calc": "fibonacci",
+      "group": "trader",
+      "icon": "t-fib",
+      "name": "Fibonacci levels",
+      "short": "Pullback levels from a move",
+      "keyword": "fibonacci retracement calculator",
+      "title": "Fibonacci Retracement Calculator for NEPSE | StockYan",
+      "metaDescription": "Type a swing high and low to get Fibonacci retracement levels (23.6% to 78.6%) and a 161.8% target for any NEPSE stock.",
+      "h1": "Fibonacci calculator",
+      "accent": "Fibonacci",
+      "lead": "Find where a pullback might stop, from any big move up or down.",
+      "fields": [
+        { "type": "seg", "name": "trend", "value": "up", "options": [["up", "After a rise"], ["down", "After a fall"]] },
+        { "type": "number", "name": "high", "label": "Swing high", "prefix": "Rs", "value": 620 },
+        { "type": "number", "name": "low", "label": "Swing low", "prefix": "Rs", "value": 480 }
+      ],
+      "steps": [
+        "Pick whether the stock just rose or fell.",
+        "Type the top and bottom of that move.",
+        "Read the levels where a pullback may stop."
+      ],
+      "explain": [
+        {
+          "h2": "What retracement means",
+          "p": ["After a big move, prices often step back part of the way before going on. Fibonacci levels are common places for that step back to stop. 38.2%, 50% and 61.8% are watched the most."]
+        },
+        {
+          "h2": "Use them with other signs",
+          "p": ["A level is stronger when it lines up with something else, like an old support, a moving average or a rise in volume."]
+        }
+      ],
+      "faq": [
+        { "q": "How do I calculate Fibonacci retracement?", "a": "Take the size of the move from low to high. Multiply it by 23.6%, 38.2%, 50%, 61.8% and 78.6%, then take each from the high." },
+        { "q": "Which Fibonacci level is the most important?", "a": "Many traders watch 61.8%, often called the golden ratio, along with 38.2% and 50%." },
+        { "q": "Does StockYan show Fibonacci levels?", "a": "Yes. The app's Fibonacci Levels scanner finds NEPSE stocks sitting near these levels." }
+      ],
+      "related": ["pivot-point-calculator", "risk-reward-calculator", "position-size-calculator", "circuit-breaker-calculator"],
+      "learn": ["fibonacci-retracement"],
+      "feature": "nepse-technical-analysis-chart"
+    },
+    {
+      "slug": "sip-calculator",
+      "calc": "sip",
+      "group": "invest",
+      "icon": "t-performance",
+      "name": "SIP calculator",
+      "short": "Grow a monthly investment",
+      "keyword": "sip calculator nepal",
+      "title": "SIP Calculator Nepal: Monthly Investment Growth | StockYan",
+      "metaDescription": "See what a monthly SIP in Nepal could grow to. Type the monthly amount, years and expected return. Free and simple.",
+      "h1": "SIP calculator",
+      "accent": "SIP",
+      "lead": "Put in a little every month. See what it could grow to over the years.",
+      "fields": [
+        { "type": "number", "name": "monthly", "label": "Monthly amount", "prefix": "Rs", "value": 5000 },
+        { "type": "number", "name": "years", "label": "Years", "value": 10 },
+        { "type": "number", "name": "rate", "label": "Expected yearly return", "suffix": "%", "value": 12 }
+      ],
+      "steps": [
+        "Type how much you will put in each month.",
+        "Type how many years you will keep going.",
+        "Type a yearly return you expect."
+      ],
+      "explain": [
+        {
+          "h2": "What a SIP is",
+          "p": ["SIP means systematic investment plan. You invest a fixed amount every month, in a mutual fund or in stocks. You buy more when prices are low and less when they are high."]
+        },
+        {
+          "h2": "Time does most of the work",
+          "p": ["Growth earns its own growth over time. That is why starting early matters more than starting big."],
+          "formula": "Value = Monthly x ((1 + r)^n - 1) / r x (1 + r)"
+        }
+      ],
+      "faq": [
+        { "q": "How is SIP return calculated?", "a": "Each monthly payment grows at the monthly rate for the months left. The calculator adds them all up." },
+        { "q": "Which SIPs are available in Nepal?", "a": "Many open-ended mutual funds in Nepal offer SIPs. You can also build your own SIP by buying stocks every month." },
+        { "q": "Is the return guaranteed?", "a": "No. Market returns go up and down. Treat the result as an example, not a promise." }
+      ],
+      "related": ["stock-return-calculator", "dividend-calculator", "pe-ratio-calculator", "graham-number-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-portfolio-tracker"
+    },
+    {
+      "slug": "stock-return-calculator",
+      "calc": "returns",
+      "group": "invest",
+      "icon": "t-chart",
+      "name": "Return and CAGR",
+      "short": "Your yearly return",
+      "keyword": "cagr calculator stock",
+      "title": "Stock Return and CAGR Calculator for NEPSE | StockYan",
+      "metaDescription": "Work out the total return and yearly return (CAGR) on a NEPSE stock, with dividends included. Compare investments held for different times.",
+      "h1": "Stock return calculator",
+      "accent": "return",
+      "lead": "See your total return and your return per year, dividends included.",
+      "fields": [
+        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 400 },
+        { "type": "number", "name": "price", "label": "Price now or sell price", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "years", "label": "Years held", "value": 3, "hint": "Use decimals for part of a year: 1.5 is a year and a half." },
+        { "type": "number", "name": "dividends", "label": "Cash dividends per share (optional)", "prefix": "Rs", "value": 30 }
+      ],
+      "steps": [
+        "Type your buy price and today's price.",
+        "Type how many years you have held it.",
+        "Add the dividends you got, if any."
+      ],
+      "explain": [
+        {
+          "h2": "Total return vs yearly return",
+          "p": ["A 50% gain over 1 year is far better than 50% over 5 years. CAGR, the compound annual growth rate, turns any gain into a return per year, so you can compare fairly."],
+          "formula": "CAGR = (End value / Start value)^(1 / Years) - 1"
+        },
+        {
+          "h2": "Do not forget dividends",
+          "p": ["Many NEPSE stocks pay a good part of their return as dividends. Adding them gives a truer picture."]
+        }
+      ],
+      "faq": [
+        { "q": "What is CAGR?", "a": "Compound annual growth rate. It is the steady yearly return that would turn your start value into your end value." },
+        { "q": "How do I calculate return on a stock?", "a": "Take today's price plus dividends, minus what you paid, and divide by what you paid. This calculator also gives the yearly rate." },
+        { "q": "Are fees and tax included?", "a": "No. This shows the plain return. Use the share calculator to see the cash you keep after a sale." }
+      ],
+      "related": ["sip-calculator", "dividend-calculator", "pe-ratio-calculator", "share-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-portfolio-tracker"
+    },
+    {
+      "slug": "pe-ratio-calculator",
+      "calc": "pe",
+      "group": "invest",
+      "icon": "t-fundamentals",
+      "name": "PE and PB ratio",
+      "short": "Is the price cheap or costly?",
+      "keyword": "pe ratio calculator",
+      "title": "PE Ratio Calculator for NEPSE Stocks (with PB) | StockYan",
+      "metaDescription": "Work out the PE ratio, PB ratio and earnings yield of any NEPSE stock from its price, EPS and book value. Simple and free.",
+      "h1": "PE ratio calculator",
+      "accent": "PE ratio",
+      "lead": "See how much you pay for every rupee a company earns.",
+      "fields": [
+        { "type": "number", "name": "price", "label": "Share price", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "eps", "label": "EPS (yearly earnings per share)", "prefix": "Rs", "value": 28 },
+        { "type": "number", "name": "bvps", "label": "Book value per share (optional)", "prefix": "Rs", "value": 280 }
+      ],
+      "steps": [
+        "Type the share price.",
+        "Type the EPS from the company's latest report.",
+        "Add book value per share to see the PB ratio."
+      ],
+      "explain": [
+        {
+          "h2": "What PE means",
+          "p": ["PE is price divided by earnings per share. A PE of 20 means you pay Rs 20 for every Rs 1 the company earns in a year. Lower can mean cheaper, but compare with similar companies."],
+          "formula": "PE = Price / EPS. PB = Price / Book value per share"
+        },
+        {
+          "h2": "Where to find EPS",
+          "p": ["Listed companies publish EPS and book value in their quarterly reports. StockYan shows them on every stock page."]
+        }
+      ],
+      "faq": [
+        { "q": "What is a good PE ratio in NEPSE?", "a": "There is no single number. Compare a stock's PE with others in the same sector, like banks with banks." },
+        { "q": "What is the PB ratio?", "a": "Price divided by book value per share. Below 1 means you pay less than the company's net worth per share." },
+        { "q": "Why does PE not work for some stocks?", "a": "If a company makes a loss, its EPS is negative and PE has no meaning." }
+      ],
+      "related": ["graham-number-calculator", "dividend-calculator", "stock-return-calculator", "sip-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-ai-analysis"
+    },
+    {
+      "slug": "graham-number-calculator",
+      "calc": "graham",
+      "group": "invest",
+      "icon": "t-crown",
+      "name": "Graham number",
+      "short": "A fair value estimate",
+      "keyword": "graham number calculator",
+      "title": "Graham Number Calculator for NEPSE Stocks | StockYan",
+      "metaDescription": "Estimate a fair value for a NEPSE stock with the Graham number, from EPS and book value per share. Compare it with today's price.",
+      "h1": "Graham number calculator",
+      "accent": "Graham number",
+      "lead": "A quick fair value check from Benjamin Graham, the father of value investing.",
+      "fields": [
+        { "type": "number", "name": "eps", "label": "EPS (yearly earnings per share)", "prefix": "Rs", "value": 28 },
+        { "type": "number", "name": "bvps", "label": "Book value per share", "prefix": "Rs", "value": 280 },
+        { "type": "number", "name": "price", "label": "Share price (optional)", "prefix": "Rs", "value": 542 }
+      ],
+      "steps": [
+        "Type the EPS and book value per share.",
+        "Add the share price to compare.",
+        "Read the Graham number and the gap to the price."
+      ],
+      "explain": [
+        {
+          "h2": "What it measures",
+          "p": ["The Graham number is the highest price a careful value investor might pay, based on profit and net worth. A price below it may be good value. A price far above it may be costly."],
+          "formula": "Graham number = Square root of (22.5 x EPS x Book value per share)"
+        },
+        {
+          "h2": "Know its limits",
+          "p": ["It suits steady, profitable companies like banks. It does not work for loss-making companies, and it ignores growth. Use it as one check among many."]
+        }
+      ],
+      "faq": [
+        { "q": "How is the Graham number calculated?", "a": "Multiply 22.5 by EPS and by book value per share, then take the square root." },
+        { "q": "Why 22.5?", "a": "Graham wanted a PE no higher than 15 and a PB no higher than 1.5. 15 times 1.5 is 22.5." },
+        { "q": "Does StockYan screen for value stocks?", "a": "Yes. The app's Fundamental Scanner filters NEPSE stocks by EPS, PE, book value and more." }
+      ],
+      "related": ["pe-ratio-calculator", "dividend-calculator", "stock-return-calculator", "sip-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-stock-screener"
+    }
+  ],
+  "appTools": [
+    ["nepse-stock-screener", "Stock screener"],
+    ["nepse-rsi-scanner", "RSI scanner"],
+    ["nepse-broker-analysis", "Broker analysis"],
+    ["nepse-floorsheet", "Floorsheet"],
+    ["bulk-ipo-result", "IPO results"],
+    ["nepse-accumulation-distribution", "Accumulation"],
+    ["nepse-heatmap", "Heatmap"],
+    ["nepse-ai-analysis", "AI score"]
+  ]
+}

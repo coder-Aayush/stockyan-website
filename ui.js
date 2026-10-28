@@ -53,7 +53,9 @@
     const hl = document.createElement('span');
     hl.className = 'hl';
     links.append(hl);
-    let current = links.querySelector(`a[href="${location.pathname.startsWith('/learn/') ? '/learn/' : ''}"]`);
+    const trigger = links.querySelector('.has-menu');
+    const section = ['/learn/', '/tools/'].find((p) => location.pathname.startsWith(p)) || '';
+    let current = links.querySelector(`a[href="${section}"]`);
     const moveTo = (a) => {
       if (!a) { hl.classList.remove('show'); return; }
       hl.style.width = a.offsetWidth + 'px';
@@ -67,7 +69,7 @@
       if (!links.matches(':hover')) moveTo(a);
     };
     links.querySelectorAll('a').forEach((a) => a.addEventListener('mouseenter', () => moveTo(a)));
-    links.addEventListener('mouseleave', () => moveTo(current));
+    links.addEventListener('mouseleave', () => moveTo(trigger && trigger.classList.contains('open') ? trigger : current));
     setCurrent(current);
     requestAnimationFrame(() => links.classList.add('ready'));
     addEventListener('resize', () => moveTo(links.matches(':hover') ? links.querySelector('a:hover') : current));
@@ -81,6 +83,39 @@
         setCurrent(id ? links.querySelector(`a[href="/#${id}"]`) : null);
       }, { rootMargin: '-45% 0px -50% 0px' });
       spy.forEach((s) => sio.observe(s));
+    }
+
+    // Tools: a menu that opens on hover (or tap, or keyboard focus) and fades out
+    // a moment after the pointer leaves, so it survives the trip down to it.
+    const mega = $('#tools-menu');
+    if (trigger && mega) {
+      let timer;
+      const show = (open) => {
+        clearTimeout(timer);
+        if (trigger.classList.contains('open') === open) return;
+        mega.classList.toggle('open', open);
+        trigger.classList.toggle('open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+        if (!open && !links.matches(':hover')) moveTo(current);
+      };
+      const later = () => { clearTimeout(timer); timer = setTimeout(() => show(false), 160); };
+      trigger.addEventListener('mouseenter', () => show(true));
+      mega.addEventListener('mouseenter', () => { clearTimeout(timer); moveTo(trigger); });
+      trigger.addEventListener('mouseleave', later);
+      mega.addEventListener('mouseleave', later);
+      // Touch screens have no hover: the first tap opens the menu.
+      trigger.addEventListener('click', (e) => {
+        if (!matchMedia('(hover: hover)').matches && !trigger.classList.contains('open')) { e.preventDefault(); show(true); }
+      });
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') { e.preventDefault(); show(true); mega.querySelector('a').focus(); }
+      });
+      [trigger, mega].forEach((el) => el.addEventListener('focusout', (e) => {
+        if (!trigger.contains(e.relatedTarget) && !mega.contains(e.relatedTarget)) show(false);
+      }));
+      mega.addEventListener('focusin', () => show(true));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && trigger.classList.contains('open')) { show(false); trigger.focus(); } });
+      document.addEventListener('click', (e) => { if (!trigger.contains(e.target) && !mega.contains(e.target)) show(false); });
     }
   }
   const burger = $('#burger'), drawer = $('#drawer');

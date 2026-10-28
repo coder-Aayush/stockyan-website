@@ -1,8 +1,8 @@
 // Builds the StockYan site from templates/:
 //   index.html, /download/, /open/ (app links), /features/<slug>/, /learn/<slug>/,
-//   /features/, /learn/ and sitemap.xml.
-// Content: data/pages.json (feature + learn pages), data/articles.json (older
-// guides) and data/market.json (real NEPSE numbers, refreshed here first).
+//   /tools/<slug>/ (free calculators), /features/, /learn/, /tools/ and sitemap.xml.
+// Content: data/pages.json (feature + learn pages), data/tools.json (free
+// calculators), data/articles.json (older guides) and data/market.json (real NEPSE numbers, refreshed here first).
 
 const fs = require('fs');
 const path = require('path');
@@ -309,6 +309,62 @@ function pricingSection(pricing) {
 </section>`;
 }
 
+// ── Free tools (data/tools.json, sums in tools.js) ──
+
+const toolCalcs = require('./tools');
+const icon = (id, color) => `<span class="tl-ic" style="--c:${color}"><svg aria-hidden="true"><use href="#${id}"/></svg></span>`;
+
+function toolCard(t, color) {
+  return `<a class="card tl-card" href="/tools/${t.slug}/">${icon(t.icon, color)}<h3>${esc(t.name)}</h3><p>${esc(t.short)}.</p><span class="more">Open tool ${arrow}</span></a>`;
+}
+
+// Form values as tools.js reads them in the browser.
+function toolDefaults(t) {
+  return Object.fromEntries(t.fields.map((f) => [f.name, f.type === 'lots' ? f.value.map(([type, units, price]) => ({ type, units, price })) : f.value]));
+}
+
+function toolFields(t) {
+  const v = toolDefaults(t);
+  const when = (f) => {
+    if (!f.when) return '';
+    const [k, want] = f.when.split('=');
+    return ` data-when="${esc(f.when)}"${String(v[k]) === want ? '' : ' hidden'}`;
+  };
+  const hint = (f) => (f.hint ? `<small class="tl-hint">${esc(f.hint)}</small>` : '');
+  const input = (attr, value, label, prefix, suffix) => `<span class="tl-box">${prefix ? `<i>${esc(prefix)}</i>` : ''}<input ${attr} type="number" inputmode="decimal" step="any" min="0" value="${esc(value)}"${label ? ` aria-label="${esc(label)}"` : ''}>${suffix ? `<i>${esc(suffix)}</i>` : ''}</span>`;
+  const lotTypes = [['buy', 'Bought'], ['ipo', 'IPO'], ['bonus', 'Bonus']];
+  return t.fields.map((f) => {
+    switch (f.type) {
+      case 'seg':
+        return `<div class="tl-f tl-full"${when(f)}>${f.label ? `<span class="tl-l">${esc(f.label)}</span>` : ''}<div class="tl-seg" data-seg="${esc(f.name)}" role="group"${f.label ? ` aria-label="${esc(f.label)}"` : ''}>${f.options.map(([val, label]) => `<button type="button" data-v="${esc(val)}" aria-pressed="${val === f.value}"${val === f.value ? ' data-default' : ''}>${esc(label)}</button>`).join('')}</div></div>`;
+      case 'select':
+        return `<label class="tl-f"${when(f)}><span class="tl-l">${esc(f.label)}</span><span class="tl-box tl-sel"><select name="${esc(f.name)}">${f.options.map(([val, label]) => `<option value="${esc(val)}"${val === f.value ? ' selected' : ''}>${esc(label)}</option>`).join('')}</select></span>${hint(f)}</label>`;
+      case 'check':
+        return `<label class="tl-f tl-full tl-check"${when(f)}><input type="checkbox" name="${esc(f.name)}"${f.value ? ' checked' : ''}><span class="tl-sw" aria-hidden="true"></span><span><b>${esc(f.label)}</b>${hint(f)}</span></label>`;
+      case 'lots':
+        return `<div class="tl-f tl-full"><span class="tl-l">${esc(f.label)}</span><div class="tl-lots" data-lots="${esc(f.name)}"><div class="tl-lot-h" aria-hidden="true"><span>Type</span><span>Shares</span><span>Price per share</span></div>${f.value.map(([type, units, price]) => `<div class="tl-lot" data-orig><span class="tl-box tl-sel"><select aria-label="Type">${lotTypes.map(([val, label]) => `<option value="${val}"${val === type ? ' selected' : ''}>${label}</option>`).join('')}</select></span>${input('data-k="units"', units, 'Shares')}${input('data-k="price"', price, 'Price per share', 'Rs')}<button class="tl-x" type="button" data-remove aria-label="Remove this purchase"><svg><use href="#m-close"/></svg></button></div>`).join('')}</div><button class="tl-add" type="button" data-add="${esc(f.name)}">+ Add a purchase</button></div>`;
+      default:
+        return `<label class="tl-f"${when(f)}><span class="tl-l">${esc(f.label)}</span>${input(`name="${esc(f.name)}"`, f.value, '', f.prefix, f.suffix)}${hint(f)}</label>`;
+    }
+  }).join('\n        ');
+}
+
+function toolExplain(t) {
+  return (t.explain || []).map((b) => `<div class="tl-block"><h2>${esc(b.h2)}</h2>${(b.p || []).map((p) => `<p>${esc(p)}</p>`).join('')}` +
+    (b.points ? `<ul class="ticks">${b.points.map((p) => `<li><svg><use href="#tick"/></svg>${esc(p)}</li>`).join('')}</ul>` : '') +
+    (b.table ? `<table class="tl-table"><thead><tr>${b.table[0].map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${b.table.slice(1).map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>` : '') +
+    (b.formula ? `<p class="tl-formula"><span>Formula</span>${esc(b.formula)}</p>` : '') + '</div>').join('');
+}
+
+// The Tools mega menu (desktop) and the short list in the phone drawer.
+function toolsMenu(data, features) {
+  const groups = data.groups.map((g) => `<div class="mega-col"><p class="mega-h" style="--c:${g.color}">${esc(g.name)}</p>${data.tools.filter((t) => t.group === g.key).map((t) =>
+    `<a class="mega-i" href="/tools/${t.slug}/">${icon(t.icon, g.color)}<span><b>${esc(t.name)}</b><small>${esc(t.short)}</small></span></a>`).join('')}</div>`).join('');
+  const app = data.appTools.filter(([s]) => features.some((f) => f.slug === s)).slice(0, 5)
+    .map(([s, name]) => `<a href="/features/${s}/">${esc(name)}</a>`).join('');
+  return `<div class="mega-g">${groups}</div><div class="mega-ft"><div class="mega-app"><span>In the app</span>${app}</div><a class="mega-all" href="/tools/">All ${data.tools.length} free tools ${arrow}</a></div>`;
+}
+
 // ── Older guides (data/articles.json) ──
 
 function isHeading(block) {
@@ -339,6 +395,11 @@ async function build() {
   const features = pages.features || [];
   const learnPages = pages.learn || [];
   const featureBySlug = Object.fromEntries(features.map((f) => [f.slug, f]));
+  const toolData = readJson(path.join(ROOT, 'data', 'tools.json'));
+  const tools = toolData.tools;
+  const groupOf = Object.fromEntries(toolData.groups.map((g) => [g.key, g]));
+  const toolBySlug = Object.fromEntries(tools.map((t) => [t.slug, t]));
+  const tCard = (t) => toolCard(t, groupOf[t.group].color);
 
   // Learn entries from both sources, the structured guides first.
   const learnAll = [
@@ -354,6 +415,9 @@ async function build() {
     appOffers: JSON.stringify(appOffers(readJson(path.join(ROOT, 'data', 'pricing.json')))),
     footerFeatures: features.slice(0, 5).map((f) => `<li><a href="/features/${f.slug}/">${esc(f.h1)}</a></li>`).join('') ||
       '<li><a href="/#research">Research</a></li><li><a href="/#portfolio">Portfolio</a></li><li><a href="/#free">Free tools</a></li>',
+    toolsMenu: toolsMenu(toolData, features),
+    drawerTools: ['share-calculator', 'wacc-calculator', 'capital-gain-tax-calculator', 'bonus-share-calculator', 'dividend-calculator', 'circuit-breaker-calculator'].map((s) => `<a href="/tools/${s}/">${esc(toolBySlug[s].name)}</a>`).join(''),
+    footerTools: ['share-calculator', 'capital-gain-tax-calculator', 'wacc-calculator', 'bonus-share-calculator', 'dividend-calculator'].map((s) => `<li><a href="/tools/${s}/">${esc(toolBySlug[s].name)}</a></li>`).join(''),
     footerLearn: learnAll.slice(0, 4).map((l) => `<li><a href="/learn/${l.slug}/">${esc(truncate(l.title, 34))}</a></li>`).join(''),
   };
 
@@ -393,6 +457,7 @@ async function build() {
     const sections = (f.sections || []).map((s, i) => `
       <div class="fp-point"><span class="fp-num">${String(i + 1).padStart(2, '0')}</span><div><h2>${esc(s.h2)}</h2><p>${esc(s.text)}</p>${s.points && s.points.length ? `<ul class="ticks">${s.points.map((p) => `<li><svg><use href="#tick"/></svg>${esc(p)}</li>`).join('')}</ul>` : ''}</div></div>`).join('');
     const relatedCards = [
+      ...tools.filter((t) => t.feature === f.slug).slice(0, 2).map(tCard),
       ...(f.related || []).filter((s) => featureBySlug[s]).map((s) => card(`/features/${s}/`, featureBySlug[s].h1, featureBySlug[s].lead, 'See feature')),
       ...(f.learn || []).map((s) => learnAll.find((l) => l.slug === s)).filter(Boolean).map((l) => card(`/learn/${l.slug}/`, l.title, l.text, 'Read guide')),
     ].slice(0, 6).join('');
@@ -439,7 +504,10 @@ async function build() {
     const feature = featureBySlug[l.feature];
     const body = (l.body || []).map((b) => `<h2>${esc(b.h2)}</h2>${(b.paragraphs || []).map((p) => `<p>${esc(p)}</p>`).join('')}${b.points && b.points.length ? `<ul>${b.points.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}`).join('\n') +
       (l.example ? `<div class="example"><h2>${esc(l.example.h2)}</h2>${(l.example.paragraphs || []).map((p) => `<p>${esc(p)}</p>`).join('')}</div>` : '');
-    const aside = (feature
+    // The free calculator for this topic, if there is one.
+    const tool = tools.find((t) => t.learn[0] === l.slug) || tools.find((t) => t.learn.includes(l.slug));
+    const toolAside = tool ? `<div class="card">${icon(tool.icon, groupOf[tool.group].color)}<h3>${esc(tool.name)}</h3><p>Free on the web. ${esc(tool.short)}.</p><a class="btn btn-dark" href="/tools/${tool.slug}/">Open the calculator</a></div>` : '';
+    const aside = toolAside + (feature
       ? `<div class="card"><h3>${esc(feature.h1)}</h3><p>${esc(feature.lead)}</p><a class="btn btn-dark" href="/features/${feature.slug}/">See how it works</a><a class="btn btn-ghost" href="${esc(openUrl(l.openPath || feature.openPath, l.slug))}">Open in app</a></div>`
       : '') + downloadCard;
     const ld = [
@@ -486,11 +554,70 @@ async function build() {
     jsonld: jsonLd(breadcrumbLd([['Home', `${SITE_URL}/`], ['Learn', `${SITE_URL}/learn/`]])),
   }));
 
+  // ── Free tools ──
+  const toolsDir = path.join(ROOT, 'tools');
+  if (fs.existsSync(toolsDir)) fs.rmSync(toolsDir, { recursive: true });
+  for (const t of tools) {
+    const canonical = `${SITE_URL}/tools/${t.slug}/`;
+    const g = groupOf[t.group];
+    const feature = featureBySlug[t.feature];
+    const relatedCards = t.related.filter((s) => toolBySlug[s]).slice(0, 4).map((s) => tCard(toolBySlug[s])).join('');
+    const guides = t.learn.map((s) => learnAll.find((l) => l.slug === s)).filter(Boolean)
+      .map((l) => `<a href="/learn/${l.slug}/"><svg aria-hidden="true"><use href="#m-book"/></svg>${esc(l.title)}${arrow}</a>`).join('');
+    const ld = [
+      {
+        '@context': 'https://schema.org', '@type': 'WebApplication', name: t.h1, description: t.metaDescription, url: canonical,
+        applicationCategory: 'FinanceApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: 'en', isAccessibleForFree: true,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'NPR' }, keywords: t.keyword,
+        image: { '@type': 'ImageObject', url: ogImage(`tool-${t.slug}`), width: 1200, height: 630 },
+        isPartOf: { '@id': `${SITE_URL}/#website` }, publisher: { '@id': `${SITE_URL}/#organization` },
+      },
+      breadcrumbLd([['Home', `${SITE_URL}/`], ['Tools', `${SITE_URL}/tools/`], [t.h1, canonical]]),
+      faqLd(t.faq),
+    ].filter(Boolean).map(jsonLd).join('\n');
+    write(`tools/${t.slug}/index.html`, render(read(T('tool.html')), {
+      ...seo({ title: esc(t.title), description: esc(t.metaDescription), canonical, og: `tool-${t.slug}`, alt: esc(`${t.h1}: ${t.lead}`) }),
+      crumb: esc(t.name), slug: esc(t.slug), calc: esc(t.calc), group: esc(g.key), groupName: esc(g.name), color: g.color, icon: esc(t.icon),
+      h1: accent(t.h1, t.accent), lead: esc(t.lead),
+      fields: toolFields(t), result: toolCalcs.resultHtml(toolCalcs.calcs[t.calc](toolDefaults(t))),
+      steps: t.steps.map((s) => `<li>${esc(s)}</li>`).join(''),
+      explain: toolExplain(t) + (guides ? `<div class="tl-guides"><p>Learn more</p>${guides}</div>` : ''),
+      faqSection: faqSection(t.faq),
+      relatedSection: relatedRow('More free <span class="g">tools.</span>', '/tools/', 'All tools', relatedCards),
+      openUrl: esc(openUrl((feature && feature.openPath) || '/open/tools', t.slug)),
+      jsonld: ld,
+    }));
+  }
+  write('tools/index.html', render(read(T('tools.html')), {
+    ...seo({
+      title: 'Free NEPSE Tools and Share Calculators | StockYan',
+      description: `${tools.length} free NEPSE calculators: share buy and sell cost, broker commission, capital gains tax, WACC, bonus and right shares, dividends, risk reward and more.`,
+      canonical: `${SITE_URL}/tools/`, og: 'tools', alt: 'Free NEPSE tools and share calculators from StockYan.',
+    }),
+    jump: toolData.groups.map((g) => `<a href="#${g.key}" style="--c:${g.color}">${esc(g.name)}</a>`).join(''),
+    groups: `<section class="tl-groups">${toolData.groups.map((g) => {
+      const list = tools.filter((t) => t.group === g.key);
+      return `<div class="wrap tl-group rv" id="${g.key}">
+    <div class="tl-group-h"><span class="tl-dot" style="--c:${g.color}"></span><h2>${esc(g.name)}</h2><p>${esc(g.text)}</p></div>
+    <div class="tl-list">${list.map((t) => `<a class="tl-row" href="/tools/${t.slug}/">${icon(t.icon, g.color)}<span><b>${esc(t.name)}</b><small>${esc(t.short)}</small></span>${arrow}</a>`).join('')}</div>
+  </div>`;
+    }).join('\n')}</section>`,
+    appCards: toolData.appTools.map(([s]) => featureBySlug[s]).filter(Boolean).slice(0, 6).map((f) => card(`/features/${f.slug}/`, f.h1, f.lead, 'See feature')).join(''),
+    openUrl: esc(openUrl('/open/tools', 'tools')),
+    jsonld: [
+      { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Free NEPSE tools', url: `${SITE_URL}/tools/`, inLanguage: 'en', isPartOf: { '@id': `${SITE_URL}/#website` },
+        mainEntity: { '@type': 'ItemList', itemListElement: tools.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.h1, url: `${SITE_URL}/tools/${t.slug}/` })) } },
+      breadcrumbLd([['Home', `${SITE_URL}/`], ['Tools', `${SITE_URL}/tools/`]]),
+    ].map(jsonLd).join('\n'),
+  }));
+
   // ── Sitemap ──
   const urls = [
     ['/', 'weekly', '1.0', 'home'], ['/download/', 'monthly', '0.9', 'download'],
     ...(features.length ? [['/features/', 'weekly', '0.8', 'features']] : []),
     ...features.map((f) => [`/features/${f.slug}/`, 'monthly', '0.8', `feature-${f.slug}`]),
+    ['/tools/', 'weekly', '0.9', 'tools'],
+    ...tools.map((t) => [`/tools/${t.slug}/`, 'monthly', '0.8', `tool-${t.slug}`]),
     ['/learn/', 'weekly', '0.8', 'learn'],
     ...learnPages.map((l) => [`/learn/${l.slug}/`, 'monthly', '0.7', `learn-${l.slug}`]),
     ...articles.map((a) => [`/learn/${a.slug}/`, 'monthly', '0.6', `learn-${a.slug}`]),
@@ -520,10 +647,14 @@ ${urls.map(([u, freq, pri, og]) => `  <url>
     link('/', 'Home', 'what StockYan does, free tools and pricing'),
     link('/download/', 'Download', 'App Store, Google Play and desktop downloads'),
     link('/features/', 'Features', 'every StockYan feature'),
+    link('/tools/', 'Free tools', 'free NEPSE calculators that work in the browser'),
     link('/learn/', 'Learn NEPSE', 'simple guides to the Nepal share market'),
     '',
     '## Features',
     ...features.map((f) => link(`/features/${f.slug}/`, f.h1, f.lead)),
+    '',
+    '## Free calculators',
+    ...tools.map((t) => link(`/tools/${t.slug}/`, t.h1, t.lead)),
     '',
     '## Guides',
     ...learnPages.map((l) => link(`/learn/${l.slug}/`, l.h1, l.lead)),

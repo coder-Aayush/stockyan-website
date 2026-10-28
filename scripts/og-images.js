@@ -1,5 +1,5 @@
 // Renders the social share cards (1200x630) in assets/og/: one for the home,
-// download and index pages and one per feature and learn page.
+// download and index pages and one per tool, feature and learn page.
 // Run locally with `npm run og` and commit the images: it needs Google Chrome
 // and macOS `sips`, which the Vercel build does not have. Cards whose content
 // has not changed are skipped (assets/og/manifest.json); pass --force to redo all.
@@ -45,6 +45,7 @@ function cards() {
   const pages = readJson(path.join(ROOT, 'data', 'pages.json')) || { features: [], learn: [] };
   const articles = (readJson(path.join(ROOT, 'data', 'articles.json')) || []).filter((a) => a.isPublished);
   const features = pages.features || [];
+  const tools = (readJson(path.join(ROOT, 'data', 'tools.json')) || { tools: [] }).tools;
   const bySlug = Object.fromEntries(features.map((f) => [f.slug, f]));
   const devicesFoot = 'iPhone, Android and desktop';
   const list = [
@@ -52,6 +53,8 @@ function cards() {
     { key: 'download', eyebrow: 'Free download', title: 'Get <span class="g">StockYan.</span>', lead: 'The advanced NEPSE analysis app. One account on every device.', shot: 'mac2', extraPhone: 'ph2050', foot: devicesFoot },
     { key: 'features', eyebrow: 'Features', title: 'Everything in <span class="g">StockYan.</span>', lead: 'Research, portfolio and free tools for NEPSE. In one app.', shot: 'mac7', foot: devicesFoot },
     { key: 'learn', eyebrow: 'Learn NEPSE', title: 'Simple guides to <span class="g">NEPSE.</span>', lead: 'For first-time investors and full-time traders.', shot: 'mac1', foot: 'Free guides' },
+    { key: 'tools', eyebrow: 'Free tools', title: 'Free NEPSE <span class="g">tools.</span>', lead: 'Share calculators for every step, from your first buy to your next trade.', shot: 'mac7', foot: 'Free, no sign-up' },
+    ...tools.map((t) => ({ key: `tool-${t.slug}`, eyebrow: 'Free NEPSE tool', title: accent(t.h1, t.accent), lead: esc(t.lead), shot: 'mac7', foot: 'Free, no sign-up' })),
     ...features.map((f) => ({ key: `feature-${f.slug}`, eyebrow: 'StockYan feature', title: accent(f.h1, f.accent), lead: esc(f.lead), shot: f.heroShot, foot: devicesFoot })),
     ...(pages.learn || []).map((l) => ({ key: `learn-${l.slug}`, eyebrow: `Guide · ${l.readMinutes || 4} min read`, title: accent(l.h1, l.accent), lead: esc(l.lead), shot: (bySlug[l.feature] || {}).heroShot, foot: 'Learn NEPSE' })),
     ...articles.map((a) => ({ key: `learn-${a.slug}`, eyebrow: `Guide · ${a.category}`, title: esc(a.title), lead: esc(a.metaDescription || ''), shot: 'mac5', foot: 'Learn NEPSE' })),
