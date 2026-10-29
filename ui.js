@@ -47,32 +47,16 @@
     stick();
   }
 
-  // Nav links: a pill slides to the hovered link and rests on the current section.
+  // Nav links: the current page or home section is underlined.
   const links = $('.links');
   if (links) {
-    const hl = document.createElement('span');
-    hl.className = 'hl';
-    links.append(hl);
     const trigger = links.querySelector('.has-menu');
     const section = ['/learn/', '/tools/'].find((p) => location.pathname.startsWith(p)) || '';
-    let current = links.querySelector(`a[href="${section}"]`);
-    const moveTo = (a) => {
-      if (!a) { hl.classList.remove('show'); return; }
-      hl.style.width = a.offsetWidth + 'px';
-      hl.style.transform = `translateX(${a.offsetLeft}px)`;
-      hl.classList.add('show');
-    };
     const setCurrent = (a) => {
       links.querySelectorAll('a.on').forEach((x) => x.classList.remove('on'));
-      current = a;
       if (a) a.classList.add('on');
-      if (!links.matches(':hover')) moveTo(a);
     };
-    links.querySelectorAll('a').forEach((a) => a.addEventListener('mouseenter', () => moveTo(a)));
-    links.addEventListener('mouseleave', () => moveTo(trigger && trigger.classList.contains('open') ? trigger : current));
-    setCurrent(current);
-    requestAnimationFrame(() => links.classList.add('ready'));
-    addEventListener('resize', () => moveTo(links.matches(':hover') ? links.querySelector('a:hover') : current));
+    setCurrent(links.querySelector(`a[href="${section}"]`));
     // On the home page, follow the section in view.
     const spy = ['research', 'free', 'desktop', 'pricing'].map((id) => document.getElementById(id)).filter(Boolean);
     if (spy.length) {
@@ -93,14 +77,18 @@
       const show = (open) => {
         clearTimeout(timer);
         if (trigger.classList.contains('open') === open) return;
+        if (open) {
+          // Line the menu up under the Tools link, inside the page width.
+          const room = mega.parentElement.clientWidth - mega.offsetWidth - 20;
+          mega.style.left = Math.max(20, Math.min(trigger.offsetLeft - 28, room)) + 'px';
+        }
         mega.classList.toggle('open', open);
         trigger.classList.toggle('open', open);
         trigger.setAttribute('aria-expanded', String(open));
-        if (!open && !links.matches(':hover')) moveTo(current);
       };
       const later = () => { clearTimeout(timer); timer = setTimeout(() => show(false), 160); };
       trigger.addEventListener('mouseenter', () => show(true));
-      mega.addEventListener('mouseenter', () => { clearTimeout(timer); moveTo(trigger); });
+      mega.addEventListener('mouseenter', () => clearTimeout(timer));
       trigger.addEventListener('mouseleave', later);
       mega.addEventListener('mouseleave', later);
       // Touch screens have no hover: the first tap opens the menu.
@@ -116,6 +104,7 @@
       mega.addEventListener('focusin', () => show(true));
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && trigger.classList.contains('open')) { show(false); trigger.focus(); } });
       document.addEventListener('click', (e) => { if (!trigger.contains(e.target) && !mega.contains(e.target)) show(false); });
+      addEventListener('scroll', () => show(false), { passive: true });
     }
   }
   const burger = $('#burger'), drawer = $('#drawer');

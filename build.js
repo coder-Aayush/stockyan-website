@@ -358,8 +358,8 @@ function toolExplain(t) {
 
 // The Tools mega menu (desktop) and the short list in the phone drawer.
 function toolsMenu(data, features) {
-  const groups = data.groups.map((g) => `<div class="mega-col"><p class="mega-h" style="--c:${g.color}">${esc(g.name)}</p>${data.tools.filter((t) => t.group === g.key).map((t) =>
-    `<a class="mega-i" href="/tools/${t.slug}/">${icon(t.icon, g.color)}<span><b>${esc(t.name)}</b><small>${esc(t.short)}</small></span></a>`).join('')}</div>`).join('');
+  const groups = data.groups.map((g) => `<div class="mega-col"><p class="mega-h">${esc(g.name)}</p>${data.tools.filter((t) => t.group === g.key).map((t) =>
+    `<a class="mega-i" href="/tools/${t.slug}/" title="${esc(t.short)}">${esc(t.name)}</a>`).join('')}</div>`).join('');
   const app = data.appTools.filter(([s]) => features.some((f) => f.slug === s)).slice(0, 5)
     .map(([s, name]) => `<a href="/features/${s}/">${esc(name)}</a>`).join('');
   return `<div class="mega-g">${groups}</div><div class="mega-ft"><div class="mega-app"><span>In the app</span>${app}</div><a class="mega-all" href="/tools/">All ${data.tools.length} free tools ${arrow}</a></div>`;
