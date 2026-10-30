@@ -95,8 +95,10 @@
         if (trigger.classList.contains('open') === open) return;
         if (open) {
           // Line the menu up under the Tools link, inside the page width.
-          const room = mega.parentElement.clientWidth - mega.offsetWidth;
-          mega.style.left = Math.max(0, Math.min(trigger.offsetLeft + links.offsetLeft - 28, room)) + 'px';
+          // Keep it inside the window, with a 20px gap at each side.
+          const box = mega.parentElement.getBoundingClientRect();
+          const want = trigger.offsetLeft + links.offsetLeft - 28;
+          mega.style.left = Math.max(20 - box.left, Math.min(want, innerWidth - 20 - box.left - mega.offsetWidth)) + 'px';
         }
         mega.classList.toggle('open', open);
         trigger.classList.toggle('open', open);

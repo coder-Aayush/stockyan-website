@@ -43,10 +43,14 @@
 - [NEPSE circuit calculator](https://stockyan.info/tools/circuit-breaker-calculator/): See how high or low a stock can go today, from yesterday's closing price.
 - [Pivot point calculator](https://stockyan.info/tools/pivot-point-calculator/): Turn yesterday's high, low and close into today's key price levels.
 - [Fibonacci calculator](https://stockyan.info/tools/fibonacci-calculator/): Find where a pullback might stop, from any big move up or down.
-- [SIP calculator](https://stockyan.info/tools/sip-calculator/): Put in a little every month. See what it could grow to over the years.
+- [SIP calculator](https://stockyan.info/tools/sip-calculator/): See what a monthly investment could grow to, or how much to put in to reach a goal.
 - [Stock return calculator](https://stockyan.info/tools/stock-return-calculator/): See your total return and your return per year, dividends included.
 - [PE ratio calculator](https://stockyan.info/tools/pe-ratio-calculator/): See how much you pay for every rupee a company earns.
 - [Graham number calculator](https://stockyan.info/tools/graham-number-calculator/): A quick fair value check from Benjamin Graham, the father of value investing.
+- [Income tax calculator 2083/84](https://stockyan.info/tools/income-tax-calculator/): See your salary tax on the new budget slabs, and how much you save compared with last year.
+- [EMI calculator](https://stockyan.info/tools/emi-calculator/): See the monthly payment on any loan, and how much interest you pay in total.
+- [Fixed deposit calculator](https://stockyan.info/tools/fd-calculator/): See how much your fixed deposit will be worth when it matures.
+- [Recurring deposit calculator](https://stockyan.info/tools/rd-calculator/): Save the same amount every month. See what it adds up to at the end.
 
 ## Guides
 - [What is RSI?](https://stockyan.info/learn/what-is-rsi/): RSI is a number from 0 to 100 that shows how strong recent price moves have been.

@@ -9,6 +9,11 @@
   // Capital gains tax on listed shares, in force from 22 Sep 2026.
   const CGT = { short: 0.05, long: 0.0375, inst: 0.10 };
   const CIRCUIT = 0.15;
+  // Income tax slabs as [width, rate]. One table for everyone from 2083/84
+  // (Finance Act 2083); the old single-person table for comparison. The 1%
+  // first band is social security tax, waived for SSF members.
+  const TAX_2083 = [[1000000, 0.01], [500000, 0.10], [1000000, 0.20], [1500000, 0.27], [Infinity, 0.29]];
+  const TAX_2082 = [[500000, 0.01], [200000, 0.10], [300000, 0.20], [1000000, 0.30], [3000000, 0.36], [Infinity, 0.39]];
 
   const rate = (amt) => TIERS.find(([max]) => amt <= max)[1];
   const commission = (amt) => (amt > 0 ? Math.max(MIN_COMMISSION, amt * rate(amt)) : 0);
@@ -31,6 +36,7 @@
   const rs = (n) => (n < 0 ? '-Rs ' : 'Rs ') + fmt(Math.abs(n));
   const pct = (n, d = 2) => fmt(n * 100, d).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '') + '%';
   const signed = (n) => (n > 0 ? '+' : '') + pct(n);
+  const lakh = (n) => fmt(n / 100000, n % 100000 ? 1 : 0) + ' lakh';
   const units = (n) => fmt(n, Number.isInteger(Math.round(n * 100) / 100) ? 0 : 2);
   const tone = (n) => (n > 0 ? 'up' : n < 0 ? 'dn' : '');
   const taxRate = (held) => CGT[held] || CGT.short;
@@ -323,17 +329,112 @@
     },
 
     sip(v) {
-      if (!ok(v.monthly, v.years) || !(v.rate >= 0)) return null;
+      if (!ok(v.years) || !(v.rate >= 0)) return null;
       const n = Math.round(v.years * 12), r = v.rate / 1200;
-      const value = r ? v.monthly * ((1 + r) ** n - 1) / r * (1 + r) : v.monthly * n, put = v.monthly * n;
+      // What Rs 1 a month grows to, paid at the start of each month.
+      const per = r ? ((1 + r) ** n - 1) / r * (1 + r) : n;
+      const yrs = fmt(v.years, v.years % 1 ? 1 : 0);
+      if (v.mode === 'goal') {
+        if (!ok(v.goal)) return null;
+        const monthly = v.goal / per;
+        return {
+          main: ['Put in every month', rs(monthly)],
+          rows: [
+            ['Your goal', rs(v.goal)],
+            ['You put in', rs(monthly * n)],
+            ['Growth', rs(v.goal - monthly * n), tone(v.goal - monthly * n)],
+          ],
+          note: 'Returns are not guaranteed. This only shows what a steady return would do.',
+        };
+      }
+      if (!ok(v.monthly)) return null;
+      const value = v.monthly * per, put = v.monthly * n;
       return {
-        main: [`Value after ${fmt(v.years, v.years % 1 ? 1 : 0)} years`, rs(value)],
+        main: [`Value after ${yrs} years`, rs(value)],
         rows: [
           ['You put in', rs(put)],
           ['Growth', rs(value - put), tone(value - put)],
           ['Growth as a share of the value', pct((value - put) / value)],
         ],
         note: 'Returns are not guaranteed. This only shows what a steady return would do.',
+      };
+    },
+
+    tax(v) {
+      if (!ok(v.salary)) return null;
+      const income = v.period === 'year' ? v.salary : v.salary * 12;
+      const taxable = Math.max(0, income - (v.deductions || 0));
+      const slabs = (bands) => {
+        let left = taxable, from = 0;
+        return bands.map(([width, r], i) => {
+          const part = Math.max(0, Math.min(left, width));
+          left -= part;
+          const rate = i === 0 && v.ssf ? 0 : r, row = { from, to: from + width, rate, part, tax: part * rate };
+          from += width;
+          return row;
+        });
+      };
+      const now = slabs(TAX_2083), before = slabs(TAX_2082);
+      const tax = now.reduce((a, b) => a + b.tax, 0), old = before.reduce((a, b) => a + b.tax, 0);
+      const band = (b) => (b.to === Infinity ? `Above Rs ${lakh(b.from)}` : b.from ? `Rs ${lakh(b.from)} to ${lakh(b.to)}` : `Up to Rs ${lakh(b.to)}`);
+      return {
+        main: ['Income tax per year', rs(tax)],
+        rows: [
+          ['Taxable income', rs(taxable)],
+          ...now.filter((b) => b.part > 0).map((b) => [`${band(b)} at ${pct(b.rate)}`, rs(b.tax)]),
+          ['Tax per month', rs(tax / 12)],
+          ['Salary after tax, per month', rs((income - tax) / 12)],
+          ['Effective tax rate', pct(income ? tax / income : 0)],
+          ['Tax on last year\'s slabs (2082/83, single)', rs(old)],
+          [tax <= old ? 'You save this year' : 'You pay more this year', rs(Math.abs(old - tax)), tax <= old ? 'up' : 'dn'],
+        ],
+      };
+    },
+
+    emi(v) {
+      if (!ok(v.loan, v.years) || !(v.rate >= 0)) return null;
+      const n = Math.round(v.years * 12), r = v.rate / 1200;
+      const emi = r ? v.loan * r * (1 + r) ** n / ((1 + r) ** n - 1) : v.loan / n, paid = emi * n;
+      return {
+        main: ['Monthly payment (EMI)', rs(emi)],
+        rows: [
+          ['Loan amount', rs(v.loan)],
+          ['Total interest', rs(paid - v.loan), 'dn'],
+          ['Total you pay back', rs(paid)],
+          ['Interest as a share of what you pay', pct((paid - v.loan) / paid)],
+        ],
+      };
+    },
+
+    fd(v) {
+      if (!ok(v.amount, v.years) || !(v.rate >= 0)) return null;
+      const m = Number(v.every) || 4, value = v.amount * (1 + v.rate / 100 / m) ** (m * v.years);
+      return {
+        main: ['Amount at maturity', rs(value)],
+        rows: [
+          ['You deposit', rs(v.amount)],
+          ['Interest earned', rs(value - v.amount), 'up'],
+          ['Effective yearly rate', pct((1 + v.rate / 100 / m) ** m - 1)],
+        ],
+        note: 'Banks take tax on interest before paying it. Check the rate with your bank.',
+      };
+    },
+
+    rd(v) {
+      if (!ok(v.monthly, v.years) || !(v.rate >= 0)) return null;
+      const n = Math.round(v.years * 12), q = v.rate / 400;
+      // Each deposit earns interest added every three months, for the months it stays in.
+      let value = 0;
+      for (let k = 0; k < n; k++) value += v.monthly * (1 + q) ** ((n - k) / 3);
+      const put = v.monthly * n;
+      return {
+        main: ['Amount at maturity', rs(value)],
+        rows: [
+          ['You deposit', rs(put)],
+          ['Interest earned', rs(value - put), 'up'],
+          ['Number of deposits', String(n)],
+        ],
+        note: 'Banks take tax on interest before paying it. Check the rate with your bank.',
       };
     },
 

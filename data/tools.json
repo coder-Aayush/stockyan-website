@@ -3,7 +3,8 @@
     { "key": "trade", "name": "Buying and selling", "color": "#009E72", "text": "Know the real cost before you buy, and what you keep when you sell." },
     { "key": "hold", "name": "Shares you own", "color": "#7A5AF8", "text": "Track your average price, bonus and right shares, and dividends." },
     { "key": "trader", "name": "Plan your trades", "color": "#2F6FEB", "text": "Set your stop loss, target and size before you place an order." },
-    { "key": "invest", "name": "Long-term investing", "color": "#C27C0E", "text": "See how money grows, and check if a price is fair." }
+    { "key": "invest", "name": "Long-term investing", "color": "#C27C0E", "text": "See how money grows, and check if a price is fair." },
+    { "key": "money", "name": "Banks and tax", "color": "#E5484D", "text": "Plan your salary tax, loans and bank savings." }
   ],
   "tools": [
     {
@@ -20,25 +21,19 @@
       "accent": "share calculator",
       "lead": "See what a trade really costs, or what you really keep, after every fee and tax.",
       "fields": [
-        { "type": "seg", "name": "mode", "value": "buy", "options": [["buy", "Buy"], ["sell", "Sell"]] },
-        { "type": "number", "name": "units", "label": "Number of shares", "value": 100 },
-        { "type": "number", "name": "price", "label": "Price per share", "prefix": "Rs", "value": 542 },
+        { "type": "seg", "name": "mode", "value": "buy", "options": [["buy", "Buy"], ["sell", "Sell"]]},
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 100},
+        { "type": "number", "name": "price", "label": "Price per share", "prefix": "Rs", "value": 542},
         { "type": "number", "name": "buy", "label": "Your buy price per share", "prefix": "Rs", "value": 480, "when": "mode=sell" },
-        { "type": "select", "name": "held", "label": "How long you held", "value": "short", "when": "mode=sell", "options": [["short", "1 year or less (5% tax)"], ["long", "More than 1 year (3.75% tax)"], ["inst", "I am an institution (10% tax)"]] },
+        { "type": "select", "name": "held", "label": "How long you held", "value": "short", "when": "mode=sell", "options": [["short", "1 year or less (5% tax)"], ["long", "More than 1 year (3.75% tax)"], ["inst", "I am an institution (10% tax)"]]},
         { "type": "check", "name": "buyFees", "label": "Add buying fees to my buy price", "value": true, "when": "mode=sell", "hint": "Turn this off if you typed your WACC from MeroShare, which already has them." },
         { "type": "check", "name": "dp", "label": "Include the Rs 25 DP charge", "value": true, "when": "mode=buy", "hint": "Most brokers charge it on buys too. Some only charge it when you sell." }
       ],
-      "steps": [
-        "Pick Buy or Sell.",
-        "Type the number of shares and the price.",
-        "For a sale, add what you paid and how long you held."
-      ],
+      "steps": ["Pick Buy or Sell.", "Type the number of shares and the price.", "For a sale, add what you paid and how long you held."],
       "explain": [
         {
           "h2": "What you pay on every trade",
-          "p": [
-            "Every NEPSE trade pays three charges. Broker commission is a small percentage of the trade amount. The SEBON fee is 0.015%. The DP charge is a flat Rs 25 for each company."
-          ],
+          "p": ["Every NEPSE trade pays three charges. Broker commission is a small percentage of the trade amount. The SEBON fee is 0.015%. The DP charge is a flat Rs 25 for each company."],
           "points": ["Broker commission: 0.24% to 0.36%, at least Rs 10", "SEBON fee: 0.015%", "DP charge: Rs 25 per company"]
         },
         {
@@ -72,24 +67,24 @@
       "accent": "commission",
       "lead": "Type a trade and see the commission, the other fees and the rate that applies.",
       "fields": [
-        { "type": "number", "name": "units", "label": "Number of shares", "value": 500 },
-        { "type": "number", "name": "price", "label": "Price per share", "prefix": "Rs", "value": 542 }
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 500},
+        { "type": "number", "name": "price", "label": "Price per share", "prefix": "Rs", "value": 542}
       ],
-      "steps": [
-        "Type the number of shares.",
-        "Type the price per share.",
-        "Read the commission and the total fees."
-      ],
+      "steps": ["Type the number of shares.", "Type the price per share.", "Read the commission and the total fees."],
       "explain": [
         {
           "h2": "Commission rates in Nepal",
           "p": ["Commission is a percentage of the trade amount. The bigger the trade, the smaller the rate. The minimum is Rs 10."],
-          "table": [["Trade amount", "Rate"], ["Up to Rs 50,000", "0.36%"], ["Rs 50,001 to Rs 5 lakh", "0.33%"], ["Rs 5 lakh to Rs 20 lakh", "0.31%"], ["Rs 20 lakh to Rs 1 crore", "0.27%"], ["Above Rs 1 crore", "0.24%"]]
+          "table": [
+            ["Trade amount", "Rate"],
+            ["Up to Rs 50,000", "0.36%"],
+            ["Rs 50,001 to Rs 5 lakh", "0.33%"],
+            ["Rs 5 lakh to Rs 20 lakh", "0.31%"],
+            ["Rs 20 lakh to Rs 1 crore", "0.27%"],
+            ["Above Rs 1 crore", "0.24%"]
+          ]
         },
-        {
-          "h2": "Other charges",
-          "p": ["On top of commission, you pay the SEBON fee of 0.015% and a DP charge of Rs 25 for each company. Small trades lose a bigger share to these fixed charges."]
-        }
+        { "h2": "Other charges", "p": ["On top of commission, you pay the SEBON fee of 0.015% and a DP charge of Rs 25 for each company. Small trades lose a bigger share to these fixed charges."]}
       ],
       "faq": [
         { "q": "What is the broker commission rate in NEPSE?", "a": "It is 0.36% up to Rs 50,000, 0.33% up to Rs 5 lakh, 0.31% up to Rs 20 lakh, 0.27% up to Rs 1 crore and 0.24% above that." },
@@ -114,16 +109,12 @@
       "accent": "tax",
       "lead": "Find out how much tax you pay when you sell shares at a profit.",
       "fields": [
-        { "type": "number", "name": "units", "label": "Number of shares", "value": 100 },
-        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 480 },
-        { "type": "number", "name": "price", "label": "Sell price per share", "prefix": "Rs", "value": 542 },
-        { "type": "select", "name": "held", "label": "How long you held", "value": "short", "options": [["short", "1 year or less (5%)"], ["long", "More than 1 year (3.75%)"], ["inst", "I am an institution (10%)"]] }
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 100},
+        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 480},
+        { "type": "number", "name": "price", "label": "Sell price per share", "prefix": "Rs", "value": 542},
+        { "type": "select", "name": "held", "label": "How long you held", "value": "short", "options": [["short", "1 year or less (5%)"], ["long", "More than 1 year (3.75%)"], ["inst", "I am an institution (10%)"]]}
       ],
-      "steps": [
-        "Type the number of shares.",
-        "Type your buy price and your sell price.",
-        "Pick how long you held the shares."
-      ],
+      "steps": ["Type the number of shares.", "Type your buy price and your sell price.", "Pick how long you held the shares."],
       "explain": [
         {
           "h2": "Current tax rates",
@@ -159,23 +150,16 @@
       "accent": "Break-even",
       "lead": "Fees mean you need a slightly higher price just to get your money back. Find that price.",
       "fields": [
-        { "type": "number", "name": "units", "label": "Number of shares", "value": 100 },
-        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 542 }
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 100},
+        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 542}
       ],
-      "steps": [
-        "Type the number of shares you bought.",
-        "Type the price you paid per share.",
-        "Read the lowest price that gets your money back."
-      ],
+      "steps": ["Type the number of shares you bought.", "Type the price you paid per share.", "Read the lowest price that gets your money back."],
       "explain": [
         {
           "h2": "Why it is above your buy price",
           "p": ["You pay fees when you buy and again when you sell. So selling at the same price you bought at loses money. The break-even price covers both sets of fees."]
         },
-        {
-          "h2": "Small trades need a bigger move",
-          "p": ["The Rs 25 DP charge and the Rs 10 minimum commission do not shrink with the trade. So a small trade needs a bigger percentage rise to break even."]
-        }
+        { "h2": "Small trades need a bigger move", "p": ["The Rs 25 DP charge and the Rs 10 minimum commission do not shrink with the trade. So a small trade needs a bigger percentage rise to break even."]}
       ],
       "faq": [
         { "q": "What is a break-even price?", "a": "It is the sell price where you get back exactly what you spent, including all fees. Above it you make a profit." },
@@ -200,26 +184,19 @@
       "accent": "Profit target",
       "lead": "Say how much profit you want to keep. See the price you need to sell at.",
       "fields": [
-        { "type": "number", "name": "units", "label": "Number of shares", "value": 100 },
-        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 542 },
-        { "type": "seg", "name": "goalType", "label": "Profit you want", "value": "pct", "options": [["pct", "In %"], ["rs", "In rupees"]] },
+        { "type": "number", "name": "units", "label": "Number of shares", "value": 100},
+        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 542},
+        { "type": "seg", "name": "goalType", "label": "Profit you want", "value": "pct", "options": [["pct", "In %"], ["rs", "In rupees"]]},
         { "type": "number", "name": "goal", "label": "Profit after tax", "value": 10, "hint": "A percent of what you spent, or a rupee amount." },
-        { "type": "select", "name": "held", "label": "How long you will hold", "value": "short", "options": [["short", "1 year or less (5% tax)"], ["long", "More than 1 year (3.75% tax)"], ["inst", "I am an institution (10% tax)"]] }
+        { "type": "select", "name": "held", "label": "How long you will hold", "value": "short", "options": [["short", "1 year or less (5% tax)"], ["long", "More than 1 year (3.75% tax)"], ["inst", "I am an institution (10% tax)"]]}
       ],
-      "steps": [
-        "Type your shares and buy price.",
-        "Type the profit you want to keep, in % or rupees.",
-        "Read the sell price to aim for."
-      ],
+      "steps": ["Type your shares and buy price.", "Type the profit you want to keep, in % or rupees.", "Read the sell price to aim for."],
       "explain": [
         {
           "h2": "Profit you keep, not profit on paper",
           "p": ["A 10% rise in price does not put 10% in your pocket. Fees and tax take a part. This tool works backwards from the profit you want to keep to the price you need."]
         },
-        {
-          "h2": "Use it to set a sell order",
-          "p": ["Once you know the price, you can place a sell order or set a price alert so you do not miss it."]
-        }
+        { "h2": "Use it to set a sell order", "p": ["Once you know the price, you can place a sell order or set a price alert so you do not miss it."]}
       ],
       "faq": [
         { "q": "How do I calculate the sell price for a target profit?", "a": "Add your fees and the tax on the profit to the profit you want, then find the price that covers all of it. This calculator does it in one step." },
@@ -244,14 +221,10 @@
       "accent": "WACC",
       "lead": "Bought the same stock more than once? Find your real average price per share.",
       "fields": [
-        { "type": "lots", "name": "lots", "label": "Your purchases", "value": [["ipo", 10, 100], ["buy", 50, 520], ["bonus", 6, 100]] },
+        { "type": "lots", "name": "lots", "label": "Your purchases", "value": [["ipo", 10, 100], ["buy", 50, 520], ["bonus", 6, 100]]},
         { "type": "check", "name": "buyFees", "label": "Add broker fees to bought shares", "value": true, "hint": "IPO and bonus shares have no broker fees." }
       ],
-      "steps": [
-        "Add one row for each time you got the shares.",
-        "Pick Bought, IPO or Bonus and type the shares and price.",
-        "Read your average price per share."
-      ],
+      "steps": ["Add one row for each time you got the shares.", "Pick Bought, IPO or Bonus and type the shares and price.", "Read your average price per share."],
       "explain": [
         {
           "h2": "What WACC means",
@@ -260,7 +233,9 @@
         },
         {
           "h2": "IPO and bonus shares",
-          "p": ["IPO shares usually cost Rs 100 each with no broker fee. Bonus shares are free, but they are usually counted at Rs 100 each, their face value. Your WACC is what capital gains tax is worked out from when you sell."]
+          "p": [
+            "IPO shares usually cost Rs 100 each with no broker fee. Bonus shares are free, but they are usually counted at Rs 100 each, their face value. Your WACC is what capital gains tax is worked out from when you sell."
+          ]
         }
       ],
       "faq": [
@@ -286,28 +261,21 @@
       "accent": "Average down",
       "lead": "Find out how many shares to buy to reach the average price you want.",
       "fields": [
-        { "type": "seg", "name": "mode", "value": "find", "options": [["find", "Shares I need"], ["check", "My new average"]] },
-        { "type": "number", "name": "units", "label": "Shares you own", "value": 100 },
-        { "type": "number", "name": "avg", "label": "Your average price", "prefix": "Rs", "value": 600 },
-        { "type": "number", "name": "price", "label": "Price you can buy at now", "prefix": "Rs", "value": 500 },
+        { "type": "seg", "name": "mode", "value": "find", "options": [["find", "Shares I need"], ["check", "My new average"]]},
+        { "type": "number", "name": "units", "label": "Shares you own", "value": 100},
+        { "type": "number", "name": "avg", "label": "Your average price", "prefix": "Rs", "value": 600},
+        { "type": "number", "name": "price", "label": "Price you can buy at now", "prefix": "Rs", "value": 500},
         { "type": "number", "name": "goal", "label": "Average price you want", "prefix": "Rs", "value": 550, "when": "mode=find" },
         { "type": "number", "name": "more", "label": "Shares you plan to buy", "value": 50, "when": "mode=check" }
       ],
-      "steps": [
-        "Type the shares you own and your average price.",
-        "Type the price you can buy at now.",
-        "Type the average you want, or how many you plan to buy."
-      ],
+      "steps": ["Type the shares you own and your average price.", "Type the price you can buy at now.", "Type the average you want, or how many you plan to buy."],
       "explain": [
         {
           "h2": "What averaging down means",
           "p": ["If a stock you own falls, buying more at the lower price brings your average cost down. Then the stock needs a smaller rise for you to make a profit."],
           "formula": "Shares to buy = Owned x (Average - Target) / (Target - New price)"
         },
-        {
-          "h2": "A word of care",
-          "p": ["Averaging down puts more money into a stock that is falling. It works best when you still believe in the company. Many traders set a limit on how much they add."]
-        }
+        { "h2": "A word of care", "p": ["Averaging down puts more money into a stock that is falling. It works best when you still believe in the company. Many traders set a limit on how much they add."]}
       ],
       "faq": [
         { "q": "How do I calculate my new average after buying more?", "a": "Add the cost of your old shares and new shares, then divide by the total number of shares. Pick My new average to do it here." },
@@ -332,15 +300,11 @@
       "accent": "Bonus share",
       "lead": "See the price after book close, and how many bonus shares you will get.",
       "fields": [
-        { "type": "number", "name": "price", "label": "Price before book close", "prefix": "Rs", "value": 542 },
-        { "type": "number", "name": "bonus", "label": "Bonus share", "suffix": "%", "value": 10 },
-        { "type": "number", "name": "units", "label": "Shares you own (optional)", "value": 100 }
+        { "type": "number", "name": "price", "label": "Price before book close", "prefix": "Rs", "value": 542},
+        { "type": "number", "name": "bonus", "label": "Bonus share", "suffix": "%", "value": 10},
+        { "type": "number", "name": "units", "label": "Shares you own (optional)", "value": 100}
       ],
-      "steps": [
-        "Type the price before book close.",
-        "Type the bonus percent the company announced.",
-        "Add your shares to see how many you get."
-      ],
+      "steps": ["Type the price before book close.", "Type the bonus percent the company announced.", "Add your shares to see how many you get."],
       "explain": [
         {
           "h2": "Why the price drops",
@@ -375,16 +339,12 @@
       "accent": "Right share",
       "lead": "See the price after a right issue, and how many right shares you can apply for.",
       "fields": [
-        { "type": "number", "name": "price", "label": "Price before book close", "prefix": "Rs", "value": 400 },
+        { "type": "number", "name": "price", "label": "Price before book close", "prefix": "Rs", "value": 400},
         { "type": "number", "name": "right", "label": "Right share", "suffix": "%", "value": 50, "hint": "1:1 is 100%. 10:5 is 50%. 10:3 is 30%." },
-        { "type": "number", "name": "rightPrice", "label": "Right share price", "prefix": "Rs", "value": 100 },
-        { "type": "number", "name": "units", "label": "Shares you own (optional)", "value": 100 }
+        { "type": "number", "name": "rightPrice", "label": "Right share price", "prefix": "Rs", "value": 100},
+        { "type": "number", "name": "units", "label": "Shares you own (optional)", "value": 100}
       ],
-      "steps": [
-        "Type the price before book close.",
-        "Type the right share percent and price.",
-        "Add your shares to see how many you can apply for."
-      ],
+      "steps": ["Type the price before book close.", "Type the right share percent and price.", "Add your shares to see how many you can apply for."],
       "explain": [
         {
           "h2": "What right shares are",
@@ -419,27 +379,20 @@
       "accent": "Dividend",
       "lead": "See how much dividend reaches your bank, after tax, and your dividend yield.",
       "fields": [
-        { "type": "number", "name": "units", "label": "Shares you own", "value": 100 },
-        { "type": "number", "name": "cash", "label": "Cash dividend", "suffix": "%", "value": 12 },
-        { "type": "number", "name": "bonus", "label": "Bonus share", "suffix": "%", "value": 5 },
-        { "type": "number", "name": "price", "label": "Share price (for yield)", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "units", "label": "Shares you own", "value": 100},
+        { "type": "number", "name": "cash", "label": "Cash dividend", "suffix": "%", "value": 12},
+        { "type": "number", "name": "bonus", "label": "Bonus share", "suffix": "%", "value": 5},
+        { "type": "number", "name": "price", "label": "Share price (for yield)", "prefix": "Rs", "value": 542},
         { "type": "number", "name": "face", "label": "Face value", "prefix": "Rs", "value": 100, "hint": "Most NEPSE shares are Rs 100. A few are Rs 10." }
       ],
-      "steps": [
-        "Type how many shares you own.",
-        "Type the cash and bonus percent announced.",
-        "Read the cash you get and your yield."
-      ],
+      "steps": ["Type how many shares you own.", "Type the cash and bonus percent announced.", "Read the cash you get and your yield."],
       "explain": [
         {
           "h2": "Dividends are on face value",
           "p": ["In Nepal, a dividend percent is a percent of the face value, which is usually Rs 100. So a 12% cash dividend pays Rs 12 per share, whatever the market price is."],
           "formula": "Cash dividend = Shares x Face value x Cash %"
         },
-        {
-          "h2": "Tax on dividends",
-          "p": ["A 5% tax is charged on both the cash dividend and the bonus shares, valued at Rs 100 each. The company takes it from the cash part before paying you."]
-        }
+        { "h2": "Tax on dividends", "p": ["A 5% tax is charged on both the cash dividend and the bonus shares, valued at Rs 100 each. The company takes it from the cash part before paying you."]}
       ],
       "faq": [
         { "q": "How is dividend calculated in Nepal?", "a": "Multiply your shares by the face value and the dividend percent. 100 shares with a 12% cash dividend pay Rs 1,200 before tax." },
@@ -464,25 +417,18 @@
       "accent": "Risk reward",
       "lead": "Compare what you could lose with what you could win, before you buy.",
       "fields": [
-        { "type": "number", "name": "entry", "label": "Entry price", "prefix": "Rs", "value": 542 },
-        { "type": "number", "name": "stop", "label": "Stop loss", "prefix": "Rs", "value": 515 },
-        { "type": "number", "name": "target", "label": "Target price", "prefix": "Rs", "value": 610 }
+        { "type": "number", "name": "entry", "label": "Entry price", "prefix": "Rs", "value": 542},
+        { "type": "number", "name": "stop", "label": "Stop loss", "prefix": "Rs", "value": 515},
+        { "type": "number", "name": "target", "label": "Target price", "prefix": "Rs", "value": 610}
       ],
-      "steps": [
-        "Type the price you plan to buy at.",
-        "Type your stop loss, where you will sell if it goes wrong.",
-        "Type your target and read the ratio."
-      ],
+      "steps": ["Type the price you plan to buy at.", "Type your stop loss, where you will sell if it goes wrong.", "Type your target and read the ratio."],
       "explain": [
         {
           "h2": "What the ratio tells you",
           "p": ["A ratio of 1 : 2 means you could win twice what you risk. With that, you can be wrong more often than you are right and still come out ahead."],
           "formula": "Ratio = (Target - Entry) / (Entry - Stop loss)"
         },
-        {
-          "h2": "Wins needed to break even",
-          "p": ["This shows how often a trade like this must work just to break even. The higher the ratio, the fewer wins you need."]
-        }
+        { "h2": "Wins needed to break even", "p": ["This shows how often a trade like this must work just to break even. The higher the ratio, the fewer wins you need."]}
       ],
       "faq": [
         { "q": "What is a good risk reward ratio?", "a": "Many traders look for at least 1 : 2, so the possible gain is twice the possible loss. It depends on how often your trades work." },
@@ -507,26 +453,19 @@
       "accent": "Position size",
       "lead": "Buy the right number of shares, so one bad trade never hurts too much.",
       "fields": [
-        { "type": "number", "name": "capital", "label": "Your trading money", "prefix": "Rs", "value": 500000 },
+        { "type": "number", "name": "capital", "label": "Your trading money", "prefix": "Rs", "value": 500000},
         { "type": "number", "name": "risk", "label": "Risk per trade", "suffix": "%", "value": 1, "hint": "Many traders risk 1% to 2% of their money on one trade." },
-        { "type": "number", "name": "entry", "label": "Entry price", "prefix": "Rs", "value": 542 },
-        { "type": "number", "name": "stop", "label": "Stop loss", "prefix": "Rs", "value": 515 }
+        { "type": "number", "name": "entry", "label": "Entry price", "prefix": "Rs", "value": 542},
+        { "type": "number", "name": "stop", "label": "Stop loss", "prefix": "Rs", "value": 515}
       ],
-      "steps": [
-        "Type the money you trade with.",
-        "Pick how much of it you are willing to lose on one trade.",
-        "Type your entry and stop loss."
-      ],
+      "steps": ["Type the money you trade with.", "Pick how much of it you are willing to lose on one trade.", "Type your entry and stop loss."],
       "explain": [
         {
           "h2": "Size by risk, not by feeling",
           "p": ["Instead of buying a round number of shares, decide how much you can lose first. Then buy only as many shares as that loss allows."],
           "formula": "Shares = (Money x Risk %) / (Entry - Stop loss)"
         },
-        {
-          "h2": "Why it protects you",
-          "p": ["If you risk 1% per trade, ten losses in a row cost about 10% of your money. You stay in the game long enough for your good trades to count."]
-        }
+        { "h2": "Why it protects you", "p": ["If you risk 1% per trade, ten losses in a row cost about 10% of your money. You stay in the game long enough for your good trades to count."]}
       ],
       "faq": [
         { "q": "How many shares should I buy?", "a": "Divide the money you are willing to lose by the gap between your entry and your stop loss. This calculator does it for you." },
@@ -551,24 +490,17 @@
       "accent": "circuit",
       "lead": "See how high or low a stock can go today, from yesterday's closing price.",
       "fields": [
-        { "type": "number", "name": "close", "label": "Last closing price", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "close", "label": "Last closing price", "prefix": "Rs", "value": 542},
         { "type": "number", "name": "days", "label": "Days to show", "value": 1, "hint": "Try 3 to see the limits if the stock hits its circuit three days in a row." }
       ],
-      "steps": [
-        "Type the stock's last closing price.",
-        "Read today's highest and lowest possible price.",
-        "Add more days to see a run of circuits."
-      ],
+      "steps": ["Type the stock's last closing price.", "Read today's highest and lowest possible price.", "Add more days to see a run of circuits."],
       "explain": [
         {
           "h2": "What a circuit is",
           "p": ["NEPSE limits how far one stock can move in a day. Since 21 April 2026, the limit is 15% up or down from the last closing price. When a stock hits it, people say it hit the circuit."],
           "formula": "Upper limit = Close x 1.15. Lower limit = Close x 0.85"
         },
-        {
-          "h2": "Why it matters",
-          "p": ["When a stock hits its upper circuit, there are many buyers and few sellers, so buy orders may not fill. The next day's limit is worked out from the new close."]
-        }
+        { "h2": "Why it matters", "p": ["When a stock hits its upper circuit, there are many buyers and few sellers, so buy orders may not fill. The next day's limit is worked out from the new close."]}
       ],
       "faq": [
         { "q": "What is the circuit limit in NEPSE?", "a": "A single stock can move up to 15% up or down from its last closing price in one day. It was 10% before 21 April 2026." },
@@ -593,25 +525,18 @@
       "accent": "Pivot point",
       "lead": "Turn yesterday's high, low and close into today's key price levels.",
       "fields": [
-        { "type": "number", "name": "high", "label": "High", "prefix": "Rs", "value": 552 },
-        { "type": "number", "name": "low", "label": "Low", "prefix": "Rs", "value": 533 },
-        { "type": "number", "name": "close", "label": "Close", "prefix": "Rs", "value": 542 }
+        { "type": "number", "name": "high", "label": "High", "prefix": "Rs", "value": 552},
+        { "type": "number", "name": "low", "label": "Low", "prefix": "Rs", "value": 533},
+        { "type": "number", "name": "close", "label": "Close", "prefix": "Rs", "value": 542}
       ],
-      "steps": [
-        "Type the last day's high and low price.",
-        "Type the last closing price.",
-        "Read the pivot, support and resistance levels."
-      ],
+      "steps": ["Type the last day's high and low price.", "Type the last closing price.", "Read the pivot, support and resistance levels."],
       "explain": [
         {
           "h2": "How traders use pivot points",
           "p": ["The pivot is a balance point. Above it, buyers are in charge. Below it, sellers are. The support levels below and resistance levels above are places where price often pauses or turns."],
           "formula": "Pivot = (High + Low + Close) / 3"
         },
-        {
-          "h2": "Daily, weekly or monthly",
-          "p": ["Use a day's numbers for the next day. Use a week's or month's high, low and close for longer-term levels."]
-        }
+        { "h2": "Daily, weekly or monthly", "p": ["Use a day's numbers for the next day. Use a week's or month's high, low and close for longer-term levels."]}
       ],
       "faq": [
         { "q": "How is a pivot point calculated?", "a": "Add the high, low and close, then divide by 3. Support and resistance levels are worked out from the pivot and the day's range." },
@@ -636,24 +561,17 @@
       "accent": "Fibonacci",
       "lead": "Find where a pullback might stop, from any big move up or down.",
       "fields": [
-        { "type": "seg", "name": "trend", "value": "up", "options": [["up", "After a rise"], ["down", "After a fall"]] },
-        { "type": "number", "name": "high", "label": "Swing high", "prefix": "Rs", "value": 620 },
-        { "type": "number", "name": "low", "label": "Swing low", "prefix": "Rs", "value": 480 }
+        { "type": "seg", "name": "trend", "value": "up", "options": [["up", "After a rise"], ["down", "After a fall"]]},
+        { "type": "number", "name": "high", "label": "Swing high", "prefix": "Rs", "value": 620},
+        { "type": "number", "name": "low", "label": "Swing low", "prefix": "Rs", "value": 480}
       ],
-      "steps": [
-        "Pick whether the stock just rose or fell.",
-        "Type the top and bottom of that move.",
-        "Read the levels where a pullback may stop."
-      ],
+      "steps": ["Pick whether the stock just rose or fell.", "Type the top and bottom of that move.", "Read the levels where a pullback may stop."],
       "explain": [
         {
           "h2": "What retracement means",
           "p": ["After a big move, prices often step back part of the way before going on. Fibonacci levels are common places for that step back to stop. 38.2%, 50% and 61.8% are watched the most."]
         },
-        {
-          "h2": "Use them with other signs",
-          "p": ["A level is stronger when it lines up with something else, like an old support, a moving average or a rise in volume."]
-        }
+        { "h2": "Use them with other signs", "p": ["A level is stronger when it lines up with something else, like an old support, a moving average or a rise in volume."]}
       ],
       "faq": [
         { "q": "How do I calculate Fibonacci retracement?", "a": "Take the size of the move from low to high. Multiply it by 23.6%, 38.2%, 50%, 61.8% and 78.6%, then take each from the high." },
@@ -673,20 +591,18 @@
       "short": "Grow a monthly investment",
       "keyword": "sip calculator nepal",
       "title": "SIP Calculator Nepal: Monthly Investment Growth | StockYan",
-      "metaDescription": "See what a monthly SIP in Nepal could grow to. Type the monthly amount, years and expected return. Free and simple.",
+      "metaDescription": "Free SIP calculator for Nepal. See what a monthly investment could grow to, or how much to invest each month to reach your goal.",
       "h1": "SIP calculator",
       "accent": "SIP",
-      "lead": "Put in a little every month. See what it could grow to over the years.",
+      "lead": "See what a monthly investment could grow to, or how much to put in to reach a goal.",
       "fields": [
-        { "type": "number", "name": "monthly", "label": "Monthly amount", "prefix": "Rs", "value": 5000 },
-        { "type": "number", "name": "years", "label": "Years", "value": 10 },
-        { "type": "number", "name": "rate", "label": "Expected yearly return", "suffix": "%", "value": 12 }
+        { "type": "seg", "name": "mode", "value": "grow", "options": [["grow", "What I will get"], ["goal", "Monthly amount for a goal"]]},
+        { "type": "number", "name": "monthly", "label": "Monthly amount", "prefix": "Rs", "value": 5000, "when": "mode=grow" },
+        { "type": "number", "name": "goal", "label": "Amount you want", "prefix": "Rs", "value": 1000000, "when": "mode=goal" },
+        { "type": "number", "name": "years", "label": "Years", "value": 10},
+        { "type": "number", "name": "rate", "label": "Expected yearly return", "suffix": "%", "value": 12}
       ],
-      "steps": [
-        "Type how much you will put in each month.",
-        "Type how many years you will keep going.",
-        "Type a yearly return you expect."
-      ],
+      "steps": ["Pick what you want to know.", "Type the monthly amount or your goal, and the years.", "Type a yearly return you expect."],
       "explain": [
         {
           "h2": "What a SIP is",
@@ -721,26 +637,19 @@
       "accent": "return",
       "lead": "See your total return and your return per year, dividends included.",
       "fields": [
-        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 400 },
-        { "type": "number", "name": "price", "label": "Price now or sell price", "prefix": "Rs", "value": 542 },
+        { "type": "number", "name": "buy", "label": "Buy price per share", "prefix": "Rs", "value": 400},
+        { "type": "number", "name": "price", "label": "Price now or sell price", "prefix": "Rs", "value": 542},
         { "type": "number", "name": "years", "label": "Years held", "value": 3, "hint": "Use decimals for part of a year: 1.5 is a year and a half." },
-        { "type": "number", "name": "dividends", "label": "Cash dividends per share (optional)", "prefix": "Rs", "value": 30 }
+        { "type": "number", "name": "dividends", "label": "Cash dividends per share (optional)", "prefix": "Rs", "value": 30}
       ],
-      "steps": [
-        "Type your buy price and today's price.",
-        "Type how many years you have held it.",
-        "Add the dividends you got, if any."
-      ],
+      "steps": ["Type your buy price and today's price.", "Type how many years you have held it.", "Add the dividends you got, if any."],
       "explain": [
         {
           "h2": "Total return vs yearly return",
           "p": ["A 50% gain over 1 year is far better than 50% over 5 years. CAGR, the compound annual growth rate, turns any gain into a return per year, so you can compare fairly."],
           "formula": "CAGR = (End value / Start value)^(1 / Years) - 1"
         },
-        {
-          "h2": "Do not forget dividends",
-          "p": ["Many NEPSE stocks pay a good part of their return as dividends. Adding them gives a truer picture."]
-        }
+        { "h2": "Do not forget dividends", "p": ["Many NEPSE stocks pay a good part of their return as dividends. Adding them gives a truer picture."]}
       ],
       "faq": [
         { "q": "What is CAGR?", "a": "Compound annual growth rate. It is the steady yearly return that would turn your start value into your end value." },
@@ -765,25 +674,18 @@
       "accent": "PE ratio",
       "lead": "See how much you pay for every rupee a company earns.",
       "fields": [
-        { "type": "number", "name": "price", "label": "Share price", "prefix": "Rs", "value": 542 },
-        { "type": "number", "name": "eps", "label": "EPS (yearly earnings per share)", "prefix": "Rs", "value": 28 },
-        { "type": "number", "name": "bvps", "label": "Book value per share (optional)", "prefix": "Rs", "value": 280 }
+        { "type": "number", "name": "price", "label": "Share price", "prefix": "Rs", "value": 542},
+        { "type": "number", "name": "eps", "label": "EPS (yearly earnings per share)", "prefix": "Rs", "value": 28},
+        { "type": "number", "name": "bvps", "label": "Book value per share (optional)", "prefix": "Rs", "value": 280}
       ],
-      "steps": [
-        "Type the share price.",
-        "Type the EPS from the company's latest report.",
-        "Add book value per share to see the PB ratio."
-      ],
+      "steps": ["Type the share price.", "Type the EPS from the company's latest report.", "Add book value per share to see the PB ratio."],
       "explain": [
         {
           "h2": "What PE means",
           "p": ["PE is price divided by earnings per share. A PE of 20 means you pay Rs 20 for every Rs 1 the company earns in a year. Lower can mean cheaper, but compare with similar companies."],
           "formula": "PE = Price / EPS. PB = Price / Book value per share"
         },
-        {
-          "h2": "Where to find EPS",
-          "p": ["Listed companies publish EPS and book value in their quarterly reports. StockYan shows them on every stock page."]
-        }
+        { "h2": "Where to find EPS", "p": ["Listed companies publish EPS and book value in their quarterly reports. StockYan shows them on every stock page."]}
       ],
       "faq": [
         { "q": "What is a good PE ratio in NEPSE?", "a": "There is no single number. Compare a stock's PE with others in the same sector, like banks with banks." },
@@ -808,25 +710,18 @@
       "accent": "Graham number",
       "lead": "A quick fair value check from Benjamin Graham, the father of value investing.",
       "fields": [
-        { "type": "number", "name": "eps", "label": "EPS (yearly earnings per share)", "prefix": "Rs", "value": 28 },
-        { "type": "number", "name": "bvps", "label": "Book value per share", "prefix": "Rs", "value": 280 },
-        { "type": "number", "name": "price", "label": "Share price (optional)", "prefix": "Rs", "value": 542 }
+        { "type": "number", "name": "eps", "label": "EPS (yearly earnings per share)", "prefix": "Rs", "value": 28},
+        { "type": "number", "name": "bvps", "label": "Book value per share", "prefix": "Rs", "value": 280},
+        { "type": "number", "name": "price", "label": "Share price (optional)", "prefix": "Rs", "value": 542}
       ],
-      "steps": [
-        "Type the EPS and book value per share.",
-        "Add the share price to compare.",
-        "Read the Graham number and the gap to the price."
-      ],
+      "steps": ["Type the EPS and book value per share.", "Add the share price to compare.", "Read the Graham number and the gap to the price."],
       "explain": [
         {
           "h2": "What it measures",
           "p": ["The Graham number is the highest price a careful value investor might pay, based on profit and net worth. A price below it may be good value. A price far above it may be costly."],
           "formula": "Graham number = Square root of (22.5 x EPS x Book value per share)"
         },
-        {
-          "h2": "Know its limits",
-          "p": ["It suits steady, profitable companies like banks. It does not work for loss-making companies, and it ignores growth. Use it as one check among many."]
-        }
+        { "h2": "Know its limits", "p": ["It suits steady, profitable companies like banks. It does not work for loss-making companies, and it ignores growth. Use it as one check among many."]}
       ],
       "faq": [
         { "q": "How is the Graham number calculated?", "a": "Multiply 22.5 by EPS and by book value per share, then take the square root." },
@@ -836,6 +731,156 @@
       "related": ["pe-ratio-calculator", "dividend-calculator", "stock-return-calculator", "sip-calculator"],
       "learn": ["what-is-wacc-in-share-market"],
       "feature": "nepse-stock-screener"
+    },
+    {
+      "slug": "income-tax-calculator",
+      "calc": "tax",
+      "group": "money",
+      "icon": "t-cash",
+      "name": "Income tax 2083/84",
+      "short": "Salary tax on the new slabs",
+      "keyword": "income tax calculator nepal 2083/84",
+      "title": "Nepal Income Tax Calculator 2083/84 (Salary) | StockYan",
+      "metaDescription": "Work out your salary tax in Nepal on the 2083/84 slabs: 1% up to Rs 10 lakh, then 10%, 20%, 27% and 29%. Compare with last year and see what you save.",
+      "h1": "Income tax calculator 2083/84",
+      "accent": "Income tax",
+      "lead": "See your salary tax on the new budget slabs, and how much you save compared with last year.",
+      "fields": [
+        { "type": "seg", "name": "period", "label": "Your salary is", "value": "month", "options": [["month", "Per month"], ["year", "Per year"]]},
+        { "type": "number", "name": "salary", "label": "Salary", "prefix": "Rs", "value": 70000},
+        { "type": "number", "name": "deductions", "label": "Yearly deductions", "prefix": "Rs", "value": 0, "hint": "Retirement fund and insurance you can claim." },
+        { "type": "check", "name": "ssf", "label": "I am in SSF or an approved retirement fund", "value": false, "hint": "The 1% on the first Rs 10 lakh is then waived." }
+      ],
+      "steps": ["Type your salary, per month or per year.", "Add any deductions you can claim.", "Read your tax and what you save."],
+      "explain": [
+        {
+          "h2": "The 2083/84 slabs",
+          "p": ["From 1 Shrawan 2083 (17 July 2026), one table applies to everyone. The old separate table for couples is gone."],
+          "table": [["Yearly taxable income", "Rate"], ["Up to Rs 10 lakh", "1%"], ["Rs 10 lakh to 15 lakh", "10%"], ["Rs 15 lakh to 25 lakh", "20%"], ["Rs 25 lakh to 40 lakh", "27%"], ["Above Rs 40 lakh", "29%"]]
+        },
+        {
+          "h2": "How it is worked out",
+          "p": ["Each rate applies only to the part of your income inside its band. The 1% on the first band is social security tax. Members of SSF or an approved retirement fund do not pay it."],
+          "formula": "Taxable income = Yearly salary - Deductions"
+        }
+      ],
+      "faq": [
+        { "q": "What are the income tax slabs in Nepal for 2083/84?", "a": "1% up to Rs 10 lakh, 10% from Rs 10 lakh to 15 lakh, 20% up to Rs 25 lakh, 27% up to Rs 40 lakh and 29% above that. One table applies to everyone." },
+        { "q": "How much tax do I pay on Rs 70,000 a month?", "a": "That is Rs 8,40,000 a year, all inside the first band, so the tax is 1%: Rs 8,400 a year. Last year it was Rs 53,000 for a single person." },
+        { "q": "Is this the final tax I pay?", "a": "It is a close estimate for salary income. Your employer's payroll or a tax adviser can confirm your exact tax." }
+      ],
+      "related": ["emi-calculator", "fd-calculator", "sip-calculator", "capital-gain-tax-calculator"],
+      "learn": ["capital-gain-tax-nepal-share"],
+      "feature": "nepse-portfolio-tracker"
+    },
+    {
+      "slug": "emi-calculator",
+      "calc": "emi",
+      "group": "money",
+      "icon": "t-briefcase",
+      "name": "EMI calculator",
+      "short": "Monthly payment on a loan",
+      "keyword": "emi calculator nepal",
+      "title": "EMI Calculator Nepal: Home, Car and Share Loan | StockYan",
+      "metaDescription": "Work out the monthly EMI on any loan in Nepal: home, car, personal or share loan. See total interest and total payback.",
+      "h1": "EMI calculator",
+      "accent": "EMI",
+      "lead": "See the monthly payment on any loan, and how much interest you pay in total.",
+      "fields": [
+        { "type": "number", "name": "loan", "label": "Loan amount", "prefix": "Rs", "value": 1000000},
+        { "type": "number", "name": "rate", "label": "Yearly interest rate", "suffix": "%", "value": 11},
+        { "type": "number", "name": "years", "label": "Years", "value": 5}
+      ],
+      "steps": ["Type the loan amount.", "Type the yearly interest rate.", "Type how many years you will pay."],
+      "explain": [
+        {
+          "h2": "What EMI means",
+          "p": ["EMI stands for equated monthly instalment. It is the same amount you pay every month until the loan is cleared. Early payments are mostly interest. Later ones are mostly the loan itself."],
+          "formula": "EMI = Loan x r x (1 + r)^n / ((1 + r)^n - 1)"
+        },
+        { "h2": "Pay less interest", "p": ["A shorter loan or a lower rate cuts the total interest a lot. Paying a little extra when you can also helps."]}
+      ],
+      "faq": [
+        { "q": "How is EMI calculated?", "a": "It uses the loan amount, the monthly interest rate (yearly rate divided by 12) and the number of months. This calculator does it for you." },
+        { "q": "Does this work for a share loan (margin loan)?", "a": "Yes, if you repay it in equal monthly amounts. Many share loans only charge interest each quarter, so check your bank's terms." },
+        { "q": "Why is my bank's EMI slightly different?", "a": "Banks may use a different day count or change the rate during the loan. Treat this as a close estimate." }
+      ],
+      "related": ["income-tax-calculator", "fd-calculator", "rd-calculator", "position-size-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-portfolio-tracker"
+    },
+    {
+      "slug": "fd-calculator",
+      "calc": "fd",
+      "group": "money",
+      "icon": "t-layers",
+      "name": "Fixed deposit",
+      "short": "What your FD pays at maturity",
+      "keyword": "fd calculator nepal",
+      "title": "Fixed Deposit (FD) Calculator Nepal | StockYan",
+      "metaDescription": "See what a fixed deposit in a Nepali bank pays at maturity. Type the amount, interest rate and years. Free and simple.",
+      "h1": "Fixed deposit calculator",
+      "accent": "Fixed deposit",
+      "lead": "See how much your fixed deposit will be worth when it matures.",
+      "fields": [
+        { "type": "number", "name": "amount", "label": "Deposit amount", "prefix": "Rs", "value": 100000},
+        { "type": "number", "name": "rate", "label": "Yearly interest rate", "suffix": "%", "value": 7},
+        { "type": "number", "name": "years", "label": "Years", "value": 1},
+        { "type": "select", "name": "every", "label": "Interest added", "value": "4", "options": [["4", "Every 3 months"], ["12", "Every month"], ["1", "Every year"]]}
+      ],
+      "steps": ["Type how much you will deposit.", "Type the bank's yearly rate and the years.", "Pick how often interest is added."],
+      "explain": [
+        {
+          "h2": "How an FD grows",
+          "p": ["When interest is added to your deposit, the next interest is paid on the bigger amount. The more often it is added, the more you earn."],
+          "formula": "Maturity = Amount x (1 + Rate / n)^(n x Years)"
+        },
+        { "h2": "FD or shares?", "p": ["An FD gives a fixed return with little risk. Shares can earn more over time but can also fall. Many investors keep some of both."]}
+      ],
+      "faq": [
+        { "q": "How is FD interest calculated in Nepal?", "a": "Most banks add interest every three months. This calculator compounds it at the rate and frequency you pick." },
+        { "q": "Is tax charged on FD interest?", "a": "Yes. Banks take tax on interest before paying it to you, so the amount you receive is a little lower." },
+        { "q": "What if I need the money early?", "a": "Banks usually let you break an FD early, often at a lower rate or with a fee. Ask your bank." }
+      ],
+      "related": ["rd-calculator", "sip-calculator", "emi-calculator", "dividend-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-portfolio-tracker"
+    },
+    {
+      "slug": "rd-calculator",
+      "calc": "rd",
+      "group": "money",
+      "icon": "t-performance",
+      "name": "Recurring deposit",
+      "short": "Save a fixed amount every month",
+      "keyword": "rd calculator nepal",
+      "title": "Recurring Deposit (RD) Calculator Nepal | StockYan",
+      "metaDescription": "See what a monthly recurring deposit in a Nepali bank grows to. Type the monthly amount, interest rate and years.",
+      "h1": "Recurring deposit calculator",
+      "accent": "Recurring deposit",
+      "lead": "Save the same amount every month. See what it adds up to at the end.",
+      "fields": [
+        { "type": "number", "name": "monthly", "label": "Monthly deposit", "prefix": "Rs", "value": 5000},
+        { "type": "number", "name": "rate", "label": "Yearly interest rate", "suffix": "%", "value": 6},
+        { "type": "number", "name": "years", "label": "Years", "value": 2}
+      ],
+      "steps": ["Type how much you will save each month.", "Type the bank's yearly rate.", "Type how many years you will keep going."],
+      "explain": [
+        { "h2": "What an RD is", "p": ["A recurring deposit is a bank account where you save a fixed amount every month for a set time. Each deposit earns interest for the months it stays in."]},
+        {
+          "h2": "How it is worked out",
+          "p": ["This calculator adds interest every three months, as most banks do. Your first deposit earns the most, your last one the least."],
+          "formula": "Each deposit x (1 + Rate / 4)^(Months left / 3), added up"
+        }
+      ],
+      "faq": [
+        { "q": "How is RD interest calculated?", "a": "Each monthly deposit earns interest from the day it goes in until maturity, usually added every three months. The calculator adds them all up." },
+        { "q": "RD or SIP?", "a": "An RD gives a fixed bank rate. A SIP in stocks or mutual funds can earn more over time but goes up and down." },
+        { "q": "Is tax charged on RD interest?", "a": "Yes. Banks take tax on interest before paying it to you." }
+      ],
+      "related": ["fd-calculator", "sip-calculator", "emi-calculator", "income-tax-calculator"],
+      "learn": ["what-is-wacc-in-share-market"],
+      "feature": "nepse-portfolio-tracker"
     }
   ],
   "appTools": [
